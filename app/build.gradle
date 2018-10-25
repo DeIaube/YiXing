@@ -50,10 +50,6 @@ dependencies {
     //okhttp3
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 
-    //dagger2
-    compile 'com.google.dagger:dagger:2.11'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
-
     //路径绘制
     compile 'com.yanzhikai:TextPathView:0.1.3'
 }

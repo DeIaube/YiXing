@@ -12,15 +12,12 @@ import com.blankj.utilcode.util.ToastUtils;
 
 import java.util.Objects;
 
-import javax.inject.Inject;
-
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import yixing.dawn.zju.edu.yixing.R;
 
 public abstract class BaseActivity <T extends BaseContract.BasePresenter> extends AppCompatActivity implements BaseContract.BaseView {
 
-    @Inject
     protected T mPresenter;
     protected Toolbar mToolbar;
 
