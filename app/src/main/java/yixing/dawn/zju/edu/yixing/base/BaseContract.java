@@ -14,13 +14,9 @@ public interface BaseContract {
 
         void hideLoading();
 
-        void showSuccess(String msg);
-
-        void showFaild(String msg);
+        void showMessage(String msg);
 
         void showNetworkError();
-
-        void onRetry();
     }
 
 
