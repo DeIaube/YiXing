@@ -68,8 +68,6 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
 
     protected abstract void initView();
 
-    protected abstract void initInjector();
-
     protected abstract int getLayoutId();
 
     @Override
