@@ -47,6 +47,11 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
     }
 
     @Override
+    public void showNetworkError() {
+        showMessage(getString(R.string.no_network_connection));
+    }
+
+    @Override
     public void showMessage(String msg) {
         ToastUtils.showShort(msg);
     }
