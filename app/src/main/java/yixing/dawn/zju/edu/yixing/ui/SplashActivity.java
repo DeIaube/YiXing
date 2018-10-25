@@ -1,4 +1,4 @@
-package yixing.dawn.zju.edu.yixing;
+package yixing.dawn.zju.edu.yixing.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import yanzhikai.textpath.SyncTextPathView;
 import yanzhikai.textpath.painter.FireworksPainter;
+import yixing.dawn.zju.edu.yixing.R;
 
 public class SplashActivity extends AppCompatActivity {
 
