@@ -13,10 +13,6 @@ public class LoginActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void initInjector() {
-
-    }
 
     @Override
     protected int getLayoutId() {

@@ -74,7 +74,6 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        initInjector();
         mBind = ButterKnife.bind(this);
         initToolBar();
         attachView();
