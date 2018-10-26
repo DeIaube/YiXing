@@ -5,6 +5,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import yixing.dawn.zju.edu.yixing.R;
@@ -12,6 +15,7 @@ import yixing.dawn.zju.edu.yixing.base.BaseActivity;
 import yixing.dawn.zju.edu.yixing.constant.Constant;
 import yixing.dawn.zju.edu.yixing.util.SPUtil;
 
+@Route(path = Constant.AROUTER_LOGIN)
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View{
 
     @BindView(R.id.login_register_tv)
@@ -54,7 +58,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 mPresenter.login(accountEt.getText().toString(), passwordEt.getText().toString());
                 break;
             case R.id.login_register_tv:
-                // todo 跳转到注册页面
+                ARouter.getInstance().build(Constant.AROUTER_REGISTER)
+                        .navigation();
                 break;
             case R.id.login_forget_password_tv:
                 // todo 跳转到找回密码页面

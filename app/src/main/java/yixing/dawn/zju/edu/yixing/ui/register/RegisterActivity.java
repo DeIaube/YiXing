@@ -5,11 +5,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import yixing.dawn.zju.edu.yixing.R;
 import yixing.dawn.zju.edu.yixing.base.BaseActivity;
+import yixing.dawn.zju.edu.yixing.constant.Constant;
 
+@Route(path = Constant.AROUTER_REGISTER)
 public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> implements RegisterContract.View{
 
     @BindView(R.id.register_verification_code)
