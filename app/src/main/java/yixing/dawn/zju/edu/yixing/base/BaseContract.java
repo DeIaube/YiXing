@@ -17,6 +17,8 @@ public interface BaseContract {
         void showMessage(String msg);
 
         void showNetworkError();
+
+        void finish();
     }
 
 
