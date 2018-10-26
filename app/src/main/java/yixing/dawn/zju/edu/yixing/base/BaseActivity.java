@@ -6,9 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-
-import com.blankj.utilcode.util.NetworkUtils;
-import com.blankj.utilcode.util.ToastUtils;
+import android.widget.Toast;
 
 import java.util.Objects;
 
@@ -53,7 +51,7 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
 
     @Override
     public void showMessage(String msg) {
-        ToastUtils.showShort(msg);
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override
