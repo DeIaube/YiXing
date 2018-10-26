@@ -12,7 +12,16 @@
     <string name="login_register">手机快速注册</string>
     <string name="login_third_part">第三方登录</string>
     <string name="login_account_password_empty">用户名或者密码不能为空</string>
-    <string name="title_activity_register">RegisterActivity</string>
     <!--Login-->
+
+    <!--register-->
+    <string name="title_activity_register">手机验证</string>
+    <string name="register_verification_code">验证码</string>
+    <string name="register_get_verification_code">获取验证码</string>
+    <string name="register_start">开始</string>
+    <string name="register_input_verification_code">请输入验证码</string>
+    <string name="register_input_number">请输入手机号</string>
+    <string name="register_please_input_message">请输入您的手机号码，登录或注册您的万众艺兴账号</string>
+    <!--register-->
 
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,4 +8,123 @@
     tools:context=".ui.register.RegisterActivity"
     tools:showIn="@layout/activity_register">
 
-</RelativeLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="19dp"
+            android:textSize="14dp"
+            android:textColor="#101010"
+            android:text="@string/register_please_input_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#f2f2f2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="11dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginBottom="11dp"
+                android:text="+86"
+                android:textSize="14dp"
+                android:layout_gravity="center"
+                android:textColor="#101010"
+                android:layout_width="28dp"
+                android:layout_height="23dp" />
+
+            <EditText
+                android:id="@+id/register_phone_number"
+                android:layout_marginStart="26dp"
+                android:hint="@string/register_input_number"
+                android:textColor="#cccccc"
+                android:textSize="14dp"
+                android:background="@null"
+                android:inputType="number"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#f2f2f2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="11dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginBottom="11dp"
+                android:text="@string/register_verification_code"
+                android:textSize="14dp"
+                android:layout_gravity="center"
+                android:textColor="#101010"
+                android:layout_width="43dp"
+                android:layout_height="23dp" />
+
+            <EditText
+                android:id="@+id/register_verification_code"
+                android:layout_marginStart="11dp"
+                android:hint="@string/register_input_verification_code"
+                android:textColor="#cccccc"
+                android:textSize="14dp"
+                android:inputType="number"
+                android:background="@null"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/register_get_verification_code"
+                android:layout_width="123dp"
+                android:layout_height="45dp"
+                android:text="@string/register_get_verification_code"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:textSize="16dp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/login_submit"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="@string/register_start"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
+            android:textSize="16dp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <include
+        android:layout_gravity="bottom"
+        layout="@layout/content_login_third_part"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+
+</FrameLayout>
