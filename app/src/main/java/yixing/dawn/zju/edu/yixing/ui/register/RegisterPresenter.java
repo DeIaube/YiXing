@@ -27,6 +27,11 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
                     public void accept(Long aLong) throws Exception {
                         mView.updateCoundDown((int) (59 - aLong));
                     }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+
+                    }
                 });
     }
 }
