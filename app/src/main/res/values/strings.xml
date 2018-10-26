@@ -12,6 +12,7 @@
     <string name="login_register">手机快速注册</string>
     <string name="login_third_part">第三方登录</string>
     <string name="login_account_password_empty">用户名或者密码不能为空</string>
+    <string name="title_activity_register">RegisterActivity</string>
     <!--Login-->
 
 </resources>
