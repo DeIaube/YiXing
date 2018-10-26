@@ -1,15 +1,12 @@
 package yixing.dawn.zju.edu.yixing.ui.register;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 import yixing.dawn.zju.edu.yixing.base.BasePresenter;
 
 public class RegisterPresenter extends BasePresenter<RegisterContract.View> implements RegisterContract.Presenter {
