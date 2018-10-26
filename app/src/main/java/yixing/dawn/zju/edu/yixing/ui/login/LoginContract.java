@@ -7,9 +7,10 @@ public interface LoginContract {
     interface View extends BaseContract.BaseView {
 
         /**
-         * 登录成功
+         * 登陆结果
          */
-        void showLoginSuccess();
+        void loginSuccess();
+        void loginFailed();
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
@@ -20,6 +21,13 @@ public interface LoginContract {
          * @param password 密码
          */
         void login(String account, String password);
+
+        /**
+         *  三种第三方登录方式
+         */
+        void loginByQQ();
+        void loginByWeibo();
+        void loginByWechat();
     }
 
 }
