@@ -78,7 +78,6 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
         initToolBar();
         attachView();
         initView();
-        if (!NetworkUtils.isConnected()) showNetworkError();
     }
 
     /**
