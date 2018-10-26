@@ -25,12 +25,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     EditText accountEt;
     @BindView(R.id.login_password_et)
     EditText passwordEt;
-    @BindView(R.id.login_wechat_btn)
-    ImageView wechatLoginIv;
-    @BindView(R.id.login_qq_btn)
-    ImageView qqLoginIv;
-    @BindView(R.id.login_weibo_btn)
-    ImageView weiboLoginIv;
 
     @Override
     protected void initView() {
