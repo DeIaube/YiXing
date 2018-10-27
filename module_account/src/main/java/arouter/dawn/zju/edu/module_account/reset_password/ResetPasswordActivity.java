@@ -3,6 +3,7 @@ package arouter.dawn.zju.edu.module_account.reset_password;
 import android.view.View;
 import android.widget.EditText;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_account.R;
@@ -16,10 +17,14 @@ public class ResetPasswordActivity extends BaseActivity<RegisterPresenter> imple
     EditText passwordEt;
     EditText rePasswordEt;
 
+    @Autowired
+    String phoneNumber;
+
     @Override
     protected void initView() {
         passwordEt = findViewById(R.id.reset_password_password_et);
         rePasswordEt = findViewById(R.id.reset_password_repassword_et);
+        showMessage(phoneNumber);
     }
 
     @Override
