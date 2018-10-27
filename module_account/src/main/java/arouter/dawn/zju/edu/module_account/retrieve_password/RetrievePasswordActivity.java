@@ -1,9 +1,9 @@
 package arouter.dawn.zju.edu.module_account.retrieve_password;
 
 import android.view.View;
+import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.module_account.R;
 import arouter.dawn.zju.edu.module_account.register.RegisterPresenter;
@@ -13,9 +13,14 @@ import baselib.config.Constant;
 @Route(path = Constant.AROUTER_RETRIEVE_PASSWORD)
 public class RetrievePasswordActivity extends BaseActivity<RegisterPresenter> implements RetrievePasswordContract.View {
 
+
+    EditText passwordEt;
+    EditText rePasswordEt;
+
     @Override
     protected void initView() {
-
+        passwordEt = findViewById(R.id.retrieve_password_password_et);
+        rePasswordEt = findViewById(R.id.retrieve_password_repassword_et);
     }
 
     @Override
@@ -30,5 +35,10 @@ public class RetrievePasswordActivity extends BaseActivity<RegisterPresenter> im
 
     public void onViewClicked(View view) {
 
+    }
+
+    @Override
+    protected boolean showHomeAsUp() {
+        return true;
     }
 }
