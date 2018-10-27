@@ -48,7 +48,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             ARouter.getInstance().build(Constant.AROUTER_REGISTER)
                     .navigation();
         } else if (id == R.id.login_forget_password_tv) {
-            // todo 跳转到找回密码页面
+            ARouter.getInstance().build(Constant.AROUTER_RETRIEVE_PASSWORD).navigation();
         } else if (id == R.id.login_weibo_btn) {
             mPresenter.loginByWeibo();
         } else if (id == R.id.login_qq_btn) {
