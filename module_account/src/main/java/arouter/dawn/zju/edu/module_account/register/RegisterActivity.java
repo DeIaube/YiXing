@@ -1,4 +1,4 @@
-package yixing.dawn.zju.edu.yixing.register;
+package arouter.dawn.zju.edu.module_account.register;
 
 import android.annotation.SuppressLint;
 import android.view.View;
@@ -7,25 +7,22 @@ import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
-import butterknife.BindView;
-import butterknife.OnClick;
+import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constant;
-import yixing.dawn.zju.edu.yixing.R;
 
 @Route(path = Constant.AROUTER_REGISTER)
 public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> implements RegisterContract.View{
 
-    @BindView(R.id.register_verification_code)
     EditText verificationCodeEt;
-    @BindView(R.id.register_phone_number)
     EditText phoneNumberEt;
-    @BindView(R.id.register_get_verification_code)
     Button getCodeBtn;
 
     @Override
     protected void initView() {
-
+        verificationCodeEt = findViewById(R.id.register_verification_code);
+        phoneNumberEt = findViewById(R.id.register_phone_number);
+        getCodeBtn = findViewById(R.id.register_get_verification_code);
     }
 
     @Override
@@ -43,15 +40,12 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
         return true;
     }
 
-    @OnClick({R.id.register_submit, R.id.register_get_verification_code})
     public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.register_submit:
-                mPresenter.register(phoneNumberEt.getText().toString(), verificationCodeEt.getText().toString());
-                break;
-            case R.id.register_get_verification_code:
-                mPresenter.getCode();
-                break;
+        int id = view.getId();
+        if (id == R.id.register_submit) {
+            mPresenter.register(phoneNumberEt.getText().toString(), verificationCodeEt.getText().toString());
+        } else if (id == R.id.register_get_verification_code) {
+            mPresenter.getCode();
         }
     }
 

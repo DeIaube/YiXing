@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context=".ui.login.LoginActivity"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".login.LoginActivity"
     tools:showIn="@layout/activity_login">
 
     <LinearLayout
@@ -43,6 +43,7 @@
         
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/login_submit"
+            android:onClick="onViewClicked"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="30dp"
@@ -62,6 +63,7 @@
 
             <TextView
                 android:id="@+id/login_register_tv"
+                android:onClick="onViewClicked"
                 android:layout_marginLeft="9dp"
                 android:text="@string/login_register"
                 android:textSize="14dp"
@@ -71,6 +73,7 @@
 
             <TextView
                 android:id="@+id/login_forget_password_tv"
+                android:onClick="onViewClicked"
                 android:layout_width="wrap_content"
                 android:layout_height="23dp"
                 android:layout_marginRight="9dp"

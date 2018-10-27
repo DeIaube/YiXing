@@ -1,4 +1,4 @@
-package yixing.dawn.zju.edu.yixing.register;
+package arouter.dawn.zju.edu.module_account.register;
 
 import android.annotation.SuppressLint;
 

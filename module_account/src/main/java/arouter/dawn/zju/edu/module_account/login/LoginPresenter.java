@@ -1,8 +1,8 @@
-package yixing.dawn.zju.edu.yixing.login;
+package arouter.dawn.zju.edu.module_account.login;
 
 import android.text.TextUtils;
 
-import yixing.dawn.zju.edu.yixing.R;
+import arouter.dawn.zju.edu.module_account.R;
 import baselib.App;
 import baselib.base.BasePresenter;
 
