@@ -12,8 +12,9 @@ import baselib.base.BasePresenter;
 public class RegisterPresenter extends BasePresenter<RegisterContract.View> implements RegisterContract.Presenter {
 
     @Override
-    public void register(String phoneNumber, String code) {
-
+    public void verificationCode(String phoneNumber, String code) {
+        // todo 验证手机验证码
+        mView.verificationCodeCallback(true);
     }
 
     @SuppressLint("CheckResult")

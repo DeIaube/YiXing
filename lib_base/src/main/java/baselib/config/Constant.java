@@ -8,6 +8,7 @@ public interface Constant {
     // SP
     String LOGIN_ACCOUNT = "login_account";
     String LOGIN_PASSWORD = "login_password";
+    String REGISTER_PHONE_NUMBER = "register_phone_number";
 
     // ARouter
     String AROUTER_LOGIN = "/activity/login";

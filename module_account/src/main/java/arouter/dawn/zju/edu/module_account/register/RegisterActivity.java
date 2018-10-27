@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
@@ -17,6 +18,8 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
     EditText verificationCodeEt;
     EditText phoneNumberEt;
     Button getCodeBtn;
+
+    private String mPhoneNumber;
 
     @Override
     protected void initView() {
@@ -43,7 +46,8 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
     public void onViewClicked(View view) {
         int id = view.getId();
         if (id == R.id.register_submit) {
-            mPresenter.register(phoneNumberEt.getText().toString(), verificationCodeEt.getText().toString());
+            mPhoneNumber = phoneNumberEt.getText().toString();
+            mPresenter.verificationCode(mPhoneNumber, verificationCodeEt.getText().toString());
         } else if (id == R.id.register_get_verification_code) {
             mPresenter.getCode();
         }
@@ -61,5 +65,20 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
         getCodeBtn.setClickable(false);
         getCodeBtn.setBackgroundResource(R.color.colorPrimaryDark);
         getCodeBtn.setText(String.format("%ds", count));
+    }
+
+    /**
+     * 验证码验证回调
+     * @param result 验证码验证结果
+     */
+    @Override
+    public void verificationCodeCallback(boolean result) {
+        if (result) {
+            // 验证码验证成功 进入设置密码页面
+            ARouter.getInstance().build(Constant.AROUTER_RESET_PASSWORD).
+                    withString(Constant.REGISTER_PHONE_NUMBER, mPhoneNumber).navigation();
+            return;
+        }
+        // 验证失败
     }
 }

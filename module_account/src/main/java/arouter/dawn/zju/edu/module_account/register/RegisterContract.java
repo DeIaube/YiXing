@@ -6,10 +6,11 @@ public interface RegisterContract {
 
     interface View extends BaseContract.BaseView {
         void updateCoundDown(int count);
+        void verificationCodeCallback(boolean result);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void register(final String phoneNumber, final String code);
+        void verificationCode(final String phoneNumber, final String code);
         void getCode();
     }
 
