@@ -1,8 +1,8 @@
-package arouter.dawn.zju.edu.module_account.retrieve_password;
+package arouter.dawn.zju.edu.module_account.reset_password;
 
 import baselib.base.BaseContract;
 
-public interface RetrievePasswordContract {
+public interface ResetPasswordContract {
 
     interface View extends BaseContract.BaseView {
 

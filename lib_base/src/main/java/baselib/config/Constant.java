@@ -12,6 +12,6 @@ public interface Constant {
     // ARouter
     String AROUTER_LOGIN = "/activity/login";
     String AROUTER_REGISTER = "/activity/register";
-    String AROUTER_RETRIEVE_PASSWORD = "/activity/retrieve_password";
+    String AROUTER_RESET_PASSWORD = "/activity/reset_password";
 
 }
