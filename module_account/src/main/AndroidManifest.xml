@@ -3,7 +3,6 @@
     package="arouter.dawn.zju.edu.module_account">
 
     <application>
-        <activity android:name=".DemoActivity"></activity>
         <activity
             android:name="arouter.dawn.zju.edu.module_account.login.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
