@@ -7,12 +7,11 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_account.R;
-import arouter.dawn.zju.edu.module_account.register.RegisterPresenter;
 import baselib.base.BaseActivity;
 import baselib.config.Constant;
 
 @Route(path = Constant.AROUTER_RESET_PASSWORD)
-public class ResetPasswordActivity extends BaseActivity<RegisterPresenter> implements ResetPasswordContract.View {
+public class ResetPasswordActivity extends BaseActivity<ResetPasswordPresenter> implements ResetPasswordContract.View {
 
     EditText passwordEt;
     EditText rePasswordEt;
@@ -34,11 +33,15 @@ public class ResetPasswordActivity extends BaseActivity<RegisterPresenter> imple
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new ResetPasswordPresenter();
     }
 
     public void onViewClicked(View view) {
-
+        int id = view.getId();
+        if (id == R.id.reset_password_submit) {
+            mPresenter.resetPassword(phoneNumber,
+                    passwordEt.getText().toString(), rePasswordEt.getText().toString());
+        }
     }
 
     @Override

@@ -24,12 +24,16 @@
     <string name="register_please_input_message">请输入您的手机号码，登录或注册您的万众艺兴账号</string>
     <!--register-->
 
-    <!--retrieve password-->
+    <!--reset password-->
     <string name="retrieve_password_input_password">输入密码</string>
     <string name="retrieve_password_confirm_password">确认密码</string>
     <string name="retrieve_password_password_font">密码长度8-32位，须包含数字、字母、符号至少2种或以上元素。</string>
-
+    <string name="reset_password_password_not_null">密码不能为空</string>
+    <string name="reset_password_password_diff">确认密码不同,请重试</string>
+    <string name="reset_password_password_too_short">密码太短</string>
+    <string name="reset_password_password_too_long">密码太长</string>
+    <string name="reset_password_password_too_simple">密码太简单</string>
     <string name="retrieve_password_submit">提交</string>
-    <!--retrieve password-->
+    <!--reset password-->
 
 </resources>

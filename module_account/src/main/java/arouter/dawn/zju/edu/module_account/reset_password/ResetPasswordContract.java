@@ -9,7 +9,7 @@ public interface ResetPasswordContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-
+        void resetPassword(final String phoneNumber, final String password, final String repassword);
     }
 
 }
