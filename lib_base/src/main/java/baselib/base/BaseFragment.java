@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import java.util.Objects;
+
 public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends Fragment implements BaseContract.BaseView{
 
     protected T mPresenter;
@@ -91,5 +93,10 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
         if (mPresenter != null) {
             mPresenter.detachView();
         }
+    }
+
+    @Override
+    public void finish() {
+        Objects.requireNonNull(getActivity()).onBackPressed();
     }
 }
