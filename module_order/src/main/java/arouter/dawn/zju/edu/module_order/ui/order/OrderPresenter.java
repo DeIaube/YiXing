@@ -12,13 +12,12 @@ import java.util.Map;
 import java.util.Objects;
 
 import arouter.dawn.zju.edu.module_order.adapter.OrderPagerAdapter;
+import arouter.dawn.zju.edu.module_order.config.Constants;
 import arouter.dawn.zju.edu.module_order.ui.order_list.OrderListFragment;
 import baselib.base.BasePresenter;
 import baselib.bean.OrderBean;
 
-public class OrderPresenter extends BasePresenter<OrderContract.View> implements OrderContract.Presenter, ViewPager.OnPageChangeListener {
-
-    private int mCurrentIndex;
+public class OrderPresenter extends BasePresenter<OrderContract.View> implements OrderContract.Presenter {
 
     @Override
     public void bindViewPager(FragmentManager fragmentManager, ViewPager viewPager, TabLayout tabLayout) {
@@ -36,16 +35,15 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
 
         OrderPagerAdapter adapter = new OrderPagerAdapter(fragmentManager, titles, fragments);
         viewPager.setAdapter(adapter);
-        viewPager.setOnPageChangeListener(this);
         tabLayout.setupWithViewPager(viewPager);
     }
 
     private Map<String, List<OrderBean>> getFakeData() {
         Map<String, List<OrderBean>> map = new HashMap<>();
-        map.put("全部", new ArrayList<OrderBean>());
-        map.put("待付款", new ArrayList<OrderBean>());
-        map.put("已取消", new ArrayList<OrderBean>());
-        map.put("已完成", new ArrayList<OrderBean>());
+        map.put(Constants.ORDER_TYPE_ALL, new ArrayList<OrderBean>());
+        map.put(Constants.ORDER_TYPE_PAYMENT, new ArrayList<OrderBean>());
+        map.put(Constants.ORDER_TYPE_CANCEL, new ArrayList<OrderBean>());
+        map.put(Constants.ORDER_TYPE_COMPLETE, new ArrayList<OrderBean>());
         List<OrderBean> orders = new ArrayList<>();
         OrderBean orderBean1 = new OrderBean();
         orderBean1.setCreate_time("2018-10-28");
@@ -92,18 +90,4 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
         // todo 刷新订单情况
     }
 
-    @Override
-    public void onPageScrolled(int i, float v, int i1) {
-
-    }
-
-    @Override
-    public void onPageSelected(int i) {
-        mCurrentIndex = i;
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int i) {
-
-    }
 }
