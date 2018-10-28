@@ -13,7 +13,7 @@ public class OrderBean {
      *     "create_time": "2018-10-28",
      *     "pay_number": 256
      * }
-     * 
+     *
      * id : 123123123123123123
      * account : 15064700768
      * goods_title : 我只是一个小测试
