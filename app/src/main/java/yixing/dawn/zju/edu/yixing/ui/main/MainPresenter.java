@@ -9,6 +9,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import java.util.ArrayList;
 import java.util.List;
 
+import arouter.dawn.zju.edu.module_order.OrderFragment;
 import baselib.base.BasePresenter;
 import yixing.dawn.zju.edu.yixing.ui.TestFragment;
 import yixing.dawn.zju.edu.yixing.adapter.MainPagerAdapter;
@@ -22,7 +23,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
         fragments.add(new TestFragment());
         fragments.add(new TestFragment());
         fragments.add(new TestFragment());
-        fragments.add(new TestFragment());
+        fragments.add(new OrderFragment());
         fragments.add(new TestFragment());
         MainPagerAdapter mPagerAdapter = new MainPagerAdapter(activity.getSupportFragmentManager(), fragments);
         viewPager.setAdapter(mPagerAdapter);
