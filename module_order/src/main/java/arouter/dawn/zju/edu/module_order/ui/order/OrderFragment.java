@@ -35,7 +35,7 @@ public class OrderFragment extends BaseFragment<OrderContract.Presenter> impleme
         viewPager.setOffscreenPageLimit(3);
 
         refreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
-        refreshLayout.setProgressViewEndTarget(false, 100);
+        refreshLayout.setProgressViewEndTarget(false, 175);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
