@@ -1,4 +1,4 @@
-package yixing.dawn.zju.edu.yixing;
+package yixing.dawn.zju.edu.yixing.ui;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -10,6 +10,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import baselib.base.BaseActivity;
 import baselib.config.Constant;
 import io.reactivex.functions.Consumer;
+import yixing.dawn.zju.edu.yixing.R;
 
 public class SplashActivity extends BaseActivity {
 

@@ -1,7 +1,6 @@
-package yixing.dawn.zju.edu.yixing;
+package yixing.dawn.zju.edu.yixing.ui.main;
 
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
@@ -9,9 +8,10 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
 import baselib.base.BaseActivity;
 import baselib.config.Constant;
+import yixing.dawn.zju.edu.yixing.R;
 
 @Route(path = Constant.AROUTER_MAIN)
-public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener {
+public class MainActivity extends BaseActivity<MainContract.Presenter> implements MainContract.View{
 
     ViewPager viewPager;
     BottomNavigationBar bottomNavigationView;
@@ -21,7 +21,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         viewPager = findViewById(R.id.main_view_pager);
         bottomNavigationView = findViewById(R.id.main_bottom_navigation);
         // 初始化BottomNavigationBar
-        bottomNavigationView.setTabSelectedListener(this);
         bottomNavigationView.setMode(BottomNavigationBar.MODE_FIXED);
         bottomNavigationView.addItem(new BottomNavigationItem(R.drawable.login_weibo, "首页"))
                 .addItem(new BottomNavigationItem(R.drawable.login_qq, "附近"))
@@ -30,6 +29,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
                 .addItem(new BottomNavigationItem(R.drawable.login_weibo, "我的"))
                 .setFirstSelectedPosition(0)
                 .initialise();
+        // 绑定ViewPager BottomNavigationView
+        mPresenter.bindViewPager(this, viewPager, bottomNavigationView);
     }
 
     @Override
@@ -39,27 +40,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     @Override
     protected void bindPresenter() {
-
-    }
-
-    /**
-     * @param position 跳转的下标
-     */
-    @Override
-    public void onTabSelected(int position) {
-        Log.i("tag", "onTabSelected" + String.valueOf(position));
-    }
-
-    /**
-     * @param position 从position跳出
-     */
-    @Override
-    public void onTabUnselected(int position) {
-        Log.i("tag", "onTabUnselected" + String.valueOf(position));
-    }
-
-    @Override
-    public void onTabReselected(int position) {
-        Log.i("tag", "onTabReselected" + String.valueOf(position));
+        mPresenter = new MainPresenter();
     }
 }
