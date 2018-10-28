@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
                 .setFirstSelectedPosition(0)
                 .initialise();
         // 绑定ViewPager BottomNavigationView
-        mPresenter.bindViewPager(this, viewPager, bottomNavigationView);
+        mPresenter.bindViewPager(getSupportFragmentManager(), viewPager, bottomNavigationView);
     }
 
     @Override

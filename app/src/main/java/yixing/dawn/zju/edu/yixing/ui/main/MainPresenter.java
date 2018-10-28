@@ -1,7 +1,7 @@
 package yixing.dawn.zju.edu.yixing.ui.main;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
@@ -17,7 +17,7 @@ import yixing.dawn.zju.edu.yixing.adapter.MainPagerAdapter;
 public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
 
     @Override
-    public void bindViewPager(FragmentActivity activity, final ViewPager viewPager,
+    public void bindViewPager(FragmentManager fragmentManager, final ViewPager viewPager,
                               final BottomNavigationBar bottomNavigationBar) {
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new TestFragment());
@@ -25,7 +25,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
         fragments.add(new TestFragment());
         fragments.add(new OrderFragment());
         fragments.add(new TestFragment());
-        MainPagerAdapter mPagerAdapter = new MainPagerAdapter(activity.getSupportFragmentManager(), fragments);
+        MainPagerAdapter mPagerAdapter = new MainPagerAdapter(fragmentManager, fragments);
         viewPager.setAdapter(mPagerAdapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

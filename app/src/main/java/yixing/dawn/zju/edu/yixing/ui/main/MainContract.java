@@ -1,6 +1,6 @@
 package yixing.dawn.zju.edu.yixing.ui.main;
 
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
@@ -13,7 +13,7 @@ public interface MainContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void bindViewPager(FragmentActivity activity, ViewPager viewPager,
+        void bindViewPager(FragmentManager fragmentManager, ViewPager viewPager,
                            BottomNavigationBar bottomNavigationBar);
     }
 
