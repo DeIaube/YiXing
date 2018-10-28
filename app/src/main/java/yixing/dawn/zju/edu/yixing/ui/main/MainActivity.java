@@ -44,4 +44,9 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
     protected void bindPresenter() {
         mPresenter = new MainPresenter();
     }
+
+    @Override
+    public void setTitle(String title) {
+        setToolbarTitle(title);
+    }
 }

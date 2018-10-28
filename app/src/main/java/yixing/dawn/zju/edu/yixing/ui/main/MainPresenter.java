@@ -16,6 +16,17 @@ import yixing.dawn.zju.edu.yixing.adapter.MainPagerAdapter;
 
 public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
 
+    private List<String> titles;
+
+    public MainPresenter() {
+        titles = new ArrayList<>();
+        titles.add("首页");
+        titles.add("附近");
+        titles.add("论坛");
+        titles.add("订单");
+        titles.add("我的");
+    }
+
     @Override
     public void bindViewPager(FragmentManager fragmentManager, final ViewPager viewPager,
                               final BottomNavigationBar bottomNavigationBar) {
@@ -36,6 +47,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
             @Override
             public void onPageSelected(int i) {
                 bottomNavigationBar.selectTab(i);
+                mView.setTitle(titles.get(i));
             }
 
             @Override
@@ -59,7 +71,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
 
             }
         });
-
+        mView.setTitle(titles.get(0));
     }
 
 }

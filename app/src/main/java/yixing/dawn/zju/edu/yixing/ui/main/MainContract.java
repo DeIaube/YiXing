@@ -10,6 +10,7 @@ import baselib.base.BaseContract;
 public interface MainContract {
 
     interface View extends BaseContract.BaseView {
+        void setTitle(String title);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
