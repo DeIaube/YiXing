@@ -77,6 +77,22 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
         orderBean4.setGoods_preview("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540745287526&di=d464bb789d208fd19a061bfa0d7415f7&imgtype=0&src=http%3A%2F%2Fpic2.zhimg.com%2F50%2Fv2-905bef905d9453a4cfdb63e28960b2b0_hd.jpg");
         orders.add(orderBean4);
 
+        OrderBean orderBean5 = new OrderBean();
+        orderBean5.setCreate_time("2016-10-13");
+        orderBean5.setGoods_title("哈哈哈哈哈");
+        orderBean5.setType("已取消");
+        orderBean5.setPay(2);
+        orderBean5.setGoods_preview("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540745287526&di=d464bb789d208fd19a061bfa0d7415f7&imgtype=0&src=http%3A%2F%2Fpic2.zhimg.com%2F50%2Fv2-905bef905d9453a4cfdb63e28960b2b0_hd.jpg");
+        orders.add(orderBean5);
+
+        OrderBean orderBean6 = new OrderBean();
+        orderBean6.setCreate_time("2017-10-13");
+        orderBean6.setGoods_title("过于真实");
+        orderBean6.setType("已取消");
+        orderBean6.setPay(3);
+        orderBean6.setGoods_preview("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540745287526&di=d464bb789d208fd19a061bfa0d7415f7&imgtype=0&src=http%3A%2F%2Fpic2.zhimg.com%2F50%2Fv2-905bef905d9453a4cfdb63e28960b2b0_hd.jpg");
+        orders.add(orderBean6);
+
         for (OrderBean order : orders) {
             Objects.requireNonNull(map.get("全部")).add(order);
             Objects.requireNonNull(map.get(order.getType())).add(order);
