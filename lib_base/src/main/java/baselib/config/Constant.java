@@ -10,10 +10,10 @@ public interface Constant {
     String LOGIN_PASSWORD = "login_password";
 
     // ARouter
-    String AROUTER_MAIN = "/activity/main";
-    String AROUTER_LOGIN = "/activity/login";
-    String AROUTER_REGISTER = "/activity/register";
-    String AROUTER_RESET_PASSWORD = "/activity/reset_password";
+    String AROUTER_MAIN = "/app/main";
+    String AROUTER_LOGIN = "/account/login";
+    String AROUTER_REGISTER = "/account/register";
+    String AROUTER_RESET_PASSWORD = "/account/reset_password";
 
     String PHONE_NUMBER = "phoneNumber";
 
