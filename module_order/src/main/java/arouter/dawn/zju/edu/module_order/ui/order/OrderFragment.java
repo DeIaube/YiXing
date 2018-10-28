@@ -32,6 +32,8 @@ public class OrderFragment extends BaseFragment<OrderContract.Presenter> impleme
         tabLayout = view.findViewById(R.id.order_tab_layout);
         refreshLayout = view.findViewById(R.id.order_refresh_layout);
 
+        viewPager.setOffscreenPageLimit(3);
+
         refreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
         refreshLayout.setProgressViewEndTarget(false, 100);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

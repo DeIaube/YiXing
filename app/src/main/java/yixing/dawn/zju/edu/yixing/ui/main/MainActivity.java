@@ -20,6 +20,8 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
     protected void initView() {
         viewPager = findViewById(R.id.main_view_pager);
         bottomNavigationView = findViewById(R.id.main_bottom_navigation);
+
+        viewPager.setOffscreenPageLimit(4);
         // 初始化BottomNavigationBar
         bottomNavigationView.setMode(BottomNavigationBar.MODE_FIXED);
         bottomNavigationView.addItem(new BottomNavigationItem(R.drawable.login_weibo, "首页"))
