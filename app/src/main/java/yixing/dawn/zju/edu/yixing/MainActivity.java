@@ -1,12 +1,9 @@
 package yixing.dawn.zju.edu.yixing;
 
-import android.graphics.Color;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.ashokvarma.bottomnavigation.BadgeItem;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
