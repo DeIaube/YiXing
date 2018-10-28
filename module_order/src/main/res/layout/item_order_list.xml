@@ -147,7 +147,18 @@
                 android:layout_weight="1"/>
 
             <android.support.v7.widget.AppCompatButton
+                android:id="@+id/customer_service"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:background="@drawable/cancel_order_btn_bg"
+                android:textSize="13dp"
+                android:textColor="#5e5e5e"
+                android:layout_gravity="center_vertical"
+                android:text="申请售后" />
+
+            <android.support.v7.widget.AppCompatButton
                 android:id="@+id/cancel_order"
+                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:background="@drawable/cancel_order_btn_bg"
