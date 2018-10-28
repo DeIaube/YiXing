@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,4 +9,23 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?attr/actionBarSize">
+
+    </android.support.v4.view.ViewPager>
+
+    <com.ashokvarma.bottomnavigation.BottomNavigationBar
+        app:bnbActiveColor="@color/colorPrimary"
+        app:bnbInactiveColor="#101010"
+        app:bnbBackgroundColor="#f2f2f2"
+        android:id="@+id/main_bottom_navigation"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+    </com.ashokvarma.bottomnavigation.BottomNavigationBar>
+
+</FrameLayout>
