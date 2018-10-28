@@ -8,7 +8,6 @@
     android:paddingTop="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -168,6 +167,7 @@
                 android:textColor="#ffffff"
                 android:layout_gravity="center_vertical"
                 android:text="立即付款" />
+
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
