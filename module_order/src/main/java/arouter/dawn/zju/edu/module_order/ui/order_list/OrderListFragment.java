@@ -13,7 +13,7 @@ import arouter.dawn.zju.edu.module_order.adapter.OrderListAdapter;
 import baselib.base.BaseFragment;
 import baselib.bean.OrderBean;
 
-public class OrderListFragment extends BaseFragment {
+public class OrderListFragment extends BaseFragment<OrderListContract.Presenter> implements OrderListContract.View {
 
     RecyclerView recyclerView;
 
@@ -35,7 +35,7 @@ public class OrderListFragment extends BaseFragment {
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new OrderListPresenter();
     }
 
     @Override
