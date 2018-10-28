@@ -29,11 +29,11 @@ public class SplashActivity extends BaseActivity {
         new RxPermissions(SplashActivity.this).request(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
                 .subscribe(new Consumer<Boolean>() {
                     @Override
-                    public void accept(Boolean aBoolean) throws Exception {
+                    public void accept(Boolean aBoolean) {
                         if (aBoolean) {
                             //所有权限都开启aBoolean才为true，否则为false
                             Log.i(TAG, "权限已开启");
-                            ARouter.getInstance().build(Constant.AROUTER_LOGIN).navigation();
+                            ARouter.getInstance().build(Constant.AROUTER_MAIN).navigation();
                         } else {
                             Log.i(TAG, "权限被拒绝，请在设置里面开启相应权限，若无相应权限会影响使用");
                         }
