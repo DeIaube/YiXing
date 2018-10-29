@@ -1,0 +1,113 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="140dp">
+
+    <ImageView
+        android:id="@+id/goods_pre"
+        android:layout_width="108dp"
+        android:layout_height="108dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/interest_logo"
+        android:layout_width="16dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toEndOf="@+id/goods_pre"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/goods_title"
+        android:layout_width="229dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="23dp"
+        android:text="骄傲是福建安徽房间都是符合设计地方哈积分哈就是地方哈市科技"
+        android:textColor="#101010"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/goods_pre"
+        app:layout_constraintTop_toBottomOf="@+id/interest_logo" />
+
+    <TextView
+        android:id="@+id/goods_location"
+        android:layout_width="102dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="8dp"
+        android:textSize="12dp"
+        android:textColor="#bbbbbb"
+        android:text="宁波 高新区"
+        app:layout_constraintStart_toEndOf="@+id/interest_logo"
+        app:layout_constraintTop_toTopOf="@+id/interest_logo" />
+
+    <TextView
+        android:id="@+id/goods_price"
+        android:layout_width="53dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="￥169"
+        android:textSize="18dp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintStart_toEndOf="@+id/goods_pre"
+        app:layout_constraintTop_toBottomOf="@+id/goods_title" />
+
+    <TextView
+        android:id="@+id/goods_praise"
+        android:layout_width="67dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="8dp"
+        android:text="97.8%好评"
+        android:textColor="#ababab"
+        android:textSize="11dp"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="32dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/item_special_offer_bg"
+        android:gravity="center"
+        android:text="特价"
+        android:textColor="#ffffff"
+        android:textSize="11dp"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="32dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="1dp"
+        android:gravity="center"
+        android:text="自营"
+        android:textSize="11dp"
+        android:textColor="#E60B30"
+        android:background="@drawable/item_self_support_bg"
+        app:layout_constraintStart_toEndOf="@+id/goods_pre"
+        app:layout_constraintTop_toBottomOf="@+id/goods_price" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginBottom="4dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/goods_pre" />
+
+</android.support.constraint.ConstraintLayout>
