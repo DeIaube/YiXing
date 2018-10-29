@@ -12,7 +12,7 @@ import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
-@Route(path = Constants.AROUTER_REGISTER)
+@Route(path = Constants.AROUTER_ACCOUNT_REGISTER)
 public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> implements RegisterContract.View{
 
     EditText verificationCodeEt;
@@ -75,7 +75,7 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
     public void verificationCodeCallback(boolean result) {
         if (result) {
             // 验证码验证成功 进入设置密码页面
-            ARouter.getInstance().build(Constants.AROUTER_RESET_PASSWORD).
+            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_RESET_PASSWORD).
                     withString(Constants.PHONE_NUMBER, mPhoneNumber).navigation();
             return;
         }

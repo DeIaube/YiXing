@@ -10,7 +10,7 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 import yixing.dawn.zju.edu.yixing.R;
 
-@Route(path = Constants.AROUTER_MAIN)
+@Route(path = Constants.AROUTER_APP_MAIN)
 public class MainActivity extends BaseActivity<MainContract.Presenter> implements MainContract.View{
 
     ViewPager viewPager;

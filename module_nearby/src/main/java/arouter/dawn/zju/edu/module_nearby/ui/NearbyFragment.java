@@ -1,11 +1,14 @@
-package arouter.dawn.zju.edu.module_nearby;
+package arouter.dawn.zju.edu.module_nearby.ui;
 
 
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
+
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.zaaach.citypicker.CityPickerActivity;
 
+import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.module_nearby.config.Constants;
 import baselib.base.BaseFragment;
 import baselib.util.SPUtil;
@@ -42,6 +45,13 @@ public class NearbyFragment extends BaseFragment {
             public void onClick(View v) {
                 startActivityForResult(new Intent(getContext(), CityPickerActivity.class),
                         REQUEST_CODE_PICK_CITY);
+            }
+        });
+
+        searchTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(baselib.config.Constants.AROUTER_NEARBY_SEARCH).navigation();
             }
         });
     }
