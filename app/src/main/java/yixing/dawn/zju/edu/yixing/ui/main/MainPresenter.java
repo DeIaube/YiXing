@@ -49,12 +49,6 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
             public void onPageSelected(int i) {
                 bottomNavigationBar.selectTab(i);
                 mView.setTitle(titles.get(i));
-                // 附近页面隐藏Toolbar 替换为搜索栏
-                if (i == 1) {
-                    mView.dismissToolbar();
-                } else {
-                    mView.showToolbar();
-                }
             }
 
             @Override

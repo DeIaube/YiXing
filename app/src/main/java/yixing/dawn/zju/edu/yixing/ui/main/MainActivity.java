@@ -51,13 +51,4 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         setToolbarTitle(title);
     }
 
-    @Override
-    public void dismissToolbar() {
-        mToolbar.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void showToolbar() {
-        mToolbar.setVisibility(View.VISIBLE);
-    }
 }
