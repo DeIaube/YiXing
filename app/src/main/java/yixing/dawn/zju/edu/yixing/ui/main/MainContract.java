@@ -11,6 +11,8 @@ public interface MainContract {
 
     interface View extends BaseContract.BaseView {
         void setTitle(String title);
+        void dismissToolbar();
+        void showToolbar();
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {

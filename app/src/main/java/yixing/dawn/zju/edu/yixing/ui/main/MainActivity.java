@@ -1,6 +1,7 @@
 package yixing.dawn.zju.edu.yixing.ui.main;
 
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
@@ -48,5 +49,15 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
     @Override
     public void setTitle(String title) {
         setToolbarTitle(title);
+    }
+
+    @Override
+    public void dismissToolbar() {
+        mToolbar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showToolbar() {
+        mToolbar.setVisibility(View.VISIBLE);
     }
 }
