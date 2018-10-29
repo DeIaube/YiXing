@@ -11,13 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
-        <ImageView
+        <TextView
             android:id="@+id/near_location"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/location"
+            android:text="宁波"
+            android:textColor="@color/white"
+            android:textSize="16dp"
             android:padding="7dp"
-            android:layout_width="45dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="45dp" />
         
         <TextView

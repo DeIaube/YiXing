@@ -1,2 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="arouter.dawn.zju.edu.module_nearby" />
+    package="arouter.dawn.zju.edu.module_nearby">
+    <application>
+        <meta-data android:name="com.amap.api.v2.apikey"
+            android:value="b7dcc9e19c56cff84a11eac8bf68c72d"/>
+        <activity
+            android:name="com.zaaach.citypicker.CityPickerActivity"
+            android:theme="@style/CityPicker.NoActionBar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+    </application>
+</manifest>
