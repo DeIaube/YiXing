@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.TextView;
 import com.zaaach.citypicker.CityPickerActivity;
 
+import arouter.dawn.zju.edu.module_nearby.config.Constants;
 import baselib.base.BaseFragment;
+import baselib.util.SPUtil;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -32,6 +34,9 @@ public class NearbyFragment extends BaseFragment {
     protected void initView(View view) {
         searchTv = view.findViewById(R.id.near_search);
         loacationTv = view.findViewById(R.id.near_location);
+
+        loacationTv.setText(SPUtil.getString(Constants.LAST_LOCATION, Constants.DEFAULT_LOCATION));
+
         loacationTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +52,8 @@ public class NearbyFragment extends BaseFragment {
         if (requestCode == REQUEST_CODE_PICK_CITY && resultCode == RESULT_OK){
             if (data != null){
                 String city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
-                showMessage("当前选择：" + city);
+                loacationTv.setText(city);
+                SPUtil.put(Constants.LAST_LOCATION, city);
             }
         }
 
