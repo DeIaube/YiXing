@@ -115,11 +115,10 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
      */
     private void initToolBar() {
         mToolbar = findViewById(R.id.toolbar);
-        if (mToolbar == null) {
-            throw new NullPointerException("toolbar can not be null");
+        if (mToolbar != null) {
+            setSupportActionBar(mToolbar);
+            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(showHomeAsUp());
         }
-        setSupportActionBar(mToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(showHomeAsUp());
     }
 
     /**
