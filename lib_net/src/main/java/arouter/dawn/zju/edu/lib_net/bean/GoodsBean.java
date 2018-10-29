@@ -1,15 +1,18 @@
 package arouter.dawn.zju.edu.lib_net.bean;
 
 public class GoodsBean {
+
+
     /**
      * id : 123123123123123123
-     * title : 小米8 青春版
-     * explain : 全面屏智能拍照游戏手机学生机商务机 全网通 官方旗舰正品
+     * title : 小米6
+     * explain : 非全面屏智能拍照游戏手机学生机商务机 全网通 官方旗舰正品
      * preview : http://attach.bbs.miui.com/forum/201805/31/181909by8vfl4gxglq8z9h.jpg
      * create_time : 2018-10-28
      * city : 宁波
+     * region : 高新区
      * type : 数码产品
-     * price : 2399
+     * price : 1999
      */
 
     private String id;
@@ -18,6 +21,7 @@ public class GoodsBean {
     private String preview;
     private String create_time;
     private String city;
+    private String region;
     private String type;
     private int price;
 
@@ -67,6 +71,14 @@ public class GoodsBean {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     public String getType() {
