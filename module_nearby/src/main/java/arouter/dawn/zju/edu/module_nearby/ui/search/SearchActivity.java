@@ -1,7 +1,8 @@
-package arouter.dawn.zju.edu.module_nearby.ui;
+package arouter.dawn.zju.edu.module_nearby.ui.search;
 
 import android.graphics.Color;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,11 +15,13 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_NEARBY_SEARCH)
-public class SearchActivity extends BaseActivity {
+public class SearchActivity extends BaseActivity<SearchContract.Presenter> implements SearchContract.View {
+
+    RecyclerView searchResultRv;
 
     @Override
     protected void initView() {
-
+        searchResultRv = findViewById(R.id.search_result_list);
     }
 
     @Override
@@ -45,7 +48,7 @@ public class SearchActivity extends BaseActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(SearchActivity.this, "您输入的文本为" + query, Toast.LENGTH_SHORT).show();
+                mPresenter.search(query);
                 return false;
             }
 
@@ -57,8 +60,6 @@ public class SearchActivity extends BaseActivity {
         return true;
     }
 
-
-
     @Override
     protected int getLayoutId() {
         return R.layout.activity_search;
@@ -66,7 +67,7 @@ public class SearchActivity extends BaseActivity {
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new SearchPresenter();
     }
 
 }
