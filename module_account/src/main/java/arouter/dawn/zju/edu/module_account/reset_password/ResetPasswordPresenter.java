@@ -2,6 +2,7 @@ package arouter.dawn.zju.edu.module_account.reset_password;
 
 import android.text.TextUtils;
 
+import arouter.dawn.zju.edu.module_account.R;
 import baselib.App;
 import baselib.base.BasePresenter;
 
@@ -11,27 +12,27 @@ public class ResetPasswordPresenter extends BasePresenter<ResetPasswordContract.
     public void resetPassword(String phoneNumber, String password, String repassword) {
         if (TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
             mView.showMessage(App.getContext().
-                    getString(arouter.dawn.zju.edu.lib_res.R.string.reset_password_password_not_null));
+                    getString(R.string.reset_password_password_not_null));
             return;
         }
         if (!password.equals(repassword)) {
             mView.showMessage(App.getContext().
-                    getString(arouter.dawn.zju.edu.lib_res.R.string.reset_password_password_diff));
+                    getString(R.string.reset_password_password_diff));
             return;
         }
         if (password.length() < 8) {
             mView.showMessage(App.getContext().
-                    getString(arouter.dawn.zju.edu.lib_res.R.string.reset_password_password_too_short));
+                    getString(R.string.reset_password_password_too_short));
             return;
         }
         if (password.length() > 32) {
             mView.showMessage(App.getContext().
-                    getString(arouter.dawn.zju.edu.lib_res.R.string.reset_password_password_too_long));
+                    getString(R.string.reset_password_password_too_long));
             return;
         }
         if (!checkPasswordComplexity(password)) {
             mView.showMessage(App.getContext().
-                    getString(arouter.dawn.zju.edu.lib_res.R.string.reset_password_password_too_simple));
+                    getString(R.string.reset_password_password_too_simple));
         }
     }
 
