@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lib_base" />
             <option value="$PROJECT_DIR$/lib_map" />
+            <option value="$PROJECT_DIR$/lib_net" />
             <option value="$PROJECT_DIR$/lib_res" />
             <option value="$PROJECT_DIR$/module_account" />
             <option value="$PROJECT_DIR$/module_order" />
