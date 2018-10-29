@@ -9,6 +9,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import java.util.ArrayList;
 import java.util.List;
 
+import arouter.dawn.zju.edu.module_nearby.NearbyFragment;
 import arouter.dawn.zju.edu.module_order.ui.order.OrderFragment;
 import baselib.base.BasePresenter;
 import yixing.dawn.zju.edu.yixing.ui.TestFragment;
@@ -32,7 +33,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
                               final BottomNavigationBar bottomNavigationBar) {
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new TestFragment());
-        fragments.add(new TestFragment());
+        fragments.add(new NearbyFragment());
         fragments.add(new TestFragment());
         fragments.add(new OrderFragment());
         fragments.add(new TestFragment());
