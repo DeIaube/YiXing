@@ -14,8 +14,8 @@
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".ui.SearchActivity"
-            android:label="@string/title_activity_search"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/please_input_goods_name"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
