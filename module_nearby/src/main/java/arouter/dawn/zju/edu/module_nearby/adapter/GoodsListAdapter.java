@@ -26,6 +26,12 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.Good
         this.mContext = context;
     }
 
+    public void refresh(List<GoodsBean> goodsList) {
+        this.mGoodsList = goodsList;
+        notifyDataSetChanged();
+    }
+
+
     @Override
     public GoodsListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View rootView = LayoutInflater.from(mContext).inflate(R.layout.item_goods, parent, false);

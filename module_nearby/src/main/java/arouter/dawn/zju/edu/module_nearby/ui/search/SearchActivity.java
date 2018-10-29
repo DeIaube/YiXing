@@ -2,6 +2,7 @@ package arouter.dawn.zju.edu.module_nearby.ui.search;
 
 import android.graphics.Color;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
@@ -10,7 +11,12 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import arouter.dawn.zju.edu.lib_net.bean.GoodsBean;
 import arouter.dawn.zju.edu.module_nearby.R;
+import arouter.dawn.zju.edu.module_nearby.adapter.GoodsListAdapter;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
@@ -18,10 +24,15 @@ import baselib.config.Constants;
 public class SearchActivity extends BaseActivity<SearchContract.Presenter> implements SearchContract.View {
 
     RecyclerView searchResultRv;
+    GoodsListAdapter adapter;
 
     @Override
     protected void initView() {
         searchResultRv = findViewById(R.id.search_result_list);
+
+        searchResultRv.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new GoodsListAdapter(new ArrayList<GoodsBean>(), this);
+        searchResultRv.setAdapter(adapter);
     }
 
     @Override
@@ -70,4 +81,8 @@ public class SearchActivity extends BaseActivity<SearchContract.Presenter> imple
         mPresenter = new SearchPresenter();
     }
 
+    @Override
+    public void refresh(List<GoodsBean> goodsList) {
+        adapter.refresh(goodsList);
+    }
 }
