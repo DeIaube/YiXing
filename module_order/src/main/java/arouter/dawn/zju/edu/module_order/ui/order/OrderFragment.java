@@ -4,9 +4,11 @@ package arouter.dawn.zju.edu.module_order.ui.order;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import arouter.dawn.zju.edu.module_order.R;
+import arouter.dawn.zju.edu.module_order.config.Constants;
 import baselib.base.BaseFragment;
 
 
@@ -15,6 +17,7 @@ public class OrderFragment extends BaseFragment<OrderContract.Presenter> impleme
     ViewPager viewPager;
     TabLayout tabLayout;
     SwipeRefreshLayout refreshLayout;
+    Toolbar toolbar;
 
     @Override
     protected int getLayoutId() {
@@ -31,6 +34,9 @@ public class OrderFragment extends BaseFragment<OrderContract.Presenter> impleme
         viewPager = view.findViewById(R.id.order_view_pager);
         tabLayout = view.findViewById(R.id.order_tab_layout);
         refreshLayout = view.findViewById(R.id.order_refresh_layout);
+        toolbar = view.findViewById(R.id.toolbar);
+
+        toolbar.setTitle(Constants.MODULE_TITLE);
 
         viewPager.setOffscreenPageLimit(3);
 
