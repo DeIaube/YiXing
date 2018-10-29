@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
-import baselib.config.Constant;
+import baselib.config.Constants;
 import baselib.util.SPUtil;
 
 
@@ -22,7 +22,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         appContext = this;
-        if (Constant.isDebug) {
+        if (Constants.isDebug) {
             ARouter.openDebug();
             ARouter.openLog();
         }

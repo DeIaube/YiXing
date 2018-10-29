@@ -7,11 +7,11 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.module_account.R;
-import baselib.config.Constant;
 import baselib.base.BaseActivity;
+import baselib.config.Constants;
 import baselib.util.SPUtil;
 
-@Route(path = Constant.AROUTER_LOGIN)
+@Route(path = Constants.AROUTER_LOGIN)
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View{
 
     EditText accountEt;
@@ -21,8 +21,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     protected void initView() {
         passwordEt = findViewById(R.id.login_password_et);
         accountEt = findViewById(R.id.login_account_et);
-        accountEt.setText(SPUtil.getString(Constant.LOGIN_ACCOUNT, ""));
-        passwordEt.setText(SPUtil.getString(Constant.LOGIN_PASSWORD, ""));
+        accountEt.setText(SPUtil.getString(arouter.dawn.zju.edu.module_account.config.Constants.LOGIN_ACCOUNT, ""));
+        passwordEt.setText(SPUtil.getString(arouter.dawn.zju.edu.module_account.config.Constants.LOGIN_PASSWORD, ""));
     }
 
     @Override
@@ -45,10 +45,10 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         if (id == R.id.login_submit) {
             mPresenter.login(accountEt.getText().toString(), passwordEt.getText().toString());
         } else if (id == R.id.login_register_tv) {
-            ARouter.getInstance().build(Constant.AROUTER_REGISTER)
+            ARouter.getInstance().build(Constants.AROUTER_REGISTER)
                     .navigation();
         } else if (id == R.id.login_forget_password_tv) {
-            ARouter.getInstance().build(Constant.AROUTER_RESET_PASSWORD).navigation();
+            ARouter.getInstance().build(Constants.AROUTER_RESET_PASSWORD).navigation();
         } else if (id == R.id.login_weibo_btn) {
             mPresenter.loginByWeibo();
         } else if (id == R.id.login_qq_btn) {

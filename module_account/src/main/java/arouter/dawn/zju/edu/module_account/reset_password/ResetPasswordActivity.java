@@ -8,9 +8,9 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constant;
+import baselib.config.Constants;
 
-@Route(path = Constant.AROUTER_RESET_PASSWORD)
+@Route(path = Constants.AROUTER_RESET_PASSWORD)
 public class ResetPasswordActivity extends BaseActivity<ResetPasswordPresenter> implements ResetPasswordContract.View {
 
     EditText passwordEt;

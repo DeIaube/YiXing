@@ -1,17 +1,16 @@
 package yixing.dawn.zju.edu.yixing.ui.main;
 
 import android.support.v4.view.ViewPager;
-import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
 import baselib.base.BaseActivity;
-import baselib.config.Constant;
+import baselib.config.Constants;
 import yixing.dawn.zju.edu.yixing.R;
 
-@Route(path = Constant.AROUTER_MAIN)
+@Route(path = Constants.AROUTER_MAIN)
 public class MainActivity extends BaseActivity<MainContract.Presenter> implements MainContract.View{
 
     ViewPager viewPager;
