@@ -11,7 +11,7 @@ import java.util.List;
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.adapter.OrderListAdapter;
 import baselib.base.BaseFragment;
-import baselib.bean.OrderBean;
+import arouter.dawn.zju.edu.lib_net.bean.OrderBean;
 
 public class OrderListFragment extends BaseFragment<OrderListContract.Presenter> implements OrderListContract.View {
 

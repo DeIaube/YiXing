@@ -1,8 +1,8 @@
-package arouter.dawn.zju.edu.module_order.bean;
+package arouter.dawn.zju.edu.lib_net.bean.network;
 
 import java.util.List;
 
-import baselib.bean.OrderBean;
+import arouter.dawn.zju.edu.lib_net.bean.OrderBean;
 
 public class ObtainOrderRespense {
 

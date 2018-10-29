@@ -1,4 +1,4 @@
-package baselib.bean;
+package arouter.dawn.zju.edu.lib_net.bean;
 
 public class OrderBean {
 

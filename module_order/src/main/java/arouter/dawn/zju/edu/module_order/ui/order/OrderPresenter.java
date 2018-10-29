@@ -15,7 +15,7 @@ import arouter.dawn.zju.edu.module_order.adapter.OrderPagerAdapter;
 import arouter.dawn.zju.edu.module_order.config.Constants;
 import arouter.dawn.zju.edu.module_order.ui.order_list.OrderListFragment;
 import baselib.base.BasePresenter;
-import baselib.bean.OrderBean;
+import arouter.dawn.zju.edu.lib_net.bean.OrderBean;
 
 public class OrderPresenter extends BasePresenter<OrderContract.View> implements OrderContract.Presenter {
 
