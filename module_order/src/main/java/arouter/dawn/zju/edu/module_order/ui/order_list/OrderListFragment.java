@@ -18,14 +18,10 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
     RecyclerView recyclerView;
 
     private List<OrderBean> orders;
+    private OrderListAdapter adapter;
 
     public OrderListFragment() {
         orders = new ArrayList<>();
-    }
-
-    @SuppressLint("ValidFragment")
-    public OrderListFragment(List<OrderBean> orders) {
-        this.orders = orders;
     }
 
     @Override
@@ -38,10 +34,15 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
         mPresenter = new OrderListPresenter();
     }
 
+    public void refresh(List<OrderBean> orders) {
+        this.orders = orders;
+        adapter.refresh(orders);
+    }
+
     @Override
     protected void initView(View view) {
         recyclerView = view.findViewById(R.id.order_list_recycler_view);
-        OrderListAdapter adapter = new OrderListAdapter(getContext(), orders);
+        adapter = new OrderListAdapter(getContext(), orders);
         // item回调
         adapter.setOnOrderListClickListener(new OrderListAdapter.OnOrderListClickListener() {
             @Override

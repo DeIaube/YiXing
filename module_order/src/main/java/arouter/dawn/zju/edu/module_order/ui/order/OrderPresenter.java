@@ -1,5 +1,6 @@
 package arouter.dawn.zju.edu.module_order.ui.order;
 
+import android.annotation.SuppressLint;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,31 +12,98 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import arouter.dawn.zju.edu.lib_net.Api;
+import arouter.dawn.zju.edu.lib_net.ApiRequest;
+import arouter.dawn.zju.edu.lib_net.bean.network.ObtainOrderRespense;
 import arouter.dawn.zju.edu.module_order.adapter.OrderPagerAdapter;
 import arouter.dawn.zju.edu.module_order.config.Constants;
 import arouter.dawn.zju.edu.module_order.ui.order_list.OrderListFragment;
 import baselib.base.BasePresenter;
 import arouter.dawn.zju.edu.lib_net.bean.OrderBean;
+import baselib.util.LogUtil;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class OrderPresenter extends BasePresenter<OrderContract.View> implements OrderContract.Presenter {
 
+    private static final String TAG = "OrderPresenter";
+
+    private Map<String, List<OrderBean>> ordersMap;
+    private List<String> titles;
+    private List<Fragment> fragments;
+
+    @SuppressLint("CheckResult")
     @Override
-    public void bindViewPager(FragmentManager fragmentManager, ViewPager viewPager, TabLayout tabLayout) {
-        List<String> titles = new ArrayList<>();
+    public void bindViewPager(final FragmentManager fragmentManager, final ViewPager viewPager, final TabLayout tabLayout) {
+        ordersMap = new HashMap<>();
+        ordersMap.put(Constants.ORDER_TYPE_ALL, new ArrayList<OrderBean>());
+        ordersMap.put(Constants.ORDER_TYPE_PAYMENT, new ArrayList<OrderBean>());
+        ordersMap.put(Constants.ORDER_TYPE_CANCEL, new ArrayList<OrderBean>());
+        ordersMap.put(Constants.ORDER_TYPE_COMPLETE, new ArrayList<OrderBean>());
+
+        titles = new ArrayList<>();
         titles.add("全部");
         titles.add("待付款");
         titles.add("已取消");
         titles.add("已完成");
-        List<Fragment> fragments = new ArrayList<>();
-        Map<String, List<OrderBean>> fakeData = getFakeData();
-        fragments.add(new OrderListFragment(fakeData.get(titles.get(0))));
-        fragments.add(new OrderListFragment(fakeData.get(titles.get(1))));
-        fragments.add(new OrderListFragment(fakeData.get(titles.get(2))));
-        fragments.add(new OrderListFragment(fakeData.get(titles.get(3))));
+
+        fragments = new ArrayList<>();
+        fragments.add(new OrderListFragment());
+        fragments.add(new OrderListFragment());
+        fragments.add(new OrderListFragment());
+        fragments.add(new OrderListFragment());
 
         OrderPagerAdapter adapter = new OrderPagerAdapter(fragmentManager, titles, fragments);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+
+        refresh();
+    }
+
+    @SuppressLint("CheckResult")
+    @Override
+    public void refresh() {
+        mView.showSwipeRefreshLayout();
+        Api api = ApiRequest.getSingle().getApi();
+        api.obtainOrder()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<ObtainOrderRespense>() {
+                    @Override
+                    public void accept(ObtainOrderRespense obtainOrderRespense) throws Exception {
+                        LogUtil.i(TAG, obtainOrderRespense.toString());
+                        mView.hideSwipeRefreshLayout();
+                        List<OrderBean> orders = obtainOrderRespense.getData();
+                        for (List<OrderBean> orderList : ordersMap.values()) {
+                            orderList.clear();
+                        }
+                        for (OrderBean order : orders) {
+                            Objects.requireNonNull(ordersMap.get("全部")).add(order);
+                            Objects.requireNonNull(ordersMap.get(order.getType())).add(order);
+                        }
+                        refreshOrderListFragment();
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        LogUtil.e(TAG, throwable.toString());
+                        mView.showSwipeRefreshLayout();
+                    }
+                });
+    }
+
+    /**
+     * 通过现有数据刷新ViewPager下所有页面
+     */
+    private void refreshOrderListFragment() {
+        for (int i = 0; i < fragments.size(); i++) {
+            Fragment fragment = fragments.get(i);
+            if (fragment instanceof OrderListFragment) {
+                OrderListFragment orderListFragment = (OrderListFragment) fragment;
+                orderListFragment.refresh(ordersMap.get(titles.get(i)));
+            }
+        }
     }
 
     private Map<String, List<OrderBean>> getFakeData() {
@@ -98,12 +166,6 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
             Objects.requireNonNull(map.get(order.getType())).add(order);
         }
         return map;
-    }
-
-    @Override
-    public void refresh() {
-        mView.showSwipeRefreshLayout();
-        // todo 刷新订单情况
     }
 
 }

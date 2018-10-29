@@ -105,6 +105,11 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         }
     }
 
+    public void refresh(List<OrderBean> mOrders) {
+        this.mOrders = mOrders;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return mOrders.size();
