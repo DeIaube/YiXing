@@ -42,6 +42,28 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
     protected void initView(View view) {
         recyclerView = view.findViewById(R.id.order_list_recycler_view);
         OrderListAdapter adapter = new OrderListAdapter(getContext(), orders);
+        // item回调
+        adapter.setOnOrderListClickListener(new OrderListAdapter.OnOrderListClickListener() {
+            @Override
+            public void cancelOrderClickListener(View view, OrderBean orderBean) {
+
+            }
+
+            @Override
+            public void payOrderClickListener(View view, OrderBean orderBean) {
+
+            }
+
+            @Override
+            public void customerServicClickListener(View view, OrderBean orderBean) {
+
+            }
+
+            @Override
+            public void ordelDetailClickListener(View view, OrderBean orderBean) {
+
+            }
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
     }

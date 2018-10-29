@@ -23,6 +23,18 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
     private Context mContext;
     private List<OrderBean> mOrders;
+    private OnOrderListClickListener onOrderListClickListener;
+
+    public interface OnOrderListClickListener {
+        void cancelOrderClickListener(final View view, final OrderBean orderBean);
+        void payOrderClickListener(final View view, final OrderBean orderBean);
+        void customerServicClickListener(final View view, final OrderBean orderBean);
+        void ordelDetailClickListener(final View view, final OrderBean orderBean);
+    }
+
+    public void setOnOrderListClickListener(OnOrderListClickListener onOrderListClickListener) {
+        this.onOrderListClickListener = onOrderListClickListener;
+    }
 
     public OrderListAdapter(Context context, List<OrderBean> orders) {
         this.mContext = context;
@@ -47,6 +59,36 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         holder.goodsTitleTv.setText(order.getGoods_title());
         holder.typeTv.setText(order.getType());
         Picasso.with(mContext).load(order.getGoods_preview()).into(holder.goodsPreviewIv);
+        initListener(holder, position);
+    }
+
+    private void initListener(OrderListHolder holder, final int position) {
+        if (onOrderListClickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onOrderListClickListener.ordelDetailClickListener(v, mOrders.get(position));
+                }
+            });
+            holder.cancelOrderBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onOrderListClickListener.cancelOrderClickListener(v, mOrders.get(position));
+                }
+            });
+            holder.payOrderBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onOrderListClickListener.payOrderClickListener(v, mOrders.get(position));
+                }
+            });
+            holder.customerServiceBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onOrderListClickListener.customerServicClickListener(v, mOrders.get(position));
+                }
+            });
+        }
     }
 
     private void initViewByType(OrderListHolder holder, String type) {
