@@ -23,7 +23,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
     private Context mContext;
     private List<OrderBean> mOrders;
-    private OnOrderListClickListener onOrderListClickListener;
+    private OnOrderListClickListener mOrderListClickListener;
 
     public interface OnOrderListClickListener {
         void cancelOrderClickListener(final View view, final OrderBean orderBean);
@@ -32,8 +32,8 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         void ordelDetailClickListener(final View view, final OrderBean orderBean);
     }
 
-    public void setOnOrderListClickListener(OnOrderListClickListener onOrderListClickListener) {
-        this.onOrderListClickListener = onOrderListClickListener;
+    public void setmOrderListClickListener(OnOrderListClickListener mOrderListClickListener) {
+        this.mOrderListClickListener = mOrderListClickListener;
     }
 
     public OrderListAdapter(Context context, List<OrderBean> orders) {
@@ -63,29 +63,29 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     }
 
     private void initListener(OrderListHolder holder, final int position) {
-        if (onOrderListClickListener != null) {
+        if (mOrderListClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onOrderListClickListener.ordelDetailClickListener(v, mOrders.get(position));
+                    mOrderListClickListener.ordelDetailClickListener(v, mOrders.get(position));
                 }
             });
             holder.cancelOrderBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onOrderListClickListener.cancelOrderClickListener(v, mOrders.get(position));
+                    mOrderListClickListener.cancelOrderClickListener(v, mOrders.get(position));
                 }
             });
             holder.payOrderBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onOrderListClickListener.payOrderClickListener(v, mOrders.get(position));
+                    mOrderListClickListener.payOrderClickListener(v, mOrders.get(position));
                 }
             });
             holder.customerServiceBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onOrderListClickListener.customerServicClickListener(v, mOrders.get(position));
+                    mOrderListClickListener.customerServicClickListener(v, mOrders.get(position));
                 }
             });
         }

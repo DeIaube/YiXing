@@ -29,32 +29,32 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
 
     private static final String TAG = "OrderPresenter";
 
-    private Map<String, List<OrderBean>> ordersMap;
-    private List<String> titles;
-    private List<Fragment> fragments;
+    private Map<String, List<OrderBean>> mOrdersMap;
+    private List<String> mTitles;
+    private List<Fragment> mFragments;
 
     @SuppressLint("CheckResult")
     @Override
     public void bindViewPager(final FragmentManager fragmentManager, final ViewPager viewPager, final TabLayout tabLayout) {
-        ordersMap = new HashMap<>();
-        ordersMap.put(Constants.ORDER_TYPE_ALL, new ArrayList<OrderBean>());
-        ordersMap.put(Constants.ORDER_TYPE_PAYMENT, new ArrayList<OrderBean>());
-        ordersMap.put(Constants.ORDER_TYPE_CANCEL, new ArrayList<OrderBean>());
-        ordersMap.put(Constants.ORDER_TYPE_COMPLETE, new ArrayList<OrderBean>());
+        mOrdersMap = new HashMap<>();
+        mOrdersMap.put(Constants.ORDER_TYPE_ALL, new ArrayList<OrderBean>());
+        mOrdersMap.put(Constants.ORDER_TYPE_PAYMENT, new ArrayList<OrderBean>());
+        mOrdersMap.put(Constants.ORDER_TYPE_CANCEL, new ArrayList<OrderBean>());
+        mOrdersMap.put(Constants.ORDER_TYPE_COMPLETE, new ArrayList<OrderBean>());
 
-        titles = new ArrayList<>();
-        titles.add("全部");
-        titles.add("待付款");
-        titles.add("已取消");
-        titles.add("已完成");
+        mTitles = new ArrayList<>();
+        mTitles.add("全部");
+        mTitles.add("待付款");
+        mTitles.add("已取消");
+        mTitles.add("已完成");
 
-        fragments = new ArrayList<>();
-        fragments.add(new OrderListFragment());
-        fragments.add(new OrderListFragment());
-        fragments.add(new OrderListFragment());
-        fragments.add(new OrderListFragment());
+        mFragments = new ArrayList<>();
+        mFragments.add(new OrderListFragment());
+        mFragments.add(new OrderListFragment());
+        mFragments.add(new OrderListFragment());
+        mFragments.add(new OrderListFragment());
 
-        OrderPagerAdapter adapter = new OrderPagerAdapter(fragmentManager, titles, fragments);
+        OrderPagerAdapter adapter = new OrderPagerAdapter(fragmentManager, mTitles, mFragments);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -75,12 +75,12 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
                         LogUtil.i(TAG, obtainOrderRespense.toString());
                         mView.hideSwipeRefreshLayout();
                         List<OrderBean> orders = obtainOrderRespense.getData();
-                        for (List<OrderBean> orderList : ordersMap.values()) {
+                        for (List<OrderBean> orderList : mOrdersMap.values()) {
                             orderList.clear();
                         }
                         for (OrderBean order : orders) {
-                            Objects.requireNonNull(ordersMap.get("全部")).add(order);
-                            Objects.requireNonNull(ordersMap.get(order.getType())).add(order);
+                            Objects.requireNonNull(mOrdersMap.get("全部")).add(order);
+                            Objects.requireNonNull(mOrdersMap.get(order.getType())).add(order);
                         }
                         refreshOrderListFragment();
                     }
@@ -97,11 +97,11 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
      * 通过现有数据刷新ViewPager下所有页面
      */
     private void refreshOrderListFragment() {
-        for (int i = 0; i < fragments.size(); i++) {
-            Fragment fragment = fragments.get(i);
+        for (int i = 0; i < mFragments.size(); i++) {
+            Fragment fragment = mFragments.get(i);
             if (fragment instanceof OrderListFragment) {
                 OrderListFragment orderListFragment = (OrderListFragment) fragment;
-                orderListFragment.refresh(ordersMap.get(titles.get(i)));
+                orderListFragment.refresh(mOrdersMap.get(mTitles.get(i)));
             }
         }
     }

@@ -1,6 +1,5 @@
 package arouter.dawn.zju.edu.module_order.ui.order_list;
 
-import android.annotation.SuppressLint;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -44,7 +43,7 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
         recyclerView = view.findViewById(R.id.order_list_recycler_view);
         adapter = new OrderListAdapter(getContext(), orders);
         // item回调
-        adapter.setOnOrderListClickListener(new OrderListAdapter.OnOrderListClickListener() {
+        adapter.setmOrderListClickListener(new OrderListAdapter.OnOrderListClickListener() {
             @Override
             public void cancelOrderClickListener(View view, OrderBean orderBean) {
 
