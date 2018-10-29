@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_account.login;
+package arouter.dawn.zju.edu.module_account.ui.login;
 
 import android.view.View;
 import android.widget.EditText;

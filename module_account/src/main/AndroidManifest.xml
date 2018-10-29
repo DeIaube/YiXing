@@ -4,13 +4,13 @@
 
     <application>
         <activity
-            android:name="arouter.dawn.zju.edu.module_account.login.LoginActivity"
+            android:name="arouter.dawn.zju.edu.module_account.ui.login.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="arouter.dawn.zju.edu.module_account.register.RegisterActivity"
+            android:name="arouter.dawn.zju.edu.module_account.ui.register.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name="arouter.dawn.zju.edu.module_account.reset_password.ResetPasswordActivity"
+            android:name="arouter.dawn.zju.edu.module_account.ui.reset_password.ResetPasswordActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
     </application>

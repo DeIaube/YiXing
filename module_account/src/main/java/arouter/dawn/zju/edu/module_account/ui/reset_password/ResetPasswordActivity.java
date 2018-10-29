@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_account.reset_password;
+package arouter.dawn.zju.edu.module_account.ui.reset_password;
 
 import android.view.View;
 import android.widget.EditText;

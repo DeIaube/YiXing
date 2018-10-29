@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_account.register;
+package arouter.dawn.zju.edu.module_account.ui.register;
 
 import baselib.base.BaseContract;
 

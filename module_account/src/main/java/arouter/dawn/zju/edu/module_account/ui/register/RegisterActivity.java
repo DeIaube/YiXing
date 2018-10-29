@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_account.register;
+package arouter.dawn.zju.edu.module_account.ui.register;
 
 import android.annotation.SuppressLint;
 import android.view.View;
