@@ -88,7 +88,8 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
                     @Override
                     public void accept(Throwable throwable) throws Exception {
                         LogUtil.e(TAG, throwable.toString());
-                        mView.showSwipeRefreshLayout();
+                        mView.hideSwipeRefreshLayout();
+                        mView.showNetworkError();
                     }
                 });
     }
