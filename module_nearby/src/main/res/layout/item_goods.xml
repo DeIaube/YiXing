@@ -31,9 +31,11 @@
         android:layout_width="229dp"
         android:layout_height="45dp"
         android:layout_marginStart="23dp"
-        android:text="骄傲是福建安徽房间都是符合设计地方哈积分哈就是地方哈市科技"
+        android:paddingLeft="4dp"
+        android:gravity="center_vertical"
+        android:text="小米8 青春版"
         android:textColor="#101010"
-        android:textSize="15dp"
+        android:textSize="18dp"
         app:layout_constraintStart_toEndOf="@+id/goods_pre"
         app:layout_constraintTop_toBottomOf="@+id/interest_logo" />
 
