@@ -1,7 +1,9 @@
-package arouter.dawn.zju.edu.module_nearby.ui;
+package arouter.dawn.zju.edu.module_nearby.ui.nearby;
 
 
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,10 +18,12 @@ import baselib.util.SPUtil;
 import static android.app.Activity.RESULT_OK;
 
 
-public class NearbyFragment extends BaseFragment {
+public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> implements NearbyContract.View {
 
     TextView searchTv;
     TextView loacationTv;
+    ViewPager viewPager;
+    TabLayout tabLayout;
 
     private static final int REQUEST_CODE_PICK_CITY = 0;
 
@@ -30,13 +34,15 @@ public class NearbyFragment extends BaseFragment {
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new NearbyPresenter();
     }
 
     @Override
     protected void initView(View view) {
         searchTv = view.findViewById(R.id.near_search);
         loacationTv = view.findViewById(R.id.near_location);
+        viewPager = view.findViewById(R.id.neary_view_pager);
+        tabLayout = view.findViewById(R.id.neary_tab_layout);
 
         loacationTv.setText(SPUtil.getString(Constants.LAST_LOCATION, Constants.DEFAULT_LOCATION));
 
@@ -54,6 +60,8 @@ public class NearbyFragment extends BaseFragment {
                 ARouter.getInstance().build(baselib.config.Constants.AROUTER_NEARBY_SEARCH).navigation();
             }
         });
+
+        mPresenter.bindViewPager(getChildFragmentManager(), viewPager, tabLayout);
     }
 
     @Override
