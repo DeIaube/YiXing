@@ -17,12 +17,13 @@ import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.module_nearby.adapter.GoodsListAdapter;
 import baselib.base.BaseFragment;
 
+import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_COMPREHENSIVE;
+import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_DISTANCE;
+import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_PRICE_DOWN;
+import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_PRICE_UP;
+
 public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter> implements GoodsListContract.View, View.OnClickListener {
 
-    private static final int SORT_COMPREHENSIVE = 1;
-    private static final int SORT_PRICE_UP = 2;
-    private static final int SORT_PRICE_DOWN = 3;
-    private static final int SORT_DISTANCE = 4;
 
     RecyclerView recyclerView;
     TextView comprehensiveSortTv;
@@ -91,6 +92,7 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
                 Picasso.with(getContext()).load(R.drawable.select_down).into(priceSortDownIv);
             }
         }
+        mPresenter.checkoutSortGoods(mGoodsList, mCurrentSortType);
     }
 
     @Override
@@ -106,5 +108,10 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
             // 距离排序
             checkoutSort(SORT_DISTANCE);
         }
+    }
+
+    @Override
+    public void updateSortGoodsResult(List<GoodsBean> goodsList) {
+        mAdapter.refresh(goodsList);
     }
 }
