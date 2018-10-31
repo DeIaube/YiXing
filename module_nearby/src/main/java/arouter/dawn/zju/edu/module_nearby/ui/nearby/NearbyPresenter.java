@@ -55,11 +55,12 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
         mFragments.add(new GoodsListFragment());
         mFragments.add(new GoodsListFragment());
         mFragments.add(new GoodsListFragment());
+        mFragments.add(new GoodsListFragment());
 
         NearbyPagerAdapter adapter = new NearbyPagerAdapter(fragmentManager, mTitles, mFragments);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-
+        viewPager.setOffscreenPageLimit(mTitles.size());
         refresh();
     }
 
