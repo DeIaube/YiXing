@@ -1,49 +1,56 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ui.nearby.NearbyFragment">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/near_location"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"
-            android:text="宁波"
-            android:textColor="@color/white"
-            android:textSize="16dp"
-            android:padding="7dp"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp" />
-        
-        <TextView
-            android:id="@+id/near_search"
-            android:layout_marginRight="9dp"
-            android:gravity="center"
-            android:text="给你推荐  我不配做你男朋友"
-            android:background="@drawable/search_bg"
-            android:textColor="#dbdbdb"
-            android:layout_gravity="center_vertical"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
-            android:layout_height="34dp" />
+            android:layout_height="?attr/actionBarSize">
+
+            <TextView
+                android:id="@+id/near_location"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:text="宁波"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:padding="7dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp" />
+
+            <TextView
+                android:id="@+id/near_search"
+                android:layout_marginRight="9dp"
+                android:gravity="center"
+                android:text="给你推荐  我不配做你男朋友"
+                android:background="@drawable/search_bg"
+                android:textColor="#dbdbdb"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="34dp" />
+
+        </LinearLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/neary_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/neary_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/neary_tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/neary_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-</LinearLayout>
+</android.support.v4.widget.SwipeRefreshLayout>
