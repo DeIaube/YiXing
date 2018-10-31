@@ -66,7 +66,7 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
 
         mGoodsList = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAdapter = new GoodsListAdapter(mGoodsList, getContext());
+        mAdapter = new GoodsListAdapter(new ArrayList<GoodsBean>(), getContext());
         recyclerView.setAdapter(mAdapter);
     }
 
