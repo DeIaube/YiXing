@@ -3,6 +3,7 @@ package arouter.dawn.zju.edu.module_nearby.ui.goods_list;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.module_nearby.adapter.GoodsListAdapter;
 import baselib.base.BaseFragment;
 
-public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter> implements GoodsListContract.View {
+public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter> implements GoodsListContract.View, GoodsListAdapter.OnGoodsClickListener {
 
 
     RecyclerView recyclerView;
@@ -43,7 +44,12 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
         mGoodsList = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new GoodsListAdapter(new ArrayList<GoodsBean>(), getContext());
+        mAdapter.setOnGoodsClickListener(this);
         recyclerView.setAdapter(mAdapter);
     }
 
+    @Override
+    public void onGoodsClick(View v, GoodsBean goods) {
+        // todo 商品点击回调
+    }
 }

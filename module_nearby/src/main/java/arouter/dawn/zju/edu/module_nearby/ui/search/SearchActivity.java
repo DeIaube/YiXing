@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -21,7 +22,7 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_NEARBY_SEARCH)
-public class SearchActivity extends BaseActivity<SearchContract.Presenter> implements SearchContract.View {
+public class SearchActivity extends BaseActivity<SearchContract.Presenter> implements SearchContract.View, GoodsListAdapter.OnGoodsClickListener {
 
     RecyclerView searchResultRv;
     GoodsListAdapter adapter;
@@ -32,6 +33,7 @@ public class SearchActivity extends BaseActivity<SearchContract.Presenter> imple
 
         searchResultRv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new GoodsListAdapter(new ArrayList<GoodsBean>(), this);
+        adapter.setOnGoodsClickListener(this);
         searchResultRv.setAdapter(adapter);
     }
 
@@ -84,5 +86,10 @@ public class SearchActivity extends BaseActivity<SearchContract.Presenter> imple
     @Override
     public void refresh(List<GoodsBean> goodsList) {
         adapter.refresh(goodsList);
+    }
+
+    @Override
+    public void onGoodsClick(View v, GoodsBean goods) {
+        // todo 商品点击回调
     }
 }

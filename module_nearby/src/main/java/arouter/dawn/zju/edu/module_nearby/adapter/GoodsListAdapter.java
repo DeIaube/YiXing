@@ -20,6 +20,11 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.Good
 
     List<GoodsBean> mGoodsList;
     Context mContext;
+    OnGoodsClickListener onGoodsClickListener;
+
+    public interface OnGoodsClickListener {
+        void onGoodsClick(View v, GoodsBean goods);
+    }
 
     public GoodsListAdapter(List<GoodsBean> goodsList, Context context) {
         this.mGoodsList = goodsList;
@@ -31,6 +36,9 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.Good
         notifyItemRangeChanged(0, goodsList.size());
     }
 
+    public void setOnGoodsClickListener(OnGoodsClickListener onGoodsClickListener) {
+        this.onGoodsClickListener = onGoodsClickListener;
+    }
 
     @Override
     public GoodsListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -41,11 +49,19 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.Good
     @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(GoodsListHolder holder, int position) {
-        GoodsBean goods = mGoodsList.get(position);
+        final GoodsBean goods = mGoodsList.get(position);
         holder.titleTv.setText(goods.getTitle());
         holder.locationTv.setText(String.format("%s %s", goods.getCity(), goods.getRegion()));
         holder.priceTv.setText(String.format("￥%d", goods.getPrice()));
         Picasso.with(mContext).load(goods.getPreview()).into(holder.preIv);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onGoodsClickListener != null) {
+                    onGoodsClickListener.onGoodsClick(v, goods);
+                }
+            }
+        });
     }
 
     @Override
