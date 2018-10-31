@@ -1,5 +1,8 @@
 package arouter.dawn.zju.edu.module_order.ui.order_list;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.AlertDialogLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -49,7 +52,17 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
         adapter.setmOrderListClickListener(new OrderListAdapter.OnOrderListClickListener() {
             @Override
             public void cancelOrderClickListener(View view, OrderBean orderBean) {
-
+                new AlertDialog.Builder(getContext())
+                        .setTitle(R.string.tips)
+                        .setMessage(R.string.cancellation_of_order)
+                        .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // todo 取消订单
+                            }
+                        })
+                        .setNegativeButton(R.string.cancel, null)
+                        .show();
             }
 
             @Override
