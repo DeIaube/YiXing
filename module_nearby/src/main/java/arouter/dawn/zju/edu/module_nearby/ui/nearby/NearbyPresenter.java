@@ -67,7 +67,7 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
     @SuppressLint("CheckResult")
     @Override
     public void refresh() {
-        mView.showLoading();
+        mView.showSwipeRefreshLayout();
         Api api = ApiRequest.getSingle().getApi();
         api.search()
                 .subscribeOn(Schedulers.io())
@@ -76,7 +76,7 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
                     @Override
                     public void accept(SearchGoodsRespense searchGoodsRespense) throws Exception {
                         LogUtil.i(TAG, searchGoodsRespense.toString());
-                        mView.hideLoading();
+                        mView.hideSwipeRefreshLayout();
                         List<GoodsBean> orders = searchGoodsRespense.getData();
                         for (List<GoodsBean> orderList : mGoodsMap.values()) {
                             orderList.clear();

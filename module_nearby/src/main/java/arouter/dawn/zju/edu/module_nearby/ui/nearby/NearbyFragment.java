@@ -90,4 +90,14 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
             }
         }
     }
+
+    @Override
+    public void showSwipeRefreshLayout() {
+        refreshSrl.setRefreshing(true);
+    }
+
+    @Override
+    public void hideSwipeRefreshLayout() {
+        refreshSrl.setRefreshing(false);
+    }
 }

@@ -9,6 +9,8 @@ import baselib.base.BaseContract;
 public interface NearbyContract {
 
     interface View extends BaseContract.BaseView {
+        void showSwipeRefreshLayout();
+        void hideSwipeRefreshLayout();
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
