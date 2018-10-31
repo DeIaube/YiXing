@@ -1,0 +1,89 @@
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:background="#EAEAEA"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="39dp">
+
+        <TextView
+            android:id="@+id/comprehensive_sort"
+            android:layout_weight="1"
+            android:text="@string/comprehensive_sort"
+            android:gravity="center"
+            android:textColor="@color/gray"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/price_sort_layout"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/price_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:text="@string/price"
+                android:textColor="@color/gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/price_sort_up"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/default_up"
+                app:layout_constraintStart_toEndOf="@+id/price_sort"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/price_sort_down"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/default_down"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/price_sort"
+                app:layout_constraintTop_toBottomOf="@+id/price_sort_up" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/distence_sort"
+            android:layout_weight="1"
+            android:text="@string/nearest"
+            android:gravity="center"
+            android:textColor="@color/gray"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <View
+        android:background="#EAEAEA"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+</LinearLayout>
