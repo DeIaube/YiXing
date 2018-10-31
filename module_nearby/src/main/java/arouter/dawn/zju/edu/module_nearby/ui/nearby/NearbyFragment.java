@@ -4,6 +4,7 @@ package arouter.dawn.zju.edu.module_nearby.ui.nearby;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.TextView;
 
@@ -24,6 +25,9 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
     TextView loacationTv;
     ViewPager viewPager;
     TabLayout tabLayout;
+    SwipeRefreshLayout refreshSrl;
+
+    private String mLocation;
 
     private static final int REQUEST_CODE_PICK_CITY = 0;
 
@@ -43,8 +47,19 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
         loacationTv = view.findViewById(R.id.near_location);
         viewPager = view.findViewById(R.id.neary_view_pager);
         tabLayout = view.findViewById(R.id.neary_tab_layout);
+        refreshSrl = view.findViewById(R.id.refresh_layout);
 
-        loacationTv.setText(SPUtil.getString(Constants.LAST_LOCATION, Constants.DEFAULT_LOCATION));
+        mLocation = SPUtil.getString(Constants.LAST_LOCATION, Constants.DEFAULT_LOCATION);
+
+        refreshSrl.setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
+        refreshSrl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mPresenter.refresh();
+            }
+        });
+
+        loacationTv.setText(mLocation);
 
         loacationTv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,11 +84,10 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_PICK_CITY && resultCode == RESULT_OK){
             if (data != null){
-                String city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
-                loacationTv.setText(city);
-                SPUtil.put(Constants.LAST_LOCATION, city);
+                mLocation = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
+                loacationTv.setText(mLocation);
+                SPUtil.put(Constants.LAST_LOCATION, mLocation);
             }
         }
-
     }
 }
