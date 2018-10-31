@@ -76,7 +76,7 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
         if (result) {
             // 验证码验证成功 进入设置密码页面
             ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_RESET_PASSWORD).
-                    withString(Constants.PHONE_NUMBER, mPhoneNumber).navigation();
+                    withString(Constants.ACCOUNT_PHONE_NUMBER, mPhoneNumber).navigation();
             return;
         }
         // 验证失败

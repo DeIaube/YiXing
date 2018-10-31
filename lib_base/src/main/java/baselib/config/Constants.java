@@ -19,7 +19,7 @@ public interface Constants {
     // Nearby
     String AROUTER_ORDER_EVALUATE = "/order/evaluate";
 
-    String PHONE_NUMBER = "phoneNumber";
+    String ACCOUNT_PHONE_NUMBER = "accountPhoneNumber";
 
     String ORDER_GOODS_TITLE = "orderGoodsTitle";
     String ORDER_GOODS_PREVIEW = "orderGoodsPreview";
