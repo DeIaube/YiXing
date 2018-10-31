@@ -38,6 +38,7 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
 
     public void refresh(List<GoodsBean> goodsList) {
         mGoodsList = goodsList;
+        checkoutSort(mCurrentSortType);
         mAdapter.refresh(mGoodsList);
     }
 
@@ -71,9 +72,6 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
     }
 
     private void checkoutSort(int sortComprehensive) {
-        if (sortComprehensive == mCurrentSortType) {
-            return;
-        }
         mCurrentSortType = sortComprehensive;
         comprehensiveSortTv.setTextColor(getResources().getColor(R.color.grey));
         priceSort.setTextColor(getResources().getColor(R.color.grey));
