@@ -55,7 +55,7 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
             }
 
             @Override
-            public void customerServicClickListener(View view, OrderBean orderBean) {
+            public void orderEvaluateClickListener(View view, OrderBean orderBean) {
 
             }
 

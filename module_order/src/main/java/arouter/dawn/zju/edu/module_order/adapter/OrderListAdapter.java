@@ -28,7 +28,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     public interface OnOrderListClickListener {
         void cancelOrderClickListener(final View view, final OrderBean orderBean);
         void payOrderClickListener(final View view, final OrderBean orderBean);
-        void customerServicClickListener(final View view, final OrderBean orderBean);
+        void orderEvaluateClickListener(final View view, final OrderBean orderBean);
         void ordelDetailClickListener(final View view, final OrderBean orderBean);
     }
 
@@ -82,10 +82,10 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
                     mOrderListClickListener.payOrderClickListener(v, mOrders.get(position));
                 }
             });
-            holder.customerServiceBtn.setOnClickListener(new View.OnClickListener() {
+            holder.orderEvaluateBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mOrderListClickListener.customerServicClickListener(v, mOrders.get(position));
+                    mOrderListClickListener.orderEvaluateClickListener(v, mOrders.get(position));
                 }
             });
         }
@@ -94,7 +94,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     private void initViewByType(OrderListHolder holder, String type) {
         if (type.equals(Constants.ORDER_TYPE_PAYMENT)) {
             // 待付款 隐藏申请售后
-            holder.customerServiceBtn.setVisibility(View.GONE);
+            holder.orderEvaluateBtn.setVisibility(View.GONE);
         } else if (type.equals(Constants.ORDER_TYPE_CANCEL)) {
             // 已取消 隐藏 申请售后 取消订单 立即付款
             holder.buttonLayoutLv.setVisibility(View.GONE);
@@ -125,7 +125,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         TextView realPayNumberTv;
         Button cancelOrderBtn;
         Button payOrderBtn;
-        Button customerServiceBtn;
+        Button orderEvaluateBtn;
         LinearLayout buttonLayoutLv;
 
         OrderListHolder(View itemView) {
@@ -138,7 +138,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             realPayNumberTv = itemView.findViewById(R.id.real_pay_number);
             cancelOrderBtn = itemView.findViewById(R.id.cancel_order);
             payOrderBtn = itemView.findViewById(R.id.pay_order);
-            customerServiceBtn = itemView.findViewById(R.id.customer_service);
+            orderEvaluateBtn = itemView.findViewById(R.id.order_evaluate);
             buttonLayoutLv = itemView.findViewById(R.id.button_layout);
         }
     }
