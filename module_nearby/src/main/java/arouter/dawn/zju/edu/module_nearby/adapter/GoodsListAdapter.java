@@ -28,7 +28,7 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.Good
 
     public void refresh(List<GoodsBean> goodsList) {
         this.mGoodsList = goodsList;
-        notifyDataSetChanged();
+        notifyItemRangeChanged(0, goodsList.size());
     }
 
 
