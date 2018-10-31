@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.squareup.picasso.Picasso;
 
 import arouter.dawn.zju.edu.module_order.R;
 import baselib.base.BaseActivity;
@@ -35,6 +36,8 @@ public class EvaluateActivity extends BaseActivity implements View.OnClickListen
         smileTv.setOnClickListener(this);
         mehTv.setOnClickListener(this);
         frownTv.setOnClickListener(this);
+
+        resetEvaluate();
     }
 
     @Override
@@ -56,11 +59,26 @@ public class EvaluateActivity extends BaseActivity implements View.OnClickListen
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.smile_text || id == R.id.smile_image) {
-
+            resetEvaluate();
+            smileTv.setTextColor(getResources().getColor(R.color.colorPrimary));
+            Picasso.with(this).load(R.drawable.select_smile).into(smileIv);
         } else if (id == R.id.meh_text || id == R.id.meh_image) {
-
+            resetEvaluate();
+            mehTv.setTextColor(getResources().getColor(R.color.colorPrimary));
+            Picasso.with(this).load(R.drawable.select_meh).into(mehIv);
         } else if (id == R.id.frown_text || id == R.id.frown_image) {
-
+            resetEvaluate();
+            frownTv.setTextColor(getResources().getColor(R.color.colorPrimary));
+            Picasso.with(this).load(R.drawable.select_frown).into(frownIv);
         }
+    }
+
+    private void resetEvaluate() {
+        smileTv.setTextColor(getResources().getColor(R.color.grey));
+        Picasso.with(this).load(R.drawable.default_smile).into(smileIv);
+        mehTv.setTextColor(getResources().getColor(R.color.grey));
+        Picasso.with(this).load(R.drawable.default_meh).into(mehIv);
+        frownTv.setTextColor(getResources().getColor(R.color.grey));
+        Picasso.with(this).load(R.drawable.default_frown).into(frownIv);
     }
 }
