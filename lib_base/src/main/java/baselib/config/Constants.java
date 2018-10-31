@@ -16,6 +16,9 @@ public interface Constants {
     // Nearby
     String AROUTER_NEARBY_SEARCH = "/nearby/search";
 
+    // Nearby
+    String AROUTER_ORDER_EVALUATE = "/order/evaluate";
+
     String PHONE_NUMBER = "phoneNumber";
 
 }
