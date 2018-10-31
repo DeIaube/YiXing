@@ -4,6 +4,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,7 @@ import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.adapter.OrderListAdapter;
 import baselib.base.BaseFragment;
 import arouter.dawn.zju.edu.lib_net.bean.OrderBean;
+import baselib.config.Constants;
 
 public class OrderListFragment extends BaseFragment<OrderListContract.Presenter> implements OrderListContract.View {
 
@@ -56,7 +59,7 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
 
             @Override
             public void orderEvaluateClickListener(View view, OrderBean orderBean) {
-
+                ARouter.getInstance().build(Constants.AROUTER_ORDER_EVALUATE).navigation();
             }
 
             @Override
