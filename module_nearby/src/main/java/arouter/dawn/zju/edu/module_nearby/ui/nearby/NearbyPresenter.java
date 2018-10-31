@@ -18,7 +18,7 @@ import arouter.dawn.zju.edu.lib_net.bean.GoodsBean;
 import arouter.dawn.zju.edu.lib_net.bean.network.SearchGoodsRespense;
 import arouter.dawn.zju.edu.module_nearby.adapter.NearbyPagerAdapter;
 import arouter.dawn.zju.edu.module_nearby.config.Constants;
-import arouter.dawn.zju.edu.module_nearby.ui.GoodsListFragment;
+import arouter.dawn.zju.edu.module_nearby.ui.goods_list.GoodsListFragment;
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
 import io.reactivex.android.schedulers.AndroidSchedulers;
