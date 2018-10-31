@@ -10,7 +10,7 @@
     tools:showIn="@layout/activity_evaluate">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/goods_preview"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginStart="10dp"
@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/goods_title"
         android:layout_width="0dp"
         android:layout_height="34dp"
         android:layout_marginStart="16dp"
@@ -27,10 +28,10 @@
         android:gravity="center_vertical"
         android:text="张姐脆皮鸡烤肉拌饭(高新店)"
         android:textColor="#101010"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/goods_preview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toEndOf="@+id/goods_preview"
+        app:layout_constraintTop_toTopOf="@+id/goods_preview" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
@@ -43,7 +44,7 @@
         app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/goods_preview">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -154,7 +155,7 @@
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/appCompatButton"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"

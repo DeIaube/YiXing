@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.squareup.picasso.Picasso;
 
@@ -20,6 +21,18 @@ public class EvaluateActivity extends BaseActivity implements View.OnClickListen
     TextView smileTv;
     TextView mehTv;
     TextView frownTv;
+    ImageView previewIv;
+    TextView titleTv;
+
+    // Constants.ORDER_GOODS_TITLE
+    @Autowired
+    String orderGoodsTitle;
+    // Constans.ORDER_GOODS_PREVIEW
+    @Autowired
+    String orderGoodsPreview;
+    // Constans.ORDER_GOODS_ID
+    @Autowired
+    String orderGoodsId;
 
     @Override
     protected void initView() {
@@ -29,6 +42,11 @@ public class EvaluateActivity extends BaseActivity implements View.OnClickListen
         smileTv = findViewById(R.id.smile_text);
         mehTv = findViewById(R.id.meh_text);
         frownTv = findViewById(R.id.frown_text);
+        previewIv = findViewById(R.id.goods_preview);
+        titleTv = findViewById(R.id.goods_title);
+
+        Picasso.with(this).load(orderGoodsPreview).into(previewIv);
+        titleTv.setText(orderGoodsTitle);
 
         frownIv.setOnClickListener(this);
         mehIv.setOnClickListener(this);

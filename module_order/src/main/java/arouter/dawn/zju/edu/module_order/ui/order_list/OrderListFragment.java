@@ -59,7 +59,11 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
 
             @Override
             public void orderEvaluateClickListener(View view, OrderBean orderBean) {
-                ARouter.getInstance().build(Constants.AROUTER_ORDER_EVALUATE).navigation();
+                ARouter.getInstance().build(Constants.AROUTER_ORDER_EVALUATE)
+                        .withString(Constants.ORDER_GOODS_TITLE, orderBean.getGoods_title())
+                        .withString(Constants.ORDER_GOODS_PREVIEW, orderBean.getGoods_preview())
+                        .withString(Constants.ORDER_GOODS_ID, orderBean.getId())
+                        .navigation();
             }
 
             @Override
