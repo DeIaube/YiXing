@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +34,7 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
     private Map<String, List<GoodsBean>> mGoodsMap;
     private List<String> mTitles;
     private List<Fragment> mFragments;
+    private int mCurrentSortType = Constants.SORT_COMPREHENSIVE;
 
     @SuppressLint("CheckResult")
     @Override
@@ -85,7 +88,7 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
                             Objects.requireNonNull(mGoodsMap.get(Constants.TYPE_ALL)).add(goods);
                             Objects.requireNonNull(mGoodsMap.get(goods.getType())).add(goods);
                         }
-                        refreshGoodsListFragment();
+                        checkoutSortGoods(mCurrentSortType);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -95,6 +98,45 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
                         mView.showNetworkError();
                     }
                 });
+    }
+
+    @Override
+    public void checkoutSortGoods(int sortType) {
+        mCurrentSortType = sortType;
+        Comparator<GoodsBean> comparator = null;
+        if (sortType == Constants.SORT_COMPREHENSIVE) {
+            comparator = new Comparator<GoodsBean>() {
+                @Override
+                public int compare(GoodsBean o1, GoodsBean o2) {
+                    return o1.getId().compareTo(o2.getId());
+                }
+            };
+        } else if (sortType == Constants.SORT_PRICE_DOWN) {
+            comparator = new Comparator<GoodsBean>() {
+                @Override
+                public int compare(GoodsBean o1, GoodsBean o2) {
+                    return o1.getPrice() - o2.getPrice();
+                }
+            };
+        } else if (sortType == Constants.SORT_PRICE_UP) {
+            comparator = new Comparator<GoodsBean>() {
+                @Override
+                public int compare(GoodsBean o1, GoodsBean o2) {
+                    return o2.getPrice() - o1.getPrice();
+                }
+            };
+        } else if (sortType == Constants.SORT_DISTANCE) {
+            comparator = new Comparator<GoodsBean>() {
+                @Override
+                public int compare(GoodsBean o1, GoodsBean o2) {
+                    return 1;
+                }
+            };
+        }
+        for (List<GoodsBean> goodsList : mGoodsMap.values()) {
+            Collections.sort(goodsList, comparator);
+        }
+        refreshGoodsListFragment();
     }
 
     /**

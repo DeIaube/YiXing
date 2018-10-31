@@ -6,9 +6,11 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.squareup.picasso.Picasso;
 import com.zaaach.citypicker.CityPickerActivity;
 
 import arouter.dawn.zju.edu.module_nearby.R;
@@ -17,17 +19,27 @@ import baselib.base.BaseFragment;
 import baselib.util.SPUtil;
 
 import static android.app.Activity.RESULT_OK;
+import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_COMPREHENSIVE;
+import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_DISTANCE;
+import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_PRICE_DOWN;
+import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_PRICE_UP;
 
 
-public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> implements NearbyContract.View {
+public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> implements NearbyContract.View, View.OnClickListener {
 
     TextView searchTv;
     TextView loacationTv;
     ViewPager viewPager;
     TabLayout tabLayout;
     SwipeRefreshLayout refreshSrl;
+    TextView comprehensiveSortTv;
+    TextView priceSort;
+    TextView distanceSortTv;
+    ImageView priceSortUpIv;
+    ImageView priceSortDownIv;
 
     private String mLocation;
+    private int mCurrentSortType = 1;
 
     private static final int REQUEST_CODE_PICK_CITY = 0;
 
@@ -48,6 +60,18 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
         viewPager = view.findViewById(R.id.neary_view_pager);
         tabLayout = view.findViewById(R.id.neary_tab_layout);
         refreshSrl = view.findViewById(R.id.refresh_layout);
+        comprehensiveSortTv = view.findViewById(R.id.comprehensive_sort);
+        priceSort = view.findViewById(R.id.price_sort);
+        distanceSortTv = view.findViewById(R.id.distence_sort);
+        priceSortUpIv = view.findViewById(R.id.price_sort_up);
+        priceSortDownIv = view.findViewById(R.id.price_sort_down);
+
+        mCurrentSortType = Constants.SORT_COMPREHENSIVE;
+        comprehensiveSortTv.setTextColor(getResources().getColor(R.color.colorPrimary));
+
+        view.findViewById(R.id.comprehensive_sort).setOnClickListener(this);
+        view.findViewById(R.id.price_sort_layout).setOnClickListener(this);
+        view.findViewById(R.id.distence_sort).setOnClickListener(this);
 
         mLocation = SPUtil.getString(Constants.LAST_LOCATION, Constants.DEFAULT_LOCATION);
 
@@ -99,5 +123,42 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
     @Override
     public void hideSwipeRefreshLayout() {
         refreshSrl.setRefreshing(false);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.comprehensive_sort) {
+            // 综合排序
+            mCurrentSortType = SORT_COMPREHENSIVE;
+        } else if (id == R.id.price_sort_layout) {
+            // 价格排序
+            mCurrentSortType = mCurrentSortType == SORT_PRICE_UP ? SORT_PRICE_DOWN : SORT_PRICE_UP;
+        } else if (id == R.id.distence_sort) {
+            // 距离排序
+            mCurrentSortType = SORT_DISTANCE;
+        }
+        checkoutSort();
+    }
+
+    private void checkoutSort() {
+        comprehensiveSortTv.setTextColor(getResources().getColor(R.color.grey));
+        priceSort.setTextColor(getResources().getColor(R.color.grey));
+        distanceSortTv.setTextColor(getResources().getColor(R.color.grey));
+        Picasso.with(getContext()).load(R.drawable.default_up).into(priceSortUpIv);
+        Picasso.with(getContext()).load(R.drawable.default_down).into(priceSortDownIv);
+        if (mCurrentSortType == SORT_COMPREHENSIVE) {
+            comprehensiveSortTv.setTextColor(getResources().getColor(R.color.colorPrimary));
+        } else if (mCurrentSortType == SORT_DISTANCE) {
+            distanceSortTv.setTextColor(getResources().getColor(R.color.colorPrimary));
+        } else {
+            priceSort.setTextColor(getResources().getColor(R.color.colorPrimary));
+            if (mCurrentSortType == SORT_PRICE_UP) {
+                Picasso.with(getContext()).load(R.drawable.select_up).into(priceSortUpIv);
+            } else {
+                Picasso.with(getContext()).load(R.drawable.select_down).into(priceSortDownIv);
+            }
+        }
+        mPresenter.checkoutSortGoods(mCurrentSortType);
     }
 }

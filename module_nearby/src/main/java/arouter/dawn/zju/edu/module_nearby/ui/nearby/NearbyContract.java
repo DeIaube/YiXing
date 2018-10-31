@@ -17,6 +17,7 @@ public interface NearbyContract {
         void bindViewPager(FragmentManager fragmentManager, ViewPager viewPager,
                            TabLayout tabLayout);
         void refresh();
+        void checkoutSortGoods(int sortType);
     }
 
 }
