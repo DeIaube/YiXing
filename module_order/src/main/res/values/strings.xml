@@ -1,3 +1,7 @@
 <resources>
-
+    <string name="evaluate">评价</string>
+    <string name="goods_evaluation">商品评价</string>
+    <string name="meh_evaluation">一般</string>
+    <string name="frown_evaluation">不咋滴</string>
+    <string name="smile_evaluation">超赞</string>
 </resources>
