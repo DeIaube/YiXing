@@ -21,7 +21,8 @@ public interface Constants {
 
     String PHONE_NUMBER = "phoneNumber";
 
-    String ORDER_GOODS_TITLE = "orderGoodsPreview";
+    String ORDER_GOODS_TITLE = "orderGoodsTitle";
     String ORDER_GOODS_PREVIEW = "orderGoodsPreview";
+    String ORDER_GOODS_ID = "orderGoodsId";
 
 }
