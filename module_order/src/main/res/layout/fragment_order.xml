@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<arouter.dawn.zju.edu.module_order.ui.view.PagerSwipeRefreshLayout android:id="@+id/order_refresh_layout"
+<baselib.view.PagerSwipeRefreshLayout android:id="@+id/order_refresh_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -38,4 +38,4 @@
 
     </LinearLayout>
 
-</arouter.dawn.zju.edu.module_order.ui.view.PagerSwipeRefreshLayout>
+</baselib.view.PagerSwipeRefreshLayout>
