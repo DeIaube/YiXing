@@ -11,7 +11,7 @@ public interface RegisterContract {
 
     interface Presenter extends BaseContract.BasePresenter<View> {
         void verificationCode(final String phoneNumber, final String code);
-        void getCode();
+        void getCode(String phoneNumber);
     }
 
 }

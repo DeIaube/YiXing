@@ -49,7 +49,7 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
             mPhoneNumber = phoneNumberEt.getText().toString();
             mPresenter.verificationCode(mPhoneNumber, verificationCodeEt.getText().toString());
         } else if (id == R.id.register_get_verification_code) {
-            mPresenter.getCode();
+            mPresenter.getCode(phoneNumberEt.getText().toString());
         }
     }
 
