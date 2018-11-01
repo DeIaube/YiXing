@@ -11,5 +11,5 @@
     <string name="about_project">关于项目</string>
     <string name="share_to">分享至...</string>
     <string name="share_content">万众艺兴</string>
-    <string name="title_activity_collection">CollectionActivity</string>
+    <string name="title_activity_collection">我的收藏</string>
 </resources>

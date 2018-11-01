@@ -28,6 +28,7 @@ public interface Constants {
 
     // Setting
     String AROUTER_SETTING_MINE = "/setting/mine";
+    String AROUTER_SETTING_COLLECTION = "/setting/collection";
 
     String ACCOUNT_PHONE_NUMBER = "accountPhoneNumber";
 
