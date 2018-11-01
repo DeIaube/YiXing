@@ -17,26 +17,26 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.config.Constants;
-import arouter.dawn.zju.edu.lib_net.bean.OrderBean;
+import baselib.bean.Order;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.OrderListHolder> {
 
     private Context mContext;
-    private List<OrderBean> mOrders;
+    private List<Order> mOrders;
     private OnOrderListClickListener mOrderListClickListener;
 
     public interface OnOrderListClickListener {
-        void cancelOrderClickListener(final View view, final OrderBean orderBean);
-        void payOrderClickListener(final View view, final OrderBean orderBean);
-        void orderEvaluateClickListener(final View view, final OrderBean orderBean);
-        void ordelDetailClickListener(final View view, final OrderBean orderBean);
+        void cancelOrderClickListener(final View view, final Order orderBean);
+        void payOrderClickListener(final View view, final Order orderBean);
+        void orderEvaluateClickListener(final View view, final Order orderBean);
+        void ordelDetailClickListener(final View view, final Order orderBean);
     }
 
     public void setmOrderListClickListener(OnOrderListClickListener mOrderListClickListener) {
         this.mOrderListClickListener = mOrderListClickListener;
     }
 
-    public OrderListAdapter(Context context, List<OrderBean> orders) {
+    public OrderListAdapter(Context context, List<Order> orders) {
         this.mContext = context;
         this.mOrders = orders;
     }
@@ -51,14 +51,16 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(OrderListHolder holder, int position) {
-        OrderBean order = mOrders.get(position);
+        Order order = mOrders.get(position);
         initViewByType(holder, order.getType());
-        holder.createTimeTv.setText(order.getCreate_time());
-        holder.payNumberTv.setText(String.format("￥ %d", order.getPay()));
-        holder.realPayNumberTv.setText(String.format("￥ %d", order.getPay()));
-        holder.goodsTitleTv.setText(order.getGoods_title());
+        holder.createTimeTv.setText(String.
+                format("%d-%d-%d", order.getCreatedAt().getYear(),
+                        order.getCreatedAt().getMonth(), order.getCreatedAt().getDay()));
+        holder.payNumberTv.setText(String.format("￥ %.2f", order.getPay()));
+        holder.realPayNumberTv.setText(String.format("￥ %.2f", order.getPay()));
+        holder.goodsTitleTv.setText(order.getTitle());
         holder.typeTv.setText(order.getType());
-        Picasso.with(mContext).load(order.getGoods_preview()).into(holder.goodsPreviewIv);
+        Picasso.with(mContext).load(order.getPreview()).into(holder.goodsPreviewIv);
         initListener(holder, position);
     }
 
@@ -105,7 +107,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         }
     }
 
-    public void refresh(List<OrderBean> mOrders) {
+    public void refresh(List<Order> mOrders) {
         this.mOrders = mOrders;
         notifyDataSetChanged();
     }

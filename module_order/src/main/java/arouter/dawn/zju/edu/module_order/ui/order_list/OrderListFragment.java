@@ -17,6 +17,7 @@ import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.adapter.OrderListAdapter;
 import baselib.base.BaseFragment;
 import arouter.dawn.zju.edu.lib_net.bean.OrderBean;
+import baselib.bean.Order;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_ORDER_LIST)
@@ -24,7 +25,7 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
 
     RecyclerView recyclerView;
 
-    private List<OrderBean> orders;
+    private List<Order> orders;
     private OrderListAdapter adapter;
 
     public OrderListFragment() {
@@ -41,7 +42,7 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
         mPresenter = new OrderListPresenter();
     }
 
-    public void refresh(List<OrderBean> orders) {
+    public void refresh(List<Order> orders) {
         this.orders = orders;
         adapter.refresh(orders);
     }
@@ -53,7 +54,7 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
         // item回调
         adapter.setmOrderListClickListener(new OrderListAdapter.OnOrderListClickListener() {
             @Override
-            public void cancelOrderClickListener(View view, OrderBean orderBean) {
+            public void cancelOrderClickListener(View view, Order orderBean) {
                 new AlertDialog.Builder(getContext())
                         .setTitle(R.string.tips)
                         .setMessage(R.string.cancellation_of_order)
@@ -68,21 +69,21 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
             }
 
             @Override
-            public void payOrderClickListener(View view, OrderBean orderBean) {
+            public void payOrderClickListener(View view, Order orderBean) {
 
             }
 
             @Override
-            public void orderEvaluateClickListener(View view, OrderBean orderBean) {
+            public void orderEvaluateClickListener(View view, Order orderBean) {
                 ARouter.getInstance().build(Constants.AROUTER_ORDER_EVALUATE)
-                        .withString(Constants.ORDER_GOODS_TITLE, orderBean.getGoods_title())
-                        .withString(Constants.ORDER_GOODS_PREVIEW, orderBean.getGoods_preview())
-                        .withString(Constants.ORDER_GOODS_ID, orderBean.getId())
+                        .withString(Constants.ORDER_GOODS_TITLE, orderBean.getTitle())
+                        .withString(Constants.ORDER_GOODS_PREVIEW, orderBean.getPreview())
+                        .withString(Constants.ORDER_GOODS_ID, orderBean.getObjectId())
                         .navigation();
             }
 
             @Override
-            public void ordelDetailClickListener(View view, OrderBean orderBean) {
+            public void ordelDetailClickListener(View view, Order orderBean) {
 
             }
         });

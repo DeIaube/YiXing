@@ -6,30 +6,29 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.FindCallback;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import arouter.dawn.zju.edu.lib_net.Api;
-import arouter.dawn.zju.edu.lib_net.ApiRequest;
-import arouter.dawn.zju.edu.lib_net.bean.network.ObtainOrderRespense;
 import arouter.dawn.zju.edu.module_order.adapter.OrderPagerAdapter;
 import arouter.dawn.zju.edu.module_order.config.Constants;
 import arouter.dawn.zju.edu.module_order.ui.order_list.OrderListFragment;
 import baselib.base.BasePresenter;
 import arouter.dawn.zju.edu.lib_net.bean.OrderBean;
+import baselib.bean.Order;
 import baselib.util.LogUtil;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 public class OrderPresenter extends BasePresenter<OrderContract.View> implements OrderContract.Presenter {
 
     private static final String TAG = "OrderPresenter";
 
-    private Map<String, List<OrderBean>> mOrdersMap;
+    private Map<String, List<Order>> mOrdersMap;
     private List<String> mTitles;
     private List<Fragment> mFragments;
 
@@ -37,10 +36,10 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
     @Override
     public void bindViewPager(final FragmentManager fragmentManager, final ViewPager viewPager, final TabLayout tabLayout) {
         mOrdersMap = new HashMap<>();
-        mOrdersMap.put(Constants.ORDER_TYPE_ALL, new ArrayList<OrderBean>());
-        mOrdersMap.put(Constants.ORDER_TYPE_PAYMENT, new ArrayList<OrderBean>());
-        mOrdersMap.put(Constants.ORDER_TYPE_CANCEL, new ArrayList<OrderBean>());
-        mOrdersMap.put(Constants.ORDER_TYPE_COMPLETE, new ArrayList<OrderBean>());
+        mOrdersMap.put(Constants.ORDER_TYPE_ALL, new ArrayList<Order>());
+        mOrdersMap.put(Constants.ORDER_TYPE_PAYMENT, new ArrayList<Order>());
+        mOrdersMap.put(Constants.ORDER_TYPE_CANCEL, new ArrayList<Order>());
+        mOrdersMap.put(Constants.ORDER_TYPE_COMPLETE, new ArrayList<Order>());
 
         mTitles = new ArrayList<>();
         mTitles.add("全部");
@@ -65,33 +64,28 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
     @Override
     public void refresh() {
         mView.showSwipeRefreshLayout();
-        Api api = ApiRequest.getSingle().getApi();
-        api.obtainOrder()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<ObtainOrderRespense>() {
-                    @Override
-                    public void accept(ObtainOrderRespense obtainOrderRespense) throws Exception {
-                        LogUtil.i(TAG, obtainOrderRespense.toString());
-                        mView.hideSwipeRefreshLayout();
-                        List<OrderBean> orders = obtainOrderRespense.getData();
-                        for (List<OrderBean> orderList : mOrdersMap.values()) {
-                            orderList.clear();
-                        }
-                        for (OrderBean order : orders) {
-                            Objects.requireNonNull(mOrdersMap.get("全部")).add(order);
-                            Objects.requireNonNull(mOrdersMap.get(order.getType())).add(order);
-                        }
-                        refreshOrderListFragment();
+
+        AVQuery<Order> query = Order.getQuery(Order.class);
+        query.findInBackground(new FindCallback<Order>() {
+            @Override
+            public void done(List<Order> list, AVException e) {
+                mView.hideSwipeRefreshLayout();
+                if (e == null) {
+                    LogUtil.i(TAG, list.toString());
+                    for (List<Order> orderList : mOrdersMap.values()) {
+                        orderList.clear();
                     }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        LogUtil.e(TAG, throwable.toString());
-                        mView.hideSwipeRefreshLayout();
-                        mView.showNetworkError();
+                    for (Order order : list) {
+                        Objects.requireNonNull(mOrdersMap.get("全部")).add(order);
+                        Objects.requireNonNull(mOrdersMap.get(order.getType())).add(order);
                     }
-                });
+                    refreshOrderListFragment();
+                } else {
+                    LogUtil.e(TAG, e.toString());
+                    mView.showNetworkError();
+                }
+            }
+        });
     }
 
     /**
