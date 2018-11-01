@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.TextView;
 
@@ -90,6 +91,11 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             startActivity(shareIntent.createChooser(shareIntent, getString(R.string.share_to)));
         } else if (id == R.id.cooperate_layout) {
             // 点击与我合作
+            new AlertDialog.Builder(getContext())
+                    .setTitle(getString(R.string.tips))
+                    .setMessage(getString(R.string.github_mine))
+                    .setPositiveButton(R.string.confirm, null)
+                    .show();
         } else if (id == R.id.about_layout) {
             // 点击关于项目
         } else if (id == R.id.github_layout) {
