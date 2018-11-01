@@ -5,6 +5,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.avos.avoscloud.AVOSCloud;
 
 import baselib.config.Constants;
 import baselib.util.SPUtil;
@@ -26,7 +27,7 @@ public class App extends Application {
             ARouter.openDebug();
             ARouter.openLog();
         }
-        Log.e("aaaa", "ARouter.init(this)");
+        AVOSCloud.initialize(this,"otc2yunsXXUGetz84g9NM9eX-gzGzoHsz","woIpcGUxFiOUevOnNXfiadcG");
         ARouter.init(this);
         SPUtil.init(this);
     }
