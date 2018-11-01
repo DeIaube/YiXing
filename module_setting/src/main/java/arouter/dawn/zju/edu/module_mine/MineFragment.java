@@ -81,5 +81,19 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         } else if (id == R.id.github_layout) {
             // 点击项目源码
         }
+        showBtnShadow(v);
+    }
+
+    private void showBtnShadow(final View v) {
+        v.animate()
+                .translationZ(15f).setDuration(300)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                        v.animate()
+                                .translationZ(1.0f).setDuration(500);
+                    }
+                }).start();
     }
 }
