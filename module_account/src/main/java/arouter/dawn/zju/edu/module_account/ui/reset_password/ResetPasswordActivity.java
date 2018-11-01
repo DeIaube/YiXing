@@ -16,15 +16,14 @@ public class ResetPasswordActivity extends BaseActivity<ResetPasswordPresenter> 
     EditText passwordEt;
     EditText rePasswordEt;
 
-    // Constants.ACCOUNT_PHONE_NUMBER
-    @Autowired
-    String accountPhoneNumber;
+    @Autowired(name = Constants.ACCOUNT_PHONE_NUMBER)
+    String phoneNumber;
 
     @Override
     protected void initView() {
         passwordEt = findViewById(R.id.reset_password_password_et);
         rePasswordEt = findViewById(R.id.reset_password_repassword_et);
-        showMessage(accountPhoneNumber);
+        showMessage(phoneNumber);
     }
 
     @Override
@@ -40,7 +39,7 @@ public class ResetPasswordActivity extends BaseActivity<ResetPasswordPresenter> 
     public void onViewClicked(View view) {
         int id = view.getId();
         if (id == R.id.reset_password_submit) {
-            mPresenter.resetPassword(accountPhoneNumber,
+            mPresenter.resetPassword(phoneNumber,
                     passwordEt.getText().toString(), rePasswordEt.getText().toString());
         }
     }

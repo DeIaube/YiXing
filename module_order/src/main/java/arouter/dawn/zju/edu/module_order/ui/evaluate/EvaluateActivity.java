@@ -24,15 +24,12 @@ public class EvaluateActivity extends BaseActivity implements View.OnClickListen
     ImageView previewIv;
     TextView titleTv;
 
-    // Constants.ORDER_GOODS_TITLE
-    @Autowired
-    String orderGoodsTitle;
-    // Constans.ORDER_GOODS_PREVIEW
-    @Autowired
-    String orderGoodsPreview;
-    // Constans.ORDER_GOODS_ID
-    @Autowired
-    String orderGoodsId;
+    @Autowired(name = Constants.ORDER_GOODS_TITLE)
+    String goodsTitle;
+    @Autowired(name = Constants.ORDER_GOODS_TITLE)
+    String goodsPreview;
+    @Autowired(name = Constants.ORDER_GOODS_ID)
+    String goodsId;
 
     @Override
     protected void initView() {
@@ -45,8 +42,8 @@ public class EvaluateActivity extends BaseActivity implements View.OnClickListen
         previewIv = findViewById(R.id.goods_preview);
         titleTv = findViewById(R.id.goods_title);
 
-        Picasso.with(this).load(orderGoodsPreview).into(previewIv);
-        titleTv.setText(orderGoodsTitle);
+        Picasso.with(this).load(goodsPreview).into(previewIv);
+        titleTv.setText(goodsTitle);
 
         frownIv.setOnClickListener(this);
         mehIv.setOnClickListener(this);
