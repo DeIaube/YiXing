@@ -50,7 +50,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         view.findViewById(R.id.collection_layout).setOnClickListener(this);
         view.findViewById(R.id.integral_mall_layout).setOnClickListener(this);
         view.findViewById(R.id.sign_in_obtain_cash_coupon_layout).setOnClickListener(this);
-        view.findViewById(R.id.customer_service_layout).setOnClickListener(this);
+        view.findViewById(R.id.feedback).setOnClickListener(this);
         view.findViewById(R.id.share_layout).setOnClickListener(this);
         view.findViewById(R.id.cooperate_layout).setOnClickListener(this);
         view.findViewById(R.id.about_layout).setOnClickListener(this);
@@ -81,8 +81,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             // 点击积分商城
         } else if (id == R.id.sign_in_obtain_cash_coupon_layout) {
             // 点击签到领券
-        } else if (id == R.id.customer_service_layout) {
-            // 点击客服中心
+        } else if (id == R.id.feedback) {
+            // 点击问题反馈
         } else if (id == R.id.share_layout) {
             // 点击分享好友
             Intent shareIntent = new Intent();
