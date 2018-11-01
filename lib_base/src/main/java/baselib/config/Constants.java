@@ -5,6 +5,9 @@ public interface Constants {
     // isDebug
     boolean isDebug = true;
 
+    String CLOUD_APPLICATION_ID = "otc2yunsXXUGetz84g9NM9eX-gzGzoHsz";
+    String CLOUD_CLIENT_LEY = "woIpcGUxFiOUevOnNXfiadcG";
+
     // App
     String AROUTER_APP_MAIN = "/app/main_main";
 

@@ -31,7 +31,7 @@ public class App extends Application {
         }
         AVObject.registerSubclass(Goods.class);
         AVObject.registerSubclass(Order.class);
-        AVOSCloud.initialize(this,"otc2yunsXXUGetz84g9NM9eX-gzGzoHsz","woIpcGUxFiOUevOnNXfiadcG");
+        AVOSCloud.initialize(this,Constants.CLOUD_APPLICATION_ID,Constants.CLOUD_CLIENT_LEY);
         ARouter.init(this);
         SPUtil.init(this);
     }
