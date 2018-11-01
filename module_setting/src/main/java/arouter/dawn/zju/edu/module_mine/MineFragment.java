@@ -6,8 +6,12 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
-import baselib.base.BaseFragment;
+import com.alibaba.android.arouter.facade.annotation.Route;
 
+import baselib.base.BaseFragment;
+import baselib.config.Constants;
+
+@Route(path = Constants.AROUTER_SETTING_MINE)
 public class MineFragment extends BaseFragment implements View.OnClickListener {
 
     // 钱包余额 0.00元

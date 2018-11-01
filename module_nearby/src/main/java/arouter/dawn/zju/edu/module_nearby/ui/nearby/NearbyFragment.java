@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.squareup.picasso.Picasso;
 import com.zaaach.citypicker.CityPickerActivity;
@@ -24,7 +25,7 @@ import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_DISTANCE;
 import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_PRICE_DOWN;
 import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_PRICE_UP;
 
-
+@Route(path = baselib.config.Constants.AROUTER_NEARBY_NEARBY)
 public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> implements NearbyContract.View, View.OnClickListener {
 
     TextView searchTv;

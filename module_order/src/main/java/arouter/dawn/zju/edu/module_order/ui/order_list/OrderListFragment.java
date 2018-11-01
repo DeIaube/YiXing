@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import baselib.base.BaseFragment;
 import arouter.dawn.zju.edu.lib_net.bean.OrderBean;
 import baselib.config.Constants;
 
+@Route(path = Constants.AROUTER_ORDER_LIST)
 public class OrderListFragment extends BaseFragment<OrderListContract.Presenter> implements OrderListContract.View {
 
     RecyclerView recyclerView;
