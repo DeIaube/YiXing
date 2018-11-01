@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_mine;
+package arouter.dawn.zju.edu.module_mine.ui.collection;
 
 import java.util.List;
 

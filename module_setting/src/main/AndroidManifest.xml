@@ -4,11 +4,11 @@
 
     <application>
         <activity
-            android:name=".CollectionActivity"
+            android:name=".ui.collection.CollectionActivity"
             android:label="@string/title_activity_collection"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".FeedbackActivity"
+            android:name=".ui.feedback.FeedbackActivity"
             android:label="@string/title_activity_feedback"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

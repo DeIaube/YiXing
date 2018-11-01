@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_mine;
+package arouter.dawn.zju.edu.module_mine.ui.collection;
 
 
 import android.support.v4.app.Fragment;
@@ -8,6 +8,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import java.util.List;
 
+import arouter.dawn.zju.edu.module_mine.R;
 import baselib.base.BaseActivity;
 import baselib.bean.Goods;
 import baselib.callback.GoodsListRefreshCallback;

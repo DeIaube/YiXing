@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_mine;
+package arouter.dawn.zju.edu.module_mine.ui.feedback;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
+import arouter.dawn.zju.edu.module_mine.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
