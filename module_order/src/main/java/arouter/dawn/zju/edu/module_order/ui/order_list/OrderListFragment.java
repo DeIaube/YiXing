@@ -16,7 +16,6 @@ import java.util.List;
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.adapter.OrderListAdapter;
 import baselib.base.BaseFragment;
-import arouter.dawn.zju.edu.lib_net.bean.OrderBean;
 import baselib.bean.Order;
 import baselib.config.Constants;
 
