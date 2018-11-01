@@ -10,11 +10,10 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import java.util.ArrayList;
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.GoodsBean;
 import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.module_nearby.adapter.GoodsListAdapter;
 import baselib.base.BaseFragment;
-import baselib.bean.AVGoods;
+import baselib.bean.Goods;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_NEARBY_GOODS_LIST)
@@ -23,10 +22,10 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
 
     RecyclerView recyclerView;
 
-    private List<AVGoods> mGoodsList;
+    private List<Goods> mGoodsList;
     private GoodsListAdapter mAdapter;
 
-    public void refresh(List<AVGoods> goodsList) {
+    public void refresh(List<Goods> goodsList) {
         mGoodsList = goodsList;
         mAdapter.refresh(mGoodsList);
     }
@@ -47,13 +46,13 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
 
         mGoodsList = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAdapter = new GoodsListAdapter(new ArrayList<AVGoods>(), getContext());
+        mAdapter = new GoodsListAdapter(new ArrayList<Goods>(), getContext());
         mAdapter.setOnGoodsClickListener(this);
         recyclerView.setAdapter(mAdapter);
     }
 
     @Override
-    public void onGoodsClick(View v, AVGoods goods) {
+    public void onGoodsClick(View v, Goods goods) {
         // todo 商品点击回调
     }
 }

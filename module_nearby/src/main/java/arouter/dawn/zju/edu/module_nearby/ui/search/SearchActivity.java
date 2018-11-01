@@ -8,18 +8,16 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.GoodsBean;
 import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.module_nearby.adapter.GoodsListAdapter;
 import baselib.base.BaseActivity;
-import baselib.bean.AVGoods;
+import baselib.bean.Goods;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_NEARBY_SEARCH)
@@ -33,7 +31,7 @@ public class SearchActivity extends BaseActivity<SearchContract.Presenter> imple
         searchResultRv = findViewById(R.id.search_result_list);
 
         searchResultRv.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new GoodsListAdapter(new ArrayList<AVGoods>(), this);
+        adapter = new GoodsListAdapter(new ArrayList<Goods>(), this);
         adapter.setOnGoodsClickListener(this);
         searchResultRv.setAdapter(adapter);
     }
@@ -85,12 +83,12 @@ public class SearchActivity extends BaseActivity<SearchContract.Presenter> imple
     }
 
     @Override
-    public void refresh(List<AVGoods> goodsList) {
+    public void refresh(List<Goods> goodsList) {
         adapter.refresh(goodsList);
     }
 
     @Override
-    public void onGoodsClick(View v, AVGoods goods) {
+    public void onGoodsClick(View v, Goods goods) {
         // todo 商品点击回调
     }
 }

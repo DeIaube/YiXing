@@ -8,14 +8,9 @@ import com.avos.avoscloud.FindCallback;
 
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.ApiRequest;
-import arouter.dawn.zju.edu.lib_net.bean.network.SearchGoodsRespense;
 import baselib.base.BasePresenter;
-import baselib.bean.AVGoods;
+import baselib.bean.Goods;
 import baselib.util.LogUtil;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 public class SearchPresenter extends BasePresenter<SearchContract.View> implements SearchContract.Presenter {
 
@@ -25,10 +20,10 @@ public class SearchPresenter extends BasePresenter<SearchContract.View> implemen
     @Override
     public void search(String word) {
         mView.showLoading();
-        AVQuery<AVGoods> query = AVGoods.getQuery(AVGoods.class);
-        query.findInBackground(new FindCallback<AVGoods>() {
+        AVQuery<Goods> query = Goods.getQuery(Goods.class);
+        query.findInBackground(new FindCallback<Goods>() {
             @Override
-            public void done(List<AVGoods> list, AVException e) {
+            public void done(List<Goods> list, AVException e) {
                 mView.hideLoading();
                 if (e == null) {
                     LogUtil.i(TAG, list.toString());

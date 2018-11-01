@@ -4,7 +4,7 @@ import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;
 
 @AVClassName("Goods")
-public class AVGoods extends AVObject {
+public class Goods extends AVObject {
 
     /**
      * preview : http://attach.bbs.miui.com/forum/201805/31/181909by8vfl4gxglq8z9h.jpg
