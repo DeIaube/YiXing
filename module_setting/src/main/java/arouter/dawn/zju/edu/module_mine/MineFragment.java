@@ -83,6 +83,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             // 点击签到领券
         } else if (id == R.id.feedback) {
             // 点击问题反馈
+            ARouter.getInstance().build(Constants.AROUTER_SETTING_FEEDBACK).navigation();
         } else if (id == R.id.share_layout) {
             // 点击分享好友
             Intent shareIntent = new Intent();

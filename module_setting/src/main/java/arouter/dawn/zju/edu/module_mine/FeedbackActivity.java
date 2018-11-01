@@ -7,6 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
+import baselib.config.Constants;
+
+@Route(path = Constants.AROUTER_SETTING_FEEDBACK)
 public class FeedbackActivity extends AppCompatActivity {
 
     @Override
