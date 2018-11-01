@@ -9,6 +9,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import java.util.ArrayList;
 import java.util.List;
 
+import arouter.dawn.zju.edu.module_mine.MineFragment;
 import arouter.dawn.zju.edu.module_nearby.ui.nearby.NearbyFragment;
 import arouter.dawn.zju.edu.module_order.ui.order.OrderFragment;
 import baselib.base.BasePresenter;
@@ -36,7 +37,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
         fragments.add(new NearbyFragment());
         fragments.add(new TestFragment());
         fragments.add(new OrderFragment());
-        fragments.add(new TestFragment());
+        fragments.add(new MineFragment());
         MainPagerAdapter mPagerAdapter = new MainPagerAdapter(fragmentManager, fragments);
         viewPager.setAdapter(mPagerAdapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
