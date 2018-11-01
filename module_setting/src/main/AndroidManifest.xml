@@ -1,2 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="arouter.dawn.zju.edu.module_mine" />
+    package="arouter.dawn.zju.edu.module_mine">
+
+    <application>
+        <activity
+            android:name=".CollectionActivity"
+            android:label="@string/title_activity_collection"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
+
+</manifest>
