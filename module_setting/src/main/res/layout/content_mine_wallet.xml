@@ -1,6 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="82dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/wallet_layout"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/wallet_balance"
+            android:gravity="center_horizontal|bottom"
+            android:text="0.00元"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:gravity="center_horizontal|top"
+            android:text="钱包"
+            android:textSize="14dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0.5dp"
+        android:background="#f2f2f2"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/cash_coupon_layout"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/cash_coupon_balance"
+            android:gravity="center_horizontal|bottom"
+            android:text="6个"
+            android:layout_weight="1"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:gravity="center_horizontal|top"
+            android:text="代金券"
+            android:textSize="16dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0.5dp"
+        android:background="#f2f2f2"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/integral_layout"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/integral_balance"
+            android:gravity="center_horizontal|bottom"
+            android:text="0个"
+            android:layout_weight="1"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:gravity="center_horizontal|top"
+            android:text="积分"
+            android:textSize="16dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+    </LinearLayout>
 
 </LinearLayout>
