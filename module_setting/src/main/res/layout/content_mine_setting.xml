@@ -58,7 +58,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/cash_coupon_layout"
+        android:id="@+id/sign_in_obtain_cash_coupon_layout"
         android:background="@color/white"
         android:orientation="horizontal"
         android:layout_width="match_parent"
