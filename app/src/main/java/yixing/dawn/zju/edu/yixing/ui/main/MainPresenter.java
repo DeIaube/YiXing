@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import arouter.dawn.zju.edu.module_mine.MineFragment;
 import arouter.dawn.zju.edu.module_nearby.ui.nearby.NearbyFragment;
 import arouter.dawn.zju.edu.module_order.ui.order.OrderFragment;
 import baselib.base.BasePresenter;
+import baselib.config.Constants;
 import yixing.dawn.zju.edu.yixing.ui.TestFragment;
 import yixing.dawn.zju.edu.yixing.adapter.MainPagerAdapter;
 
@@ -34,10 +36,13 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
                               final BottomNavigationBar bottomNavigationBar) {
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new TestFragment());
-        fragments.add(new NearbyFragment());
+        fragments.add((Fragment) ARouter.getInstance().
+                build(Constants.AROUTER_NEARBY_NEARBY).navigation());
         fragments.add(new TestFragment());
-        fragments.add(new OrderFragment());
-        fragments.add(new MineFragment());
+        fragments.add((Fragment) ARouter.getInstance().
+                build(Constants.AROUTER_ORDER_ORDER).navigation());
+        fragments.add((Fragment) ARouter.getInstance().
+                build(Constants.AROUTER_SETTING_MINE).navigation());
         MainPagerAdapter mPagerAdapter = new MainPagerAdapter(fragmentManager, fragments);
         viewPager.setAdapter(mPagerAdapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
