@@ -14,10 +14,11 @@ import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.module_nearby.adapter.GoodsListAdapter;
 import baselib.base.BaseFragment;
 import baselib.bean.Goods;
+import baselib.callback.GoodsListRefreshCallback;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_NEARBY_GOODS_LIST)
-public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter> implements GoodsListContract.View, GoodsListAdapter.OnGoodsClickListener {
+public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter> implements GoodsListContract.View, GoodsListAdapter.OnGoodsClickListener , GoodsListRefreshCallback {
 
 
     RecyclerView recyclerView;
@@ -25,6 +26,7 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
     private List<Goods> mGoodsList;
     private GoodsListAdapter mAdapter;
 
+    @Override
     public void refresh(List<Goods> goodsList) {
         mGoodsList = goodsList;
         mAdapter.refresh(mGoodsList);
