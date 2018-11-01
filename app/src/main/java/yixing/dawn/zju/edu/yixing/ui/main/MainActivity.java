@@ -1,12 +1,20 @@
 package yixing.dawn.zju.edu.yixing.ui.main;
 
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.FindCallback;
+
+import java.util.List;
 
 import baselib.base.BaseActivity;
+import baselib.bean.AVGoods;
 import baselib.config.Constants;
 import yixing.dawn.zju.edu.yixing.R;
 

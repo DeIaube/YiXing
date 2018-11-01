@@ -5,6 +5,12 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.FindCallback;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,6 +28,7 @@ import arouter.dawn.zju.edu.module_nearby.adapter.NearbyPagerAdapter;
 import arouter.dawn.zju.edu.module_nearby.config.Constants;
 import arouter.dawn.zju.edu.module_nearby.ui.goods_list.GoodsListFragment;
 import baselib.base.BasePresenter;
+import baselib.bean.AVGoods;
 import baselib.util.LogUtil;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -31,7 +38,7 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
 
     private static final String TAG = "NearbyPresenter";
 
-    private Map<String, List<GoodsBean>> mGoodsMap;
+    private Map<String, List<AVGoods>> mGoodsMap;
     private List<String> mTitles;
     private List<Fragment> mFragments;
     private int mCurrentSortType = Constants.SORT_COMPREHENSIVE;
@@ -40,11 +47,11 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
     @Override
     public void bindViewPager(final FragmentManager fragmentManager, final ViewPager viewPager, final TabLayout tabLayout) {
         mGoodsMap = new HashMap<>();
-        mGoodsMap.put(Constants.TYPE_ALL, new ArrayList<GoodsBean>());
-        mGoodsMap.put(Constants.TYPE_ART, new ArrayList<GoodsBean>());
-        mGoodsMap.put(Constants.TYPE_JOB, new ArrayList<GoodsBean>());
-        mGoodsMap.put(Constants.TYPE_LANGUAGE, new ArrayList<GoodsBean>());
-        mGoodsMap.put(Constants.TYPE_MUSIC, new ArrayList<GoodsBean>());
+        mGoodsMap.put(Constants.TYPE_ALL, new ArrayList<AVGoods>());
+        mGoodsMap.put(Constants.TYPE_ART, new ArrayList<AVGoods>());
+        mGoodsMap.put(Constants.TYPE_JOB, new ArrayList<AVGoods>());
+        mGoodsMap.put(Constants.TYPE_LANGUAGE, new ArrayList<AVGoods>());
+        mGoodsMap.put(Constants.TYPE_MUSIC, new ArrayList<AVGoods>());
 
         mTitles = new ArrayList<>();
         mTitles.add(Constants.TYPE_ALL);
@@ -71,69 +78,62 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
     @Override
     public void refresh() {
         mView.showSwipeRefreshLayout();
-        Api api = ApiRequest.getSingle().getApi();
-        api.search()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<SearchGoodsRespense>() {
-                    @Override
-                    public void accept(SearchGoodsRespense searchGoodsRespense) throws Exception {
-                        LogUtil.i(TAG, searchGoodsRespense.toString());
-                        mView.hideSwipeRefreshLayout();
-                        List<GoodsBean> orders = searchGoodsRespense.getData();
-                        for (List<GoodsBean> orderList : mGoodsMap.values()) {
-                            orderList.clear();
-                        }
-                        for (GoodsBean goods : orders) {
-                            Objects.requireNonNull(mGoodsMap.get(Constants.TYPE_ALL)).add(goods);
-                            Objects.requireNonNull(mGoodsMap.get(goods.getType())).add(goods);
-                        }
-                        checkoutSortGoods(mCurrentSortType);
+        AVQuery<AVGoods> query = AVGoods.getQuery(AVGoods.class);
+        query.findInBackground(new FindCallback<AVGoods>() {
+            @Override
+            public void done(List<AVGoods> list, AVException e) {
+                mView.hideSwipeRefreshLayout();
+                if (e == null) {
+                    LogUtil.i(TAG, list.toString());
+                    for (List<AVGoods> orderList : mGoodsMap.values()) {
+                        orderList.clear();
                     }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        LogUtil.e(TAG, throwable.toString());
-                        mView.hideLoading();
-                        mView.showNetworkError();
+                    for (AVGoods goods : list) {
+                        mGoodsMap.get(Constants.TYPE_ALL).add(goods);
+                        mGoodsMap.get(goods.getType()).add(goods);
                     }
-                });
+                    checkoutSortGoods(mCurrentSortType);
+                } else {
+                    LogUtil.i(TAG, e.toString());
+                }
+            }
+        });
     }
 
     @Override
     public void checkoutSortGoods(int sortType) {
         mCurrentSortType = sortType;
-        Comparator<GoodsBean> comparator = null;
+        Comparator<AVGoods> comparator = null;
         if (sortType == Constants.SORT_COMPREHENSIVE) {
-            comparator = new Comparator<GoodsBean>() {
+            comparator = new Comparator<AVGoods>() {
                 @Override
-                public int compare(GoodsBean o1, GoodsBean o2) {
-                    return o1.getId().compareTo(o2.getId());
+                public int compare(AVGoods o1, AVGoods o2) {
+                    return o1.getObjectId().compareTo(o2.getObjectId());
                 }
             };
         } else if (sortType == Constants.SORT_PRICE_DOWN) {
-            comparator = new Comparator<GoodsBean>() {
+            comparator = new Comparator<AVGoods>() {
                 @Override
-                public int compare(GoodsBean o1, GoodsBean o2) {
+                public int compare(AVGoods o1, AVGoods o2) {
                     return o1.getPrice() - o2.getPrice();
                 }
             };
         } else if (sortType == Constants.SORT_PRICE_UP) {
-            comparator = new Comparator<GoodsBean>() {
+            comparator = new Comparator<AVGoods>() {
                 @Override
-                public int compare(GoodsBean o1, GoodsBean o2) {
+                public int compare(AVGoods o1, AVGoods o2) {
                     return o2.getPrice() - o1.getPrice();
                 }
             };
         } else if (sortType == Constants.SORT_DISTANCE) {
-            comparator = new Comparator<GoodsBean>() {
+            comparator = new Comparator<AVGoods>() {
                 @Override
-                public int compare(GoodsBean o1, GoodsBean o2) {
+                public int compare(AVGoods o1, AVGoods o2) {
                     return 1;
                 }
             };
         }
-        for (List<GoodsBean> goodsList : mGoodsMap.values()) {
+        for (List<AVGoods> goodsList : mGoodsMap.values()) {
             Collections.sort(goodsList, comparator);
         }
         refreshGoodsListFragment();

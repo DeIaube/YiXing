@@ -2,11 +2,12 @@ package baselib;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.avos.avoscloud.AVOSCloud;
+import com.avos.avoscloud.AVObject;
 
+import baselib.bean.AVGoods;
 import baselib.config.Constants;
 import baselib.util.SPUtil;
 
@@ -27,6 +28,7 @@ public class App extends Application {
             ARouter.openDebug();
             ARouter.openLog();
         }
+        AVObject.registerSubclass(AVGoods.class);
         AVOSCloud.initialize(this,"otc2yunsXXUGetz84g9NM9eX-gzGzoHsz","woIpcGUxFiOUevOnNXfiadcG");
         ARouter.init(this);
         SPUtil.init(this);

@@ -2,9 +2,16 @@ package arouter.dawn.zju.edu.module_nearby.ui.search;
 
 import android.annotation.SuppressLint;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.FindCallback;
+
+import java.util.List;
+
 import arouter.dawn.zju.edu.lib_net.ApiRequest;
 import arouter.dawn.zju.edu.lib_net.bean.network.SearchGoodsRespense;
 import baselib.base.BasePresenter;
+import baselib.bean.AVGoods;
 import baselib.util.LogUtil;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -18,22 +25,18 @@ public class SearchPresenter extends BasePresenter<SearchContract.View> implemen
     @Override
     public void search(String word) {
         mView.showLoading();
-        ApiRequest.getSingle().getApi()
-                .search().subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<SearchGoodsRespense>() {
-                    @Override
-                    public void accept(SearchGoodsRespense searchGoodsRespense) throws Exception {
-                        LogUtil.i(TAG, searchGoodsRespense.toString());
-                        mView.hideLoading();
-                        mView.refresh(searchGoodsRespense.getData());
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        LogUtil.e(TAG, throwable.toString());
-                        mView.hideLoading();
-                    }
-                });
+        AVQuery<AVGoods> query = AVGoods.getQuery(AVGoods.class);
+        query.findInBackground(new FindCallback<AVGoods>() {
+            @Override
+            public void done(List<AVGoods> list, AVException e) {
+                mView.hideLoading();
+                if (e == null) {
+                    LogUtil.i(TAG, list.toString());
+                    mView.refresh(list);
+                } else {
+                    LogUtil.e(TAG, e.toString());
+                }
+            }
+        });
     }
 }

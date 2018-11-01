@@ -4,11 +4,12 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.GoodsBean;
 import baselib.base.BaseContract;
+import baselib.bean.AVGoods;
 
 public interface SearchContract {
 
     interface View extends BaseContract.BaseView {
-        void refresh(List<GoodsBean> goodsList);
+        void refresh(List<AVGoods> goodsList);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {

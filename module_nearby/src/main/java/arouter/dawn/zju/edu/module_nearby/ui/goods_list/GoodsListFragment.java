@@ -14,6 +14,7 @@ import arouter.dawn.zju.edu.lib_net.bean.GoodsBean;
 import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.module_nearby.adapter.GoodsListAdapter;
 import baselib.base.BaseFragment;
+import baselib.bean.AVGoods;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_NEARBY_GOODS_LIST)
@@ -22,10 +23,10 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
 
     RecyclerView recyclerView;
 
-    private List<GoodsBean> mGoodsList;
+    private List<AVGoods> mGoodsList;
     private GoodsListAdapter mAdapter;
 
-    public void refresh(List<GoodsBean> goodsList) {
+    public void refresh(List<AVGoods> goodsList) {
         mGoodsList = goodsList;
         mAdapter.refresh(mGoodsList);
     }
@@ -46,13 +47,13 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
 
         mGoodsList = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAdapter = new GoodsListAdapter(new ArrayList<GoodsBean>(), getContext());
+        mAdapter = new GoodsListAdapter(new ArrayList<AVGoods>(), getContext());
         mAdapter.setOnGoodsClickListener(this);
         recyclerView.setAdapter(mAdapter);
     }
 
     @Override
-    public void onGoodsClick(View v, GoodsBean goods) {
+    public void onGoodsClick(View v, AVGoods goods) {
         // todo 商品点击回调
     }
 }

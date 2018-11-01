@@ -13,25 +13,25 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.GoodsBean;
 import arouter.dawn.zju.edu.module_nearby.R;
+import baselib.bean.AVGoods;
 
 public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.GoodsListHolder> {
 
-    List<GoodsBean> mGoodsList;
+    List<AVGoods> mGoodsList;
     Context mContext;
     OnGoodsClickListener onGoodsClickListener;
 
     public interface OnGoodsClickListener {
-        void onGoodsClick(View v, GoodsBean goods);
+        void onGoodsClick(View v, AVGoods goods);
     }
 
-    public GoodsListAdapter(List<GoodsBean> goodsList, Context context) {
+    public GoodsListAdapter(List<AVGoods> goodsList, Context context) {
         this.mGoodsList = goodsList;
         this.mContext = context;
     }
 
-    public void refresh(List<GoodsBean> goodsList) {
+    public void refresh(List<AVGoods> goodsList) {
         this.mGoodsList = goodsList;
         notifyItemRangeChanged(0, goodsList.size());
     }
@@ -49,7 +49,7 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.Good
     @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(GoodsListHolder holder, int position) {
-        final GoodsBean goods = mGoodsList.get(position);
+        final AVGoods goods = mGoodsList.get(position);
         holder.titleTv.setText(goods.getTitle());
         holder.locationTv.setText(String.format("%s %s", goods.getCity(), goods.getRegion()));
         holder.priceTv.setText(String.format("￥%d", goods.getPrice()));
