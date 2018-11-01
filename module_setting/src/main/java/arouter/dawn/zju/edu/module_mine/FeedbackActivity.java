@@ -9,26 +9,34 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
+import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_SETTING_FEEDBACK)
-public class FeedbackActivity extends AppCompatActivity {
+public class FeedbackActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feedback);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    protected void initView() {
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_feedback;
+    }
+
+    @Override
+    protected void bindPresenter() {
+
+    }
+
+    @Override
+    protected boolean showHomeAsUp() {
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }
