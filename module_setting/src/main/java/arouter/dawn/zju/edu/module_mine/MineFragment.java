@@ -3,6 +3,7 @@ package arouter.dawn.zju.edu.module_mine;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 
@@ -64,6 +65,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             // 跳转到设置页面
         } else if (id == R.id.account_detail) {
             // 跳转个人详情页
+            ARouter.getInstance().build("https://www.baidu.com/").navigation();
         } else if (id == R.id.wallet_layout) {
             // 点击钱包
         }  else if (id == R.id.cash_coupon_layout) {
@@ -92,6 +94,11 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             // 点击关于项目
         } else if (id == R.id.github_layout) {
             // 点击项目源码
+            Intent intent = new Intent();
+            intent.setAction("android.intent.action.VIEW");
+            Uri content_url = Uri.parse(getString(R.string.github_mine));//此处填链接
+            intent.setData(content_url);
+            startActivity(intent);
         }
         showBtnShadow(v);
     }
