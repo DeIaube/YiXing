@@ -2,6 +2,7 @@ package arouter.dawn.zju.edu.module_mine;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -74,6 +75,11 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             // 点击客服中心
         } else if (id == R.id.share_layout) {
             // 点击分享好友
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, R.string.share_content);
+            shareIntent.setType("text/plain");
+            startActivity(shareIntent.createChooser(shareIntent, getString(R.string.share_to)));
         } else if (id == R.id.cooperate_layout) {
             // 点击与我合作
         } else if (id == R.id.about_layout) {
