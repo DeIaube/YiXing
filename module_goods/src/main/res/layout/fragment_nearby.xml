@@ -23,7 +23,7 @@
                 android:layout_marginLeft="5dp"
                 android:text="宁波"
                 android:textColor="@color/white"
-                android:textSize="16dp"
+                android:textSize="@dimen/toolbar_text_size"
                 android:padding="7dp"
                 android:gravity="center"
                 android:layout_width="wrap_content"
