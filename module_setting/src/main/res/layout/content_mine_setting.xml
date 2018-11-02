@@ -32,6 +32,31 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/order_layout"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <ImageView
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/mine_order"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+
+        <TextView
+            android:layout_marginStart="16dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:text="@string/mine_order"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/integral_mall_layout"
         android:layout_marginTop="8dp"
         android:background="@color/white"

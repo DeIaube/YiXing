@@ -78,6 +78,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         } else if (id == R.id.collection_layout) {
             // 点击我的收藏
             ARouter.getInstance().build(Constants.AROUTER_SETTING_COLLECTION).navigation();
+        }else if (id == R.id.order_layout) {
+            // 点击我的订单
         } else if (id == R.id.integral_mall_layout) {
             // 点击积分商城
         } else if (id == R.id.sign_in_obtain_cash_coupon_layout) {
