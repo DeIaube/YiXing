@@ -21,4 +21,10 @@
     <string name="title_not_null">标题不能为空</string>
     <string name="feedback_submit_succeed">提交成功</string>
     <string name="title_activity_setting">设置</string>
+    <string name="image_load_check_summary">选择图片加载模式</string>
+    <string name="image_load_check_title">加载高清图片</string>
+    <string name="dynamic_feedback_summary">期待您的反馈呢~</string>
+    <string name="dynamic_feedback_title">摇一摇,截屏反馈问题</string>
+    <string name="clear_cache_title">清除缓存</string>
+    <string name="clear_cache_summary">清除缓存图片以及数据</string>
 </resources>

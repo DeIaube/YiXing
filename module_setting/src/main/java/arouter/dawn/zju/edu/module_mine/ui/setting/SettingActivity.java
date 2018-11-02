@@ -6,7 +6,8 @@ import baselib.base.BaseActivity;
 public class SettingActivity extends BaseActivity {
     @Override
     protected void initView() {
-
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.container, new SettingFragment()).commit();
     }
 
     @Override

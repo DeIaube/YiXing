@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <SwitchPreference
+            android:key="checkbox_image_load"
+            android:summary="@string/image_load_check_summary"
+            android:title="@string/image_load_check_title" />
+
+        <SwitchPreference
+            android:key="switch_dynamic_feedback"
+            android:summary="@string/dynamic_feedback_summary"
+            android:title="@string/dynamic_feedback_title" />
+
+        <PreferenceScreen
+            android:key="clear_cache"
+            android:title="@string/clear_cache_title"
+            android:summary="@string/clear_cache_summary">
+
+        </PreferenceScreen>
+
+</PreferenceScreen>
