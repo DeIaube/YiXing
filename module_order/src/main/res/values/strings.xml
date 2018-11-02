@@ -5,4 +5,6 @@
     <string name="frown_evaluation">不咋滴</string>
     <string name="smile_evaluation">超赞</string>
     <string name="cancellation_of_order">确认要取消订单么</string>
+    <string name="title_activity_order">我的订单</string>
+    <string name="title_activity_evaluate">商品评价</string>
 </resources>

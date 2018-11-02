@@ -10,9 +10,6 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import java.util.ArrayList;
 import java.util.List;
 
-import arouter.dawn.zju.edu.module_mine.MineFragment;
-import arouter.dawn.zju.edu.module_nearby.ui.nearby.NearbyFragment;
-import arouter.dawn.zju.edu.module_order.ui.order.OrderFragment;
 import baselib.base.BasePresenter;
 import baselib.config.Constants;
 import yixing.dawn.zju.edu.yixing.ui.TestFragment;
