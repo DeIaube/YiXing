@@ -1,6 +1,7 @@
 package arouter.dawn.zju.edu.module_goods.ui.cart;
 
 import android.support.v7.widget.AppCompatCheckBox;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -9,8 +10,13 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import arouter.dawn.zju.edu.module_goods.adapter.CartGoodsListAdapter;
 import arouter.dawn.zju.edu.module_nearby.R;
 import baselib.base.BaseFragment;
+import baselib.bean.Goods;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_GOODS_CART)
@@ -21,6 +27,8 @@ public class CartFragment extends BaseFragment<CartContract.Presenter> implement
     Button submitBtn;
     AppCompatCheckBox allSelectCb;
     TextView priceTv;
+
+    private CartGoodsListAdapter mAdapter;
 
     @Override
     protected int getLayoutId() {
@@ -41,6 +49,16 @@ public class CartFragment extends BaseFragment<CartContract.Presenter> implement
         priceTv = view.findViewById(R.id.price);
 
         toolTextTv.setText("购物车");
+
+        mAdapter = new CartGoodsListAdapter(getContext(), new ArrayList<Goods>());
+        goodsListRv.setLayoutManager(new LinearLayoutManager(getContext()));
+        goodsListRv.setAdapter(mAdapter);
+
+        mPresenter.refresh();
     }
 
+    @Override
+    public void refresh(List<Goods> goodsList) {
+        mAdapter.refresh(goodsList);
+    }
 }
