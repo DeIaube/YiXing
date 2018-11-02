@@ -35,7 +35,8 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
 
     @SuppressLint("CheckResult")
     @Override
-    public void bindViewPager(final FragmentManager fragmentManager, final ViewPager viewPager, final TabLayout tabLayout) {
+    public void bindViewPager(final FragmentManager fragmentManager,
+                              final ViewPager viewPager, final TabLayout tabLayout, String location) {
         mGoodsMap = new HashMap<>();
         mGoodsMap.put(Constants.TYPE_ALL, new ArrayList<Goods>());
         mGoodsMap.put(Constants.TYPE_ART, new ArrayList<Goods>());
@@ -61,15 +62,15 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         viewPager.setOffscreenPageLimit(mTitles.size());
-        refresh();
+        refresh(location);
     }
 
     @SuppressLint("CheckResult")
     @Override
-    public void refresh() {
+    public void refresh(String location) {
         mView.showSwipeRefreshLayout();
         AVQuery<Goods> query = Goods.getQuery(Goods.class);
-        query.findInBackground(new FindCallback<Goods>() {
+        query.whereEqualTo("city", location).findInBackground(new FindCallback<Goods>() {
             @Override
             public void done(List<Goods> list, AVException e) {
                 mView.hideSwipeRefreshLayout();
@@ -84,7 +85,7 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
                     }
                     checkoutSortGoods(mCurrentSortType);
                 } else {
-                    LogUtil.i(TAG, e.toString());
+                    LogUtil.e(TAG, e.toString());
                 }
             }
         });

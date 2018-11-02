@@ -15,8 +15,8 @@ public interface NearbyContract {
 
     interface Presenter extends BaseContract.BasePresenter<View> {
         void bindViewPager(FragmentManager fragmentManager, ViewPager viewPager,
-                           TabLayout tabLayout);
-        void refresh();
+                           TabLayout tabLayout, String location);
+        void refresh(String location);
         void checkoutSortGoods(int sortType);
     }
 

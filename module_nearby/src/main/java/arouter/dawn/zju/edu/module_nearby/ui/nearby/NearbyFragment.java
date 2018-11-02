@@ -80,7 +80,7 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
         refreshSrl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mPresenter.refresh();
+                mPresenter.refresh(mLocation);
             }
         });
 
@@ -101,7 +101,7 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
             }
         });
 
-        mPresenter.bindViewPager(getChildFragmentManager(), viewPager, tabLayout);
+        mPresenter.bindViewPager(getChildFragmentManager(), viewPager, tabLayout, mLocation);
     }
 
     @Override
@@ -112,6 +112,7 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
                 mLocation = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
                 loacationTv.setText(mLocation);
                 SPUtil.put(Constants.LAST_LOCATION, mLocation);
+                mPresenter.refresh(mLocation);
             }
         }
     }
