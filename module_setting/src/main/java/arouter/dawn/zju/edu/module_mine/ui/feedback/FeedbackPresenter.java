@@ -2,21 +2,14 @@ package arouter.dawn.zju.edu.module_mine.ui.feedback;
 
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
 import com.avos.avoscloud.SaveCallback;
 
-import java.util.List;
-
 import arouter.dawn.zju.edu.module_mine.R;
-import arouter.dawn.zju.edu.module_mine.ui.collection.CollectionContract;
 import baselib.App;
 import baselib.base.BasePresenter;
 import baselib.bean.Feedback;
-import baselib.bean.Goods;
 import baselib.util.LogUtil;
 
 public class FeedbackPresenter extends BasePresenter<FeedbackContract.View> implements FeedbackContract.Presenter {
