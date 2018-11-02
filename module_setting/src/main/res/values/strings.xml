@@ -20,4 +20,5 @@
     <string name="content_not_null">内容不能为空</string>
     <string name="title_not_null">标题不能为空</string>
     <string name="feedback_submit_succeed">提交成功</string>
+    <string name="title_activity_setting">设置</string>
 </resources>

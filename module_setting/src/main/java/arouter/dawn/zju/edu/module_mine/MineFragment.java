@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import arouter.dawn.zju.edu.module_mine.ui.setting.SettingActivity;
 import baselib.base.BaseFragment;
 import baselib.config.Constants;
 
@@ -64,6 +65,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             // 跳转到当前通知
         } else if (id == R.id.setting) {
             // 跳转到设置页面
+            startActivity(new Intent(getContext(), SettingActivity.class));
         } else if (id == R.id.account_detail) {
             // 跳转个人详情页
         } else if (id == R.id.wallet_layout) {
