@@ -7,7 +7,7 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_GOODS_CART)
-public class CartActivity extends BaseActivity {
+public class CartActivity extends BaseActivity<CartContract.Presenter> implements CartContract.View {
 
     @Override
     protected void initView() {
