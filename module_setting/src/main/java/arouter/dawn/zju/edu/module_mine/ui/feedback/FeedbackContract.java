@@ -1,18 +1,16 @@
-package arouter.dawn.zju.edu.module_mine.ui.collection;
+package arouter.dawn.zju.edu.module_mine.ui.feedback;
 
-import java.util.List;
 
 import baselib.base.BaseContract;
-import baselib.bean.Goods;
 
-public interface CollectionContract {
+public interface FeedbackContract {
 
     interface View extends BaseContract.BaseView {
-        void refresh(List<Goods> goodsList);
+
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void refresh();
+        void submitFeedback(String title, String content);
     }
 
 }

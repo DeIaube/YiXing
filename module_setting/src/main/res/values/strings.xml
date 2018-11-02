@@ -17,4 +17,8 @@
     <string name="title_activity_feedback">问题反馈</string>
     <string name="feedback_content">内容</string>
     <string name="feedback_title">请输入问题标题</string>
+    <string name="confirm_exit">确定要退出么</string>
+    <string name="content_not_null">内容不能为空</string>
+    <string name="title_not_null">标题不能为空</string>
+    <string name="feedback_submit_succeed">提交成功</string>
 </resources>
