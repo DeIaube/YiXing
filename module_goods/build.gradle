@@ -34,8 +34,7 @@ dependencies {
     compile project(':lib_base')
     compile project(':lib_res')
     compile project(':lib_net')
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -43,7 +42,7 @@ dependencies {
     //ARouter
     annotationProcessor "com.alibaba:arouter-compiler:1.1.4"
     //Citypicker
-
     //noinspection GradleDependency
     compile 'com.zaaach:citypicker:1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
