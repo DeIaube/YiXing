@@ -25,36 +25,50 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="1dp"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
+        android:background="#f2f2f2"
         app:layout_constraintEnd_toEndOf="@+id/editText"
         app:layout_constraintStart_toStartOf="@+id/editText"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <EditText
+        android:id="@+id/editText2"
         android:layout_width="0dp"
-        android:layout_height="122dp"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:background="@null"
         android:gravity="start"
         android:hint="内容"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="@+id/editText"
         app:layout_constraintStart_toStartOf="@+id/editText"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <android.support.v7.widget.AppCompatButton
+        android:id="@+id/appCompatButton"
         android:layout_width="0dp"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"
         android:layout_height="45dp"
-        android:gravity="center"
-        android:text="提交"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="8dp"
+        android:background="#f2f2f2"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view" />
 
 </android.support.constraint.ConstraintLayout>
