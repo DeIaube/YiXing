@@ -92,6 +92,9 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
         super.onDestroy();
         mBind.unbind();
         detachView();
+        if (mLoadingView != null) {
+            mLoadingView.dismiss();
+        }
     }
 
     /**
