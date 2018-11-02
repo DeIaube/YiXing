@@ -21,7 +21,7 @@ public class SearchPresenter extends BasePresenter<SearchContract.View> implemen
     public void search(String word) {
         mView.showLoading();
         AVQuery<Goods> query = Goods.getQuery(Goods.class);
-        query.findInBackground(new FindCallback<Goods>() {
+        query.whereContains("title", word).findInBackground(new FindCallback<Goods>() {
             @Override
             public void done(List<Goods> list, AVException e) {
                 mView.hideLoading();
