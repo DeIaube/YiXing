@@ -14,7 +14,7 @@
             <option value="$PROJECT_DIR$/lib_net" />
             <option value="$PROJECT_DIR$/lib_res" />
             <option value="$PROJECT_DIR$/module_account" />
-            <option value="$PROJECT_DIR$/module_nearby" />
+            <option value="$PROJECT_DIR$/module_goods" />
             <option value="$PROJECT_DIR$/module_order" />
             <option value="$PROJECT_DIR$/module_setting" />
           </set>
