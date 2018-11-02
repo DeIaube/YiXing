@@ -7,6 +7,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVObject;
 
+import baselib.bean.Feedback;
 import baselib.bean.Goods;
 import baselib.bean.Order;
 import baselib.config.Constants;
@@ -31,6 +32,7 @@ public class App extends Application {
         }
         AVObject.registerSubclass(Goods.class);
         AVObject.registerSubclass(Order.class);
+        AVObject.registerSubclass(Feedback.class);
         AVOSCloud.initialize(this,Constants.CLOUD_APPLICATION_ID,Constants.CLOUD_CLIENT_LEY);
         ARouter.init(this);
         SPUtil.init(this);
