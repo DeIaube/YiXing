@@ -19,6 +19,7 @@ public interface Constants {
     // Goods
     String AROUTER_GOODS_NEARBY = "/goods/nearby";
     String AROUTER_GOODS_SEARCH = "/goods/search";
+    String AROUTER_GOODS_CART = "/goods/cart";
     String AROUTER_GOODS_GOODS_LIST = "/goods/goods_list";
 
     // Order

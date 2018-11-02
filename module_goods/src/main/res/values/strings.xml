@@ -6,4 +6,5 @@
     <string name="comprehensive_sort">综合排序</string>
     <string name="price">价格</string>
     <string name="nearest">距离最近</string>
+    <string name="title_activity_cart">CartActivity</string>
 </resources>
