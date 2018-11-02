@@ -39,10 +39,10 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
 
     @Override
     public void onBindViewHolder(CartGoodsHolder holder, int position) {
-//        Goods goods = goodsList.get(position);
-//        Picasso.with(context).load(goods.getPreview()).into(holder.previewIv);
-//        holder.titleTv.setText(goods.getTitle());
-//        holder.priveTv.setText(String.format("￥%d", goods.getPrice()));
+        Goods goods = goodsList.get(position);
+        Picasso.with(context).load(goods.getPreview()).into(holder.goodsPreviewIv);
+        holder.goodsTitleTv.setText(goods.getTitle());
+        holder.goodsPriveTv.setText(String.format("￥%d", goods.getPrice()));
     }
 
     @Override
@@ -52,17 +52,24 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
 
     class CartGoodsHolder extends RecyclerView.ViewHolder{
 
-        AppCompatCheckBox selectCb;
-        ImageView previewIv;
-        TextView titleTv;
-        TextView priveTv;
+        AppCompatCheckBox shopSelectCb;
+        TextView shopTitleTv;
+        AppCompatCheckBox goodsSelectCb;
+        ImageView goodsPreviewIv;
+        TextView goodsTitleTv;
+        TextView goodsPriveTv;
+        TextView goodsTotalPriveTv;
 
         public CartGoodsHolder(View itemView) {
             super(itemView);
-//            selectCb = itemView.findViewById(R.id.select);
-//            previewIv = itemView.findViewById(R.id.preview);
-//            titleTv = itemView.findViewById(R.id.title);
-//            priveTv = itemView.findViewById(R.id.price);
+            shopSelectCb = itemView.findViewById(R.id.cart_goods_shop_select);
+            shopTitleTv = itemView.findViewById(R.id.cart_goods_shop_title);
+            goodsSelectCb = itemView.findViewById(R.id.cart_goods_select);
+            goodsPreviewIv = itemView.findViewById(R.id.cart_goods_preview);
+            goodsTitleTv = itemView.findViewById(R.id.cart_goods_title);
+            goodsPriveTv = itemView.findViewById(R.id.cart_goods_price);
+            goodsTotalPriveTv = itemView.findViewById(R.id.cart_total_price_title);
+
         }
     }
 }

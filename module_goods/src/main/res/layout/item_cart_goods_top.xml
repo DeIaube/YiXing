@@ -7,7 +7,7 @@
     android:layout_height="40dp">
 
     <android.support.v7.widget.AppCompatCheckBox
-        android:id="@+id/appCompatCheckBox"
+        android:id="@+id/cart_goods_shop_select"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -23,11 +23,12 @@
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:src="@drawable/cart_home"
-        app:layout_constraintBottom_toBottomOf="@+id/appCompatCheckBox"
-        app:layout_constraintStart_toEndOf="@+id/appCompatCheckBox"
-        app:layout_constraintTop_toTopOf="@+id/appCompatCheckBox" />
+        app:layout_constraintBottom_toBottomOf="@+id/cart_goods_shop_select"
+        app:layout_constraintStart_toEndOf="@+id/cart_goods_shop_select"
+        app:layout_constraintTop_toTopOf="@+id/cart_goods_shop_select" />
 
     <TextView
+        android:id="@+id/cart_goods_shop_title"
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginStart="4dp"
