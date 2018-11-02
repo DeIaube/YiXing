@@ -1,10 +1,7 @@
 <resources>
     <string name="please_input_goods_name">请输入商品名称</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="comprehensive_sort">综合排序</string>
     <string name="price">价格</string>
     <string name="nearest">距离最近</string>
-    <string name="title_activity_cart">CartActivity</string>
 </resources>

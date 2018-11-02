@@ -1,22 +1,19 @@
 package arouter.dawn.zju.edu.module_goods.ui.cart;
 
+import android.view.View;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_nearby.R;
-import baselib.base.BaseActivity;
+import baselib.base.BaseFragment;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_GOODS_CART)
-public class CartActivity extends BaseActivity<CartContract.Presenter> implements CartContract.View {
-
-    @Override
-    protected void initView() {
-
-    }
+public class CartFragment extends BaseFragment<CartContract.Presenter> implements CartContract.View {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_cart;
+        return R.layout.fragment_cart;
     }
 
     @Override
@@ -25,7 +22,8 @@ public class CartActivity extends BaseActivity<CartContract.Presenter> implement
     }
 
     @Override
-    protected boolean showHomeAsUp() {
-        return true;
+    protected void initView(View view) {
+
     }
+
 }
