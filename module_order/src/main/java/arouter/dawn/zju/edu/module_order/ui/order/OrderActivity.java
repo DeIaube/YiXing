@@ -5,14 +5,11 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_order.R;
-import arouter.dawn.zju.edu.module_order.config.Constants;
 import baselib.base.BaseActivity;
-import baselib.base.BaseFragment;
 
 @Route(path = baselib.config.Constants.AROUTER_ORDER_ORDER)
 public class OrderActivity extends BaseActivity<OrderContract.Presenter> implements OrderContract.View {

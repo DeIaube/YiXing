@@ -1,7 +1,6 @@
 package arouter.dawn.zju.edu.module_order.ui.order;
 
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
