@@ -15,7 +15,7 @@
 
         <ImageView
             android:layout_marginStart="16dp"
-            android:src="@drawable/collection"
+            android:src="@drawable/mine_collection"
             android:layout_gravity="center_vertical"
             android:layout_width="24dp"
             android:layout_height="24dp" />
@@ -66,7 +66,7 @@
 
         <ImageView
             android:layout_marginStart="16dp"
-            android:src="@drawable/shop"
+            android:src="@drawable/mine_shop"
             android:layout_gravity="center_vertical"
             android:layout_width="24dp"
             android:layout_height="24dp" />
@@ -91,7 +91,7 @@
 
         <ImageView
             android:layout_marginStart="16dp"
-            android:src="@drawable/cash_coupon"
+            android:src="@drawable/mine_cash_coupon"
             android:layout_gravity="center_vertical"
             android:layout_width="24dp"
             android:layout_height="24dp" />
@@ -116,7 +116,7 @@
 
         <ImageView
             android:layout_marginStart="16dp"
-            android:src="@drawable/feedback"
+            android:src="@drawable/mine_feedback"
             android:layout_gravity="center_vertical"
             android:layout_width="24dp"
             android:layout_height="24dp" />
@@ -141,7 +141,7 @@
 
         <ImageView
             android:layout_marginStart="16dp"
-            android:src="@drawable/share"
+            android:src="@drawable/mine_share"
             android:layout_gravity="center_vertical"
             android:layout_width="24dp"
             android:layout_height="24dp" />
@@ -167,7 +167,7 @@
 
         <ImageView
             android:layout_marginStart="16dp"
-            android:src="@drawable/cooperate"
+            android:src="@drawable/mine_cooperate"
             android:layout_gravity="center_vertical"
             android:layout_width="24dp"
             android:layout_height="24dp" />
@@ -192,7 +192,7 @@
 
         <ImageView
             android:layout_marginStart="16dp"
-            android:src="@drawable/about"
+            android:src="@drawable/mine_about"
             android:layout_gravity="center_vertical"
             android:layout_width="24dp"
             android:layout_height="24dp" />
@@ -217,7 +217,7 @@
 
         <ImageView
             android:layout_marginStart="16dp"
-            android:src="@drawable/github"
+            android:src="@drawable/mine_github"
             android:layout_gravity="center_vertical"
             android:layout_width="24dp"
             android:layout_height="24dp" />
