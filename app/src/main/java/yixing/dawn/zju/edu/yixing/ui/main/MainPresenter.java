@@ -39,8 +39,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
         fragments.add((Fragment) ARouter.getInstance().
                 build(Constants.AROUTER_NEARBY_NEARBY).navigation());
         fragments.add(new TestFragment());
-        fragments.add((Fragment) ARouter.getInstance().
-                build(Constants.AROUTER_ORDER_ORDER).navigation());
+        fragments.add(new TestFragment());
         fragments.add((Fragment) ARouter.getInstance().
                 build(Constants.AROUTER_SETTING_MINE).navigation());
         MainPagerAdapter mPagerAdapter = new MainPagerAdapter(fragmentManager, fragments);
