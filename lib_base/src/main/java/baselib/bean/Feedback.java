@@ -3,7 +3,7 @@ package baselib.bean;
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;
 
-@AVClassName("Goods")
+@AVClassName("Feedback")
 public class Feedback extends AVObject {
 
     public void setTitle(String title) {
