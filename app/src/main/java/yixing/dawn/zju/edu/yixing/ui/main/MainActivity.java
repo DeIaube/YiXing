@@ -24,11 +24,13 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         viewPager.setOffscreenPageLimit(4);
         // 初始化BottomNavigationBar
         bottomNavigationView.setMode(BottomNavigationBar.MODE_FIXED);
-        bottomNavigationView.addItem(new BottomNavigationItem(R.drawable.login_weibo, "首页"))
-                .addItem(new BottomNavigationItem(R.drawable.login_qq, "附近"))
-                .addItem(new BottomNavigationItem(R.drawable.login_weibo, "论坛"))
-                .addItem(new BottomNavigationItem(R.drawable.login_weibo, "订单"))
-                .addItem(new BottomNavigationItem(R.drawable.login_weibo, "我的"))
+
+        bottomNavigationView
+                .addItem(new BottomNavigationItem(R.drawable.home, "首页"))
+                .addItem(new BottomNavigationItem(R.drawable.nearby, "附近"))
+                .addItem(new BottomNavigationItem(R.drawable.forum, "论坛"))
+                .addItem(new BottomNavigationItem(R.drawable.order, "订单"))
+                .addItem(new BottomNavigationItem(R.drawable.mine, "我的"))
                 .setFirstSelectedPosition(0)
                 .initialise();
         // 绑定ViewPager BottomNavigationView
