@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_nearby.ui.goods_list;
+package arouter.dawn.zju.edu.module_goods.ui.goods_list;
 
 
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import arouter.dawn.zju.edu.module_nearby.R;
-import arouter.dawn.zju.edu.module_nearby.adapter.GoodsListAdapter;
+import arouter.dawn.zju.edu.module_goods.adapter.GoodsListAdapter;
 import baselib.base.BaseFragment;
 import baselib.bean.Goods;
 import baselib.callback.GoodsListRefreshCallback;
 import baselib.config.Constants;
 
-@Route(path = Constants.AROUTER_NEARBY_GOODS_LIST)
+@Route(path = Constants.AROUTER_GOODS_GOODS_LIST)
 public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter> implements GoodsListContract.View, GoodsListAdapter.OnGoodsClickListener , GoodsListRefreshCallback {
 
 

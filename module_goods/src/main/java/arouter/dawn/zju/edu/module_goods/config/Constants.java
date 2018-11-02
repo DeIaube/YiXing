@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_nearby.config;
+package arouter.dawn.zju.edu.module_goods.config;
 
 public interface Constants {
 

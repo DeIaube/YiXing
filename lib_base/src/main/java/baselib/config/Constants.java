@@ -16,10 +16,10 @@ public interface Constants {
     String AROUTER_ACCOUNT_REGISTER = "/account/register";
     String AROUTER_ACCOUNT_RESET_PASSWORD = "/account/reset_password";
 
-    // Nearby
-    String AROUTER_NEARBY_NEARBY = "/nearby/nearby";
-    String AROUTER_NEARBY_SEARCH = "/nearby/search";
-    String AROUTER_NEARBY_GOODS_LIST = "/nearby/goods_list";
+    // Goods
+    String AROUTER_GOODS_NEARBY = "/goods/nearby";
+    String AROUTER_GOODS_SEARCH = "/goods/search";
+    String AROUTER_GOODS_GOODS_LIST = "/goods/goods_list";
 
     // Order
     String AROUTER_ORDER_EVALUATE = "/order/evaluate";

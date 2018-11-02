@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_nearby.ui.nearby;
+package arouter.dawn.zju.edu.module_goods.ui.nearby;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;

@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_nearby.ui.nearby;
+package arouter.dawn.zju.edu.module_goods.ui.nearby;
 
 import android.annotation.SuppressLint;
 import android.support.design.widget.TabLayout;
@@ -17,9 +17,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import arouter.dawn.zju.edu.module_nearby.adapter.NearbyPagerAdapter;
-import arouter.dawn.zju.edu.module_nearby.config.Constants;
-import arouter.dawn.zju.edu.module_nearby.ui.goods_list.GoodsListFragment;
+import arouter.dawn.zju.edu.module_goods.adapter.NearbyPagerAdapter;
+import arouter.dawn.zju.edu.module_goods.config.Constants;
+import arouter.dawn.zju.edu.module_goods.ui.goods_list.GoodsListFragment;
 import baselib.base.BasePresenter;
 import baselib.bean.Goods;
 import baselib.util.LogUtil;

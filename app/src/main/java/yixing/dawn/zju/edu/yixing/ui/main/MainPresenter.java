@@ -23,7 +23,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new TestFragment());
         fragments.add((Fragment) ARouter.getInstance().
-                build(Constants.AROUTER_NEARBY_NEARBY).navigation());
+                build(Constants.AROUTER_GOODS_NEARBY).navigation());
         fragments.add(new TestFragment());
         fragments.add(new TestFragment());
         fragments.add((Fragment) ARouter.getInstance().

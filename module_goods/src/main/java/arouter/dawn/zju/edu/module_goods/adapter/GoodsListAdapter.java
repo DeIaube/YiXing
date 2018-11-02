@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_nearby.adapter;
+package arouter.dawn.zju.edu.module_goods.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

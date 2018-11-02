@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_nearby.adapter;
+package arouter.dawn.zju.edu.module_goods.adapter;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;

@@ -21,7 +21,7 @@ public class CollectionActivity extends BaseActivity<CollectionContract.Presente
 
     @Override
     protected void initView() {
-        Fragment fragment = (Fragment) ARouter.getInstance().build(Constants.AROUTER_NEARBY_GOODS_LIST).navigation();
+        Fragment fragment = (Fragment) ARouter.getInstance().build(Constants.AROUTER_GOODS_GOODS_LIST).navigation();
         refreshCallback = (GoodsListRefreshCallback) fragment;
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
         mPresenter.refresh();

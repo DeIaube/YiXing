@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_nearby.ui.search;
+package arouter.dawn.zju.edu.module_goods.ui.search;
 
 import android.graphics.Color;
 import android.support.v4.view.MenuItemCompat;
@@ -15,12 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import arouter.dawn.zju.edu.module_nearby.R;
-import arouter.dawn.zju.edu.module_nearby.adapter.GoodsListAdapter;
+import arouter.dawn.zju.edu.module_goods.adapter.GoodsListAdapter;
 import baselib.base.BaseActivity;
 import baselib.bean.Goods;
 import baselib.config.Constants;
 
-@Route(path = Constants.AROUTER_NEARBY_SEARCH)
+@Route(path = Constants.AROUTER_GOODS_SEARCH)
 public class SearchActivity extends BaseActivity<SearchContract.Presenter> implements SearchContract.View, GoodsListAdapter.OnGoodsClickListener {
 
     RecyclerView searchResultRv;

@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_nearby.ui.search;
+package arouter.dawn.zju.edu.module_goods.ui.search;
 
 import java.util.List;
 

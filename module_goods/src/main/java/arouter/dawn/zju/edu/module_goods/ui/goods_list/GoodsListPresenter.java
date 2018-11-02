@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_nearby.ui.goods_list;
+package arouter.dawn.zju.edu.module_goods.ui.goods_list;
 
 import baselib.base.BasePresenter;
 

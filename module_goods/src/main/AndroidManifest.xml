@@ -13,7 +13,7 @@
             android:theme="@style/CityPicker.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name=".ui.search.SearchActivity"
+            android:name="arouter.dawn.zju.edu.module_goods.ui.search.SearchActivity"
             android:label="@string/please_input_goods_name"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>

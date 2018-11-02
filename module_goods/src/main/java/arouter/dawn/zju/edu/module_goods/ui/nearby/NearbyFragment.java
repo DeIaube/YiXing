@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_nearby.ui.nearby;
+package arouter.dawn.zju.edu.module_goods.ui.nearby;
 
 
 import android.content.Intent;
@@ -14,18 +14,14 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.squareup.picasso.Picasso;
 import com.zaaach.citypicker.CityPickerActivity;
 
+import arouter.dawn.zju.edu.module_goods.config.Constants;
 import arouter.dawn.zju.edu.module_nearby.R;
-import arouter.dawn.zju.edu.module_nearby.config.Constants;
 import baselib.base.BaseFragment;
 import baselib.util.SPUtil;
 
 import static android.app.Activity.RESULT_OK;
-import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_COMPREHENSIVE;
-import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_DISTANCE;
-import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_PRICE_DOWN;
-import static arouter.dawn.zju.edu.module_nearby.config.Constants.SORT_PRICE_UP;
 
-@Route(path = baselib.config.Constants.AROUTER_NEARBY_NEARBY)
+@Route(path = baselib.config.Constants.AROUTER_GOODS_NEARBY)
 public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> implements NearbyContract.View, View.OnClickListener {
 
     TextView searchTv;
@@ -97,7 +93,7 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
         searchTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ARouter.getInstance().build(baselib.config.Constants.AROUTER_NEARBY_SEARCH).navigation();
+                ARouter.getInstance().build(baselib.config.Constants.AROUTER_GOODS_SEARCH).navigation();
             }
         });
 
@@ -132,13 +128,13 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
         int id = v.getId();
         if (id == R.id.comprehensive_sort) {
             // 综合排序
-            mCurrentSortType = SORT_COMPREHENSIVE;
+            mCurrentSortType = Constants.SORT_COMPREHENSIVE;
         } else if (id == R.id.price_sort_layout) {
             // 价格排序
-            mCurrentSortType = mCurrentSortType == SORT_PRICE_UP ? SORT_PRICE_DOWN : SORT_PRICE_UP;
+            mCurrentSortType = mCurrentSortType == Constants.SORT_PRICE_UP ? Constants.SORT_PRICE_DOWN : Constants.SORT_PRICE_UP;
         } else if (id == R.id.distence_sort) {
             // 距离排序
-            mCurrentSortType = SORT_DISTANCE;
+            mCurrentSortType = Constants.SORT_DISTANCE;
         }
         checkoutSort();
     }
@@ -149,13 +145,13 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
         distanceSortTv.setTextColor(getResources().getColor(R.color.grey));
         Picasso.with(getContext()).load(R.drawable.default_up).into(priceSortUpIv);
         Picasso.with(getContext()).load(R.drawable.default_down).into(priceSortDownIv);
-        if (mCurrentSortType == SORT_COMPREHENSIVE) {
+        if (mCurrentSortType == Constants.SORT_COMPREHENSIVE) {
             comprehensiveSortTv.setTextColor(getResources().getColor(R.color.colorPrimary));
-        } else if (mCurrentSortType == SORT_DISTANCE) {
+        } else if (mCurrentSortType == Constants.SORT_DISTANCE) {
             distanceSortTv.setTextColor(getResources().getColor(R.color.colorPrimary));
         } else {
             priceSort.setTextColor(getResources().getColor(R.color.colorPrimary));
-            if (mCurrentSortType == SORT_PRICE_UP) {
+            if (mCurrentSortType == Constants.SORT_PRICE_UP) {
                 Picasso.with(getContext()).load(R.drawable.select_up).into(priceSortUpIv);
             } else {
                 Picasso.with(getContext()).load(R.drawable.select_down).into(priceSortDownIv);
