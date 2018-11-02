@@ -33,6 +33,10 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.Good
 
     public void refresh(List<Goods> goodsList) {
         this.mGoodsList = goodsList;
+        if (goodsList.isEmpty()) {
+            notifyDataSetChanged();
+            return;
+        }
         notifyItemRangeChanged(0, goodsList.size());
     }
 
