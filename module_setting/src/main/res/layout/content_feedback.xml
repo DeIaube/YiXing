@@ -10,14 +10,14 @@
     tools:showIn="@layout/activity_feedback">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/findback_title"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
         android:background="@null"
-        android:hint="请输入问题标题"
+        android:hint="@string/feedback_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,25 +29,25 @@
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
         android:background="#f2f2f2"
-        app:layout_constraintEnd_toEndOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintEnd_toEndOf="@+id/findback_title"
+        app:layout_constraintStart_toStartOf="@+id/findback_title"
+        app:layout_constraintTop_toBottomOf="@+id/findback_title" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/feedback_content"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:background="@null"
         android:gravity="start"
-        android:hint="内容"
+        android:hint="@string/feedback_content"
         app:layout_constraintBottom_toTopOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="@+id/findback_title"
+        app:layout_constraintStart_toStartOf="@+id/findback_title"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/feedback_submit"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="15dp"
@@ -67,7 +67,7 @@
         android:layout_height="1dp"
         android:layout_marginBottom="8dp"
         android:background="#f2f2f2"
-        app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+        app:layout_constraintBottom_toTopOf="@+id/feedback_submit"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view" />
 

@@ -15,4 +15,6 @@
     <string name="github_mine">https://github.com/DeIaube/YiXing</string>
     <string name="bug_bug_bug_can_rise_integral">听说买买买能涨积分呢~</string>
     <string name="title_activity_feedback">问题反馈</string>
+    <string name="feedback_content">内容</string>
+    <string name="feedback_title">请输入问题标题</string>
 </resources>
