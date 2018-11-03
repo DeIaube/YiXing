@@ -71,4 +71,12 @@ public class Goods extends AVObject {
     public void setExplain(String explain) {
         put("explain", explain);
     }
+
+    public void setShop(String shop) {
+        put("shop", shop);
+    }
+
+    public String getShop() {
+        return getString("shop");
+    }
 }
