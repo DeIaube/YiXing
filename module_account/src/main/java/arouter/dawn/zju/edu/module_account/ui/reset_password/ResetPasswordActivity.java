@@ -7,7 +7,7 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_ACCOUNT_RESET_PASSWORD)
-public class ResetPasswordActivity extends BaseActivity {
+public class ResetPasswordActivity extends BaseActivity<ResetPasswordContract.Presenter> implements ResetPasswordContract.View {
 
     @Override
     protected void initView() {
@@ -26,6 +26,6 @@ public class ResetPasswordActivity extends BaseActivity {
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new ResetPasswordPresenter();
     }
 }

@@ -1,15 +1,13 @@
-package arouter.dawn.zju.edu.module_account.ui.set_password;
+package arouter.dawn.zju.edu.module_account.ui.reset_password;
 
 import baselib.base.BaseContract;
 
-public interface SetPasswordContract {
+public interface ResetPasswordContract {
 
     interface View extends BaseContract.BaseView {
-        void setPasswordSuccess();
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void resetPassword(final String phoneNumber, final String password, final String repassword);
     }
 
 }
