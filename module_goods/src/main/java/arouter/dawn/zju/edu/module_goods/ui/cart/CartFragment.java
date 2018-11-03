@@ -3,9 +3,9 @@ package arouter.dawn.zju.edu.module_goods.ui.cart;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -25,7 +25,7 @@ public class CartFragment extends BaseFragment<CartContract.Presenter> implement
     TextView toolTextTv;
     RecyclerView goodsListRv;
     Button submitBtn;
-    AppCompatCheckBox allSelectCb;
+    AppCompatCheckBox totalSelectCb;
     TextView priceTv;
 
     private CartGoodsListAdapter mAdapter;
@@ -45,7 +45,7 @@ public class CartFragment extends BaseFragment<CartContract.Presenter> implement
         toolTextTv = view.findViewById(R.id.tool_text);
         goodsListRv = view.findViewById(R.id.goods_list);
         submitBtn = view.findViewById(R.id.submit);
-        allSelectCb = view.findViewById(R.id.all_select);
+        totalSelectCb = view.findViewById(R.id.total_select);
         priceTv = view.findViewById(R.id.price);
 
         toolTextTv.setText("购物车");
@@ -53,6 +53,13 @@ public class CartFragment extends BaseFragment<CartContract.Presenter> implement
         mAdapter = new CartGoodsListAdapter(getContext(), new ArrayList<Goods>());
         goodsListRv.setLayoutManager(new LinearLayoutManager(getContext()));
         goodsListRv.setAdapter(mAdapter);
+
+        totalSelectCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mAdapter.totalGoodsStatusChange(isChecked);
+            }
+        });
 
         mPresenter.refresh();
     }

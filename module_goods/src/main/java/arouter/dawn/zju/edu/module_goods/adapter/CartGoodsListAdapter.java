@@ -174,6 +174,10 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
         return mGoodsList.size();
     }
 
+    public void totalGoodsStatusChange(boolean status) {
+        goodsStatusChange(0, mGoodsList.size(), status);
+    }
+
     class CartGoodsHolder extends RecyclerView.ViewHolder{
 
         AppCompatCheckBox shopSelectCb;
