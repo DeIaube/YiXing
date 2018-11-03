@@ -5,7 +5,7 @@ import baselib.base.BaseContract;
 public interface SetPasswordContract {
 
     interface View extends BaseContract.BaseView {
-
+        void setPasswordSuccess();
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {

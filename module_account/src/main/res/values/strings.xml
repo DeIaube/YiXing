@@ -32,6 +32,7 @@
     <string name="set_password_password_too_long">密码太长</string>
     <string name="set_password_password_too_simple">密码太简单</string>
     <string name="set_password_submit">提交</string>
+    <string name="set_password_sign_success">注册成功,转入主页</string>
     <!--set password-->
 
 </resources>

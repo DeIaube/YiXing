@@ -5,6 +5,7 @@ import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
@@ -47,5 +48,10 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordPresenter> impl
     @Override
     protected boolean showHomeAsUp() {
         return true;
+    }
+
+    @Override
+    public void setPasswordSuccess() {
+        ARouter.getInstance().build(Constants.AROUTER_APP_MAIN).navigation();
     }
 }
