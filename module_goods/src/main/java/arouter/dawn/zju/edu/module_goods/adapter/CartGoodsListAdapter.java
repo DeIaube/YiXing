@@ -1,11 +1,14 @@
 package arouter.dawn.zju.edu.module_goods.adapter;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,12 +26,14 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
 
     Context context;
     List<Goods> goodsList;
-    BitSet bitSet;
+    BitSet goodsSelector;
+    BitSet shopSelector;
 
     public CartGoodsListAdapter(Context context, List<Goods> goodsList) {
         this.context = context;
         this.goodsList = goodsList;
-        this.bitSet = new BitSet();
+        this.goodsSelector = new BitSet();
+        this.shopSelector = new BitSet();
     }
 
     public void refresh(List<Goods> goodsList) {
@@ -49,11 +54,44 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
     }
 
     @Override
-    public void onBindViewHolder(CartGoodsHolder holder, int position) {
-        Goods goods = goodsList.get(position);
+    public void onBindViewHolder(final CartGoodsHolder holder, final int position) {
+        holder.setIsRecyclable(false);
+        final Goods goods = goodsList.get(position);
         Picasso.with(context).load(goods.getPreview()).into(holder.goodsPreviewIv);
         holder.goodsTitleTv.setText(goods.getTitle());
         holder.goodsPriveTv.setText(String.format("￥%d", goods.getPrice()));
+        holder.goodsSelectCb.setChecked(goodsSelector.get(position));
+        holder.shopSelectCb.setChecked(shopSelector.get(position));
+
+        holder.goodsSelectCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                goodsSelector.set(position, isChecked);
+            }
+        });
+
+        holder.shopSelectCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                shopSelector.set(position, isChecked);
+                goodsSelector.set(position, isChecked);
+                int count = 0;
+                while (position + count < goodsList.size()) {
+                    if (!goodsList.get(position + count).getShop().equals(goods.getShop())) {
+                        break;
+                    }
+                    goodsSelector.set(position + count, isChecked);
+                    count++;
+                }
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        notifyDataSetChanged();
+                    }
+                });
+            }
+        });
+
         constraintLayout(holder, position);
     }
 
