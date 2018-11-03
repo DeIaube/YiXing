@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 import arouter.dawn.zju.edu.module_account.R;
+import arouter.dawn.zju.edu.module_account.util.VerificationUtil;
 import baselib.App;
 import baselib.util.LogUtil;
 import io.reactivex.Observable;
@@ -26,7 +27,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
 
     @Override
     public void verificationCode(String phoneNumber, String code) {
-        if (!checkCodeCorrect(code)) {
+        if (!VerificationUtil.checkCodeCorrect(code)) {
             mView.showMessage(App.getContext().getString(R.string.register_code_format_error));
             return;
         }
@@ -44,14 +45,6 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
                 mView.hideLoading();
             }
         });
-    }
-
-    private boolean checkCodeCorrect(String code) {
-        if (code == null || code.length() != 6) {
-            return false;
-        }
-        Pattern pattern = Pattern.compile("[0-9]*");
-        return pattern.matcher(code).matches();
     }
 
     @Override
