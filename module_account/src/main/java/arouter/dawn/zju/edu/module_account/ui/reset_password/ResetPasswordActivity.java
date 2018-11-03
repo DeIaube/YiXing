@@ -1,6 +1,8 @@
 package arouter.dawn.zju.edu.module_account.ui.reset_password;
 
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
@@ -11,9 +13,19 @@ import baselib.config.Constants;
 @Route(path = Constants.AROUTER_ACCOUNT_RESET_PASSWORD)
 public class ResetPasswordActivity extends BaseActivity<ResetPasswordContract.Presenter> implements ResetPasswordContract.View {
 
+    EditText phoneInputEt;
+    EditText verificationCodeEt;
+    EditText passwordInputEt;
+    EditText repasswordInputEt;
+    Button getCodeBtn;
+
     @Override
     protected void initView() {
-
+        phoneInputEt = findViewById(R.id.reset_password_phone_number);
+        passwordInputEt = findViewById(R.id.reset_password_password);
+        verificationCodeEt = findViewById(R.id.reset_password_verification_code);
+        repasswordInputEt = findViewById(R.id.reset_password_repassword);
+        getCodeBtn = findViewById(R.id.reset_password_get_verification_code);
     }
 
     @Override
@@ -38,5 +50,18 @@ public class ResetPasswordActivity extends BaseActivity<ResetPasswordContract.Pr
     @Override
     protected void bindPresenter() {
         mPresenter = new ResetPasswordPresenter();
+    }
+
+    @Override
+    public void updateCoundDown(int count) {
+        if (count == 0) {
+            getCodeBtn.setClickable(true);
+            getCodeBtn.setBackgroundResource(R.color.colorPrimary);
+            getCodeBtn.setText(getText(R.string.register_get_verification_code));
+            return;
+        }
+        getCodeBtn.setClickable(false);
+        getCodeBtn.setBackgroundResource(R.color.colorPrimaryDark);
+        getCodeBtn.setText(String.format("%ds", count));
     }
 }

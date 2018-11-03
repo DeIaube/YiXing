@@ -6,4 +6,14 @@ public class ResetPasswordPresenter extends BasePresenter<ResetPasswordContract.
 
     String TAG = "ResetPasswordPresenter";
 
+    @Override
+    public void verificationCode(String phoneNumber, String code) {
+
+    }
+
+    @Override
+    public void getCode(String phoneNumber) {
+
+    }
+
 }
