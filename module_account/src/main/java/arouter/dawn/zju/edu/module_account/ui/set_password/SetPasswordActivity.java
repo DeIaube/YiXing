@@ -24,7 +24,6 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordPresenter> impl
     protected void initView() {
         passwordEt = findViewById(R.id.set_password_password_et);
         rePasswordEt = findViewById(R.id.set_password_repassword_et);
-        showMessage(phoneNumber);
     }
 
     @Override
