@@ -2,7 +2,6 @@ package arouter.dawn.zju.edu.module_goods.adapter;
 
 import android.content.Context;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,7 +16,9 @@ import com.squareup.picasso.Picasso;
 import java.util.BitSet;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import arouter.dawn.zju.edu.module_nearby.R;
 import baselib.bean.Goods;
@@ -29,11 +30,15 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
     BitSet goodsSelector;
     BitSet shopSelector;
 
+    private double mTotalPrice;
+    private Map<String, Double> mShopTotalPrice;
+
     public CartGoodsListAdapter(Context context, List<Goods> goodsList) {
         this.context = context;
         this.goodsList = goodsList;
         this.goodsSelector = new BitSet();
         this.shopSelector = new BitSet();
+        this.mShopTotalPrice = new HashMap<>();
     }
 
     public void refresh(List<Goods> goodsList) {
@@ -44,6 +49,11 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
                 return o1.getShop().compareTo(o2.getShop());
             }
         });
+        // 初始化 防止获取数据时出现空指针
+        mShopTotalPrice.clear();
+        for (Goods goods : goodsList) {
+            mShopTotalPrice.put(goods.getShop(), 0.0);
+        }
         notifyDataSetChanged();
     }
 
@@ -62,39 +72,83 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
         holder.goodsPriveTv.setText(String.format("￥%.2f", goods.getPrice()));
         holder.goodsSelectCb.setChecked(goodsSelector.get(position));
         holder.shopSelectCb.setChecked(shopSelector.get(position));
+        holder.goodsTotalPriveTv.setText(
+                String.format("本仓总计(不含税): ￥%.2f", mShopTotalPrice.get(goods.getShop())));
 
         holder.goodsSelectCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                goodsSelector.set(position, isChecked);
+                goodsStatusChange(position, isChecked);
             }
         });
 
         holder.shopSelectCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                shopSelector.set(position, isChecked);
-                goodsSelector.set(position, isChecked);
                 int count = 0;
                 while (position + count < goodsList.size()) {
                     if (!goodsList.get(position + count).getShop().equals(goods.getShop())) {
                         break;
                     }
-                    goodsSelector.set(position + count, isChecked);
                     count++;
                 }
-                new Handler().post(new Runnable() {
-                    @Override
-                    public void run() {
-                        notifyDataSetChanged();
-                    }
-                });
+                goodsStatusChange(position, count, isChecked);
             }
         });
-
         constraintLayout(holder, position);
     }
 
+    /**
+     * 更新购物车商品状态
+     * @param position 下标
+     * @param status true:加入购物车 false:移除购物车
+     */
+    private void goodsStatusChange(int position, boolean status) {
+        goodsStatusChange(position, 1, status);
+    }
+
+    /**
+     * 批量更新购物车商品状态
+     * @param position
+     * @param count
+     * @param status
+     */
+    private void goodsStatusChange(int position, int count, boolean status) {
+        for(int i = 0; i < count; i++) {
+            if(goodsSelector.get(position + i) == status) {
+                continue;
+            }
+            goodsSelector.set(position + i, status);
+            shopSelector.set(position + i, status);
+            String shop = goodsList.get(position + i).getShop();
+            if (status) {
+                // 加入购物车
+                mTotalPrice += goodsList.get(position + i).getPrice();
+                mShopTotalPrice.put(shop,
+                        mShopTotalPrice.get(shop) + goodsList.get(position + i).getPrice());
+            } else {
+                // 移除购物车
+                mTotalPrice -= goodsList.get(position + i).getPrice();
+                mShopTotalPrice.put(shop,
+                        mShopTotalPrice.get(shop) - goodsList.get(position + i).getPrice());
+            }
+        }
+        // 刷新页面
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                notifyDataSetChanged();
+            }
+        });
+    }
+
+    /**
+     * 根据不同的状态使用不同的布局
+     * 当前如果是此店的第一件商品则显示top_view
+     * 当前如果是此店的最后一件商品则显示bottom_view
+     * @param holder
+     * @param position
+     */
     private void constraintLayout(CartGoodsHolder holder, int position) {
         if (position != 0 &&
                 goodsList.get(position).getShop().equals(goodsList.get(position - 1).getShop())) {
