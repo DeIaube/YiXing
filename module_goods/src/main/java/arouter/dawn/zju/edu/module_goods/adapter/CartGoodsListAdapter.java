@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.Collections;
 import java.util.Comparator;
@@ -71,6 +72,20 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
 
     public interface CartStatusChangeListener {
         void totalPriceChange(double price);
+    }
+
+    /**
+     *
+     * @return 购物车中被选中的商品列表
+     */
+    public List<Goods> getCheckedGoogsList() {
+        List<Goods> result = new ArrayList<>();
+        for (int i = 0; i < mGoodsList.size(); i++) {
+            if (mGoodsSelector.get(i)) {
+                result.add(mGoodsList.get(i));
+            }
+        }
+        return result;
     }
 
     @Override
