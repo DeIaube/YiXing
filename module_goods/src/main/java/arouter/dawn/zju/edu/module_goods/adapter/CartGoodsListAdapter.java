@@ -32,6 +32,8 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
     private BitSet mGoodsSelector;
     // 每个商品对应的店铺选中状态
     private BitSet mShopSelector;
+    // 购物车中商品状态改变的回调
+    private CartStatusChangeListener cartStatusChangeListener;
 
     // 总金额
     private double mTotalPrice;
@@ -44,6 +46,10 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
         this.mGoodsSelector = new BitSet();
         this.mShopSelector = new BitSet();
         this.mShopTotalPrice = new HashMap<>();
+    }
+
+    public void setCartStatusChangeListener(CartStatusChangeListener cartStatusChangeListener) {
+        this.cartStatusChangeListener = cartStatusChangeListener;
     }
 
     public void refresh(List<Goods> goodsList) {
@@ -61,6 +67,10 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
             mShopTotalPrice.put(goods.getShop(), 0.0);
         }
         notifyDataSetChanged();
+    }
+
+    public interface CartStatusChangeListener {
+        void totalPriceChange(double price);
     }
 
     @Override
@@ -103,6 +113,10 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
             }
         });
         constraintLayout(holder, position);
+        // 每次更新页面都要执行状态改变的回调
+        if (cartStatusChangeListener != null) {
+            cartStatusChangeListener.totalPriceChange(mTotalPrice);
+        }
     }
 
     /**
