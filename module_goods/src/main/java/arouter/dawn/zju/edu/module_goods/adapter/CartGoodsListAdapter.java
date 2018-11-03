@@ -1,5 +1,6 @@
 package arouter.dawn.zju.edu.module_goods.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.support.v7.widget.AppCompatCheckBox;
@@ -25,24 +26,29 @@ import baselib.bean.Goods;
 
 public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdapter.CartGoodsHolder> {
 
-    Context context;
-    List<Goods> goodsList;
-    BitSet goodsSelector;
-    BitSet shopSelector;
+    private Context mContext;
+    private List<Goods> mGoodsList;
+    // 每个商品选中状态
+    private BitSet mGoodsSelector;
+    // 每个商品对应的店铺选中状态
+    private BitSet mShopSelector;
 
+    // 总金额
     private double mTotalPrice;
+    // 每家店铺的总金额
     private Map<String, Double> mShopTotalPrice;
 
     public CartGoodsListAdapter(Context context, List<Goods> goodsList) {
-        this.context = context;
-        this.goodsList = goodsList;
-        this.goodsSelector = new BitSet();
-        this.shopSelector = new BitSet();
+        this.mContext = context;
+        this.mGoodsList = goodsList;
+        this.mGoodsSelector = new BitSet();
+        this.mShopSelector = new BitSet();
         this.mShopTotalPrice = new HashMap<>();
     }
 
     public void refresh(List<Goods> goodsList) {
-        this.goodsList = goodsList;
+        this.mGoodsList = goodsList;
+        // 按照店铺名称排序
         Collections.sort(goodsList, new Comparator<Goods>() {
             @Override
             public int compare(Goods o1, Goods o2) {
@@ -59,19 +65,20 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
 
     @Override
     public CartGoodsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View rootView = LayoutInflater.from(context).inflate(R.layout.item_cart_goods, parent, false);
+        View rootView = LayoutInflater.from(mContext).inflate(R.layout.item_cart_goods, parent, false);
         return new CartGoodsHolder(rootView);
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
-    public void onBindViewHolder(final CartGoodsHolder holder, final int position) {
+    public void onBindViewHolder(final CartGoodsHolder holder, @SuppressLint("RecyclerView") final int position) {
         holder.setIsRecyclable(false);
-        final Goods goods = goodsList.get(position);
-        Picasso.with(context).load(goods.getPreview()).into(holder.goodsPreviewIv);
+        final Goods goods = mGoodsList.get(position);
+        Picasso.with(mContext).load(goods.getPreview()).into(holder.goodsPreviewIv);
         holder.goodsTitleTv.setText(goods.getTitle());
         holder.goodsPriveTv.setText(String.format("￥%.2f", goods.getPrice()));
-        holder.goodsSelectCb.setChecked(goodsSelector.get(position));
-        holder.shopSelectCb.setChecked(shopSelector.get(position));
+        holder.goodsSelectCb.setChecked(mGoodsSelector.get(position));
+        holder.shopSelectCb.setChecked(mShopSelector.get(position));
         holder.goodsTotalPriveTv.setText(
                 String.format("本仓总计(不含税): ￥%.2f", mShopTotalPrice.get(goods.getShop())));
 
@@ -86,8 +93,8 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 int count = 0;
-                while (position + count < goodsList.size()) {
-                    if (!goodsList.get(position + count).getShop().equals(goods.getShop())) {
+                while (position + count < mGoodsList.size()) {
+                    if (!mGoodsList.get(position + count).getShop().equals(goods.getShop())) {
                         break;
                     }
                     count++;
@@ -109,28 +116,28 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
 
     /**
      * 批量更新购物车商品状态
-     * @param position
-     * @param count
-     * @param status
+     * @param position 下标
+     * @param count 要修改的商品数量
+     * @param status true:加入购物车 false:移除购物车
      */
     private void goodsStatusChange(int position, int count, boolean status) {
         for(int i = 0; i < count; i++) {
-            if(goodsSelector.get(position + i) == status) {
+            if(mGoodsSelector.get(position + i) == status) {
                 continue;
             }
-            goodsSelector.set(position + i, status);
-            shopSelector.set(position + i, status);
-            String shop = goodsList.get(position + i).getShop();
+            mGoodsSelector.set(position + i, status);
+            mShopSelector.set(position + i, status);
+            String shop = mGoodsList.get(position + i).getShop();
             if (status) {
                 // 加入购物车
-                mTotalPrice += goodsList.get(position + i).getPrice();
+                mTotalPrice += mGoodsList.get(position + i).getPrice();
                 mShopTotalPrice.put(shop,
-                        mShopTotalPrice.get(shop) + goodsList.get(position + i).getPrice());
+                        mShopTotalPrice.get(shop) + mGoodsList.get(position + i).getPrice());
             } else {
                 // 移除购物车
-                mTotalPrice -= goodsList.get(position + i).getPrice();
+                mTotalPrice -= mGoodsList.get(position + i).getPrice();
                 mShopTotalPrice.put(shop,
-                        mShopTotalPrice.get(shop) - goodsList.get(position + i).getPrice());
+                        mShopTotalPrice.get(shop) - mGoodsList.get(position + i).getPrice());
             }
         }
         // 刷新页面
@@ -151,20 +158,20 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
      */
     private void constraintLayout(CartGoodsHolder holder, int position) {
         if (position != 0 &&
-                goodsList.get(position).getShop().equals(goodsList.get(position - 1).getShop())) {
+                mGoodsList.get(position).getShop().equals(mGoodsList.get(position - 1).getShop())) {
             holder.topDivision.setVisibility(View.GONE);
         }
-        if (position != 0 && goodsList.get(position).getShop().equals(goodsList.get(position - 1).getShop())) {
+        if (position != 0 && mGoodsList.get(position).getShop().equals(mGoodsList.get(position - 1).getShop())) {
             holder.goods_top_layout.setVisibility(View.GONE);
         }
-        if (position != goodsList.size() - 1 && goodsList.get(position).getShop().equals(goodsList.get(position + 1).getShop())) {
+        if (position != mGoodsList.size() - 1 && mGoodsList.get(position).getShop().equals(mGoodsList.get(position + 1).getShop())) {
             holder.goods_bottom_layout.setVisibility(View.GONE);
         }
     }
 
     @Override
     public int getItemCount() {
-        return goodsList.size();
+        return mGoodsList.size();
     }
 
     class CartGoodsHolder extends RecyclerView.ViewHolder{
