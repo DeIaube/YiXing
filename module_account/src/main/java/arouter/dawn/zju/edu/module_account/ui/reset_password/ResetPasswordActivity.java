@@ -1,5 +1,7 @@
 package arouter.dawn.zju.edu.module_account.ui.reset_password;
 
+import android.view.View;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_account.R;
@@ -22,6 +24,15 @@ public class ResetPasswordActivity extends BaseActivity<ResetPasswordContract.Pr
     @Override
     protected boolean showHomeAsUp() {
         return true;
+    }
+
+    public void onViewClicked(View v) {
+        int id = v.getId();
+        if (id == R.id.reset_password_verification_code) {
+
+        } else if (id == R.id.reset_password_submit) {
+
+        }
     }
 
     @Override

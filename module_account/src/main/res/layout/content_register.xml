@@ -126,7 +126,7 @@
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="@string/register_start"
+            android:text="@string/start"
             android:textColor="@color/white"
             android:background="@color/colorPrimary"
             android:textSize="16dp"
