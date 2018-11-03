@@ -14,7 +14,7 @@ public interface Constants {
     // Account
     String AROUTER_ACCOUNT_LOGIN = "/account/login";
     String AROUTER_ACCOUNT_REGISTER = "/account/register";
-    String AROUTER_ACCOUNT_RESET_PASSWORD = "/account/reset_password";
+    String AROUTER_ACCOUNT_SET_PASSWORD = "/account/set_password";
 
     // Goods
     String AROUTER_GOODS_NEARBY = "/goods/nearby";

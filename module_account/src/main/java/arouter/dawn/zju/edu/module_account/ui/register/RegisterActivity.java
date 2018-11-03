@@ -74,7 +74,7 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
     @Override
     public void verificationSuccessCallback() {
         // 验证码验证成功 进入设置密码页面
-        ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_RESET_PASSWORD).
+        ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_SET_PASSWORD).
                 withString(Constants.ACCOUNT_PHONE_NUMBER, mPhoneNumber).navigation();
     }
 }

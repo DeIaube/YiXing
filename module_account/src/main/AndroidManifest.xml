@@ -10,7 +10,7 @@
             android:name="arouter.dawn.zju.edu.module_account.ui.register.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name="arouter.dawn.zju.edu.module_account.ui.reset_password.ResetPasswordActivity"
+            android:name="arouter.dawn.zju.edu.module_account.ui.set_password.SetPasswordActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
     </application>

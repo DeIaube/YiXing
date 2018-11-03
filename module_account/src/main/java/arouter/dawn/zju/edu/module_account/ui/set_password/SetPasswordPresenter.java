@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_account.ui.reset_password;
+package arouter.dawn.zju.edu.module_account.ui.set_password;
 
 import android.text.TextUtils;
 
@@ -6,33 +6,33 @@ import arouter.dawn.zju.edu.module_account.R;
 import baselib.App;
 import baselib.base.BasePresenter;
 
-public class ResetPasswordPresenter extends BasePresenter<ResetPasswordContract.View> implements ResetPasswordContract.Presenter {
+public class SetPasswordPresenter extends BasePresenter<SetPasswordContract.View> implements SetPasswordContract.Presenter {
 
     @Override
     public void resetPassword(String phoneNumber, String password, String repassword) {
         if (TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
             mView.showMessage(App.getContext().
-                    getString(R.string.reset_password_password_not_null));
+                    getString(R.string.set_password_password_not_null));
             return;
         }
         if (!password.equals(repassword)) {
             mView.showMessage(App.getContext().
-                    getString(R.string.reset_password_password_diff));
+                    getString(R.string.set_password_password_diff));
             return;
         }
         if (password.length() < 8) {
             mView.showMessage(App.getContext().
-                    getString(R.string.reset_password_password_too_short));
+                    getString(R.string.set_password_password_too_short));
             return;
         }
         if (password.length() > 32) {
             mView.showMessage(App.getContext().
-                    getString(R.string.reset_password_password_too_long));
+                    getString(R.string.set_password_password_too_long));
             return;
         }
         if (!checkPasswordComplexity(password)) {
             mView.showMessage(App.getContext().
-                    getString(R.string.reset_password_password_too_simple));
+                    getString(R.string.set_password_password_too_simple));
         }
     }
 

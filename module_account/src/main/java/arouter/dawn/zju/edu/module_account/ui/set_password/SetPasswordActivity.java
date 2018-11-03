@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_account.ui.reset_password;
+package arouter.dawn.zju.edu.module_account.ui.set_password;
 
 import android.view.View;
 import android.widget.EditText;
@@ -10,8 +10,8 @@ import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
-@Route(path = Constants.AROUTER_ACCOUNT_RESET_PASSWORD)
-public class ResetPasswordActivity extends BaseActivity<ResetPasswordPresenter> implements ResetPasswordContract.View {
+@Route(path = Constants.AROUTER_ACCOUNT_SET_PASSWORD)
+public class SetPasswordActivity extends BaseActivity<SetPasswordPresenter> implements SetPasswordContract.View {
 
     EditText passwordEt;
     EditText rePasswordEt;
@@ -21,19 +21,19 @@ public class ResetPasswordActivity extends BaseActivity<ResetPasswordPresenter> 
 
     @Override
     protected void initView() {
-        passwordEt = findViewById(R.id.reset_password_password_et);
-        rePasswordEt = findViewById(R.id.reset_password_repassword_et);
+        passwordEt = findViewById(R.id.set_password_password_et);
+        rePasswordEt = findViewById(R.id.set_password_repassword_et);
         showMessage(phoneNumber);
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_reset_password;
+        return R.layout.activity_set_password;
     }
 
     @Override
     protected void bindPresenter() {
-        mPresenter = new ResetPasswordPresenter();
+        mPresenter = new SetPasswordPresenter();
     }
 
     public void onViewClicked(View view) {
