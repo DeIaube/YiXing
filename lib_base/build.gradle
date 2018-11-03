@@ -36,8 +36,9 @@ android {
 }
 
 dependencies {
-    implementation project(':lib_res')
-    implementation project(':lib_db')
+    compile project(':lib_res')
+    compile project(':lib_db')
+    compile project(':lib_net')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
@@ -55,12 +56,6 @@ dependencies {
     //butterknife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    //retrofit
-    compile 'com.squareup.retrofit2:retrofit:2.4.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
-    //okhttp3
-    compile 'com.squareup.okhttp3:okhttp:3.10.0'
     //路径绘制
     implementation 'com.yanzhikai:TextPathView:0.1.3'
     //rxpermissions
@@ -68,6 +63,4 @@ dependencies {
     //bottom-navigation-bar
     compile 'com.ashokvarma.android:bottom-navigation-bar:1.4.1'
     compile 'com.squareup.picasso:picasso:2.3.2'
-    // LeanCloud 基础包
-    compile ('cn.leancloud.android:avoscloud-sdk:v4.7.3')
 }

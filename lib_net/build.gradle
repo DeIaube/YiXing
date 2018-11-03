@@ -29,14 +29,17 @@ android {
 }
 
 dependencies {
-    compile project(':lib_base')
-    compile project(':lib_res')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    //ARouter
-    annotationProcessor "com.alibaba:arouter-compiler:1.1.4"
+    //retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.4.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    //okhttp3
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    // LeanCloud 基础包
+    compile ('cn.leancloud.android:avoscloud-sdk:v4.7.3')
 }
