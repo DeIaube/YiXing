@@ -24,6 +24,7 @@
     <!--register-->
 
     <!--set password-->
+    <string name="title_activity_set_password">设置密码</string>
     <string name="set_password_input_password">输入密码</string>
     <string name="set_password_confirm_password">确认密码</string>
     <string name="set_password_password_font">密码长度8-32位，须包含数字、字母、符号至少2种或以上元素。</string>

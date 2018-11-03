@@ -3,15 +3,21 @@
     package="arouter.dawn.zju.edu.module_account">
 
     <application>
+
         <activity
             android:name="arouter.dawn.zju.edu.module_account.ui.login.LoginActivity"
+            android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name="arouter.dawn.zju.edu.module_account.ui.register.RegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/title_activity_register"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name="arouter.dawn.zju.edu.module_account.ui.set_password.SetPasswordActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/title_activity_set_password"
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 
