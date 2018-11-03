@@ -3,6 +3,7 @@ package arouter.dawn.zju.edu.module_account.ui.register;
 import android.annotation.SuppressLint;
 
 import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVMobilePhoneVerifyCallback;
 import com.avos.avoscloud.AVSMS;
 import com.avos.avoscloud.AVSMSOption;
 import com.avos.avoscloud.AVUser;
@@ -23,8 +24,20 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
 
     @Override
     public void verificationCode(String phoneNumber, String code) {
-        // todo 验证手机验证码
-        mView.verificationCodeCallback(true);
+        mView.showLoading();
+        AVSMS.verifySMSCodeInBackground(code, phoneNumber, new AVMobilePhoneVerifyCallback() {
+            @Override
+            public void done(AVException e) {
+                if (null == e) {
+                    LogUtil.i(TAG, "verifySMSCode");
+                } else {
+                    mView.showMessage(e.getLocalizedMessage());
+                    LogUtil.e(TAG, e.getLocalizedMessage());
+                }
+                mView.hideLoading();
+                mView.verificationCodeCallback(e == null);
+            }
+        });
     }
 
     @Override
@@ -37,7 +50,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
             @Override
             public void done(AVException e) {
                 if (null == e) {
-                    LogUtil.e(TAG, "requestSMSCode");
+                    LogUtil.i(TAG, "requestSMSCode");
                     startCountDown();
                 } else {
                     mView.showMessage(e.getLocalizedMessage());
