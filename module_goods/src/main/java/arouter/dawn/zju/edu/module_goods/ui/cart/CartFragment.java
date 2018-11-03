@@ -1,5 +1,6 @@
 package arouter.dawn.zju.edu.module_goods.ui.cart;
 
+import android.annotation.SuppressLint;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,7 +21,7 @@ import baselib.bean.Goods;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_GOODS_CART)
-public class CartFragment extends BaseFragment<CartContract.Presenter> implements CartContract.View {
+public class CartFragment extends BaseFragment<CartContract.Presenter> implements CartContract.View, CartGoodsListAdapter.CartStatusChangeListener {
 
     TextView toolTextTv;
     RecyclerView goodsListRv;
@@ -51,6 +52,7 @@ public class CartFragment extends BaseFragment<CartContract.Presenter> implement
         toolTextTv.setText("购物车");
 
         mAdapter = new CartGoodsListAdapter(getContext(), new ArrayList<Goods>());
+        mAdapter.setCartStatusChangeListener(this);
         goodsListRv.setLayoutManager(new LinearLayoutManager(getContext()));
         goodsListRv.setAdapter(mAdapter);
 
@@ -67,5 +69,11 @@ public class CartFragment extends BaseFragment<CartContract.Presenter> implement
     @Override
     public void refresh(List<Goods> goodsList) {
         mAdapter.refresh(goodsList);
+    }
+
+    @SuppressLint("DefaultLocale")
+    @Override
+    public void totalPriceChange(double price) {
+        priceTv.setText(String.format("￥%.2f", price));
     }
 }
