@@ -1,8 +1,12 @@
 package arouter.dawn.zju.edu.module_mine.ui.setting;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
 import arouter.dawn.zju.edu.module_mine.R;
 import baselib.base.BaseActivity;
+import baselib.config.Constants;
 
+@Route(path = Constants.AROUTER_SETTING_SETTING)
 public class SettingActivity extends BaseActivity {
     @Override
     protected void initView() {

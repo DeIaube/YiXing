@@ -67,7 +67,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             ARouter.getInstance().build(Constants.AROUTER_SETTING_NOTICE).navigation();
         } else if (id == R.id.setting) {
             // 跳转到设置页面
-            startActivity(new Intent(getContext(), SettingActivity.class));
+            ARouter.getInstance().build(Constants.AROUTER_SETTING_SETTING).navigation();
         } else if (id == R.id.account_detail) {
             // 跳转个人详情页
         } else if (id == R.id.wallet_layout) {
