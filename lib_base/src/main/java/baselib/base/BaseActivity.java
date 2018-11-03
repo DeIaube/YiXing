@@ -13,15 +13,12 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import java.util.Objects;
 
 import arouter.dawn.zju.edu.lib_res.R;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 public abstract class BaseActivity <T extends BaseContract.BasePresenter> extends AppCompatActivity implements BaseContract.BaseView {
 
     protected T mPresenter;
     protected Toolbar mToolbar;
 
-    private Unbinder mBind;
     private ProgressDialog mLoadingView;
 
     /**
@@ -77,7 +74,6 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ARouter.getInstance().inject(this);
-        mBind = ButterKnife.bind(this);
         initToolBar();
         bindPresenter();
         attachView();
@@ -90,7 +86,6 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mBind.unbind();
         detachView();
         if (mLoadingView != null) {
             mLoadingView.dismiss();
