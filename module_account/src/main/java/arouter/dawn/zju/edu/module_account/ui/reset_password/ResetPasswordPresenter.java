@@ -6,10 +6,13 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVSMS;
 import com.avos.avoscloud.AVSMSOption;
 import com.avos.avoscloud.RequestMobileCodeCallback;
+import com.avos.avoscloud.UpdatePasswordCallback;
 
 import java.util.concurrent.TimeUnit;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
+import arouter.dawn.zju.edu.module_account.R;
+import arouter.dawn.zju.edu.module_account.util.VerificationUtil;
 import baselib.App;
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
@@ -22,8 +25,29 @@ public class ResetPasswordPresenter extends BasePresenter<ResetPasswordContract.
     String TAG = "ResetPasswordPresenter";
 
     @Override
-    public void verificationCode(String phoneNumber, String code) {
-
+    public void verificationCode(String phoneNumber, String code, String password, String repassword) {
+        if (!VerificationUtil.checkCodeCorrect(code)) {
+            mView.showMessage(App.getContext().getString(R.string.register_code_format_error));
+            return;
+        }
+        if (!VerificationUtil.checkPasswordCorrect(mView, password, repassword)) {
+            return;
+        }
+        mView.showLoading();
+        User.resetPasswordBySmsCodeInBackground(code, password, new UpdatePasswordCallback() {
+            @Override
+            public void done(AVException e) {
+                mView.hideLoading();
+                if (e == null) {
+                    LogUtil.i(TAG, "resetPassword");
+                    mView.showMessage(App.getContext().getString(R.string.reset_password_success));
+                    mView.finish();
+                } else {
+                    LogUtil.e(TAG, e.getLocalizedMessage());
+                    mView.showMessage(e.getLocalizedMessage());
+                }
+            }
+        });
     }
 
     @Override

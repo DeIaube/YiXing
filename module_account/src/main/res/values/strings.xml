@@ -45,6 +45,7 @@
     <string name="title_activity_reset_password">重置密码</string>
     <string name="reset_password_please_input_password">请输入密码</string>
     <string name="reset_password_please_input_repassword">请确认密码</string>
+    <string name="reset_password_success">重置密码成功</string>
     <!--reset password-->
 
 </resources>

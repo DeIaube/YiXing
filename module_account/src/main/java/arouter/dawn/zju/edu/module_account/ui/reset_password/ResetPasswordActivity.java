@@ -43,7 +43,10 @@ public class ResetPasswordActivity extends BaseActivity<ResetPasswordContract.Pr
         if (id == R.id.reset_password_verification_code) {
             mPresenter.getCode(phoneInputEt.getText().toString());
         } else if (id == R.id.reset_password_submit) {
-
+            mPresenter.verificationCode(phoneInputEt.getText().toString(),
+                    verificationCodeEt.getText().toString(),
+                    passwordInputEt.getText().toString(),
+                    repasswordInputEt.getText().toString());
         }
     }
 
