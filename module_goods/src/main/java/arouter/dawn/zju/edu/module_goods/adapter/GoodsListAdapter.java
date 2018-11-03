@@ -56,7 +56,7 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.Good
         final Goods goods = mGoodsList.get(position);
         holder.titleTv.setText(goods.getTitle());
         holder.locationTv.setText(String.format("%s %s", goods.getCity(), goods.getRegion()));
-        holder.priceTv.setText(String.format("￥%d", goods.getPrice()));
+        holder.priceTv.setText(String.format("￥%.0f", goods.getPrice()));
         Picasso.with(mContext).load(goods.getPreview()).into(holder.preIv);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

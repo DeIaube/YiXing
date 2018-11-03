@@ -24,11 +24,11 @@ public class Goods extends AVObject {
         put("preview", preview);
     }
 
-    public int getPrice() {
-        return getNumber("price").intValue();
+    public double getPrice() {
+        return getDouble("price");
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         put("price", price);
     }
 

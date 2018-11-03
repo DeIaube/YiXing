@@ -106,14 +106,14 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
             comparator = new Comparator<Goods>() {
                 @Override
                 public int compare(Goods o1, Goods o2) {
-                    return o1.getPrice() - o2.getPrice();
+                    return (int)(o1.getPrice() * 100 )- (int)(o2.getPrice() * 100);
                 }
             };
         } else if (sortType == Constants.SORT_PRICE_UP) {
             comparator = new Comparator<Goods>() {
                 @Override
                 public int compare(Goods o1, Goods o2) {
-                    return o2.getPrice() - o1.getPrice();
+                    return (int)(o2.getPrice() * 100 )- (int)(o1.getPrice() * 100);
                 }
             };
         } else if (sortType == Constants.SORT_DISTANCE) {

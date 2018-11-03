@@ -59,7 +59,7 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
         final Goods goods = goodsList.get(position);
         Picasso.with(context).load(goods.getPreview()).into(holder.goodsPreviewIv);
         holder.goodsTitleTv.setText(goods.getTitle());
-        holder.goodsPriveTv.setText(String.format("￥%d", goods.getPrice()));
+        holder.goodsPriveTv.setText(String.format("￥%.2f", goods.getPrice()));
         holder.goodsSelectCb.setChecked(goodsSelector.get(position));
         holder.shopSelectCb.setChecked(shopSelector.get(position));
 
