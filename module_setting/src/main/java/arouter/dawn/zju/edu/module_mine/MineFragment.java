@@ -64,6 +64,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         int id = v.getId();
         if (id == R.id.notice) {
             // 跳转到当前通知
+            ARouter.getInstance().build(Constants.AROUTER_SETTING_NOTICE).navigation();
         } else if (id == R.id.setting) {
             // 跳转到设置页面
             startActivity(new Intent(getContext(), SettingActivity.class));

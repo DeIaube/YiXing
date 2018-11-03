@@ -29,6 +29,7 @@ public interface Constants {
 
     // Setting
     String AROUTER_SETTING_MINE = "/setting/mine";
+    String AROUTER_SETTING_NOTICE = "/setting/notice";
     String AROUTER_SETTING_COLLECTION = "/setting/collection";
     String AROUTER_SETTING_FEEDBACK = "/setting/feedback";
 
