@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_mine;
+package arouter.dawn.zju.edu.module_mine.ui.mine;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import arouter.dawn.zju.edu.module_mine.R;
 import arouter.dawn.zju.edu.module_mine.ui.setting.SettingActivity;
 import baselib.base.BaseFragment;
 import baselib.config.Constants;
