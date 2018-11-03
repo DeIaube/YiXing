@@ -12,6 +12,7 @@ import baselib.bean.Goods;
 import baselib.bean.Order;
 import baselib.config.Constants;
 import baselib.util.SPUtil;
+import io.realm.Realm;
 
 
 public class App extends Application {
@@ -34,6 +35,7 @@ public class App extends Application {
         AVObject.registerSubclass(Order.class);
         AVObject.registerSubclass(Feedback.class);
         AVOSCloud.initialize(this,Constants.CLOUD_APPLICATION_ID,Constants.CLOUD_CLIENT_LEY);
+        Realm.init(this);
         ARouter.init(this);
         SPUtil.init(this);
     }
