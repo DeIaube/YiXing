@@ -59,7 +59,8 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical|end"
             android:paddingEnd="8dp"
-            android:text="￥169"
+            android:text="￥0.00"
+            android:maxLines="1"
             android:textColor="@color/colorPrimary"
             android:textSize="13dp" />
 
