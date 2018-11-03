@@ -35,9 +35,11 @@ public class SplashActivity extends BaseActivity {
                             //所有权限都开启aBoolean才为true，否则为false
                             Log.i(TAG, "权限已开启");
                             ARouter.getInstance().build(Constants.AROUTER_APP_MAIN).navigation();
+                            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_LOGIN).navigation();
                         } else {
                             Log.i(TAG, "权限被拒绝，请在设置里面开启相应权限，若无相应权限会影响使用");
                         }
+                        finish();
                     }
                 });
     }
