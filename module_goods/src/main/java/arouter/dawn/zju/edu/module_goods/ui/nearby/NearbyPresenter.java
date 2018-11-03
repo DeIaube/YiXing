@@ -16,6 +16,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import arouter.dawn.zju.edu.module_goods.adapter.NearbyPagerAdapter;
 import arouter.dawn.zju.edu.module_goods.config.Constants;
@@ -80,8 +81,8 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
                         orderList.clear();
                     }
                     for (Goods goods : list) {
-                        mGoodsMap.get(Constants.TYPE_ALL).add(goods);
-                        mGoodsMap.get(goods.getType()).add(goods);
+                        Objects.requireNonNull(mGoodsMap.get(Constants.TYPE_ALL)).add(goods);
+                        Objects.requireNonNull(mGoodsMap.get(goods.getType())).add(goods);
                     }
                     checkoutSortGoods(mCurrentSortType);
                 } else {
@@ -120,7 +121,7 @@ public class NearbyPresenter extends BasePresenter<NearbyContract.View> implemen
             comparator = new Comparator<Goods>() {
                 @Override
                 public int compare(Goods o1, Goods o2) {
-                    return 1;
+                    return o1.getRegion().compareTo(o2.getRegion());
                 }
             };
         }

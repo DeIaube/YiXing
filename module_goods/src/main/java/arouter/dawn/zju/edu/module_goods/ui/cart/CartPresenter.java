@@ -7,7 +7,6 @@ import com.avos.avoscloud.FindCallback;
 
 import java.util.List;
 
-import arouter.dawn.zju.edu.module_goods.config.Constants;
 import baselib.base.BasePresenter;
 import baselib.bean.Goods;
 import baselib.util.LogUtil;

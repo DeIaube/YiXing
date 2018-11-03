@@ -18,9 +18,9 @@ import baselib.bean.Goods;
 
 public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.GoodsListHolder> {
 
-    List<Goods> mGoodsList;
-    Context mContext;
-    OnGoodsClickListener onGoodsClickListener;
+    private List<Goods> mGoodsList;
+    private Context mContext;
+    private OnGoodsClickListener onGoodsClickListener;
 
     public interface OnGoodsClickListener {
         void onGoodsClick(View v, Goods goods);

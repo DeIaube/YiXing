@@ -182,8 +182,8 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
      * 根据不同的状态使用不同的布局
      * 当前如果是此店的第一件商品则显示top_view
      * 当前如果是此店的最后一件商品则显示bottom_view
-     * @param holder
-     * @param position
+     * @param holder ViewHolder
+     * @param position 下标
      */
     private void constraintLayout(CartGoodsHolder holder, int position) {
         if (position != 0 &&
@@ -220,7 +220,7 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
         View goods_bottom_layout;
         View topDivision;
 
-        public CartGoodsHolder(View itemView) {
+        CartGoodsHolder(View itemView) {
             super(itemView);
             shopSelectCb = itemView.findViewById(R.id.cart_goods_shop_select);
             shopTitleTv = itemView.findViewById(R.id.cart_goods_shop_title);
