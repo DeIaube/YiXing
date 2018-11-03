@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.BitSet;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import arouter.dawn.zju.edu.module_nearby.R;
@@ -20,14 +23,22 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
 
     Context context;
     List<Goods> goodsList;
+    BitSet bitSet;
 
     public CartGoodsListAdapter(Context context, List<Goods> goodsList) {
         this.context = context;
         this.goodsList = goodsList;
+        this.bitSet = new BitSet();
     }
 
     public void refresh(List<Goods> goodsList) {
         this.goodsList = goodsList;
+        Collections.sort(goodsList, new Comparator<Goods>() {
+            @Override
+            public int compare(Goods o1, Goods o2) {
+                return o1.getShop().compareTo(o2.getShop());
+            }
+        });
         notifyDataSetChanged();
     }
 
@@ -43,6 +54,20 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
         Picasso.with(context).load(goods.getPreview()).into(holder.goodsPreviewIv);
         holder.goodsTitleTv.setText(goods.getTitle());
         holder.goodsPriveTv.setText(String.format("￥%d", goods.getPrice()));
+        constraintLayout(holder, position);
+    }
+
+    private void constraintLayout(CartGoodsHolder holder, int position) {
+        if (position != 0 &&
+                goodsList.get(position).getShop().equals(goodsList.get(position - 1).getShop())) {
+            holder.topDivision.setVisibility(View.GONE);
+        }
+        if (position != 0 && goodsList.get(position).getShop().equals(goodsList.get(position - 1).getShop())) {
+            holder.goods_top_layout.setVisibility(View.GONE);
+        }
+        if (position != goodsList.size() - 1 && goodsList.get(position).getShop().equals(goodsList.get(position + 1).getShop())) {
+            holder.goods_bottom_layout.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -59,6 +84,9 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
         TextView goodsTitleTv;
         TextView goodsPriveTv;
         TextView goodsTotalPriveTv;
+        View goods_top_layout;
+        View goods_bottom_layout;
+        View topDivision;
 
         public CartGoodsHolder(View itemView) {
             super(itemView);
@@ -69,7 +97,9 @@ public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdap
             goodsTitleTv = itemView.findViewById(R.id.cart_goods_title);
             goodsPriveTv = itemView.findViewById(R.id.cart_goods_price);
             goodsTotalPriveTv = itemView.findViewById(R.id.cart_total_price_title);
-
+            goods_top_layout = itemView.findViewById(R.id.cart_goods_top_layout);
+            goods_bottom_layout = itemView.findViewById(R.id.cart_goods_bottom_layout);
+            topDivision = itemView.findViewById(R.id.top_division);
         }
     }
 }

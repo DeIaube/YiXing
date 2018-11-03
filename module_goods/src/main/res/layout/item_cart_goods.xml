@@ -7,11 +7,14 @@
     android:layout_height="wrap_content">
 
     <View
+        android:id="@+id/top_division"
         android:background="#f2f2f2"
         android:layout_width="match_parent"
         android:layout_height="16dp"/>
 
-    <include layout="@layout/item_cart_goods_top"/>
+    <include
+        android:id="@+id/cart_goods_top_layout"
+        layout="@layout/item_cart_goods_top"/>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -84,6 +87,8 @@
 
     </android.support.constraint.ConstraintLayout>
 
-    <include layout="@layout/item_cart_goods_bottom"/>
+    <include
+        android:id="@+id/cart_goods_bottom_layout"
+        layout="@layout/item_cart_goods_bottom"/>
 
 </LinearLayout>
