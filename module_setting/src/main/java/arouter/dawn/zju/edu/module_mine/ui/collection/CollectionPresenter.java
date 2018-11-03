@@ -8,7 +8,7 @@ import com.avos.avoscloud.FindCallback;
 import java.util.List;
 
 import baselib.base.BasePresenter;
-import baselib.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import baselib.util.LogUtil;
 
 public class CollectionPresenter extends BasePresenter<CollectionContract.View> implements CollectionContract.Presenter {

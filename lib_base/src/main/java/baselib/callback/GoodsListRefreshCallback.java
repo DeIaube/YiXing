@@ -2,7 +2,7 @@ package baselib.callback;
 
 import java.util.List;
 
-import baselib.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.Goods;
 
 public interface GoodsListRefreshCallback {
 

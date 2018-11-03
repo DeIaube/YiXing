@@ -1,15 +1,9 @@
 package arouter.dawn.zju.edu.module_account.ui.register;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
-
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVOSCloud;
-import com.avos.avoscloud.RequestMobileCodeCallback;
 
 import java.util.concurrent.TimeUnit;
 
-import baselib.bean.User;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;

@@ -7,9 +7,9 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVObject;
 
-import baselib.bean.Feedback;
-import baselib.bean.Goods;
-import baselib.bean.Order;
+import arouter.dawn.zju.edu.lib_net.bean.Feedback;
+import arouter.dawn.zju.edu.lib_net.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.Order;
 import baselib.config.Constants;
 import baselib.util.SPUtil;
 import io.realm.Realm;

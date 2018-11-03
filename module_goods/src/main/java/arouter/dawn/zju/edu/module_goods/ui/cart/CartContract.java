@@ -3,7 +3,7 @@ package arouter.dawn.zju.edu.module_goods.ui.cart;
 import java.util.List;
 
 import baselib.base.BaseContract;
-import baselib.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.Goods;
 
 public interface CartContract {
 

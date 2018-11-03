@@ -22,7 +22,7 @@ import arouter.dawn.zju.edu.module_goods.adapter.NearbyPagerAdapter;
 import arouter.dawn.zju.edu.module_goods.config.Constants;
 import arouter.dawn.zju.edu.module_goods.ui.goods_list.GoodsListFragment;
 import baselib.base.BasePresenter;
-import baselib.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import baselib.util.LogUtil;
 
 public class NearbyPresenter extends BasePresenter<NearbyContract.View> implements NearbyContract.Presenter {

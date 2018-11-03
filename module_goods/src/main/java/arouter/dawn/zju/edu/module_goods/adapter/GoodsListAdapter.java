@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import arouter.dawn.zju.edu.module_nearby.R;
-import baselib.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.Goods;
 
 public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.GoodsListHolder> {
 

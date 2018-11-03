@@ -17,7 +17,7 @@ import java.util.List;
 import arouter.dawn.zju.edu.module_goods.adapter.CartGoodsListAdapter;
 import arouter.dawn.zju.edu.module_nearby.R;
 import baselib.base.BaseFragment;
-import baselib.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_GOODS_CART)
