@@ -68,15 +68,13 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
     }
 
     /**
-     * 验证码验证回调
-     * @param result 验证码验证结果
+     * 验证码验证成功回调
+     * 跳转至设置密码页面
      */
     @Override
-    public void verificationCodeCallback(boolean result) {
-        if (result) {
-            // 验证码验证成功 进入设置密码页面
-            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_RESET_PASSWORD).
-                    withString(Constants.ACCOUNT_PHONE_NUMBER, mPhoneNumber).navigation();
-        }
+    public void verificationSuccessCallback() {
+        // 验证码验证成功 进入设置密码页面
+        ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_RESET_PASSWORD).
+                withString(Constants.ACCOUNT_PHONE_NUMBER, mPhoneNumber).navigation();
     }
 }

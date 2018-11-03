@@ -30,12 +30,12 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
             public void done(AVException e) {
                 if (null == e) {
                     LogUtil.i(TAG, "verifySMSCode");
+                    mView.verificationSuccessCallback();
                 } else {
                     mView.showMessage(e.getLocalizedMessage());
                     LogUtil.e(TAG, e.getLocalizedMessage());
                 }
                 mView.hideLoading();
-                mView.verificationCodeCallback(e == null);
             }
         });
     }

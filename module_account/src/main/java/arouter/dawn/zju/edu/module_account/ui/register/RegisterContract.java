@@ -6,7 +6,7 @@ public interface RegisterContract {
 
     interface View extends BaseContract.BaseView {
         void updateCoundDown(int count);
-        void verificationCodeCallback(boolean result);
+        void verificationSuccessCallback();
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
