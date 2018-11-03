@@ -20,6 +20,7 @@
     <string name="register_input_verification_code">请输入验证码</string>
     <string name="register_input_number">请输入手机号</string>
     <string name="register_please_input_message">请输入您的手机号码，登录或注册您的万众艺兴账号</string>
+    <string name="register_code_format_error">验证码格式错误</string>
     <!--register-->
 
     <!--set password-->
