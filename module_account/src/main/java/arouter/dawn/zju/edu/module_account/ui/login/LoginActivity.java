@@ -1,5 +1,7 @@
 package arouter.dawn.zju.edu.module_account.ui.login;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.EditText;
 
@@ -23,6 +25,21 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         accountEt = findViewById(R.id.login_account_et);
         accountEt.setText(SPUtil.getString(arouter.dawn.zju.edu.module_account.config.Constants.LOGIN_ACCOUNT, ""));
         passwordEt.setText(SPUtil.getString(arouter.dawn.zju.edu.module_account.config.Constants.LOGIN_PASSWORD, ""));
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.tips)
+                .setMessage(R.string.confirm_exit)
+                .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
     }
 
     @Override
