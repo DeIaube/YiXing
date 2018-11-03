@@ -9,6 +9,7 @@ import com.avos.avoscloud.RequestMobileCodeCallback;
 
 import java.util.concurrent.TimeUnit;
 
+import arouter.dawn.zju.edu.lib_net.bean.User;
 import baselib.App;
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
@@ -27,15 +28,11 @@ public class ResetPasswordPresenter extends BasePresenter<ResetPasswordContract.
 
     @Override
     public void getCode(String phoneNumber) {
-        AVSMSOption option = new AVSMSOption();
-        // 验证码有效时间为10分钟
-        option.setTtl(10);
-        option.setApplicationName(App.getContext().getString(arouter.dawn.zju.edu.lib_res.R.string.app_name));
-        AVSMS.requestSMSCodeInBackground(phoneNumber, option, new RequestMobileCodeCallback() {
+        User.requestPasswordResetBySmsCodeInBackground(phoneNumber, new RequestMobileCodeCallback() {
             @Override
             public void done(AVException e) {
                 if (null == e) {
-                    LogUtil.i(TAG, "requestSMSCode");
+                    LogUtil.i(TAG, "requestPasswordReset");
                     startCountDown();
                 } else {
                     mView.showMessage(e.getLocalizedMessage());
