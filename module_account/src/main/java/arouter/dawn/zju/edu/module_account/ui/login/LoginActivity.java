@@ -65,7 +65,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_REGISTER)
                     .navigation();
         } else if (id == R.id.login_forget_password_tv) {
-            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_SET_PASSWORD).navigation();
+            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_RESET_PASSWORD).navigation();
         } else if (id == R.id.login_weibo_btn) {
             mPresenter.loginByWeibo();
         } else if (id == R.id.login_qq_btn) {

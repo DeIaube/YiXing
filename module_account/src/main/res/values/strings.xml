@@ -37,4 +37,8 @@
     <string name="set_password_sign_success">注册成功,转入主页</string>
     <!--set password-->
 
+    <!--reset password-->
+    <string name="title_activity_reset_password">重置密码</string>
+    <!--reset password-->
+
 </resources>
