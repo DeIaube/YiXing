@@ -10,6 +10,7 @@ import com.avos.avoscloud.AVObject;
 import arouter.dawn.zju.edu.lib_net.bean.Feedback;
 import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import arouter.dawn.zju.edu.lib_net.bean.Order;
+import arouter.dawn.zju.edu.lib_net.bean.User;
 import baselib.config.Constants;
 import baselib.util.SPUtil;
 import io.realm.Realm;
@@ -31,6 +32,7 @@ public class App extends Application {
             ARouter.openDebug();
             ARouter.openLog();
         }
+        AVObject.registerSubclass(User.class);
         AVObject.registerSubclass(Goods.class);
         AVObject.registerSubclass(Order.class);
         AVObject.registerSubclass(Feedback.class);
