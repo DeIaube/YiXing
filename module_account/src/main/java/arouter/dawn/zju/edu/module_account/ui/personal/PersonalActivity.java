@@ -30,7 +30,15 @@ public class PersonalActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.check_portrait).setOnClickListener(this);
         findViewById(R.id.check_username).setOnClickListener(this);
         findViewById(R.id.check_pickname).setOnClickListener(this);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        refreshLayout();
+    }
+
+    private void refreshLayout() {
         User user = User.getCurrentUser(User.class);
         personalUsernameTv.setText(user.getUsername());
         personalPicknameTv.setText(user.getPickName());
