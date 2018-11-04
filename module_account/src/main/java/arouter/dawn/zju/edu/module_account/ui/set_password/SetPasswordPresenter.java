@@ -23,9 +23,11 @@ public class SetPasswordPresenter extends BasePresenter<SetPasswordContract.View
         user.setUsername(phoneNumber);
         user.setPassword(password);
         user.setMobilePhoneNumber(phoneNumber);
+        mView.showLoading();
         user.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(AVException e) {
+                mView.hideLoading();
                 if (e == null) {
                     LogUtil.i(TAG, "signUp");
                     mView.showMessage(App.getContext().getString(R.string.set_password_sign_success));
