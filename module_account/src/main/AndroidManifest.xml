@@ -23,6 +23,10 @@
         <activity
             android:name=".ui.personal.PersonalActivity"
             android:label="@string/title_activity_personal"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.modify_pickname.ModifyPicknameActivity"
+            android:label="@string/title_activity_modify_pickname"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

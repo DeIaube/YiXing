@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_account.R;
@@ -28,6 +29,7 @@ public class PersonalActivity extends BaseActivity implements View.OnClickListen
 
         findViewById(R.id.check_portrait).setOnClickListener(this);
         findViewById(R.id.check_username).setOnClickListener(this);
+        findViewById(R.id.check_pickname).setOnClickListener(this);
 
         User user = User.getCurrentUser(User.class);
         personalUsernameTv.setText(user.getUsername());
@@ -59,6 +61,7 @@ public class PersonalActivity extends BaseActivity implements View.OnClickListen
             // 点击用户名
         } else if (id == R.id.check_pickname) {
             // 点击用户昵称
+            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_MODIFY_PICKNAME).navigation();
         }
     }
 }
