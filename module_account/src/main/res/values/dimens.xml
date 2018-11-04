@@ -1,3 +1,4 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="personal_binding_image_size">28dp</dimen>
 </resources>

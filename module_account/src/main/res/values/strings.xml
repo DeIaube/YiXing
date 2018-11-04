@@ -52,5 +52,16 @@
 
     <!--personal-->
     <string name="title_activity_personal">个人资料</string>
+    <string name="account_bind">账号绑定</string>
+    <string name="personal_phone">手机</string>
+    <string name="personal_taobao">淘宝</string>
+    <string name="personal_alipay">支付宝</string>
+    <string name="personal_qq">QQ</string>
+    <string name="personal_github">Github</string>
+    <string name="personal_twitter">Twitter</string>
+    <string name="personal_google">Google</string>
+    <string name="personal_base_message">基础信息</string>
+    <string name="personal_portrait">头像</string>
+    <string name="personal_username">用户名</string>
     <!--personal-->
 </resources>
