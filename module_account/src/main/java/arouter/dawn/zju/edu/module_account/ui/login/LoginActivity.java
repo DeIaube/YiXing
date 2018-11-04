@@ -23,7 +23,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     protected void initView() {
         passwordEt = findViewById(R.id.login_password_et);
         accountEt = findViewById(R.id.login_account_et);
-        accountEt.setText(SPUtil.getString(arouter.dawn.zju.edu.module_account.config.Constants.LOGIN_ACCOUNT, ""));
+        accountEt.setText(SPUtil.getString(arouter.dawn.zju.edu.module_account.config.Constants.LOGIN_NUMBER, ""));
         passwordEt.setText(SPUtil.getString(arouter.dawn.zju.edu.module_account.config.Constants.LOGIN_PASSWORD, ""));
     }
 
