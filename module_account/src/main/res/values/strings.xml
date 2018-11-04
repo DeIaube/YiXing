@@ -64,6 +64,10 @@
     <string name="personal_portrait">头像</string>
     <string name="personal_username">用户名</string>
     <string name="personal_pickname">昵称</string>
-    <string name="title_activity_modify_pickname">ModifyPicknameActivity</string>
     <!--personal-->
+
+    <!--modify_pickname-->
+    <string name="title_activity_modify_pickname">修改用户昵称</string>
+    <!--modify_pickname-->
+    
 </resources>
