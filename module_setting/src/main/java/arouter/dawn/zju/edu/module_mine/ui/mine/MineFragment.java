@@ -139,13 +139,13 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
     private void showBtnShadow(final View v) {
         v.animate()
-                .translationZ(15f).setDuration(300)
+                .translationZ(15f).setDuration(150)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
                         v.animate()
-                                .translationZ(1.0f).setDuration(500);
+                                .translationZ(1.0f).setDuration(250);
                     }
                 }).start();
     }
