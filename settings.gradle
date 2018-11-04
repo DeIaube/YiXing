@@ -1,1 +1,1 @@
-include ':app', ':lib_base', ':lib_res', ':module_account', ':lib_map', ':module_order', ':lib_net', ':module_goods', ':module_setting', ':lib_db'
+include ':app', ':lib_base', ':lib_res', ':module_account', ':lib_map', ':module_order', ':lib_net', ':module_goods', ':module_setting', ':lib_db', ':module_forum'
