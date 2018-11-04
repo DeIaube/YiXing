@@ -23,6 +23,7 @@ import com.jph.takephoto.model.TResult;
 import com.jph.takephoto.permission.InvokeListener;
 import com.jph.takephoto.permission.PermissionManager;
 import com.jph.takephoto.permission.TakePhotoInvocationHandler;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 
@@ -31,11 +32,10 @@ import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 import baselib.util.LogUtil;
-import me.shaohui.advancedluban.Luban;
 
 @Route(path = Constants.AROUTER_ACCOUNT_PERSONAL)
 public class PersonalActivity extends BaseActivity<PersionContract.Presenter> implements View.OnClickListener,
-        TakePhoto.TakeResultListener, InvokeListener {
+        TakePhoto.TakeResultListener, InvokeListener, PersionContract.View {
 
     private static final String TAG = "PersonalActivity";
 
@@ -70,6 +70,9 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
         personalUsernameTv.setText(user.getUsername());
         personalPicknameTv.setText(user.getPickName());
         personalPhoneNumberTv.setText(user.getMobilePhoneNumber());
+        if (user.getPortrait() != null) {
+            Picasso.with(this).load(user.getPortrait()).into(personalPortraitIv);
+        }
     }
 
     @Override
@@ -107,18 +110,15 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
         }
     }
 
-
     public TakePhoto getTakePhoto(){
         if (takePhoto == null) {
             takePhoto = (TakePhoto) TakePhotoInvocationHandler.of(this)
                     .bind(new TakePhotoImpl(this,this));
             // 图片压缩
-            LubanOptions option=new LubanOptions.Builder()
-                    .setMaxHeight(340)
-                    .setMaxWidth(340)
+            CompressConfig config=new CompressConfig.Builder()
                     .setMaxSize(340 * 340)
+                    .setMaxPixel(340)
                     .create();
-            CompressConfig config=CompressConfig.ofLuban(option);
             takePhoto.onEnableCompress(config, false);
         }
         return takePhoto;
@@ -179,5 +179,10 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
             this.invokeParam=invokeParam;
         }
         return type;
+    }
+
+    @Override
+    public void refreshUserPortrait(String url) {
+        Picasso.with(this).load(url).into(personalPortraitIv);
     }
 }
