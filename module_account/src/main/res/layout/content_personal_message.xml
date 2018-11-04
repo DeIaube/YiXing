@@ -26,11 +26,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent" />
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/personal_portrait"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:src="@drawable/login_weibo"
+            android:src="@drawable/default_portrait"
             android:layout_width="60dp"
             android:layout_height="60dp" />
 
