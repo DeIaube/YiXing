@@ -35,13 +35,13 @@
         android:layout_height="wrap_content" />
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/modify_pickname_submit"
+        android:id="@+id/modify_pickname_confirm_modify"
         android:layout_marginTop="24dp"
         android:text="@string/modify_pickname_confirm_modify"
         android:layout_width="match_parent"
         android:textColor="@color/white"
-        android:background="@color/colorPrimary"
-        android:textSize="16dp"
+        android:background="@color/lightgrey"
+        android:textSize="18dp"
         android:gravity="center"
         android:layout_height="45dp" />
 
