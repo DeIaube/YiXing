@@ -14,8 +14,10 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.jph.takephoto.app.TakePhoto;
 import com.jph.takephoto.app.TakePhotoImpl;
+import com.jph.takephoto.compress.CompressConfig;
 import com.jph.takephoto.model.CropOptions;
 import com.jph.takephoto.model.InvokeParam;
+import com.jph.takephoto.model.LubanOptions;
 import com.jph.takephoto.model.TContextWrap;
 import com.jph.takephoto.model.TResult;
 import com.jph.takephoto.permission.InvokeListener;
@@ -29,6 +31,7 @@ import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 import baselib.util.LogUtil;
+import me.shaohui.advancedluban.Luban;
 
 @Route(path = Constants.AROUTER_ACCOUNT_PERSONAL)
 public class PersonalActivity extends BaseActivity<PersionContract.Presenter> implements View.OnClickListener,
@@ -107,7 +110,16 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
 
     public TakePhoto getTakePhoto(){
         if (takePhoto == null) {
-            takePhoto = (TakePhoto) TakePhotoInvocationHandler.of(this).bind(new TakePhotoImpl(this,this));
+            takePhoto = (TakePhoto) TakePhotoInvocationHandler.of(this)
+                    .bind(new TakePhotoImpl(this,this));
+            // 图片压缩
+            LubanOptions option=new LubanOptions.Builder()
+                    .setMaxHeight(340)
+                    .setMaxWidth(340)
+                    .setMaxSize(340 * 340)
+                    .create();
+            CompressConfig config=CompressConfig.ofLuban(option);
+            takePhoto.onEnableCompress(config, false);
         }
         return takePhoto;
     }
@@ -127,7 +139,7 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
     @Override
     public void takeSuccess(TResult result) {
         LogUtil.i(TAG, "takeSuccess");
-        mPresenter.updateUserPortrait(result.getImage().getOriginalPath());
+        mPresenter.updateUserPortrait(result.getImage().getCompressPath());
     }
 
     @Override
