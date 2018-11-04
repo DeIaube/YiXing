@@ -12,7 +12,7 @@ import java.util.List;
 
 import baselib.base.BasePresenter;
 import baselib.config.Constants;
-import yixing.dawn.zju.edu.yixing.ui.TestFragment;
+import yixing.dawn.zju.edu.yixing.ui.ConsoleFragment;
 import yixing.dawn.zju.edu.yixing.adapter.MainPagerAdapter;
 
 public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
@@ -21,10 +21,10 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
     public void bindViewPager(FragmentManager fragmentManager, final ViewPager viewPager,
                               final BottomNavigationBar bottomNavigationBar) {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new TestFragment());
+        fragments.add(new ConsoleFragment());
         fragments.add((Fragment) ARouter.getInstance().
                 build(Constants.AROUTER_GOODS_NEARBY).navigation());
-        fragments.add(new TestFragment());
+        fragments.add(new ConsoleFragment());
         fragments.add((Fragment) ARouter.getInstance().
                 build(Constants.AROUTER_GOODS_CART).navigation());
         fragments.add((Fragment) ARouter.getInstance().
