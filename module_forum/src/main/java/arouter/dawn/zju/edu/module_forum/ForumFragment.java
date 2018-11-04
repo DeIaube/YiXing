@@ -3,8 +3,12 @@ package arouter.dawn.zju.edu.module_forum;
 
 import android.view.View;
 
-import baselib.base.BaseFragment;
+import com.alibaba.android.arouter.facade.annotation.Route;
 
+import baselib.base.BaseFragment;
+import baselib.config.Constants;
+
+@Route(path = Constants.AROUTER_FORUM_FORUM)
 public class ForumFragment extends BaseFragment {
     @Override
     protected int getLayoutId() {

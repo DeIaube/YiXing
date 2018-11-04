@@ -46,4 +46,8 @@ public interface Constants {
     String AROUTER_SETTING_INTEGRAL = "/setting/integral";
     String AROUTER_SETTING_COLLECTION = "/setting/collection";
     String AROUTER_SETTING_FEEDBACK = "/setting/feedback";
+
+    // Forum
+    String AROUTER_FORUM_GROP = "forum";
+    String AROUTER_FORUM_FORUM= "/forum/forum";
 }

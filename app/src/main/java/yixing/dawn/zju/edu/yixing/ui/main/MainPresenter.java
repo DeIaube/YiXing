@@ -24,7 +24,8 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
         fragments.add(new ConsoleFragment());
         fragments.add((Fragment) ARouter.getInstance().
                 build(Constants.AROUTER_GOODS_NEARBY).navigation());
-        fragments.add(new ConsoleFragment());
+        fragments.add((Fragment) ARouter.getInstance().
+                build(Constants.AROUTER_FORUM_FORUM).navigation());
         fragments.add((Fragment) ARouter.getInstance().
                 build(Constants.AROUTER_GOODS_CART).navigation());
         fragments.add((Fragment) ARouter.getInstance().
