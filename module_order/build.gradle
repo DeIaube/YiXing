@@ -30,8 +30,6 @@ android {
 
 dependencies {
     compile project(':lib_base')
-    compile project(':lib_res')
-    compile project(':lib_net')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
