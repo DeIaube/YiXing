@@ -6,12 +6,12 @@ import com.avos.avoscloud.AVUser;
 @AVClassName("User")
 public class User extends AVUser {
 
-    public void setName(String name) {
-        put("name", name);
+    public void setPickName(String name) {
+        put("pickname", name);
     }
 
-    public String getName() {
-        String name = getString("name");
+    public String getPickName() {
+        String name = getString("pickname");
         return name == null ? getMobilePhoneNumber() : name;
     }
 

@@ -63,5 +63,6 @@
     <string name="personal_base_message">基础信息</string>
     <string name="personal_portrait">头像</string>
     <string name="personal_username">用户名</string>
+    <string name="personal_pickname">昵称</string>
     <!--personal-->
 </resources>
