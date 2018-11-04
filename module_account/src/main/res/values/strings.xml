@@ -64,6 +64,7 @@
     <string name="personal_portrait">头像</string>
     <string name="personal_username">用户名</string>
     <string name="personal_pickname">昵称</string>
+    <string name="personal_username_static">用户名不可更改</string>
     <!--personal-->
 
     <!--modify_pickname-->

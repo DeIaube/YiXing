@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,7 +16,6 @@ import com.jph.takephoto.app.TakePhotoImpl;
 import com.jph.takephoto.compress.CompressConfig;
 import com.jph.takephoto.model.CropOptions;
 import com.jph.takephoto.model.InvokeParam;
-import com.jph.takephoto.model.LubanOptions;
 import com.jph.takephoto.model.TContextWrap;
 import com.jph.takephoto.model.TResult;
 import com.jph.takephoto.permission.InvokeListener;
@@ -70,9 +68,7 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
         personalUsernameTv.setText(user.getUsername());
         personalPicknameTv.setText(user.getPickName());
         personalPhoneNumberTv.setText(user.getMobilePhoneNumber());
-        if (user.getPortrait() != null) {
-            Picasso.with(this).load(user.getPortrait()).into(personalPortraitIv);
-        }
+        refreshUserPortrait(user.getPortrait());
     }
 
     @Override
@@ -104,6 +100,7 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
             getTakePhoto().onPickFromGalleryWithCrop(imageUri, cropOptions);
         } else if (id == R.id.check_username) {
             // 点击用户名
+            showMessage(getString(R.string.personal_username_static));
         } else if (id == R.id.check_pickname) {
             // 点击用户昵称
             ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_MODIFY_PICKNAME).navigation();
@@ -183,6 +180,8 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
 
     @Override
     public void refreshUserPortrait(String url) {
-        Picasso.with(this).load(url).into(personalPortraitIv);
+        if (url != null) {
+            Picasso.with(this).load(url).into(personalPortraitIv);
+        }
     }
 }

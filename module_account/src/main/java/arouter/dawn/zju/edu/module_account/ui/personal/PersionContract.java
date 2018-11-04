@@ -9,9 +9,7 @@ public interface PersionContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-
         void updateUserPortrait(String path);
-
     }
 
 }
