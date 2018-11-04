@@ -1,10 +1,12 @@
 package arouter.dawn.zju.edu.module_account.ui.personal;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -91,13 +93,7 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
         int id = v.getId();
         if (id == R.id.check_portrait) {
             // 选取头像 跳转选择相册并且裁剪图片
-            File file = new File(Environment.getExternalStorageDirectory(), "/temp/" + System.currentTimeMillis() + ".jpg");
-            if (!file.getParentFile().exists()) {
-                file.getParentFile().mkdirs();
-            }
-            Uri imageUri = Uri.fromFile(file);
-            CropOptions cropOptions=new CropOptions.Builder().setAspectX(1).setAspectY(1).setWithOwnCrop(true).create();
-            getTakePhoto().onPickFromGalleryWithCrop(imageUri, cropOptions);
+            checkPortrait();
         } else if (id == R.id.check_username) {
             // 点击用户名
             showMessage(getString(R.string.personal_username_static));
@@ -105,6 +101,28 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
             // 点击用户昵称
             ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_MODIFY_PICKNAME).navigation();
         }
+    }
+
+    private void checkPortrait() {
+        File file = new File(Environment.getExternalStorageDirectory(), "/temp/" + System.currentTimeMillis() + ".jpg");
+        if (!file.getParentFile().exists()) {
+            file.getParentFile().mkdirs();
+        }
+        final Uri imageUri = Uri.fromFile(file);
+        final CropOptions cropOptions=new CropOptions.Builder().setAspectX(1).setAspectY(1).setWithOwnCrop(true).create();
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.personal_upload_portrait)
+                .setItems(new String[]{getString(R.string.personal_photograph), getString(R.string.personal_select_by_album)}, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0) {
+                            getTakePhoto().onPickFromCaptureWithCrop(imageUri, cropOptions);
+                        } else {
+                            getTakePhoto().onPickFromGalleryWithCrop(imageUri, cropOptions);
+                        }
+                    }
+                })
+                .show();
     }
 
     public TakePhoto getTakePhoto(){

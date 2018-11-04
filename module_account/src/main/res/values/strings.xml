@@ -65,6 +65,9 @@
     <string name="personal_username">用户名</string>
     <string name="personal_pickname">昵称</string>
     <string name="personal_username_static">用户名不可更改</string>
+    <string name="personal_upload_portrait">上传头像</string>
+    <string name="personal_photograph">拍照</string>
+    <string name="personal_select_by_album">从手机相册选择</string>
     <!--personal-->
 
     <!--modify_pickname-->
