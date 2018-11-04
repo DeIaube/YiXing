@@ -12,7 +12,7 @@ public class User extends AVUser {
 
     public String getName() {
         String name = getString("name");
-        return name.isEmpty() ? getMobilePhoneNumber() : name;
+        return name == null ? getMobilePhoneNumber() : name;
     }
 
     public void setPortrait(String portrait) {
