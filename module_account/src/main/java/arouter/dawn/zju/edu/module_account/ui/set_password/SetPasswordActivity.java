@@ -49,8 +49,13 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordPresenter> impl
         return true;
     }
 
+    /**
+     * 重置密码后进入登录页面
+     * 登录页面启动模式为singleTask
+     * 会将登录页面之上的其他页面销毁
+     */
     @Override
     public void setPasswordSuccess() {
-        ARouter.getInstance().build(Constants.AROUTER_APP_MAIN).navigation();
+        ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_LOGIN).navigation();
     }
 }

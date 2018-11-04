@@ -6,6 +6,7 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.register.RegisterActivity"
