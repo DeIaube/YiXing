@@ -1,11 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ui.modify_pickname.ModifyPicknameActivity"
     tools:showIn="@layout/activity_modify_pickname">
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/modify_pickname_pickname"
+        android:layout_marginTop="18dp"
+        android:background="@null"
+        android:textColor="#cccccc"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textSize="16dp"
+        android:hint="@string/modify_pickname_please_input_pickname" />
+
+    <View
+        android:background="#f2f2f2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:layout_marginTop="12dp"
+        android:text="@string/modify_pickname_pickname_requirement"
+        android:textSize="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/modify_pickname_submit"
+        android:layout_marginTop="24dp"
+        android:text="@string/modify_pickname_confirm_modify"
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"
+        android:textSize="16dp"
+        android:gravity="center"
+        android:layout_height="45dp" />
+
+</LinearLayout>

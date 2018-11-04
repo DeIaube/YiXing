@@ -68,6 +68,9 @@
 
     <!--modify_pickname-->
     <string name="title_activity_modify_pickname">修改用户昵称</string>
+    <string name="modify_pickname_please_input_pickname">请输入用户昵称</string>
+    <string name="modify_pickname_pickname_requirement">昵称输入格式要求,5-24个字</string>
+    <string name="modify_pickname_confirm_modify">确认修改</string>
     <!--modify_pickname-->
     
 </resources>

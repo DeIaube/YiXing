@@ -22,7 +22,7 @@ public class ModifyPicknameActivity extends BaseActivity<ModifyPicknameContract.
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new ModifyPicknamePresenter();
     }
 
     @Override
