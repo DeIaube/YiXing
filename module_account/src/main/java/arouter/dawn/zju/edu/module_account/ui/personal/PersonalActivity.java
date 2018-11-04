@@ -1,11 +1,23 @@
 package arouter.dawn.zju.edu.module_account.ui.personal;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.jph.takephoto.app.TakePhoto;
+import com.jph.takephoto.app.TakePhotoImpl;
+import com.jph.takephoto.model.InvokeParam;
+import com.jph.takephoto.model.TContextWrap;
+import com.jph.takephoto.model.TResult;
+import com.jph.takephoto.permission.InvokeListener;
+import com.jph.takephoto.permission.PermissionManager;
+import com.jph.takephoto.permission.TakePhotoInvocationHandler;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_account.R;
@@ -13,12 +25,16 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_ACCOUNT_PERSONAL)
-public class PersonalActivity extends BaseActivity implements View.OnClickListener {
+public class PersonalActivity extends BaseActivity<PersionContract.Presenter> implements View.OnClickListener,
+        TakePhoto.TakeResultListener, InvokeListener {
 
     TextView personalUsernameTv;
     TextView personalPhoneNumberTv;
     TextView personalPicknameTv;
     ImageView personalPortraitIv;
+
+    TakePhoto takePhoto;
+    InvokeParam invokeParam;
 
     @Override
     protected void initView() {
@@ -65,11 +81,76 @@ public class PersonalActivity extends BaseActivity implements View.OnClickListen
         int id = v.getId();
         if (id == R.id.check_portrait) {
             // 选取头像
+            getTakePhoto().onPickFromGallery();
         } else if (id == R.id.check_username) {
             // 点击用户名
         } else if (id == R.id.check_pickname) {
             // 点击用户昵称
             ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_MODIFY_PICKNAME).navigation();
         }
+    }
+
+
+    public TakePhoto getTakePhoto(){
+        if (takePhoto == null) {
+            takePhoto = (TakePhoto) TakePhotoInvocationHandler.of(this).bind(new TakePhotoImpl(this,this));
+        }
+        return takePhoto;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        getTakePhoto().onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        getTakePhoto().onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void takeSuccess(TResult result) {
+        Log.e("aaaa", result.getImage().getOriginalPath());
+    }
+
+    @Override
+    public void takeFail(TResult result, String msg) {
+        Log.e("aaaa", msg);
+    }
+
+    @Override
+    public void takeCancel() {
+        Log.e("aaaa", "takeCancel");
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getTakePhoto().onCreate(savedInstanceState);
+    }
+
+    /**
+     * 引入takephoto处理权限问题
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        //以下代码为处理Android6.0、7.0动态权限所需
+        PermissionManager.TPermissionType type=PermissionManager.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        PermissionManager.handlePermissionsResult(this,type,invokeParam, this);
+    }
+
+    /**
+     * 引入takephoto处理权限问题
+     */
+    @Override
+    public PermissionManager.TPermissionType invoke(InvokeParam invokeParam) {
+        PermissionManager.TPermissionType type=PermissionManager.checkPermission(TContextWrap.of(this),invokeParam.getMethod());
+        if(PermissionManager.TPermissionType.WAIT.equals(type)){
+            this.invokeParam=invokeParam;
+        }
+        return type;
     }
 }
