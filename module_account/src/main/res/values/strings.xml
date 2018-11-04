@@ -71,6 +71,7 @@
     <string name="modify_pickname_please_input_pickname">请输入用户昵称</string>
     <string name="modify_pickname_pickname_requirement">昵称输入格式要求,5-24个字</string>
     <string name="modify_pickname_confirm_modify">确认修改</string>
+    <string name="modify_success">修改成功</string>
     <!--modify_pickname-->
     
 </resources>
