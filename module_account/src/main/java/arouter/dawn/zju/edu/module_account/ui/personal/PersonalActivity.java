@@ -1,7 +1,9 @@
 package arouter.dawn.zju.edu.module_account.ui.personal;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +14,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.jph.takephoto.app.TakePhoto;
 import com.jph.takephoto.app.TakePhotoImpl;
+import com.jph.takephoto.model.CropOptions;
 import com.jph.takephoto.model.InvokeParam;
 import com.jph.takephoto.model.TContextWrap;
 import com.jph.takephoto.model.TResult;
@@ -19,14 +22,19 @@ import com.jph.takephoto.permission.InvokeListener;
 import com.jph.takephoto.permission.PermissionManager;
 import com.jph.takephoto.permission.TakePhotoInvocationHandler;
 
+import java.io.File;
+
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
+import baselib.util.LogUtil;
 
 @Route(path = Constants.AROUTER_ACCOUNT_PERSONAL)
 public class PersonalActivity extends BaseActivity<PersionContract.Presenter> implements View.OnClickListener,
         TakePhoto.TakeResultListener, InvokeListener {
+
+    private static final String TAG = "PersonalActivity";
 
     TextView personalUsernameTv;
     TextView personalPhoneNumberTv;
@@ -68,7 +76,7 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new PersionPresenter();
     }
 
     @Override
@@ -80,8 +88,14 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.check_portrait) {
-            // 选取头像
-            getTakePhoto().onPickFromGallery();
+            // 选取头像 跳转选择相册并且裁剪图片
+            File file = new File(Environment.getExternalStorageDirectory(), "/temp/" + System.currentTimeMillis() + ".jpg");
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+            Uri imageUri = Uri.fromFile(file);
+            CropOptions cropOptions=new CropOptions.Builder().setAspectX(1).setAspectY(1).setWithOwnCrop(true).create();
+            getTakePhoto().onPickFromGalleryWithCrop(imageUri, cropOptions);
         } else if (id == R.id.check_username) {
             // 点击用户名
         } else if (id == R.id.check_pickname) {
@@ -112,17 +126,18 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
 
     @Override
     public void takeSuccess(TResult result) {
-        Log.e("aaaa", result.getImage().getOriginalPath());
+        LogUtil.i(TAG, "takeSuccess");
+        mPresenter.updateUserPortrait(result.getImage().getOriginalPath());
     }
 
     @Override
     public void takeFail(TResult result, String msg) {
-        Log.e("aaaa", msg);
+        LogUtil.i(TAG, msg);
     }
 
     @Override
     public void takeCancel() {
-        Log.e("aaaa", "takeCancel");
+        LogUtil.i(TAG, "takeCancel");
     }
 
     @Override
