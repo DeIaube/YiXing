@@ -6,11 +6,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.squareup.picasso.Picasso;
 
+import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_mine.R;
 import arouter.dawn.zju.edu.module_mine.ui.setting.SettingActivity;
 import baselib.base.BaseFragment;
@@ -25,6 +28,11 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     TextView cashCouponBalanceTv;
     // 积分 6个
     TextView integralBalanceTv;
+
+
+    TextView accountNameTv;
+    TextView accountPhoneTv;
+    ImageView accountProfileIv;
 
     @Override
     protected int getLayoutId() {
@@ -41,6 +49,9 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         walletBalanceTv = view.findViewById(R.id.wallet_balance);
         cashCouponBalanceTv = view.findViewById(R.id.cash_coupon_balance);
         integralBalanceTv = view.findViewById(R.id.integral_balance);
+        accountNameTv = view.findViewById(R.id.account_name);
+        accountPhoneTv = view.findViewById(R.id.account_phone);
+        accountProfileIv = view.findViewById(R.id.account_profile);
 
         view.findViewById(R.id.notice).setOnClickListener(this);
         view.findViewById(R.id.setting).setOnClickListener(this);
@@ -58,6 +69,14 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         view.findViewById(R.id.cooperate_layout).setOnClickListener(this);
         view.findViewById(R.id.about_layout).setOnClickListener(this);
         view.findViewById(R.id.github_layout).setOnClickListener(this);
+
+        User user = User.getCurrentUser(User.class);
+        accountNameTv.setText(user.getUsername());
+        accountPhoneTv.setText(user.getMobilePhoneNumber());
+        if (user.getPortrait() != null) {
+            Picasso.with(getContext()).load(user.getPortrait()).into(accountProfileIv);
+        }
+
     }
 
     @Override

@@ -58,7 +58,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
+            android:id="@+id/account_profile"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_gravity="center_vertical"
@@ -80,8 +80,8 @@
             android:text="天亮了亮了"
             android:textColor="@color/white"
             android:textSize="22dp"
-            app:layout_constraintStart_toEndOf="@+id/profile_image"
-            app:layout_constraintTop_toTopOf="@+id/profile_image" />
+            app:layout_constraintStart_toEndOf="@+id/account_profile"
+            app:layout_constraintTop_toTopOf="@+id/account_profile" />
 
         <ImageView
             android:id="@+id/imageView"
