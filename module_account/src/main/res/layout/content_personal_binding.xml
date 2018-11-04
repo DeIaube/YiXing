@@ -34,7 +34,7 @@
             android:layout_height="match_parent" />
 
         <TextView
-            android:text="15064700768"
+            android:id="@+id/personal_bind_phone_number"
             android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />

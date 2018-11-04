@@ -13,6 +13,7 @@
         android:layout_height="64dp" />
 
     <LinearLayout
+        android:id="@+id/check_portrait"
         android:layout_width="match_parent"
         android:layout_height="64dp">
 
@@ -26,6 +27,7 @@
             android:layout_height="match_parent" />
 
         <ImageView
+            android:id="@+id/personal_portrait"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:src="@drawable/login_weibo"
@@ -47,6 +49,7 @@
         android:layout_height="1dp"/>
 
     <LinearLayout
+        android:id="@+id/check_username"
         android:layout_width="match_parent"
         android:layout_height="64dp">
 
@@ -60,7 +63,7 @@
             android:layout_height="match_parent" />
 
         <TextView
-            android:text="15064700768"
+            android:id="@+id/personal_username"
             android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
