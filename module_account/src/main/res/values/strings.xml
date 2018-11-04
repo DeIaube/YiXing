@@ -50,4 +50,7 @@
     <string name="login_success">登录成功</string>
     <!--reset password-->
 
+    <!--personal-->
+    <string name="title_activity_personal">个人资料</string>
+    <!--personal-->
 </resources>

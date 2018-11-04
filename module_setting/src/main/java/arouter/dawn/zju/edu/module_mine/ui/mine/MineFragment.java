@@ -90,6 +90,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             ARouter.getInstance().build(Constants.AROUTER_SETTING_SETTING).navigation();
         } else if (id == R.id.account_detail) {
             // 跳转个人详情页
+            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_PERSONAL).navigation();
         } else if (id == R.id.wallet_layout) {
             // 点击钱包
         }  else if (id == R.id.cash_coupon_layout) {

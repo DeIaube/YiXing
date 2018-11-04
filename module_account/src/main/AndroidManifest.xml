@@ -19,7 +19,11 @@
         <activity
             android:name=".ui.reset_password.ResetPasswordActivity"
             android:label="@string/title_activity_reset_password"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.personal.PersonalActivity"
+            android:label="@string/title_activity_personal"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
