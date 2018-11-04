@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:text="账号绑定"
+        android:textSize="12dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="64dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp">
+
+        <ImageView
+            android:src="@drawable/personal_phone"
+            android:layout_gravity="center_vertical"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+
+        <TextView
+            android:text="手机"
+            android:textSize="18dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#101010"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:text="15064700768"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/personal_right"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </LinearLayout>
+
+    <View
+        android:background="#f2f2f2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp">
+
+        <ImageView
+            android:src="@drawable/personal_taobao"
+            android:layout_gravity="center_vertical"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+
+        <TextView
+            android:text="淘宝"
+            android:textSize="18dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#101010"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:text="未绑定"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/personal_right"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </LinearLayout>
+
+    <View
+        android:background="#f2f2f2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp">
+
+        <ImageView
+            android:src="@drawable/personal_ali_pay"
+            android:layout_gravity="center_vertical"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+
+        <TextView
+            android:text="支付宝"
+            android:textSize="18dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#101010"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:text="未绑定"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/personal_right"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </LinearLayout>
+
+    <View
+        android:background="#f2f2f2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp">
+
+        <ImageView
+            android:src="@drawable/personal_qq"
+            android:layout_gravity="center_vertical"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+
+        <TextView
+            android:text="QQ"
+            android:textSize="18dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#101010"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:text="未绑定"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/personal_right"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </LinearLayout>
+
+    <View
+        android:background="#f2f2f2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp">
+
+        <ImageView
+            android:src="@drawable/personal_github"
+            android:layout_gravity="center_vertical"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+
+        <TextView
+            android:text="Github"
+            android:textSize="18dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#101010"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:text="未绑定"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/personal_right"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </LinearLayout>
+
+    <View
+        android:background="#f2f2f2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp">
+
+        <ImageView
+            android:src="@drawable/personal_twitter"
+            android:layout_gravity="center_vertical"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+
+        <TextView
+            android:text="Twitter"
+            android:textSize="18dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#101010"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:text="未绑定"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/personal_right"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </LinearLayout>
+
+    <View
+        android:background="#f2f2f2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp">
+
+        <ImageView
+            android:src="@drawable/personal_google"
+            android:layout_gravity="center_vertical"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+
+        <TextView
+            android:text="Google"
+            android:textSize="18dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#101010"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:text="未绑定"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/personal_right"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </LinearLayout>
+
+    <View
+        android:background="#f2f2f2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+</LinearLayout>
