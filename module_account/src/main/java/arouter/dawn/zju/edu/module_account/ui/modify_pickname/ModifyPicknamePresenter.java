@@ -7,4 +7,9 @@ public class ModifyPicknamePresenter extends BasePresenter<ModifyPicknameContrac
 
     private static final String TAG = "ModifyPicknamePresenter";
 
+    @Override
+    public void modifyPickname(String pickname) {
+
+    }
+
 }

@@ -9,7 +9,7 @@ public interface ModifyPicknameContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-
+        void modifyPickname(String pickname);
     }
 
 }
