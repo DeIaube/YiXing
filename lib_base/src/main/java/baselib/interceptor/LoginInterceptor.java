@@ -16,20 +16,24 @@ import baselib.config.Constants;
 @Interceptor(priority = 1)
 public class LoginInterceptor implements IInterceptor {
 
+    private static final String TAG = "LoginInterceptor";
+
     @Override
     public void process(Postcard postcard, InterceptorCallback callback) {
+        Log.i(TAG, "LoginInterceptor process " + postcard.toString());
         String group = postcard.getGroup();
-        Log.e("aaaa", String.valueOf(User.getCurrentUser()));
         if (User.getCurrentUser() == null && !group.equals(Constants.AROUTER_ACCOUNT_GROP)) {
+            Log.i(TAG, "Interceptor");
             ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_LOGIN).navigation();
             return;
         }
         // 不拦截
+        Log.i(TAG, "UnInterceptor");
         callback.onContinue(postcard);
     }
 
     @Override
     public void init(Context context) {
-        Log.e("aaaa", "init");
+        Log.i(TAG, "LoginInterceptor init");
     }
 }
