@@ -75,19 +75,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         }
     }
 
-    /**
-     * 登录成功的回调
-     */
     @Override
-    public void loginSuccess() {
-        // todo 登录成功的回调
-    }
-
-    /**
-     * 登录失败的回调
-     */
-    @Override
-    public void loginFailed() {
-        // todo 登录失败的回调
+    public void loginRsult(boolean result) {
+        if (result) {
+            ARouter.getInstance().build(Constants.AROUTER_APP_MAIN).navigation();
+            finish();
+        }
     }
 }

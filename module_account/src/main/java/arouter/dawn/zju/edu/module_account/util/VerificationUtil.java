@@ -2,6 +2,7 @@ package arouter.dawn.zju.edu.module_account.util;
 
 import android.text.TextUtils;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import arouter.dawn.zju.edu.module_account.R;
@@ -12,6 +13,17 @@ import baselib.base.BaseContract;
  * 验证密码以及验证码的正确性
  */
 public class VerificationUtil {
+
+    /**
+     * 通过正则表达式验证手机号合法性
+     * @param mobiles 手机号
+     * @return 合法性
+     */
+    public static boolean checkPhoneNumber(String mobiles){
+    Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
+    Matcher m = p.matcher(mobiles);
+    return !m.matches();
+    }
 
     /**
      * 验证用户传入的密码是否合法

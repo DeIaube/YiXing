@@ -5,12 +5,13 @@
     <string name="start">开始</string>
     <string name="password">密码</string>
     <string name="submit">提交</string>
+    <string name="forget_password">忘记密码</string>
     <!--Base-->
 
     <!--Login-->
     <string name="title_activity_login">登录</string>
-    <string name="forget_password">忘记密码</string>
     <string name="login_account_password">登录密码</string>
+    <string name="login_invalid_phone_number">无效的手机号</string>
     <string name="login_hint_account">手机号</string>
     <string name="login_submit">登录</string>
     <string name="login_register">手机快速注册</string>
@@ -46,6 +47,7 @@
     <string name="reset_password_please_input_password">请输入密码</string>
     <string name="reset_password_please_input_repassword">请确认密码</string>
     <string name="reset_password_success">重置密码成功</string>
+    <string name="login_success">登录成功</string>
     <!--reset password-->
 
 </resources>
