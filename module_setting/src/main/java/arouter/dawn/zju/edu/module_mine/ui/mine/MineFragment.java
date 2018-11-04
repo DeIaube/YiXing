@@ -97,7 +97,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             // 点击代金券
         } else if (id == R.id.integral_layout) {
             // 点击积分
-            showMessage(getString(R.string.bug_bug_bug_can_rise_integral));
+            ARouter.getInstance().build(Constants.AROUTER_SETTING_INTEGRAL).navigation();
         } else if (id == R.id.collection_layout) {
             // 点击我的收藏
             ARouter.getInstance().build(Constants.AROUTER_SETTING_COLLECTION).navigation();
