@@ -31,6 +31,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
@@ -121,8 +122,10 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
      * 展示日期对话框选择并且更新用户生日
      */
     private void showPickBirthDialog() {
+        User user = User.getCurrentUser(User.class);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(user.getBirth());
         new DatePickerDialog(this,
-                // 绑定监听器(How the parent is notified that the date is set.)
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year,
@@ -131,9 +134,10 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
                     }
                 }
                 // 设置初始日期
-                , 2018
-                ,10
-                ,5).show();
+                , calendar.get(Calendar.YEAR)
+                ,calendar.get(Calendar.MONTH) - 1
+                ,calendar.get(Calendar.DAY_OF_MONTH))
+                .show();
     }
 
     private void checkPortrait() {
