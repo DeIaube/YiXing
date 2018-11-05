@@ -76,6 +76,7 @@
     <string name="modify_pickname_pickname_requirement">昵称输入格式要求,5-24个字</string>
     <string name="modify_pickname_confirm_modify">确认修改</string>
     <string name="modify_success">修改成功</string>
+    <string name="personal_birth">生日</string>
     <!--modify_pickname-->
     
 </resources>

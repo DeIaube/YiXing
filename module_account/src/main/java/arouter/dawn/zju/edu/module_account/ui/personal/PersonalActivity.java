@@ -1,5 +1,7 @@
 package arouter.dawn.zju.edu.module_account.ui.personal;
 
+import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,6 +10,8 @@ import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,6 +30,8 @@ import com.jph.takephoto.permission.TakePhotoInvocationHandler;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_account.R;
@@ -42,6 +48,7 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
     TextView personalUsernameTv;
     TextView personalPhoneNumberTv;
     TextView personalPicknameTv;
+    TextView personalBirthTv;
     ImageView personalPortraitIv;
 
     TakePhoto takePhoto;
@@ -53,10 +60,12 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
         personalPicknameTv = findViewById(R.id.personal_pickname);
         personalPhoneNumberTv = findViewById(R.id.personal_bind_phone_number);
         personalPortraitIv = findViewById(R.id.personal_portrait);
+        personalBirthTv = findViewById(R.id.personal_birth);
 
         findViewById(R.id.check_portrait).setOnClickListener(this);
         findViewById(R.id.check_username).setOnClickListener(this);
         findViewById(R.id.check_pickname).setOnClickListener(this);
+        findViewById(R.id.check_birth).setOnClickListener(this);
     }
 
     @Override
@@ -70,6 +79,8 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
         personalUsernameTv.setText(user.getUsername());
         personalPicknameTv.setText(user.getPickName());
         personalPhoneNumberTv.setText(user.getMobilePhoneNumber());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        personalBirthTv.setText(user.getBirth() == null ? "1998-02-12" : sdf.format(user.getBirth()));
         refreshUserPortrait(user.getPortrait());
     }
 
@@ -100,7 +111,29 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
         } else if (id == R.id.check_pickname) {
             // 点击用户昵称
             ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_MODIFY_PICKNAME).navigation();
+        } else if (id == R.id.check_birth) {
+            // 点击用户生日
+            showPickBirthDialog();
         }
+    }
+
+    /**
+     * 展示日期对话框选择并且更新用户生日
+     */
+    private void showPickBirthDialog() {
+        new DatePickerDialog(this,
+                // 绑定监听器(How the parent is notified that the date is set.)
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        mPresenter.updateUserBirth(year, monthOfYear - 1, dayOfMonth);
+                    }
+                }
+                // 设置初始日期
+                , 2018
+                ,10
+                ,5).show();
     }
 
     private void checkPortrait() {
@@ -201,5 +234,12 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
         if (url != null) {
             Picasso.with(this).load(url).into(personalPortraitIv);
         }
+    }
+
+    @Override
+    public void refreshUserBirth(Date date) {
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        personalBirthTv.setText(sdf.format(date));
     }
 }
