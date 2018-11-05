@@ -3,6 +3,9 @@ package arouter.dawn.zju.edu.module_account.ui.set_password;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.SignUpCallback;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_account.R;
 import arouter.dawn.zju.edu.module_account.util.VerificationUtil;
@@ -22,6 +25,7 @@ public class SetPasswordPresenter extends BasePresenter<SetPasswordContract.View
         User user = new User();
         user.setUsername(phoneNumber);
         user.setPassword(password);
+        user.setBirth(new Date());
         user.setMobilePhoneNumber(phoneNumber);
         mView.showLoading();
         user.signUpInBackground(new SignUpCallback() {
