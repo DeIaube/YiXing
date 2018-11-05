@@ -9,10 +9,6 @@
             android:label="@string/title_activity_evaluate"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".ui.order.OrderActivity"
-            android:label="@string/title_activity_order"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
     </application>
 
 </manifest>

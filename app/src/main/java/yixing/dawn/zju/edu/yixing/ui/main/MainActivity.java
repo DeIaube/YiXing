@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
                 .addItem(new BottomNavigationItem(R.drawable.home, "首页"))
                 .addItem(new BottomNavigationItem(R.drawable.nearby, "附近"))
                 .addItem(new BottomNavigationItem(R.drawable.forum, "论坛"))
-                .addItem(new BottomNavigationItem(R.drawable.cart, "购物车"))
+                .addItem(new BottomNavigationItem(R.drawable.order, "订单"))
                 .addItem(new BottomNavigationItem(R.drawable.mine, "我的"))
                 .setFirstSelectedPosition(0)
                 .initialise();
