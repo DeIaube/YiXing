@@ -1,6 +1,8 @@
 <resources>
     <string name="please_input_goods_name">请输入商品名称</string>
 
+    <string name="title_activity_cart">购物车</string>
+
     <string name="comprehensive_sort">综合排序</string>
     <string name="price">价格</string>
     <string name="nearest">距离最近</string>

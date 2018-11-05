@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -16,14 +15,13 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.module_goods.adapter.CartGoodsListAdapter;
 import arouter.dawn.zju.edu.module_nearby.R;
-import baselib.base.BaseFragment;
+import baselib.base.BaseActivity;
 import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_GOODS_CART)
-public class CartFragment extends BaseFragment<CartContract.Presenter> implements CartContract.View, CartGoodsListAdapter.CartStatusChangeListener {
+public class CartActivity extends BaseActivity<CartContract.Presenter> implements CartContract.View, CartGoodsListAdapter.CartStatusChangeListener {
 
-    TextView toolTextTv;
     RecyclerView goodsListRv;
     Button submitBtn;
     AppCompatCheckBox totalSelectCb;
@@ -32,28 +30,15 @@ public class CartFragment extends BaseFragment<CartContract.Presenter> implement
     private CartGoodsListAdapter mAdapter;
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_cart;
-    }
+    protected void initView() {
+        goodsListRv = findViewById(R.id.goods_list);
+        submitBtn = findViewById(R.id.submit);
+        totalSelectCb = findViewById(R.id.total_select);
+        priceTv = findViewById(R.id.price);
 
-    @Override
-    protected void bindPresenter() {
-        mPresenter = new CartPresenter();
-    }
-
-    @Override
-    protected void initView(View view) {
-        toolTextTv = view.findViewById(R.id.tool_text);
-        goodsListRv = view.findViewById(R.id.goods_list);
-        submitBtn = view.findViewById(R.id.submit);
-        totalSelectCb = view.findViewById(R.id.total_select);
-        priceTv = view.findViewById(R.id.price);
-
-        toolTextTv.setText("购物车");
-
-        mAdapter = new CartGoodsListAdapter(getContext(), new ArrayList<Goods>());
+        mAdapter = new CartGoodsListAdapter(this, new ArrayList<Goods>());
         mAdapter.setCartStatusChangeListener(this);
-        goodsListRv.setLayoutManager(new LinearLayoutManager(getContext()));
+        goodsListRv.setLayoutManager(new LinearLayoutManager(this));
         goodsListRv.setAdapter(mAdapter);
 
         totalSelectCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -67,6 +52,21 @@ public class CartFragment extends BaseFragment<CartContract.Presenter> implement
     }
 
     @Override
+    protected boolean showHomeAsUp() {
+        return true;
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_cart;
+    }
+
+    @Override
+    protected void bindPresenter() {
+        mPresenter = new CartPresenter();
+    }
+
+    @Override
     public void refresh(List<Goods> goodsList) {
         mAdapter.refresh(goodsList);
     }
@@ -76,4 +76,5 @@ public class CartFragment extends BaseFragment<CartContract.Presenter> implement
     public void totalPriceChange(double price) {
         priceTv.setText(String.format("￥%.2f", price));
     }
+    
 }

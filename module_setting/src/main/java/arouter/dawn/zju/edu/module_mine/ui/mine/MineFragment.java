@@ -15,7 +15,6 @@ import com.squareup.picasso.Picasso;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_mine.R;
-import arouter.dawn.zju.edu.module_mine.ui.setting.SettingActivity;
 import baselib.base.BaseFragment;
 import baselib.config.Constants;
 
@@ -61,7 +60,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         view.findViewById(R.id.integral_layout).setOnClickListener(this);
 
         view.findViewById(R.id.collection_layout).setOnClickListener(this);
-        view.findViewById(R.id.order_layout).setOnClickListener(this);
+        view.findViewById(R.id.cart_layout).setOnClickListener(this);
         view.findViewById(R.id.integral_mall_layout).setOnClickListener(this);
         view.findViewById(R.id.sign_in_obtain_cash_coupon_layout).setOnClickListener(this);
         view.findViewById(R.id.feedback).setOnClickListener(this);
@@ -101,9 +100,9 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         } else if (id == R.id.collection_layout) {
             // 点击我的收藏
             ARouter.getInstance().build(Constants.AROUTER_SETTING_COLLECTION).navigation();
-        }else if (id == R.id.order_layout) {
-            // 点击我的订单
-            ARouter.getInstance().build(Constants.AROUTER_ORDER_ORDER).navigation();
+        }else if (id == R.id.cart_layout) {
+            // 点击我的购物车
+            ARouter.getInstance().build(Constants.AROUTER_GOODS_CART).navigation();
         } else if (id == R.id.integral_mall_layout) {
             // 点击积分商城
         } else if (id == R.id.sign_in_obtain_cash_coupon_layout) {

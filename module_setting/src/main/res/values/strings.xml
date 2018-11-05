@@ -27,7 +27,7 @@
     <string name="dynamic_feedback_title">摇一摇,截屏反馈问题</string>
     <string name="clear_cache_title">清除缓存</string>
     <string name="clear_cache_summary">清除缓存图片以及数据</string>
-    <string name="mine_order">我的订单</string>
+    <string name="mine_cart">我的购物车</string>
     <string name="title_activity_notice">我的通知</string>
     <string name="title_activity_integral">积分商城</string>
 </resources>
