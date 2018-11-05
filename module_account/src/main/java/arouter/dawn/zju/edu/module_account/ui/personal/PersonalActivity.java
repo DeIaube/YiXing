@@ -74,13 +74,13 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
         refreshLayout();
     }
 
+    @SuppressLint("SimpleDateFormat")
     private void refreshLayout() {
         User user = User.getCurrentUser(User.class);
         personalUsernameTv.setText(user.getUsername());
         personalPicknameTv.setText(user.getPickName());
         personalPhoneNumberTv.setText(user.getMobilePhoneNumber());
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        personalBirthTv.setText(user.getBirth() == null ? "1998-02-12" : sdf.format(user.getBirth()));
+        personalBirthTv.setText(new SimpleDateFormat("yyyy-MM-dd").format(user.getBirth()));
         refreshUserPortrait(user.getPortrait());
     }
 
