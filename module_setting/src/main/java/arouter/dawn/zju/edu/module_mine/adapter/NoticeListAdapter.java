@@ -6,15 +6,26 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import java.util.List;
+
+import arouter.dawn.zju.edu.lib_db.bean.Notice;
 import arouter.dawn.zju.edu.module_mine.R;
 
 public class NoticeListAdapter extends RecyclerView.Adapter<NoticeListAdapter.NoticeListHolder> {
 
     private Context mContext;
+    private List<Notice> mNoticeList;
 
-    public NoticeListAdapter(Context context) {
-        this.mContext = context;
+    public NoticeListAdapter(Context mContext, List<Notice> noticeList) {
+        this.mContext = mContext;
+        this.mNoticeList = noticeList;
+    }
+
+    public void refresh(List<Notice> noticeList) {
+        this.mNoticeList = noticeList;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -25,19 +36,30 @@ public class NoticeListAdapter extends RecyclerView.Adapter<NoticeListAdapter.No
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NoticeListHolder noticeListHolder, int i) {
-
+    public void onBindViewHolder(@NonNull NoticeListHolder holder, int position) {
+        Notice notice = mNoticeList.get(position);
+        if (notice.isValid()) {
+            holder.title.setText(notice.getTitle());
+            holder.content.setText(notice.getContent());
+            holder.time.setText(notice.getTime());
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return mNoticeList.size();
     }
 
     class NoticeListHolder extends RecyclerView.ViewHolder {
+        TextView title;
+        TextView content;
+        TextView time;
 
         NoticeListHolder(@NonNull View itemView) {
             super(itemView);
+            title = itemView.findViewById(R.id.notice_title);
+            content = itemView.findViewById(R.id.notice_content);
+            time = itemView.findViewById(R.id.notice_time);
         }
     }
 }
