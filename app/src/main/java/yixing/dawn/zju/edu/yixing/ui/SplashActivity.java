@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.avos.avoscloud.PushService;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import baselib.base.BaseActivity;
@@ -19,6 +20,9 @@ public class SplashActivity extends BaseActivity {
     @SuppressLint("CheckResult")
     @Override
     protected void initView() {
+        // 设置默认打开的 Activity
+        PushService.setDefaultPushCallback(this, SplashActivity.class);
+        PushService.subscribe(this, "public", SplashActivity.class);
         requestPermission();
     }
 
