@@ -29,13 +29,9 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     compile project(':lib_base')
     compile project(':lib_res')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //ARouter
     annotationProcessor "com.alibaba:arouter-compiler:1.1.4"
 }

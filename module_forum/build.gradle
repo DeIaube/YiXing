@@ -31,9 +31,6 @@ android {
 dependencies {
     compile project(':lib_base')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //ARouter
     annotationProcessor "com.alibaba:arouter-compiler:1.1.4"
 }
