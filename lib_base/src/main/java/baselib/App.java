@@ -10,6 +10,8 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.PushService;
 
 import arouter.dawn.zju.edu.lib_net.bean.Feedback;
+import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
+import arouter.dawn.zju.edu.lib_net.bean.ForumListItem;
 import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import arouter.dawn.zju.edu.lib_net.bean.Order;
 import arouter.dawn.zju.edu.lib_net.bean.User;
@@ -46,6 +48,8 @@ public class App extends Application {
     private void initLeanCloud() {
         AVObject.registerSubclass(User.class);
         AVObject.registerSubclass(Goods.class);
+        AVObject.registerSubclass(ForumListItem.class);
+        AVObject.registerSubclass(ForumComment.class);
         AVObject.registerSubclass(Order.class);
         AVObject.registerSubclass(Feedback.class);
         PushService.setDefaultChannelId(this, "public");
