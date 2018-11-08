@@ -1,6 +1,7 @@
 package arouter.dawn.zju.edu.module_forum.ui.forum_list;
 
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -8,7 +9,11 @@ import android.view.View;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
+import java.util.ArrayList;
+
+import arouter.dawn.zju.edu.lib_net.bean.ForumListItem;
 import arouter.dawn.zju.edu.module_forum.R;
+import arouter.dawn.zju.edu.module_forum.adapter.ForumListAdapter;
 import baselib.base.BaseFragment;
 import baselib.config.Constants;
 
@@ -42,5 +47,8 @@ public class ForumListFragment extends BaseFragment<ForumListContract.Presenter>
             public void onRefresh() {
             }
         });
+
+        forumListlistView.setLayoutManager(new LinearLayoutManager(getContext()));
+        forumListlistView.setAdapter(new ForumListAdapter(getContext(), new ArrayList<ForumListItem>()));
     }
 }

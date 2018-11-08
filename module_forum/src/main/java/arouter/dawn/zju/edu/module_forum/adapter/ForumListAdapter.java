@@ -1,16 +1,32 @@
 package arouter.dawn.zju.edu.module_forum.adapter;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
+import arouter.dawn.zju.edu.lib_net.bean.ForumListItem;
+import arouter.dawn.zju.edu.module_forum.R;
+
 public class ForumListAdapter extends RecyclerView.Adapter<ForumListAdapter.ForumListHolder> {
+
+    private Context mContext;
+    private List<ForumListItem> mForumListItems;
+
+    public ForumListAdapter(Context mContext, List<ForumListItem> mForumListItems) {
+        this.mContext = mContext;
+        this.mForumListItems = mForumListItems;
+    }
 
     @NonNull
     @Override
     public ForumListHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return null;
+        View rootView = LayoutInflater.from(mContext).inflate(R.layout.item_forum_list, viewGroup, false);
+        return new ForumListHolder(rootView);
     }
 
     @Override
@@ -20,7 +36,7 @@ public class ForumListAdapter extends RecyclerView.Adapter<ForumListAdapter.Foru
 
     @Override
     public int getItemCount() {
-        return 0;
+        return 10;
     }
 
     class ForumListHolder extends RecyclerView.ViewHolder {
