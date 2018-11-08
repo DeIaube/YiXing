@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_forum;
+package arouter.dawn.zju.edu.module_forum.ui.forum;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;

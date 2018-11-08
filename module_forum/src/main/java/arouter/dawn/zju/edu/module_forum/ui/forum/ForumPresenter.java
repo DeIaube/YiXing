@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_forum;
+package arouter.dawn.zju.edu.module_forum.ui.forum;
 
 
 import android.support.design.widget.TabLayout;
@@ -11,6 +11,7 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.module_forum.adapter.ForumPagerAdapter;
 import arouter.dawn.zju.edu.module_forum.config.Constants;
+import arouter.dawn.zju.edu.module_forum.ui.forum_list.ForumListFragment;
 import baselib.base.BasePresenter;
 import baselib.util.SPUtil;
 
@@ -30,7 +31,7 @@ public class ForumPresenter extends BasePresenter<ForumContract.View> implements
     private List<Fragment> getFragments(List<String> titles) {
         List<Fragment> fragments = new ArrayList<>();
         for (String title : titles) {
-
+            fragments.add(new ForumListFragment());
         }
         return fragments;
     }
