@@ -30,7 +30,7 @@ public class ForumPresenter extends BasePresenter<ForumContract.View> implements
     private List<Fragment> getFragments(List<String> titles) {
         List<Fragment> fragments = new ArrayList<>();
         for (String title : titles) {
-            
+
         }
         return fragments;
     }
