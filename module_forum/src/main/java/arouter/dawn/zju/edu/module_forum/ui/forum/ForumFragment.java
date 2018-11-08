@@ -3,7 +3,6 @@ package arouter.dawn.zju.edu.module_forum.ui.forum;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;

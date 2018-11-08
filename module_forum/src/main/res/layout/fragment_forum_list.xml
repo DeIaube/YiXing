@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<baselib.view.PagerSwipeRefreshLayout
+    android:id="@+id/forum_list_refresh"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.forum_list.ForumListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:text="1231231234324"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/forum_list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
-</FrameLayout>
+</baselib.view.PagerSwipeRefreshLayout>

@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +33,9 @@ public class ForumPresenter extends BasePresenter<ForumContract.View> implements
     private List<Fragment> getFragments(List<String> titles) {
         List<Fragment> fragments = new ArrayList<>();
         for (String title : titles) {
-            fragments.add(new ForumListFragment());
+            fragments.add((Fragment) ARouter
+                    .getInstance().build(baselib.config.Constants.AROUTER_FORUM_FORUM_LIST)
+            .withString(baselib.config.Constants.FORUM_LIST_TAG, title).navigation());
         }
         return fragments;
     }

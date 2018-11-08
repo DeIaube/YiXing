@@ -49,5 +49,8 @@ public interface Constants {
 
     // Forum
     String AROUTER_FORUM_GROP = "forum";
-    String AROUTER_FORUM_FORUM= "/forum/forum";
+    String AROUTER_FORUM_FORUM = "/forum/forum";
+    String AROUTER_FORUM_FORUM_LIST = "/forum/forum_list";
+
+    String FORUM_LIST_TAG = "forumListTag";
 }
