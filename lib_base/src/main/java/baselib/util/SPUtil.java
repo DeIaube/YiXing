@@ -29,6 +29,10 @@ public class SPUtil {
         sp.edit().putFloat(key, value).apply();
     }
 
+    public static void put(final String key, final boolean value) {
+        sp.edit().putBoolean(key, value).apply();
+    }
+
     public static String getString(final String key, final String defaultValue) {
         return sp.getString(key, defaultValue);
     }
@@ -39,5 +43,9 @@ public class SPUtil {
 
     public static float getFloat(final String key, final float defaultValue) {
         return sp.getFloat(key, defaultValue);
+    }
+
+    public static boolean getBoolean(final String key, final boolean defaultValue) {
+        return sp.getBoolean(key, defaultValue);
     }
 }
