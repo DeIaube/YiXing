@@ -9,4 +9,13 @@ public interface Constants {
     String TYPE_FINANCE = "财经";
     String TYPE_FASHION = "时尚";
     String TYPE_EMOTION = "情感";
+
+    String TYPE_HOME_KEY = "home";
+    String TYPE_HUMANITY_KEY= "humanity";
+    String TYPE_INTELLECTUALITY_KEY = "intellectuality";
+    String TYPE_KEISURE_KEY = "keisure";
+    String TYPE_SPORTS_KEY = "sports";
+    String TYPE_FINANCE_KEY = "finance";
+    String TYPE_FASHION_KEY = "fashion";
+    String TYPE_EMOTION_KEY = "emotion";
 }
