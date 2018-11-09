@@ -3,20 +3,16 @@ package arouter.dawn.zju.edu.module_forum.ui.add_post;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.jph.takephoto.app.TakePhoto;
 import com.jph.takephoto.app.TakePhotoImpl;
 import com.jph.takephoto.compress.CompressConfig;
-import com.jph.takephoto.model.CropOptions;
 import com.jph.takephoto.model.InvokeParam;
 import com.jph.takephoto.model.TContextWrap;
 import com.jph.takephoto.model.TImage;
@@ -24,7 +20,6 @@ import com.jph.takephoto.model.TResult;
 import com.jph.takephoto.permission.InvokeListener;
 import com.jph.takephoto.permission.PermissionManager;
 import com.jph.takephoto.permission.TakePhotoInvocationHandler;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +43,7 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
     InvokeParam invokeParam;
 
     private ForumAddPostSelectImageAdapter mAdapter;
-    private List<String> images;
+    private List<String> mImages;
 
     @Override
     protected void initView() {
@@ -56,9 +51,9 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
         postContentEt = findViewById(R.id.forum_add_post_content);
         selectImageListRv = findViewById(R.id.forum_add_post_select_image_list);
 
-        images = new ArrayList<>();
+        mImages = new ArrayList<>();
         selectImageListRv.setLayoutManager(new GridLayoutManager(this, 4));
-        mAdapter = new ForumAddPostSelectImageAdapter(images, this);
+        mAdapter = new ForumAddPostSelectImageAdapter(mImages, this);
         selectImageListRv.setAdapter(mAdapter);
 
         mAdapter.setSelectImageLisener(this);
@@ -83,7 +78,8 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.add_post_menu_post) {
-            // todo 发布文章
+            mPresenter.submit(postTitleEt.getText().toString(), postContentEt.getText().toString(),
+                    mImages);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -119,11 +115,11 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
     @Override
     public void takeSuccess(TResult result) {
         LogUtil.i(TAG, "takeSuccess");
-        images.clear();
+        mImages.clear();
         for (TImage tImage : result.getImages()) {
-            images.add(tImage.getCompressPath());
+            mImages.add(tImage.getCompressPath());
         }
-        mAdapter.update(images);
+        mAdapter.update(mImages);
     }
 
     @Override
@@ -194,8 +190,8 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
      */
     @Override
     public void deleteImage(int position) {
-        if (position < images.size()) {
-            images.remove(position);
+        if (position < mImages.size()) {
+            mImages.remove(position);
             mAdapter.notifyDataSetChanged();
         }
     }
