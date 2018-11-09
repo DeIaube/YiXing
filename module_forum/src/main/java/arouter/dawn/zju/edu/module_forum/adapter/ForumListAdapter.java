@@ -9,15 +9,15 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.ForumListItem;
+import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
 import arouter.dawn.zju.edu.module_forum.R;
 
 public class ForumListAdapter extends RecyclerView.Adapter<ForumListAdapter.ForumListHolder> {
 
     private Context mContext;
-    private List<ForumListItem> mForumListItems;
+    private List<ForumPost> mForumListItems;
 
-    public ForumListAdapter(Context mContext, List<ForumListItem> mForumListItems) {
+    public ForumListAdapter(Context mContext, List<ForumPost> mForumListItems) {
         this.mContext = mContext;
         this.mForumListItems = mForumListItems;
     }
