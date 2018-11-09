@@ -45,7 +45,6 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
     EditText postContentEt;
     RecyclerView selectImageListRv;
 
-    TakePhoto takePhoto;
     InvokeParam invokeParam;
 
     private ForumAddPostSelectImageAdapter mAdapter;
@@ -94,16 +93,14 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
     }
 
     public TakePhoto getTakePhoto(){
-        if (takePhoto == null) {
-            takePhoto = (TakePhoto) TakePhotoInvocationHandler.of(this)
+        TakePhoto takePhoto = (TakePhoto) TakePhotoInvocationHandler.of(this)
                     .bind(new TakePhotoImpl(this,this));
             // 图片压缩
-            CompressConfig config=new CompressConfig.Builder()
-                    .setMaxSize(340 * 340)
-                    .setMaxPixel(340)
-                    .create();
-            takePhoto.onEnableCompress(config, false);
-        }
+        CompressConfig config=new CompressConfig.Builder()
+                .setMaxSize(340 * 340)
+                .setMaxPixel(340)
+                .create();
+        takePhoto.onEnableCompress(config, false);
         return takePhoto;
     }
 
