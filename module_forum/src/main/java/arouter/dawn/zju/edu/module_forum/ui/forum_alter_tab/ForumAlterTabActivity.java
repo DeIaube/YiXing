@@ -14,15 +14,15 @@ import baselib.config.Constants;
 @Route(path = Constants.AROUTER_FORUM_ALTER_TAB)
 public class ForumAlterTabActivity extends BaseActivity<ForumAlterTabContract.Presenter> implements ForumContract.View {
 
-    RecyclerView tabListView;
+    RecyclerView formAltertabListView;
 
     @Override
     protected void initView() {
-        tabListView = findViewById(R.id.forum_alter_tab_list_view);
+        formAltertabListView = findViewById(R.id.forum_alter_tab_list_view);
 
-        tabListView.setLayoutManager(new LinearLayoutManager(this));
+        formAltertabListView.setLayoutManager(new LinearLayoutManager(this));
         ForumAlterTabAdapter adapter = new ForumAlterTabAdapter(this);
-        tabListView.setAdapter(adapter);
+        formAltertabListView.setAdapter(adapter);
     }
 
     @Override

@@ -16,9 +16,9 @@ import baselib.config.Constants;
 @Route(path = Constants.AROUTER_FORUM_FORUM)
 public class ForumFragment extends BaseFragment<ForumContract.Presenter> implements ForumContract.View, View.OnClickListener {
 
-    TabLayout tabLayout;
-    ViewPager viewPager;
-    FloatingActionButton addArticleFab;
+    TabLayout forumTabLayou;
+    ViewPager forumViewPager;
+    FloatingActionButton forumAddPostFab;
 
     @Override
     protected int getLayoutId() {
@@ -32,14 +32,14 @@ public class ForumFragment extends BaseFragment<ForumContract.Presenter> impleme
 
     @Override
     protected void initView(View view) {
-        viewPager = view.findViewById(R.id.forum_view_pager);
-        tabLayout = view.findViewById(R.id.forum_tab_layout);
-        addArticleFab = view.findViewById(R.id.forum_add_article);
+        forumViewPager = view.findViewById(R.id.forum_view_pager);
+        forumTabLayou = view.findViewById(R.id.forum_tab_layout);
+        forumAddPostFab = view.findViewById(R.id.forum_add_post);
 
-        addArticleFab.setOnClickListener(this);
+        forumAddPostFab.setOnClickListener(this);
         view.findViewById(R.id.forum_alter_tab_layout).setOnClickListener(this);
 
-        mPresenter.bindViewPager(getChildFragmentManager(), viewPager, tabLayout);
+        mPresenter.bindViewPager(getChildFragmentManager(), forumViewPager, forumTabLayou);
     }
 
     @Override
@@ -47,8 +47,8 @@ public class ForumFragment extends BaseFragment<ForumContract.Presenter> impleme
         int id = v.getId();
         if (id == R.id.forum_alter_tab_layout) {
             ARouter.getInstance().build(Constants.AROUTER_FORUM_ALTER_TAB).navigation();
-        } else if (id == R.id.forum_add_article) {
-            
+        } else if (id == R.id.forum_add_post) {
+
         }
     }
 }

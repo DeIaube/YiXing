@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:src="@drawable/like_unselect"
+            android:src="@drawable/forum_like_unselect"
             android:layout_width="18dp"
             android:layout_height="18dp" />
 
@@ -28,7 +28,7 @@
 
     <ImageView
         android:layout_marginStart="16dp"
-        android:src="@drawable/comment"
+        android:src="@drawable/forum_comment"
         android:layout_width="18dp"
         android:layout_height="18dp" />
 
