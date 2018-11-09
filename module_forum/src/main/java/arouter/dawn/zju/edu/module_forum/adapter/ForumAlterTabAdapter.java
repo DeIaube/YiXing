@@ -7,11 +7,14 @@ import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import arouter.dawn.zju.edu.module_forum.R;
+import arouter.dawn.zju.edu.module_forum.config.Constants;
+import baselib.util.SPUtil;
 
 public class ForumAlterTabAdapter extends RecyclerView.Adapter<ForumAlterTabAdapter.ForumAlterTabHolder> {
 
@@ -28,9 +31,27 @@ public class ForumAlterTabAdapter extends RecyclerView.Adapter<ForumAlterTabAdap
         mTitles = new ArrayList<>();
         mKeys = new ArrayList<>();
 
+        mTitles.add(Constants.TYPE_HUMANITY);
+        mKeys.add(Constants.TYPE_HUMANITY_KEY);
+
+        mTitles.add(Constants.TYPE_INTELLECTUALITY);
+        mKeys.add(Constants.TYPE_INTELLECTUALITY_KEY);
+
+        mTitles.add(Constants.TYPE_KEISURE);
+        mKeys.add(Constants.TYPE_KEISURE_KEY);
+
+        mTitles.add(Constants.TYPE_SPORTS);
+        mKeys.add(Constants.TYPE_SPORTS_KEY);
+
+        mTitles.add(Constants.TYPE_FINANCE);
+        mKeys.add(Constants.TYPE_FINANCE_KEY);
+
+        mTitles.add(Constants.TYPE_FASHION);
+        mKeys.add(Constants.TYPE_FASHION_KEY);
+
+        mTitles.add(Constants.TYPE_EMOTION);
+        mKeys.add(Constants.TYPE_EMOTION);
     }
-
-
 
     @NonNull
     @Override
@@ -42,20 +63,30 @@ public class ForumAlterTabAdapter extends RecyclerView.Adapter<ForumAlterTabAdap
 
     @Override
     public void onBindViewHolder(@NonNull ForumAlterTabHolder forumAlterTabHolder, int i) {
+        forumAlterTabHolder.switchCompat.setChecked(SPUtil.getBoolean(mKeys.get(i), true));
+        forumAlterTabHolder.switchCompat.setText(mTitles.get(i));
+        forumAlterTabHolder.position = i;
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return mTitles.size();
     }
 
     class ForumAlterTabHolder extends RecyclerView.ViewHolder {
 
         SwitchCompat switchCompat;
+        int position;
 
         public ForumAlterTabHolder(@NonNull View itemView) {
             super(itemView);
             switchCompat = itemView.findViewById(R.id.switchWidget);
+            switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    SPUtil.put(mKeys.get(position), isChecked);
+                }
+            });
         }
     }
 }
