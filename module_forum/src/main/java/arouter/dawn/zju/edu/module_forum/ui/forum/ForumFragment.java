@@ -48,7 +48,7 @@ public class ForumFragment extends BaseFragment<ForumContract.Presenter> impleme
         if (id == R.id.forum_alter_tab_layout) {
             ARouter.getInstance().build(Constants.AROUTER_FORUM_ALTER_TAB).navigation();
         } else if (id == R.id.forum_add_post) {
-
+            ARouter.getInstance().build(Constants.AROUTER_FORUM_ADD_POST).navigation();
         }
     }
 }
