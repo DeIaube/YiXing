@@ -193,7 +193,6 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
     public void takeSuccess(TResult result) {
         LogUtil.i(TAG, "takeSuccess");
         mPresenter.updateUserPortrait(result.getImage().getCompressPath());
-        Log.e("aaa", result.getImage().getCompressPath());
     }
 
     @Override
