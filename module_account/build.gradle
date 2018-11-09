@@ -34,8 +34,4 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //ARouter
     annotationProcessor "com.alibaba:arouter-compiler:1.1.4"
-    // takephoto
-    compile('com.jph.takephoto:takephoto_library:4.0.3') {
-        exclude group: 'com.github.bumptech.glide'
-    }
 }
