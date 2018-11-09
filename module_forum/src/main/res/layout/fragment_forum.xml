@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     android:id="@+id/forum_swipe_refresh_layout"
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,26 +9,35 @@
     android:layout_height="match_parent"
     tools:context=".ui.forum.ForumFragment">
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/forum_tab_layout"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            app:tabBackground="@color/colorPrimary"
-            app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="#f2f2f2"
-            app:tabMode="scrollable"
-            app:tabIndicatorColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/forum_tab_layout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    app:tabBackground="@color/colorPrimary"
+                    app:tabSelectedTextColor="@color/white"
+                    app:tabTextColor="#f2f2f2"
+                    app:tabMode="scrollable"
+                    app:tabIndicatorColor="@color/white" />
+
+                <ImageView
+                    android:id="@+id/forum_alter_tab_layout"
+                    android:src="@drawable/down"
+                    android:background="@color/colorPrimary"
+                    android:padding="18dp"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent" />
+
+        </LinearLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/forum_view_pager"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/forum_tab_layout" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
