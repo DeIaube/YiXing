@@ -66,6 +66,7 @@ public class ForumAddPostSelectImageAdapter extends RecyclerView.Adapter<ForumAd
             });
         } else {
             Picasso.with(mContext).load(new File(mImages.get(i))).into(holder.imageView);
+            holder.closeIv.setVisibility(View.VISIBLE);
             holder.imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
