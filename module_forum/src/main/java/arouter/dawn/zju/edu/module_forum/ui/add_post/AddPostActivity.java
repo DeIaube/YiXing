@@ -1,9 +1,7 @@
 package arouter.dawn.zju.edu.module_forum.ui.add_post;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,7 +22,6 @@ import com.jph.takephoto.permission.InvokeListener;
 import com.jph.takephoto.permission.PermissionManager;
 import com.jph.takephoto.permission.TakePhotoInvocationHandler;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,8 +86,7 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
     }
 
     private void checkPortrait() {
-        final CropOptions cropOptions=new CropOptions.Builder().setAspectX(1).setAspectY(1).setWithOwnCrop(true).create();
-        getTakePhoto().onPickMultipleWithCrop(999, cropOptions);
+        getTakePhoto().onPickMultiple(999);
     }
 
     public TakePhoto getTakePhoto(){
