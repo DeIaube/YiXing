@@ -35,7 +35,7 @@ public class ForumFragment extends BaseFragment<ForumContract.Presenter> impleme
         tabLayout = view.findViewById(R.id.forum_tab_layout);
 
         view.findViewById(R.id.forum_alter_tab_layout).setOnClickListener(this);
-        
+
         mPresenter.bindViewPager(getChildFragmentManager(), viewPager, tabLayout);
     }
 
