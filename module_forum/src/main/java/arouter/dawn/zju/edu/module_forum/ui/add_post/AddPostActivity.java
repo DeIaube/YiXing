@@ -194,7 +194,9 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
      */
     @Override
     public void deleteImage(int position) {
-        images.remove(position);
-        mAdapter.notifyItemRemoved(position);
+        if (position < images.size()) {
+            images.remove(position);
+            mAdapter.notifyDataSetChanged();
+        }
     }
 }

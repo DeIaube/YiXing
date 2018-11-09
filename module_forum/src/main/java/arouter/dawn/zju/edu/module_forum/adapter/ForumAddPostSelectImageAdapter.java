@@ -52,6 +52,7 @@ public class ForumAddPostSelectImageAdapter extends RecyclerView.Adapter<ForumAd
 
     @Override
     public void onBindViewHolder(@NonNull PostSelectImageHolder holder, @SuppressLint("RecyclerView") final int i) {
+        holder.setIsRecyclable(false);
         holder.closeIv.setVisibility(View.GONE);
         if (i == mImages.size()) {
             holder.closeIv.setVisibility(View.GONE);
