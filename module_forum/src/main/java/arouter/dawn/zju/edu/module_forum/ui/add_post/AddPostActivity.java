@@ -3,11 +3,14 @@ package arouter.dawn.zju.edu.module_forum.ui.add_post;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.jph.takephoto.app.TakePhoto;
@@ -21,6 +24,7 @@ import com.jph.takephoto.model.TResult;
 import com.jph.takephoto.permission.InvokeListener;
 import com.jph.takephoto.permission.PermissionManager;
 import com.jph.takephoto.permission.TakePhotoInvocationHandler;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,9 +122,11 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
     @Override
     public void takeSuccess(TResult result) {
         LogUtil.i(TAG, "takeSuccess");
+        images.clear();
         for (TImage tImage : result.getImages()) {
-            LogUtil.i(TAG, tImage.getCompressPath());
+            images.add(tImage.getCompressPath());
         }
+        mAdapter.update(images);
     }
 
     @Override

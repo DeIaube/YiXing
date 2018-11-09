@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
@@ -192,6 +193,7 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
     public void takeSuccess(TResult result) {
         LogUtil.i(TAG, "takeSuccess");
         mPresenter.updateUserPortrait(result.getImage().getCompressPath());
+        Log.e("aaa", result.getImage().getCompressPath());
     }
 
     @Override
