@@ -1,6 +1,12 @@
 <resources>
 
     <string name="title_activity_forum_alter_tab">首页特别展示</string>
+
+    <!--Forum_Add_Post-->
     <string name="title_activity_add_post">分享帖子</string>
-    <string name="add_post_menu">发布</string>
+    <string name="forum_add_post_add_post_menu">发布</string>
+    <string name="forum_add_post_content">此刻你的想法...</string>
+    <string name="forum_add_post_title">加个标题哟~</string>
+    <!--Forum_Add_Post-->
+
 </resources>

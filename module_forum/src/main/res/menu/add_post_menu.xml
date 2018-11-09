@@ -4,6 +4,6 @@
     tools:context="com.example.acctionbaractivitydemo.MainActivity">
     <item
         android:id="@+id/add_post_menu_post"
-        android:title="@string/add_post_menu"
+        android:title="@string/forum_add_post_add_post_menu"
         app:showAsAction="always"/>
 </menu>
