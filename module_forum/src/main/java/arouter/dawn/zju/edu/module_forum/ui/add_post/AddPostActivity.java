@@ -9,6 +9,7 @@ import android.widget.EditText;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumAddPostSelectImageAdapter;
@@ -16,13 +17,14 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_FORUM_ADD_POST)
-public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> implements AddPostContract.View{
+public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> implements AddPostContract.View, ForumAddPostSelectImageAdapter.SelectImageLisener {
 
     EditText postTitleEt;
     EditText postContentEt;
     RecyclerView selectImageListRv;
 
     private ForumAddPostSelectImageAdapter mAdapter;
+    private List<String> images;
 
     @Override
     protected void initView() {
@@ -30,9 +32,12 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
         postContentEt = findViewById(R.id.forum_add_post_content);
         selectImageListRv = findViewById(R.id.forum_add_post_select_image_list);
 
+        images = new ArrayList<>();
         selectImageListRv.setLayoutManager(new GridLayoutManager(this, 4));
-        mAdapter = new ForumAddPostSelectImageAdapter(new ArrayList<String>(), this);
+        mAdapter = new ForumAddPostSelectImageAdapter(images, this);
         selectImageListRv.setAdapter(mAdapter);
+
+        mAdapter.setSelectImageLisener(this);
     }
 
     @Override
@@ -63,5 +68,32 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.add_post_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    /**
+     * 展示图片大图
+     * @param url 图片资源定位符
+     */
+    @Override
+    public void showImage(String url) {
+
+    }
+
+    /**
+     * 跳转相册选择照片
+     */
+    @Override
+    public void addImage() {
+
+    }
+
+    /**
+     * 删除此图片
+     * @param position 图片下标
+     */
+    @Override
+    public void deleteImage(int position) {
+        images.remove(position);
+        mAdapter.notifyItemRemoved(position);
     }
 }
