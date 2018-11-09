@@ -195,4 +195,10 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
             mAdapter.notifyDataSetChanged();
         }
     }
+
+    @Override
+    public void submitSuccess() {
+        showMessage(getString(R.string.forum_add_post_share_success));
+        onBackPressed();
+    }
 }

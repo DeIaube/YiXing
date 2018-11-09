@@ -8,7 +8,7 @@ import baselib.base.BaseContract;
 public interface AddPostContract {
 
     interface View extends BaseContract.BaseView {
-
+        void submitSuccess();
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {

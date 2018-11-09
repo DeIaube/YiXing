@@ -7,6 +7,7 @@
     <string name="forum_add_post_add_post_menu">发布</string>
     <string name="forum_add_post_content">此刻你的想法...</string>
     <string name="forum_add_post_title">加个标题哟~</string>
+    <string name="forum_add_post_share_success">分享成功</string>
     <!--Forum_Add_Post-->
 
 </resources>
