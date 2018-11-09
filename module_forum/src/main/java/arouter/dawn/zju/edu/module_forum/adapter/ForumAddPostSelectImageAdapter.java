@@ -49,16 +49,37 @@ public class ForumAddPostSelectImageAdapter extends RecyclerView.Adapter<ForumAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PostSelectImageHolder holder, @SuppressLint("RecyclerView") int i) {
+    public void onBindViewHolder(@NonNull PostSelectImageHolder holder, @SuppressLint("RecyclerView") final int i) {
         holder.closeIv.setVisibility(View.GONE);
-        Picasso.with(mContext).load(R.drawable.forum_add_post_add_image).into(holder.imageView);
         if (i == mImages.size()) {
-            holder.position = -1;
             holder.closeIv.setVisibility(View.GONE);
             Picasso.with(mContext).load(R.drawable.forum_add_post_add_image).into(holder.imageView);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mSelectImageLisener != null) {
+                        mSelectImageLisener.addImage();
+                    }
+                }
+            });
         } else {
-            holder.position = i;
             Picasso.with(mContext).load(mImages.get(i)).into(holder.imageView);
+            holder.imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mSelectImageLisener != null) {
+                        mSelectImageLisener.showImage(mImages.get(i));
+                    }
+                }
+            });
+            holder.closeIv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mSelectImageLisener != null) {
+                        mSelectImageLisener.deleteImage(i);
+                    }
+                }
+            });
         }
     }
 
@@ -69,7 +90,6 @@ public class ForumAddPostSelectImageAdapter extends RecyclerView.Adapter<ForumAd
 
     class PostSelectImageHolder extends RecyclerView.ViewHolder {
 
-        int position;
         ImageView imageView;
         ImageView closeIv;
 
@@ -77,33 +97,6 @@ public class ForumAddPostSelectImageAdapter extends RecyclerView.Adapter<ForumAd
             super(itemView);
             imageView = itemView.findViewById(R.id.image);
             closeIv = itemView.findViewById(R.id.image_close);
-            if (position == -1) {
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (mSelectImageLisener != null) {
-                            mSelectImageLisener.addImage();
-                        }
-                    }
-                });
-            } else {
-                imageView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (mSelectImageLisener != null) {
-                            mSelectImageLisener.showImage(mImages.get(position));
-                        }
-                    }
-                });
-                closeIv.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (mSelectImageLisener != null) {
-                            mSelectImageLisener.deleteImage(position);
-                        }
-                    }
-                });
-            }
         }
     }
 }
