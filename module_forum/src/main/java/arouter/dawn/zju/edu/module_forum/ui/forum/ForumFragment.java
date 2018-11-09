@@ -1,10 +1,10 @@
 package arouter.dawn.zju.edu.module_forum.ui.forum;
 
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -18,6 +18,7 @@ public class ForumFragment extends BaseFragment<ForumContract.Presenter> impleme
 
     TabLayout tabLayout;
     ViewPager viewPager;
+    FloatingActionButton addArticleFab;
 
     @Override
     protected int getLayoutId() {
@@ -33,7 +34,9 @@ public class ForumFragment extends BaseFragment<ForumContract.Presenter> impleme
     protected void initView(View view) {
         viewPager = view.findViewById(R.id.forum_view_pager);
         tabLayout = view.findViewById(R.id.forum_tab_layout);
+        addArticleFab = view.findViewById(R.id.forum_add_article);
 
+        addArticleFab.setOnClickListener(this);
         view.findViewById(R.id.forum_alter_tab_layout).setOnClickListener(this);
 
         mPresenter.bindViewPager(getChildFragmentManager(), viewPager, tabLayout);
@@ -44,6 +47,8 @@ public class ForumFragment extends BaseFragment<ForumContract.Presenter> impleme
         int id = v.getId();
         if (id == R.id.forum_alter_tab_layout) {
             ARouter.getInstance().build(Constants.AROUTER_FORUM_ALTER_TAB).navigation();
+        } else if (id == R.id.forum_add_article) {
+            
         }
     }
 }
