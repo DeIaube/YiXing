@@ -10,7 +10,13 @@ import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.Objects;
+
+import baselib.bus.BusEvent;
 
 public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends Fragment implements BaseContract.BaseView{
 
@@ -24,10 +30,17 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
 
     protected abstract void initView(View view);
 
+    protected boolean useEventBus() {
+        return false;
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ARouter.getInstance().inject(this);
+        if (useEventBus()) {
+            EventBus.getDefault().register(this);
+        }
         bindPresenter();
         attachView();
     }
@@ -47,6 +60,19 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     public void onDestroy() {
         super.onDestroy();
         detachView();
+        if (useEventBus()) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    protected void handleEventinMainThread(BusEvent event) {
+
+    }
+
+    @Subscribe(threadMode = ThreadMode.ASYNC)
+    protected void handleEventinAsync(BusEvent event) {
+
     }
 
     /**

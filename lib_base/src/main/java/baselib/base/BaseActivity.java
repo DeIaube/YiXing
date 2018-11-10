@@ -10,9 +10,14 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.Objects;
 
 import arouter.dawn.zju.edu.lib_res.R;
+import baselib.bus.BusEvent;
 
 public abstract class BaseActivity <T extends BaseContract.BasePresenter> extends AppCompatActivity implements BaseContract.BaseView {
 
@@ -69,11 +74,18 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
 
     protected abstract void bindPresenter();
 
+    protected boolean useEventBus() {
+        return false;
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ARouter.getInstance().inject(this);
+        if (useEventBus()) {
+            EventBus.getDefault().register(this);
+        }
         initToolBar();
         bindPresenter();
         attachView();
@@ -90,6 +102,14 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
         if (mLoadingView != null) {
             mLoadingView.dismiss();
         }
+        if (useEventBus()) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    protected void handleEvent(BusEvent event) {
+
     }
 
     /**
