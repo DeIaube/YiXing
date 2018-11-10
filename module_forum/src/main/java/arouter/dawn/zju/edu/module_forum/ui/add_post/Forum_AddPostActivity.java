@@ -24,7 +24,6 @@ import com.jph.takephoto.permission.PermissionManager;
 import com.jph.takephoto.permission.TakePhotoInvocationHandler;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumAddPostSelectImageAdapter;
@@ -197,8 +196,10 @@ public class Forum_AddPostActivity extends BaseActivity<ForumAddPostContract.Pre
      */
     @Override
     public void showImage(int position) {
+        Bundle bundle = new Bundle();
+        bundle.putStringArrayList(Constants.FORUM_SHOW_IMAGE_LIST, mImages);
         ARouter.getInstance().build(Constants.AROUTER_FORUM_SHOW_IMAGE).
-                withStringArrayList(Constants.FORUM_SHOW_IMAGE_LIST, mImages).
+                withBundle(Constants.FORUM_SHOW_IMAGE_BUNDLE, bundle).
                 withInt(Constants.FORUM_SHOW_IMAGE_POSTION, position).navigation();
     }
 

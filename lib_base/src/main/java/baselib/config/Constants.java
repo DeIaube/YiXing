@@ -57,5 +57,6 @@ public interface Constants {
 
     String FORUM_LIST_TAG = "forumListTag";
     String FORUM_SHOW_IMAGE_POSTION = "forumShowImagePosition";
+    String FORUM_SHOW_IMAGE_BUNDLE = "forumShowImageBundle";
     String FORUM_SHOW_IMAGE_LIST = "forumShowImageList";
 }

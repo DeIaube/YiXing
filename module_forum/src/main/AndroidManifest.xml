@@ -11,7 +11,8 @@
             android:name=".ui.add_post.Forum_AddPostActivity"
             android:label="@string/title_activity_add_post"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.show_image.ShowImageActivity"></activity>
+        <activity android:name=".ui.show_image.ShowImageActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
