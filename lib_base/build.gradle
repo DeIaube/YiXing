@@ -58,4 +58,6 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.3.2'
     // takephoto
     compile('com.jph.takephoto:takephoto_library:4.0.3')
+    // eventbus
+    compile 'org.greenrobot:eventbus:3.0.0'
 }
