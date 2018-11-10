@@ -74,7 +74,6 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
             ARouter.getInstance().build(Constants.AROUTER_FORUM_ALTER_TAB).navigation();
         } else if (id == R.id.forum_add_post) {
             ARouter.getInstance().build(Constants.AROUTER_FORUM_ADD_POST).navigation();
-            EventBus.getDefault().post(new BusEvent());
         }
     }
 }
