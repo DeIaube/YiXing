@@ -4,6 +4,7 @@ package arouter.dawn.zju.edu.module_forum.ui.home;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -60,7 +61,9 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
         }
         int code = event.getCode();
         if (code == EventBusCode.FORUM_LIST_SCROLL_UP) {
+            forumAddPostFab.hide();
         } else if (code == EventBusCode.FORUM_LIST_SCROLL_DOWN) {
+            forumAddPostFab.show();
         }
     }
 

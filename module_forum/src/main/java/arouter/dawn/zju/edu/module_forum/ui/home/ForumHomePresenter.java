@@ -18,7 +18,7 @@ import baselib.util.SPUtil;
 
 public class ForumHomePresenter extends BasePresenter<ForumHomeContract.View> implements ForumHomeContract.Presenter {
 
-    String TAG = "ForumPresenter";
+    String TAG = "ForumHomePresenter";
 
     @Override
     public void bindViewPager(FragmentManager fragmentManager, ViewPager viewPager, TabLayout tabLayout) {
