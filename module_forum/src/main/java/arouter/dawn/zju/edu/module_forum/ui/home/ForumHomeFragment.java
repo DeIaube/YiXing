@@ -1,12 +1,10 @@
 package arouter.dawn.zju.edu.module_forum.ui.home;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 
 import com.alibaba.android.arouter.core.LogisticsCenter;
@@ -16,7 +14,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.config.EventBusCode;
-import arouter.dawn.zju.edu.module_forum.ui.alter_tab.ForumAlterTabActivity;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
 import baselib.config.Constants;

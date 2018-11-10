@@ -2,6 +2,7 @@ package arouter.dawn.zju.edu.module_forum.ui.add_post;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -48,7 +49,6 @@ public class ForumAddPostActivity extends BaseActivity<ForumAddPostContract.Pres
     private ForumAddPostSelectImageAdapter mSelectImageAdapter;
     private ForumAddPostSelectTagAdapter mSelectTagAdapter;
     private ArrayList<String> mImages;
-    private ArrayList<String> mTags;
 
     @Override
     protected void initView() {
@@ -58,22 +58,22 @@ public class ForumAddPostActivity extends BaseActivity<ForumAddPostContract.Pres
         selectTagListRv = findViewById(R.id.forum_add_post_select_tag_list);
 
         mImages = new ArrayList<>();
-        mTags = new ArrayList<>();
+        ArrayList<String> tags = new ArrayList<>();
 
-        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_HUMANITY);
-        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_INTELLECTUALITY);
-        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_KEISURE);
-        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_SPORTS);
-        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_FINANCE);
-        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_FASHION);
-        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_EMOTION);
+        tags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_HUMANITY);
+        tags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_INTELLECTUALITY);
+        tags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_KEISURE);
+        tags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_SPORTS);
+        tags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_FINANCE);
+        tags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_FASHION);
+        tags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_EMOTION);
 
         selectImageListRv.setLayoutManager(new GridLayoutManager(this, 4));
         mSelectImageAdapter = new ForumAddPostSelectImageAdapter(mImages, this);
         selectImageListRv.setAdapter(mSelectImageAdapter);
 
         selectTagListRv.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL));
-        mSelectTagAdapter = new ForumAddPostSelectTagAdapter(this, mTags);
+        mSelectTagAdapter = new ForumAddPostSelectTagAdapter(this, tags);
         selectTagListRv.setAdapter(mSelectTagAdapter);
 
         mSelectImageAdapter.setSelectImageLisener(this);
@@ -163,7 +163,7 @@ public class ForumAddPostActivity extends BaseActivity<ForumAddPostContract.Pres
      * 引入takephoto处理权限问题
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         //以下代码为处理Android6.0、7.0动态权限所需
         PermissionManager.TPermissionType type=PermissionManager.onRequestPermissionsResult(requestCode,permissions,grantResults);
