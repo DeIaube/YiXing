@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -26,6 +27,7 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumAddPostSelectImageAdapter;
+import arouter.dawn.zju.edu.module_forum.adapter.ForumAddPostSelectTagAdapter;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 import baselib.util.LogUtil;
@@ -39,24 +41,44 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
     EditText postTitleEt;
     EditText postContentEt;
     RecyclerView selectImageListRv;
+    RecyclerView selectTagListRv;
 
     InvokeParam invokeParam;
 
-    private ForumAddPostSelectImageAdapter mAdapter;
+    private ForumAddPostSelectImageAdapter mSelectImageAdapter;
+    private ForumAddPostSelectTagAdapter mSelectTagAdapter;
     private List<String> mImages;
+    private List<String> mTags;
+    private String mCurrentTag;
 
     @Override
     protected void initView() {
         postTitleEt = findViewById(R.id.forum_add_post_title);
         postContentEt = findViewById(R.id.forum_add_post_content);
         selectImageListRv = findViewById(R.id.forum_add_post_select_image_list);
+        selectTagListRv = findViewById(R.id.forum_add_post_select_tag_list);
 
         mImages = new ArrayList<>();
-        selectImageListRv.setLayoutManager(new GridLayoutManager(this, 4));
-        mAdapter = new ForumAddPostSelectImageAdapter(mImages, this);
-        selectImageListRv.setAdapter(mAdapter);
+        mTags = new ArrayList<>();
 
-        mAdapter.setSelectImageLisener(this);
+        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_HUMANITY);
+        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_INTELLECTUALITY);
+        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_KEISURE);
+        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_SPORTS);
+        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_FINANCE);
+        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_FASHION);
+        mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_EMOTION);
+        mCurrentTag = mTags.get(0);
+
+        selectImageListRv.setLayoutManager(new GridLayoutManager(this, 4));
+        mSelectImageAdapter = new ForumAddPostSelectImageAdapter(mImages, this);
+        selectImageListRv.setAdapter(mSelectImageAdapter);
+
+        selectTagListRv.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL));
+        mSelectTagAdapter = new ForumAddPostSelectTagAdapter(this, mTags);
+        selectTagListRv.setAdapter(mSelectTagAdapter);
+
+        mSelectImageAdapter.setSelectImageLisener(this);
     }
 
     @Override
@@ -79,7 +101,7 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
         int id = item.getItemId();
         if (id == R.id.add_post_menu_post) {
             mPresenter.submit(postTitleEt.getText().toString(), postContentEt.getText().toString(),
-                    mImages);
+                    mSelectTagAdapter.getTag(), mImages);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -119,7 +141,7 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
         for (TImage tImage : result.getImages()) {
             mImages.add(tImage.getCompressPath());
         }
-        mAdapter.update(mImages);
+        mSelectImageAdapter.update(mImages);
     }
 
     @Override
@@ -192,7 +214,7 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
     public void deleteImage(int position) {
         if (position < mImages.size()) {
             mImages.remove(position);
-            mAdapter.notifyDataSetChanged();
+            mSelectImageAdapter.notifyDataSetChanged();
         }
     }
 

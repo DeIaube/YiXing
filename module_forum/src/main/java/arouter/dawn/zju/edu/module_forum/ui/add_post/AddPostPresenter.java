@@ -29,10 +29,10 @@ public class AddPostPresenter extends BasePresenter<AddPostContract.View> implem
 
     @SuppressLint("CheckResult")
     @Override
-    public void submit(final String title, final String content, final List<String> images) {
+    public void submit(final String title, final String content, final String tag, final List<String> images) {
         mView.showLoading();
         if (images.isEmpty()) {
-            submitPost(title, content, images);
+            submitPost(title, content, tag, images);
             return;
         }
         Observable.create(new ObservableOnSubscribe<String>() {
@@ -72,17 +72,18 @@ public class AddPostPresenter extends BasePresenter<AddPostContract.View> implem
                     @Override
                     public void onComplete() {
                         LogUtil.e(TAG, "onComplete:" + urls.toString());
-                        submitPost(title, content, urls);
+                        submitPost(title, content, tag, urls);
                     }
                 });
     }
 
-    private void submitPost(String title, String content, List<String> urls) {
+    private void submitPost(String title, String content, String tag, List<String> urls) {
         ForumPost post = new ForumPost();
         post.setAuthor(User.getCurrentUser(User.class));
         post.setTitle(title);
         post.setContent(content);
         post.setImageList(urls);
+        post.setTag(tag);
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(AVException e) {

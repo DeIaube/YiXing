@@ -12,7 +12,7 @@ public interface AddPostContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void submit(String title, String content, List<String> images);
+        void submit(String title, String content, String tag, List<String> images);
     }
 
 }
