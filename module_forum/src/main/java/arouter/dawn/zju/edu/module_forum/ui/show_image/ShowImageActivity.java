@@ -13,9 +13,9 @@ import baselib.config.Constants;
 public class ShowImageActivity extends BaseActivity {
 
     @Autowired(name = Constants.FORUM_SHOW_IMAGE_POSTION)
-    private int mCurrentPosition;
+    int currentPosition;
     @Autowired(name = Constants.FORUM_SHOW_IMAGE_LIST)
-    private List<String> mImageList;
+    List<String> imageList;
 
     @Override
     protected void initView() {
