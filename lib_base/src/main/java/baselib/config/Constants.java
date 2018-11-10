@@ -56,4 +56,6 @@ public interface Constants {
     String AROUTER_FORUM_SHOW_IMAGE = "/forum/show_image";
 
     String FORUM_LIST_TAG = "forumListTag";
+    String FORUM_SHOW_IMAGE_POSTION = "forumShowImagePosition";
+    String FORUM_SHOW_IMAGE_LIST = "forumShowImageList";
 }

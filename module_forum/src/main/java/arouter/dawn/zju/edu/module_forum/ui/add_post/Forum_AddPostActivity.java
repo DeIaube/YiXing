@@ -48,8 +48,8 @@ public class Forum_AddPostActivity extends BaseActivity<ForumAddPostContract.Pre
 
     private ForumAddPostSelectImageAdapter mSelectImageAdapter;
     private ForumAddPostSelectTagAdapter mSelectTagAdapter;
-    private List<String> mImages;
-    private List<String> mTags;
+    private ArrayList<String> mImages;
+    private ArrayList<String> mTags;
     private String mCurrentTag;
 
     @Override
@@ -196,7 +196,9 @@ public class Forum_AddPostActivity extends BaseActivity<ForumAddPostContract.Pre
      */
     @Override
     public void showImage(int position) {
-        ARouter.getInstance().build(Constants.AROUTER_FORUM_SHOW_IMAGE).navigation();
+        ARouter.getInstance().build(Constants.AROUTER_FORUM_SHOW_IMAGE).
+                withStringArrayList(Constants.FORUM_SHOW_IMAGE_LIST, mImages).
+                withInt(Constants.FORUM_SHOW_IMAGE_POSTION, position).navigation();
     }
 
     /**
