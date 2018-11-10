@@ -4,13 +4,14 @@
 
     <application>
         <activity
-            android:name=".ui.forum_alter_tab.ForumAlterTabActivity"
+            android:name=".ui.alter_tab.ForumAlterTabActivity"
             android:label="@string/title_activity_forum_alter_tab"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.add_post.AddPostActivity"
+            android:name=".ui.add_post.Forum_AddPostActivity"
             android:label="@string/title_activity_add_post"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.show_image.ShowImageActivity"></activity>
     </application>
 
 </manifest>

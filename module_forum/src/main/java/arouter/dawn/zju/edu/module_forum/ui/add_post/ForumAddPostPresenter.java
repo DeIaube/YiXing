@@ -2,7 +2,6 @@ package arouter.dawn.zju.edu.module_forum.ui.add_post;
 
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
@@ -23,7 +22,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class AddPostPresenter extends BasePresenter<AddPostContract.View> implements AddPostContract.Presenter {
+public class ForumAddPostPresenter extends BasePresenter<ForumAddPostContract.View> implements ForumAddPostContract.Presenter {
 
     String TAG = "AddPostPresenter";
 

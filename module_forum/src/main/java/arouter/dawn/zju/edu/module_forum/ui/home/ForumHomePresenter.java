@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_forum.ui.forum;
+package arouter.dawn.zju.edu.module_forum.ui.home;
 
 
 import android.support.design.widget.TabLayout;
@@ -13,11 +13,10 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.module_forum.adapter.ForumPagerAdapter;
 import arouter.dawn.zju.edu.module_forum.config.Constants;
-import arouter.dawn.zju.edu.module_forum.ui.forum_list.ForumListFragment;
 import baselib.base.BasePresenter;
 import baselib.util.SPUtil;
 
-public class ForumPresenter extends BasePresenter<ForumContract.View> implements ForumContract.Presenter {
+public class ForumHomePresenter extends BasePresenter<ForumHomeContract.View> implements ForumHomeContract.Presenter {
 
     String TAG = "ForumPresenter";
 

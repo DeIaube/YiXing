@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_forum.ui.forum;
+package arouter.dawn.zju.edu.module_forum.ui.home;
 
 
 import android.support.design.widget.FloatingActionButton;
@@ -13,8 +13,8 @@ import arouter.dawn.zju.edu.module_forum.R;
 import baselib.base.BaseFragment;
 import baselib.config.Constants;
 
-@Route(path = Constants.AROUTER_FORUM_FORUM)
-public class ForumFragment extends BaseFragment<ForumContract.Presenter> implements ForumContract.View, View.OnClickListener {
+@Route(path = Constants.AROUTER_FORUM_FORUM_HOME)
+public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter> implements ForumHomeContract.View, View.OnClickListener {
 
     TabLayout forumTabLayou;
     ViewPager forumViewPager;
@@ -27,7 +27,7 @@ public class ForumFragment extends BaseFragment<ForumContract.Presenter> impleme
 
     @Override
     protected void bindPresenter() {
-        mPresenter = new ForumPresenter();
+        mPresenter = new ForumHomePresenter();
     }
 
     @Override

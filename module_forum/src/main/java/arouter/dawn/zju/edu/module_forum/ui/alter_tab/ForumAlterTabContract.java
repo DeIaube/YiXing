@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_forum.ui.forum_alter_tab;
+package arouter.dawn.zju.edu.module_forum.ui.alter_tab;
 
 
 import baselib.base.BaseContract;

@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_forum.ui.forum_list;
+package arouter.dawn.zju.edu.module_forum.ui.list;
 
 
 import baselib.base.BaseContract;

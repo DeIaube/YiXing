@@ -49,10 +49,11 @@ public interface Constants {
 
     // Forum
     String AROUTER_FORUM_GROP = "forum";
-    String AROUTER_FORUM_FORUM = "/forum/forum";
+    String AROUTER_FORUM_FORUM_HOME = "/forum/home";
     String AROUTER_FORUM_ADD_POST= "/forum/add_post";
-    String AROUTER_FORUM_FORUM_LIST = "/forum/forum_list";
-    String AROUTER_FORUM_ALTER_TAB = "/forum/forum_alter_tab";
+    String AROUTER_FORUM_FORUM_LIST = "/forum/list";
+    String AROUTER_FORUM_ALTER_TAB = "/forum/alter_tab";
+    String AROUTER_FORUM_SHOW_IMAGE = "/forum/show_image";
 
     String FORUM_LIST_TAG = "forumListTag";
 }

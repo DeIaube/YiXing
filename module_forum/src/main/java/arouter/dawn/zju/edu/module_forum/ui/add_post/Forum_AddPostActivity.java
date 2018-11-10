@@ -33,7 +33,7 @@ import baselib.config.Constants;
 import baselib.util.LogUtil;
 
 @Route(path = Constants.AROUTER_FORUM_ADD_POST)
-public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> implements AddPostContract.View,
+public class Forum_AddPostActivity extends BaseActivity<ForumAddPostContract.Presenter> implements ForumAddPostContract.View,
         ForumAddPostSelectImageAdapter.SelectImageLisener, TakePhoto.TakeResultListener, InvokeListener {
 
     static final String TAG = "AddPostActivity";
@@ -88,7 +88,7 @@ public class AddPostActivity extends BaseActivity<AddPostContract.Presenter> imp
 
     @Override
     protected void bindPresenter() {
-        mPresenter = new AddPostPresenter();
+        mPresenter = new ForumAddPostPresenter();
     }
 
     @Override

@@ -5,7 +5,7 @@ import java.util.List;
 
 import baselib.base.BaseContract;
 
-public interface AddPostContract {
+public interface ForumAddPostContract {
 
     interface View extends BaseContract.BaseView {
         void submitSuccess();
