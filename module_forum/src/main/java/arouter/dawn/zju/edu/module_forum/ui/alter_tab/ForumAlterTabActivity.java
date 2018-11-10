@@ -12,7 +12,7 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_FORUM_ALTER_TAB)
-public class ForumAlterTabActivity extends BaseActivity<ForumAlterTabContract.Presenter> implements ForumHomeContract.View {
+public class ForumAlterTabActivity extends BaseActivity<ForumAlterTabContract.Presenter> implements ForumAlterTabContract.View {
 
     RecyclerView formAltertabListView;
 
