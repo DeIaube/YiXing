@@ -141,6 +141,7 @@ public class Forum_AddPostActivity extends BaseActivity<ForumAddPostContract.Pre
         mImages.clear();
         for (TImage tImage : result.getImages()) {
             mImages.add(tImage.getCompressPath());
+            LogUtil.i(TAG, "image : " + tImage.getCompressPath());
         }
         mSelectImageAdapter.update(mImages);
     }
