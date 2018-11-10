@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.jph.takephoto.app.TakePhoto;
 import com.jph.takephoto.app.TakePhotoImpl;
 import com.jph.takephoto.compress.CompressConfig;
@@ -191,11 +192,11 @@ public class Forum_AddPostActivity extends BaseActivity<ForumAddPostContract.Pre
 
     /**
      * 展示图片大图
-     * @param url 图片资源定位符
+     * @param position 图片资源定位符下标
      */
     @Override
-    public void showImage(String url) {
-
+    public void showImage(int position) {
+        ARouter.getInstance().build(Constants.AROUTER_FORUM_SHOW_IMAGE).navigation();
     }
 
     /**

@@ -29,7 +29,7 @@ public class ForumAddPostSelectImageAdapter extends RecyclerView.Adapter<ForumAd
     }
 
     public interface SelectImageLisener {
-        void showImage(String url);
+        void showImage(int position);
         void addImage();
         void deleteImage(int position);
     }
@@ -72,7 +72,7 @@ public class ForumAddPostSelectImageAdapter extends RecyclerView.Adapter<ForumAd
                 @Override
                 public void onClick(View v) {
                     if (mSelectImageLisener != null) {
-                        mSelectImageLisener.showImage(mImages.get(i));
+                        mSelectImageLisener.showImage(i);
                     }
                 }
             });
