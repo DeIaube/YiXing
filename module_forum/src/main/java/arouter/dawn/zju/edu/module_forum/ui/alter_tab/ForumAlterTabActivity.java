@@ -7,12 +7,11 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumAlterTabAdapter;
-import arouter.dawn.zju.edu.module_forum.ui.home.ForumHomeContract;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_FORUM_ALTER_TAB)
-public class ForumAlterTabActivity extends BaseActivity<ForumAlterTabContract.Presenter> implements ForumAlterTabContract.View {
+public class ForumAlterTabActivity extends BaseActivity<ForumAlterTabContract.Presenter> implements ForumAlterTabContract.View, ForumAlterTabAdapter.TabStatusListener {
 
     RecyclerView formAltertabListView;
 
@@ -23,6 +22,7 @@ public class ForumAlterTabActivity extends BaseActivity<ForumAlterTabContract.Pr
         formAltertabListView.setLayoutManager(new LinearLayoutManager(this));
         ForumAlterTabAdapter adapter = new ForumAlterTabAdapter(this);
         formAltertabListView.setAdapter(adapter);
+        adapter.setTabStatusListener(this);
     }
 
     @Override
@@ -38,5 +38,10 @@ public class ForumAlterTabActivity extends BaseActivity<ForumAlterTabContract.Pr
     @Override
     protected boolean showHomeAsUp() {
         return true;
+    }
+
+    @Override
+    public void statusChange() {
+        setResult(RESULT_OK);
     }
 }

@@ -21,10 +21,20 @@ public class ForumAlterTabAdapter extends RecyclerView.Adapter<ForumAlterTabAdap
     private Context mContext;
     private List<String> mTitles;
     private List<String> mKeys;
+    private TabStatusListener mTabStatusListener;
+
+    public void setTabStatusListener(TabStatusListener mTabStatusListener) {
+        this.mTabStatusListener = mTabStatusListener;
+    }
 
     public ForumAlterTabAdapter(Context mContext) {
         this.mContext = mContext;
         initData();
+    }
+
+
+    public interface TabStatusListener {
+        void statusChange();
     }
 
     private void initData() {
@@ -85,6 +95,9 @@ public class ForumAlterTabAdapter extends RecyclerView.Adapter<ForumAlterTabAdap
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     SPUtil.put(mKeys.get(position), isChecked);
+                    if (mTabStatusListener != null) {
+                        mTabStatusListener.statusChange();
+                    }
                 }
             });
         }

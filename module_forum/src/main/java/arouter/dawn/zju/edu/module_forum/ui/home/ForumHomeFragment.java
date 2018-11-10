@@ -1,27 +1,33 @@
 package arouter.dawn.zju.edu.module_forum.ui.home;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 
+import com.alibaba.android.arouter.core.LogisticsCenter;
+import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
-import org.greenrobot.eventbus.EventBus;
-
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.config.EventBusCode;
+import arouter.dawn.zju.edu.module_forum.ui.alter_tab.ForumAlterTabActivity;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
 import baselib.config.Constants;
+
+import static android.app.Activity.RESULT_OK;
 
 @Route(path = Constants.AROUTER_FORUM_FORUM_HOME)
 public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter> implements ForumHomeContract.View, View.OnClickListener {
 
     public static final String TAG = "ForumHomeFragment";
+    static final int REQUEST_ALERT_TAB_CODE = 0x1;
 
     TabLayout forumTabLayou;
     ViewPager forumViewPager;
@@ -71,9 +77,23 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.forum_alter_tab_layout) {
-            ARouter.getInstance().build(Constants.AROUTER_FORUM_ALTER_TAB).navigation();
+            Postcard postcard = ARouter.getInstance().build(Constants.AROUTER_FORUM_ALTER_TAB);
+            LogisticsCenter.completion(postcard);
+            Class<?> destination = postcard.getDestination();
+            Intent intent = new Intent(getContext(),destination);
+            startActivityForResult(intent, REQUEST_ALERT_TAB_CODE);
         } else if (id == R.id.forum_add_post) {
             ARouter.getInstance().build(Constants.AROUTER_FORUM_ADD_POST).navigation();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != RESULT_OK) {
+            return;
+        }
+        if (requestCode == REQUEST_ALERT_TAB_CODE) {
+            mPresenter.bindViewPager(getChildFragmentManager(), forumViewPager, forumTabLayou);
         }
     }
 }
