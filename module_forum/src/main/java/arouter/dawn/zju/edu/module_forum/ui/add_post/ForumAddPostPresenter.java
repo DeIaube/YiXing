@@ -2,6 +2,7 @@ package arouter.dawn.zju.edu.module_forum.ui.add_post;
 
 
 import android.annotation.SuppressLint;
+import android.text.TextUtils;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
@@ -12,6 +13,8 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
 import arouter.dawn.zju.edu.lib_net.bean.User;
+import arouter.dawn.zju.edu.module_forum.R;
+import baselib.App;
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
 import io.reactivex.Observable;
@@ -29,6 +32,14 @@ public class ForumAddPostPresenter extends BasePresenter<ForumAddPostContract.Vi
     @SuppressLint("CheckResult")
     @Override
     public void submit(final String title, final String content, final String tag, final List<String> images) {
+        if (TextUtils.isEmpty(title)) {
+            mView.showMessage(App.getContext().getString(R.string.forum_add_post_title_not_null));
+            return;
+        }
+        if (TextUtils.isEmpty(content)) {
+            mView.showMessage(App.getContext().getString(R.string.forum_add_post_content_not_null));
+            return;
+        }
         mView.showLoading();
         if (images.isEmpty()) {
             submitPost(title, content, tag, images);

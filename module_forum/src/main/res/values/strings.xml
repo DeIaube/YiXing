@@ -8,6 +8,8 @@
     <string name="forum_add_post_content">此刻你的想法...</string>
     <string name="forum_add_post_title">加个标题哟~</string>
     <string name="forum_add_post_share_success">分享成功</string>
+    <string name="forum_add_post_title_not_null">标题不能为空</string>
+    <string name="forum_add_post_content_not_null">内容不能为空</string>
     <!--Forum_Add_Post-->
 
 </resources>
