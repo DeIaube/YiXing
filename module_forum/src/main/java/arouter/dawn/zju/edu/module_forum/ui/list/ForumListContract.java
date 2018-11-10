@@ -10,6 +10,9 @@ public interface ForumListContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
+
+        void sendScrollUpEvent();
+        void sendScrollDownEvent();
     }
 
 }

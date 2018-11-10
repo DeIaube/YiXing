@@ -1,9 +1,9 @@
 package arouter.dawn.zju.edu.module_forum.ui.list;
 
+import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
@@ -50,5 +50,24 @@ public class ForumListFragment extends BaseFragment<ForumListContract.Presenter>
 
         forumListlistView.setLayoutManager(new LinearLayoutManager(getContext()));
         forumListlistView.setAdapter(new ForumListAdapter(getContext(), new ArrayList<ForumPost>()));
+        forumListlistView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (Math.abs(dy) < 10) {
+                    return;
+                }
+                if (dy > 0) {
+                    mPresenter.sendScrollUpEvent();
+                } else {
+                    mPresenter.sendScrollDownEvent();
+                }
+            }
+        });
     }
 }

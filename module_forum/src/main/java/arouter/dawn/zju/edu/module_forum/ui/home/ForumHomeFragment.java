@@ -4,7 +4,6 @@ package arouter.dawn.zju.edu.module_forum.ui.home;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -13,6 +12,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import org.greenrobot.eventbus.EventBus;
 
 import arouter.dawn.zju.edu.module_forum.R;
+import arouter.dawn.zju.edu.module_forum.config.EventBusCode;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
 import baselib.config.Constants;
@@ -20,7 +20,7 @@ import baselib.config.Constants;
 @Route(path = Constants.AROUTER_FORUM_FORUM_HOME)
 public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter> implements ForumHomeContract.View, View.OnClickListener {
 
-    static final String TAG = "ForumHomeFragment";
+    public static final String TAG = "ForumHomeFragment";
 
     TabLayout forumTabLayou;
     ViewPager forumViewPager;
@@ -59,6 +59,9 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
             return;
         }
         int code = event.getCode();
+        if (code == EventBusCode.FORUM_LIST_SCROLL_UP) {
+        } else if (code == EventBusCode.FORUM_LIST_SCROLL_DOWN) {
+        }
     }
 
     @Override
