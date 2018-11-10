@@ -83,6 +83,7 @@ public class ForumAddPostPresenter extends BasePresenter<ForumAddPostContract.Vi
         post.setContent(content);
         post.setImageList(urls);
         post.setTag(tag);
+        post.setLike(0);
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(AVException e) {
