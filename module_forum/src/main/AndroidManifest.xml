@@ -8,10 +8,10 @@
             android:label="@string/title_activity_forum_alter_tab"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.add_post.Forum_AddPostActivity"
+            android:name=".ui.add_post.ForumAddPostActivity"
             android:label="@string/title_activity_add_post"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.show_image.ShowImageActivity"
+        <activity android:name=".ui.show_image.ForumShowImageActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

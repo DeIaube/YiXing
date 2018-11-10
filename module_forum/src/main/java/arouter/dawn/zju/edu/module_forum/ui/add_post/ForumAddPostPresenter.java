@@ -24,7 +24,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ForumAddPostPresenter extends BasePresenter<ForumAddPostContract.View> implements ForumAddPostContract.Presenter {
 
-    String TAG = "AddPostPresenter";
+    String TAG = "ForumAddPostPresenter";
 
     @SuppressLint("CheckResult")
     @Override

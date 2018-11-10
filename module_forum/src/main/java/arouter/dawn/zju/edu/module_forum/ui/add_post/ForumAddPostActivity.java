@@ -33,10 +33,10 @@ import baselib.config.Constants;
 import baselib.util.LogUtil;
 
 @Route(path = Constants.AROUTER_FORUM_ADD_POST)
-public class Forum_AddPostActivity extends BaseActivity<ForumAddPostContract.Presenter> implements ForumAddPostContract.View,
+public class ForumAddPostActivity extends BaseActivity<ForumAddPostContract.Presenter> implements ForumAddPostContract.View,
         ForumAddPostSelectImageAdapter.SelectImageLisener, TakePhoto.TakeResultListener, InvokeListener {
 
-    static final String TAG = "AddPostActivity";
+    static final String TAG = "ForumAddPostActivity";
 
     EditText postTitleEt;
     EditText postContentEt;
@@ -49,7 +49,6 @@ public class Forum_AddPostActivity extends BaseActivity<ForumAddPostContract.Pre
     private ForumAddPostSelectTagAdapter mSelectTagAdapter;
     private ArrayList<String> mImages;
     private ArrayList<String> mTags;
-    private String mCurrentTag;
 
     @Override
     protected void initView() {
@@ -68,7 +67,6 @@ public class Forum_AddPostActivity extends BaseActivity<ForumAddPostContract.Pre
         mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_FINANCE);
         mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_FASHION);
         mTags.add(arouter.dawn.zju.edu.module_forum.config.Constants.TYPE_EMOTION);
-        mCurrentTag = mTags.get(0);
 
         selectImageListRv.setLayoutManager(new GridLayoutManager(this, 4));
         mSelectImageAdapter = new ForumAddPostSelectImageAdapter(mImages, this);
