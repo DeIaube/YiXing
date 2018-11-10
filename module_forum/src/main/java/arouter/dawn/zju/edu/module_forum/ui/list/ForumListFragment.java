@@ -4,12 +4,14 @@ import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
 import arouter.dawn.zju.edu.module_forum.R;
@@ -25,6 +27,8 @@ public class ForumListFragment extends BaseFragment<ForumListContract.Presenter>
 
     @Autowired(name = Constants.FORUM_LIST_TAG)
     String tag;
+
+    private ForumListAdapter mAdapter;
 
     @Override
     protected int getLayoutId() {
@@ -45,11 +49,13 @@ public class ForumListFragment extends BaseFragment<ForumListContract.Presenter>
         forumListrefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                mPresenter.refresh(tag);
             }
         });
 
         forumListlistView.setLayoutManager(new LinearLayoutManager(getContext()));
-        forumListlistView.setAdapter(new ForumListAdapter(getContext(), new ArrayList<ForumPost>()));
+        mAdapter = new ForumListAdapter(getContext(), new ArrayList<ForumPost>());
+        forumListlistView.setAdapter(mAdapter);
         forumListlistView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
@@ -69,5 +75,22 @@ public class ForumListFragment extends BaseFragment<ForumListContract.Presenter>
                 }
             }
         });
+
+        mPresenter.refresh(tag);
+    }
+
+    @Override
+    public void refresh(List<ForumPost> postList) {
+        mAdapter.refresh(postList);
+    }
+
+    @Override
+    public void showSwipeRefreshLayout() {
+        forumListrefreshLayout.setRefreshing(true);
+    }
+
+    @Override
+    public void hideSwipeRefreshLayout() {
+        forumListrefreshLayout.setRefreshing(false);
     }
 }

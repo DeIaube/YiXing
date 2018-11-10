@@ -1,11 +1,18 @@
 package arouter.dawn.zju.edu.module_forum.ui.list;
 
 
+import java.util.List;
+
+import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
 import baselib.base.BaseContract;
 
 public interface ForumListContract {
 
     interface View extends BaseContract.BaseView {
+
+        void refresh(List<ForumPost> postList);
+        void showSwipeRefreshLayout();
+        void hideSwipeRefreshLayout();
 
     }
 
@@ -13,6 +20,8 @@ public interface ForumListContract {
 
         void sendScrollUpEvent();
         void sendScrollDownEvent();
+        void refresh(String tag);
+
     }
 
 }
