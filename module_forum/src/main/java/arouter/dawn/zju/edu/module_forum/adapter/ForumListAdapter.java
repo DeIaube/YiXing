@@ -3,12 +3,16 @@ package arouter.dawn.zju.edu.module_forum.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.GetCallback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -40,15 +44,22 @@ public class ForumListAdapter extends RecyclerView.Adapter<ForumListAdapter.Foru
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ForumListHolder holder, int i) {
+    public void onBindViewHolder(@NonNull final ForumListHolder holder, int i) {
         ForumPost post = mForumListItems.get(i);
-        User author = post.getAuthor();
-        Picasso.with(mContext).load(author.getPortrait()).into(holder.portraitIv);
-        holder.nameTv.setText(author.getPickName());
+        post.getAuthor().fetchInBackground(new GetCallback<AVObject>() {
+            @Override
+            public void done(AVObject avObject, AVException e) {
+                User u = (User) avObject;
+                Picasso.with(mContext).load(u.getPortrait()).into(holder.portraitIv);
+                holder.nameTv.setText(u.getPickName());
+            }
+        });
         holder.tagTv.setText(post.getTag());
         holder.titleTv.setText(post.getTitle());
         holder.contentTv.setText(post.getContent());
         holder.likeCountTv.setText(String.valueOf(post.getLike()));
+        holder.commentCountTv.setText(post.getCommentList() == null ?
+                "0" : String.valueOf(post.getCommentList().size()));
     }
 
     @Override
