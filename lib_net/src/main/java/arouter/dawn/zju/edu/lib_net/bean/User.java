@@ -30,7 +30,9 @@ public class User extends AVUser {
     }
 
     public String getPortrait() {
-        return getString("portrait");
+        String portrait = getString("portrait");
+        return portrait == null ? 
+                "http://5b0988e595225.cdn.sohucs.com/images/20171231/fe11a76f654549a78d00feb4d118d744.jpeg" : portrait;
     }
 
 }
