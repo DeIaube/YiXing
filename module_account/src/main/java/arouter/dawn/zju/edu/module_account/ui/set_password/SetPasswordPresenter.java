@@ -26,6 +26,7 @@ public class SetPasswordPresenter extends BasePresenter<SetPasswordContract.View
         user.setUsername(phoneNumber);
         user.setPassword(password);
         user.setBirth(new Date());
+        user.setPortrait("http://5b0988e595225.cdn.sohucs.com/images/20171231/fe11a76f654549a78d00feb4d118d744.jpeg");
         user.setMobilePhoneNumber(phoneNumber);
         mView.showLoading();
         user.signUpInBackground(new SignUpCallback() {
