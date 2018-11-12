@@ -11,6 +11,7 @@ import com.avos.avoscloud.SaveCallback;
 import java.util.ArrayList;
 import java.util.List;
 
+import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_forum.R;
@@ -94,6 +95,8 @@ public class ForumAddPostPresenter extends BasePresenter<ForumAddPostContract.Vi
         post.setContent(content);
         post.setImageList(urls);
         post.setTag(tag);
+        post.setCommentList(new ArrayList<ForumComment>());
+        post.setLikesUser(new ArrayList<User>());
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(AVException e) {

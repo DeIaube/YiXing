@@ -60,6 +60,8 @@ public class ForumListAdapter extends RecyclerView.Adapter<ForumListAdapter.Foru
         holder.tagTv.setText(post.getTag());
         holder.titleTv.setText(post.getTitle());
         holder.contentTv.setText(post.getContent());
+        holder.commentCountTv.setText(String.valueOf(post.getCommentList().size()));
+        holder.likeCountTv.setText(String.valueOf(post.getLikesUser().size()));
 
         holder.postition = i;
     }

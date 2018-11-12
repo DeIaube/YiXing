@@ -48,4 +48,20 @@ public class ForumPost extends AVObject {
         return getAVUser("author", User.class);
     }
 
+    public void setLikesUser(List<User> userList) {
+        put("likes_user_list", userList);
+    }
+
+    public List<User> getLikesUser() {
+        return getList("likes_user_list", User.class);
+    }
+
+    public void setCommentList(List<ForumComment> commentList) {
+        put("comment_List", commentList);
+    }
+
+    public List<ForumComment> getCommentList() {
+        return getList("comment_List", ForumComment.class);
+    }
+
 }
