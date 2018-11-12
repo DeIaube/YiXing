@@ -3,7 +3,6 @@ package arouter.dawn.zju.edu.module_forum.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,10 +24,20 @@ public class ForumListAdapter extends RecyclerView.Adapter<ForumListAdapter.Foru
 
     private Context mContext;
     private List<ForumPost> mForumListItems;
+    private onForumListClickListener mOnForumListClickListener;
+
+    public void setOnForumListClickListener(ForumListAdapter.onForumListClickListener onForumListClickListener) {
+        this.mOnForumListClickListener = onForumListClickListener;
+    }
 
     public ForumListAdapter(Context mContext, List<ForumPost> mForumListItems) {
         this.mContext = mContext;
         this.mForumListItems = mForumListItems;
+    }
+
+    public interface onForumListClickListener {
+        void likePost(ForumPost post);
+        void clickPost(ForumPost post);
     }
 
     public void refresh(List<ForumPost> forumPostList) {
@@ -60,6 +69,8 @@ public class ForumListAdapter extends RecyclerView.Adapter<ForumListAdapter.Foru
         holder.likeCountTv.setText(String.valueOf(post.getLike()));
         holder.commentCountTv.setText(post.getCommentList() == null ?
                 "0" : String.valueOf(post.getCommentList().size()));
+
+        holder.postition = i;
     }
 
     @Override
@@ -68,6 +79,8 @@ public class ForumListAdapter extends RecyclerView.Adapter<ForumListAdapter.Foru
     }
 
     class ForumListHolder extends RecyclerView.ViewHolder {
+
+        int postition;
 
         ImageView portraitIv;
         TextView nameTv;
@@ -86,6 +99,22 @@ public class ForumListAdapter extends RecyclerView.Adapter<ForumListAdapter.Foru
             contentTv = itemView.findViewById(R.id.forum_list_content);
             likeCountTv = itemView.findViewById(R.id.like_count);
             commentCountTv = itemView.findViewById(R.id.comment_count);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mOnForumListClickListener != null) {
+                        mOnForumListClickListener.clickPost(mForumListItems.get(postition));
+                    }
+                }
+            });
+            itemView.findViewById(R.id.like_layout).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mOnForumListClickListener != null) {
+                        mOnForumListClickListener.likePost(mForumListItems.get(postition));
+                    }
+                }
+            });
         }
     }
 }

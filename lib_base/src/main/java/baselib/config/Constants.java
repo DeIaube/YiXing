@@ -50,6 +50,7 @@ public interface Constants {
     // Forum
     String AROUTER_FORUM_GROP = "forum";
     String AROUTER_FORUM_FORUM_HOME = "/forum/home";
+    String AROUTER_FORUM_FORUM_POST = "/forum/post";
     String AROUTER_FORUM_ADD_POST= "/forum/add_post";
     String AROUTER_FORUM_FORUM_LIST = "/forum/list";
     String AROUTER_FORUM_ALTER_TAB = "/forum/alter_tab";
@@ -59,4 +60,5 @@ public interface Constants {
     String FORUM_SHOW_IMAGE_POSTION = "forumShowImagePosition";
     String FORUM_SHOW_IMAGE_BUNDLE = "forumShowImageBundle";
     String FORUM_SHOW_IMAGE_LIST = "forumShowImageList";
+    String FORUM_POST_POST = "forumPostPost";
 }
