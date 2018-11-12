@@ -2,7 +2,6 @@ package arouter.dawn.zju.edu.module_forum.ui.home;
 
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -11,6 +10,8 @@ import com.alibaba.android.arouter.core.LogisticsCenter;
 import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.config.EventBusCode;
@@ -29,6 +30,7 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
     TabLayout forumTabLayou;
     ViewPager forumViewPager;
     FloatingActionButton forumAddPostFab;
+    FloatingActionMenu forumMenu;
 
     @Override
     protected int getLayoutId() {
@@ -45,6 +47,7 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
         forumViewPager = view.findViewById(R.id.forum_view_pager);
         forumTabLayou = view.findViewById(R.id.forum_tab_layout);
         forumAddPostFab = view.findViewById(R.id.forum_add_post);
+        forumMenu = view.findViewById(R.id.forum_menu);
 
         forumAddPostFab.setOnClickListener(this);
         view.findViewById(R.id.forum_alter_tab_layout).setOnClickListener(this);
@@ -64,9 +67,9 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
         }
         int code = event.getCode();
         if (code == EventBusCode.FORUM_LIST_SCROLL_UP) {
-            forumAddPostFab.hide();
+            forumMenu.hideMenu(true);
         } else if (code == EventBusCode.FORUM_LIST_SCROLL_DOWN) {
-            forumAddPostFab.show();
+            forumMenu.showMenu(true);
         }
     }
 

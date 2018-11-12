@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    android:id="@+id/forum_swipe_refresh_layout"
+<FrameLayout android:id="@+id/forum_swipe_refresh_layout"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.ForumHomeFragment">
@@ -52,17 +52,29 @@
 
         </LinearLayout>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/forum_add_post"
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/forum_menu"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="20dp"
             app:fabSize="normal"
-            app:elevation="5dp"
-            android:src="@drawable/forum_add"
             android:layout_gravity="bottom|end"
-            app:backgroundTint="@color/colorPrimary"
-            app:rippleColor="@color/colorAccent"
-            android:layout_width="56dp"
-            android:layout_height="56dp" />
+            fab:menu_colorNormal="@color/colorPrimary"
+            fab:menu_colorPressed="@color/colorPrimaryDark"
+            fab:menu_colorRipple="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/forum_add_post"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:rippleColor="@color/colorPrimary"
+                    app:fab_colorNormal="@color/colorPrimary"
+                    android:src="@drawable/forum_add"
+                    fab:fab_label="发布帖子"
+                    fab:fab_size="mini" />
+
+        </com.github.clans.fab.FloatingActionMenu>
 
 </FrameLayout>
