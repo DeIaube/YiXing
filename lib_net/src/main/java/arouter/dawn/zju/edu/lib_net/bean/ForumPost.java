@@ -40,24 +40,12 @@ public class ForumPost extends AVObject {
         return getString("tag");
     }
 
-    public int getLike() {
-        return getInt("like");
-    }
-
-    public void setLike(int like) {
-        put("like", like);
-    }
-
     public void setAuthor(User user) {
         put("author", user);
     }
 
     public User getAuthor() {
         return getAVUser("author", User.class);
-    }
-
-    public List<ForumComment> getCommentList() {
-        return getList("comment_list", ForumComment.class);
     }
 
 }
