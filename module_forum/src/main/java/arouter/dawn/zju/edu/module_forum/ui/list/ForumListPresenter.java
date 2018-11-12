@@ -51,6 +51,7 @@ public class ForumListPresenter extends BasePresenter<ForumListContract.View> im
         mView.showSwipeRefreshLayout();
         final AVQuery<ForumPost> query = ForumPost.getQuery(ForumPost.class);
         query.whereEqualTo("tag", tag).
+                include("author").
                 findInBackground(new FindCallback<ForumPost>() {
                     @Override
                     public void done(List<ForumPost> list, AVException e) {

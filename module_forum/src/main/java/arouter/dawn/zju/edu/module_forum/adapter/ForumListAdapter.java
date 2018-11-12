@@ -55,14 +55,8 @@ public class ForumListAdapter extends RecyclerView.Adapter<ForumListAdapter.Foru
     @Override
     public void onBindViewHolder(@NonNull final ForumListHolder holder, int i) {
         ForumPost post = mForumListItems.get(i);
-        post.getAuthor().fetchInBackground(new GetCallback<AVObject>() {
-            @Override
-            public void done(AVObject avObject, AVException e) {
-                User u = (User) avObject;
-                Picasso.with(mContext).load(u.getPortrait()).into(holder.portraitIv);
-                holder.nameTv.setText(u.getPickName());
-            }
-        });
+        Picasso.with(mContext).load(post.getAuthor().getPortrait()).into(holder.portraitIv);
+        holder.nameTv.setText(post.getAuthor().getPickName());
         holder.tagTv.setText(post.getTag());
         holder.titleTv.setText(post.getTitle());
         holder.contentTv.setText(post.getContent());
