@@ -113,8 +113,8 @@ public class ForumAddPostActivity extends BaseActivity<ForumAddPostContract.Pres
                     .bind(new TakePhotoImpl(this,this));
             // 图片压缩
         CompressConfig config=new CompressConfig.Builder()
-                .setMaxSize(340 * 340)
-                .setMaxPixel(340)
+                .setMaxSize(720 * 1280)
+                .setMaxPixel(1280)
                 .create();
         takePhoto.onEnableCompress(config, false);
         return takePhoto;
