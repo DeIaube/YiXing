@@ -1,6 +1,8 @@
 package arouter.dawn.zju.edu.module_forum.ui.post;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -33,5 +35,26 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
     @Override
     protected boolean showHomeAsUp() {
         return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.post_menu, menu);
+        MenuItem collectionItem = menu.findItem(R.id.post_menu_collection);
+        collectionItem.setTitle(R.string.forum_post_collection);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.post_menu_collection) {
+            
+        } else if (id == R.id.post_menu_share) {
+
+        } else if (id == R.id.post_menu_report) {
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

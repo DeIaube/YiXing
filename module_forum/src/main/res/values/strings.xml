@@ -12,4 +12,11 @@
     <string name="forum_add_post_content_not_null">内容不能为空</string>
     <!--Forum_Add_Post-->
 
+    <!--Forum_Post-->
+    <string name="forum_post_collection">收藏</string>
+    <string name="forum_post_cancel_collection">取消收藏</string>
+    <string name="forum_post_share">分享</string>
+    <string name="forum_post_report">举报</string>
+    <!--Forum_Post-->
+
 </resources>
