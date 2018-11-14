@@ -20,6 +20,8 @@
     <string name="forum_post_add_comment_tip">说说你的看法...</string>
     <string name="forum_post_comment_empty_tip">空空如也</string>
     <string name="forum_post_sub_comment">发表评论</string>
+    <string name="forum_post_comment_success">评论成功</string>
+    <string name="forum_post_comment_not_null">评论不能为空</string>
     <!--Forum_Post-->
 
 </resources>

@@ -39,6 +39,9 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
     TextView postContentTv;
     Button followBtn;
     RecyclerView postImageListRv;
+    BottomSheetDialog commentDialog;
+    Button commentBtn;
+    EditText commentEt;
 
     private ForumPostImageListAdapter mInageListAdapter;
 
@@ -50,6 +53,8 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
         postContentTv = findViewById(R.id.forum_post_content);
         followBtn = findViewById(R.id.forum_post_follow);
         postImageListRv = findViewById(R.id.forum_post_image_list_view);
+
+        initCommentDialog();
 
         followBtn.setOnClickListener(this);
         findViewById(R.id.forum_post_add_comment).setOnClickListener(this);
@@ -70,7 +75,7 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new ForumPostPresenter();
     }
 
     @Override
@@ -109,33 +114,37 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
         }
     }
 
+    private void initCommentDialog() {
+        commentDialog = new BottomSheetDialog(this);
+        View rootView = LayoutInflater.from(this).inflate(R.layout.dialog_forum_post_comment, null);
+        commentEt = rootView.findViewById(R.id.comment_content);
+        commentBtn = rootView.findViewById(R.id.comment_submit);
+        commentDialog.setContentView(rootView);
+        commentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.comment(post, commentEt.getText().toString());
+            }
+        });
+        commentDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                mPresenter.cancelComment(commentEt.getText().toString());
+            }
+        });
+    }
+
     /**
      * 弹出评论页面
      */
     private void showCommentDialog() {
-        final BottomSheetDialog dialog = new BottomSheetDialog(this);
-        View rootView = LayoutInflater.from(this).inflate(R.layout.dialog_forum_post_comment, null);
-        final EditText contentEt = rootView.findViewById(R.id.comment_content);
-        AppCompatButton submitBtn = rootView.findViewById(R.id.comment_submit);
-        dialog.setContentView(rootView);
-        submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SPUtil.put(arouter.dawn.zju.edu.module_forum.config.Constants.LAST_COMMENT, "");
-                dialog.dismiss();
-            }
-        });
-        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                String comment = contentEt.getText().toString();
-                if (!TextUtils.isEmpty(comment)) {
-                    SPUtil.put(arouter.dawn.zju.edu.module_forum.config.Constants.LAST_COMMENT, comment);
-                }
-            }
-        });
         String comment = SPUtil.getString(arouter.dawn.zju.edu.module_forum.config.Constants.LAST_COMMENT, "");
-        contentEt.setText(comment);
-        dialog.show();
+        commentEt.setText(comment);
+        commentDialog.show();
+    }
+
+    @Override
+    public void hideCommentDialog() {
+        commentDialog.hide();
     }
 }

@@ -95,7 +95,6 @@ public class ForumAddPostPresenter extends BasePresenter<ForumAddPostContract.Vi
         post.setContent(content);
         post.setImageList(urls);
         post.setTag(tag);
-        post.setCommentList(new ArrayList<ForumComment>());
         post.setLikesUser(new ArrayList<User>());
         post.saveInBackground(new SaveCallback() {
             @Override

@@ -22,4 +22,18 @@ public class ForumComment extends AVObject {
         return getString("conent");
     }
 
+    public ForumPost getPost() {
+        try {
+            return getAVObject("post", ForumPost.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void setPost(ForumPost post) {
+        put("post", post);
+    }
+
+
 }
