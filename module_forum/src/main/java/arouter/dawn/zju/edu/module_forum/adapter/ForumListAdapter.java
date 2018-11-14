@@ -11,11 +11,14 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.CountCallback;
 import com.avos.avoscloud.GetCallback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_forum.R;
@@ -61,8 +64,21 @@ public class ForumListAdapter extends RecyclerView.Adapter<ForumListAdapter.Foru
         holder.titleTv.setText(post.getTitle());
         holder.contentTv.setText(post.getContent());
         holder.likeCountTv.setText(String.valueOf(post.getLikesUser().size()));
-
+        showCommentCounter(holder.commentCountTv, post);
         holder.postition = i;
+    }
+
+    private void showCommentCounter(final TextView counterTv, ForumPost post) {
+        AVQuery<ForumComment> commentAVQuery = ForumComment.getQuery(ForumComment.class);
+        commentAVQuery.whereEqualTo("post", post)
+                .countInBackground(new CountCallback() {
+                    @Override
+                    public void done(int i, AVException e) {
+                        if (e == null) {
+                            counterTv.setText(String.valueOf(i));
+                        }
+                    }
+                });
     }
 
     @Override
