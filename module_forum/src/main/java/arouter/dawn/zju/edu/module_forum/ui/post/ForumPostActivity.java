@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,8 +18,13 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
 import arouter.dawn.zju.edu.module_forum.R;
+import arouter.dawn.zju.edu.module_forum.adapter.ForumPostCommentAdapter;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumPostImageListAdapter;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
@@ -36,9 +42,13 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
     TextView postContentTv;
     Button followBtn;
     RecyclerView postImageListRv;
+    RecyclerView postCommentListRv;
+    TextView postCommentEmptyTipTv;
     BottomSheetDialog commentDialog;
     Button commentBtn;
     EditText commentEt;
+
+    private ForumPostCommentAdapter mCommentAdapter;
 
     @Override
     protected void initView() {
@@ -48,6 +58,8 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
         postContentTv = findViewById(R.id.forum_post_content);
         followBtn = findViewById(R.id.forum_post_follow);
         postImageListRv = findViewById(R.id.forum_post_image_list_view);
+        postCommentEmptyTipTv = findViewById(R.id.forum_post_comment_empty_tip);
+        postCommentListRv = findViewById(R.id.forum_post_comment_list);
 
         initCommentDialog();
 
@@ -61,6 +73,12 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
         ForumPostImageListAdapter imageListAdapter = new ForumPostImageListAdapter(this, post.getImageList());
         postImageListRv.setLayoutManager(new LinearLayoutManager(this));
         postImageListRv.setAdapter(imageListAdapter);
+
+        postCommentListRv.setLayoutManager(new LinearLayoutManager(this));
+        mCommentAdapter = new ForumPostCommentAdapter(this, new ArrayList<ForumComment>());
+        postCommentListRv.setAdapter(mCommentAdapter);
+
+        mPresenter.initCommentList(post);
     }
 
     @Override
@@ -141,5 +159,22 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
     @Override
     public void hideCommentDialog() {
         commentDialog.hide();
+    }
+
+    @Override
+    public void refreshCommentList(List<ForumComment> commentList) {
+        mCommentAdapter.refresh(commentList);
+    }
+
+    @Override
+    public void showCommentList() {
+        postCommentEmptyTipTv.setVisibility(View.GONE);
+        postCommentListRv.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideCommentList() {
+        postCommentListRv.setVisibility(View.GONE);
+        postCommentEmptyTipTv.setVisibility(View.VISIBLE);
     }
 }
