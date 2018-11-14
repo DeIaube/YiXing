@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
@@ -33,6 +34,7 @@ public class ForumShowImageActivity extends BaseActivity implements View.OnClick
 
     TextView positionTv;
     ViewPager imageViewPager;
+    ImageView imageDetailIv;
     ForumShowImageAdapter adapter;
 
     @SuppressLint("DefaultLocale")
@@ -40,6 +42,7 @@ public class ForumShowImageActivity extends BaseActivity implements View.OnClick
     protected void initView() {
         positionTv = findViewById(R.id.show_image_position);
         imageViewPager = findViewById(R.id.show_image_view_pager);
+        imageDetailIv = findViewById(R.id.show_image_detail);
         imageList = bundle.getStringArrayList(Constants.FORUM_SHOW_IMAGE_LIST);
 
         findViewById(R.id.show_image_detail).setOnClickListener(this);
@@ -52,6 +55,11 @@ public class ForumShowImageActivity extends BaseActivity implements View.OnClick
         imageViewPager.setCurrentItem(currentPosition);
 
         positionTv.setText(String.format("%d/%d", currentPosition + 1, imageList.size()));
+        
+        // 如果当前图片数组在本地存在 显示详情按钮
+        if (new File(imageList.get(0)).exists()) {
+            imageDetailIv.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

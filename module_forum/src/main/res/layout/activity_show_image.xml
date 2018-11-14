@@ -38,6 +38,7 @@
         <ImageView
             android:id="@+id/show_image_detail"
             android:src="@drawable/forum_show_image_detail"
+            android:visibility="gone"
             android:padding="16dp"
             android:layout_width="56dp"
             android:layout_height="56dp" />
