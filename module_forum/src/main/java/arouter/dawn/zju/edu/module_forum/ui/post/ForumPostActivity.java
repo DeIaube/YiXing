@@ -40,8 +40,6 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
     Button commentBtn;
     EditText commentEt;
 
-    private ForumPostImageListAdapter mImageListAdapter;
-
     @Override
     protected void initView() {
         authorNameTv = findViewById(R.id.forum_post_author_name);
@@ -60,9 +58,9 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
         Picasso.with(this).load(post.getAuthor().getPortrait()).into(authorPortraitIv);
         postTitleTv.setText(post.getTitle());
         postContentTv.setText(post.getContent());
-        mImageListAdapter = new ForumPostImageListAdapter(this, post.getImageList());
+        ForumPostImageListAdapter imageListAdapter = new ForumPostImageListAdapter(this, post.getImageList());
         postImageListRv.setLayoutManager(new LinearLayoutManager(this));
-        postImageListRv.setAdapter(mImageListAdapter);
+        postImageListRv.setAdapter(imageListAdapter);
     }
 
     @Override
