@@ -19,4 +19,7 @@ public interface Constants {
     String TYPE_FINANCE_KEY = "finance";
     String TYPE_FASHION_KEY = "fashion";
     String TYPE_EMOTION_KEY = "emotion";
+
+    // SP
+    String LAST_COMMENT = "last_comment";
 }

@@ -17,6 +17,9 @@
     <string name="forum_post_cancel_collection">取消收藏</string>
     <string name="forum_post_share">分享</string>
     <string name="forum_post_report">举报</string>
+    <string name="forum_post_add_comment_tip">说说你的看法...</string>
+    <string name="forum_post_comment_empty_tip">空空如也</string>
+    <string name="forum_post_sub_comment">发表评论</string>
     <!--Forum_Post-->
 
 </resources>
