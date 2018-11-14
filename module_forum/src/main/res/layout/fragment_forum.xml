@@ -71,7 +71,7 @@
                     app:backgroundTint="@color/colorPrimary"
                     app:rippleColor="@color/colorPrimary"
                     app:fab_colorNormal="@color/colorPrimary"
-                    android:src="@drawable/forum_add"
+                    android:src="@drawable/forum_home_add"
                     fab:fab_label="发布帖子"
                     fab:fab_size="mini" />
 
