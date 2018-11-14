@@ -40,7 +40,12 @@ public class ForumShowImageAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View rootView = LayoutInflater.from(mContext).inflate(R.layout.item_show_image, null);
         ImageView imageView = rootView.findViewById(R.id.image);
-        Picasso.with(mContext).load(new File(mImageList.get(position))).into(imageView);
+        File imageFile = new File(mImageList.get(position));
+        if (imageFile.exists()) {
+            Picasso.with(mContext).load(imageFile).into(imageView);
+        } else {
+            Picasso.with(mContext).load(mImageList.get(position)).into(imageView);
+        }
         container.addView(rootView);
         return rootView;
     }
