@@ -2,11 +2,8 @@ package arouter.dawn.zju.edu.module_forum.ui.post;
 
 import android.content.DialogInterface;
 import android.support.design.widget.BottomSheetDialog;
-import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
