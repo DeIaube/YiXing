@@ -65,15 +65,37 @@
             android:layout_height="wrap_content" >
 
                 <com.github.clans.fab.FloatingActionButton
-                    android:id="@+id/forum_add_post"
+                    android:id="@+id/forum_home_my_collection"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:backgroundTint="@color/colorPrimary"
                     app:rippleColor="@color/colorPrimary"
                     app:fab_colorNormal="@color/colorPrimary"
-                    android:src="@drawable/forum_home_add"
-                    fab:fab_label="发布帖子"
+                    android:src="@drawable/forum_home_collection"
+                    fab:fab_label="我的收藏"
                     fab:fab_size="mini" />
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/forum_home_my_follow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:rippleColor="@color/colorPrimary"
+                    app:fab_colorNormal="@color/colorPrimary"
+                    android:src="@drawable/forum_home_follow"
+                    fab:fab_label="我的关注"
+                    fab:fab_size="mini" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/forum_home_add_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@color/colorPrimary"
+                app:rippleColor="@color/colorPrimary"
+                app:fab_colorNormal="@color/colorPrimary"
+                android:src="@drawable/forum_home_add"
+                fab:fab_label="发布帖子"
+                fab:fab_size="mini" />
 
         </com.github.clans.fab.FloatingActionMenu>
 

@@ -30,6 +30,8 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
     TabLayout forumTabLayou;
     ViewPager forumViewPager;
     FloatingActionButton forumAddPostFab;
+    FloatingActionButton forumMyFollowFab;
+    FloatingActionButton forumMyCollectionFab;
     FloatingActionMenu forumMenu;
 
     @Override
@@ -46,10 +48,14 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
     protected void initView(View view) {
         forumViewPager = view.findViewById(R.id.forum_view_pager);
         forumTabLayou = view.findViewById(R.id.forum_tab_layout);
-        forumAddPostFab = view.findViewById(R.id.forum_add_post);
+        forumAddPostFab = view.findViewById(R.id.forum_home_add_post);
+        forumMyFollowFab = view.findViewById(R.id.forum_home_my_follow);
+        forumMyCollectionFab = view.findViewById(R.id.forum_home_my_collection);
         forumMenu = view.findViewById(R.id.forum_menu);
 
         forumAddPostFab.setOnClickListener(this);
+        forumMyFollowFab.setOnClickListener(this);
+        forumMyCollectionFab.setOnClickListener(this);
         view.findViewById(R.id.forum_alter_tab_layout).setOnClickListener(this);
 
         mPresenter.bindViewPager(getChildFragmentManager(), forumViewPager, forumTabLayou);
@@ -82,8 +88,12 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
             Class<?> destination = postcard.getDestination();
             Intent intent = new Intent(getContext(),destination);
             startActivityForResult(intent, REQUEST_ALERT_TAB_CODE);
-        } else if (id == R.id.forum_add_post) {
+        } else if (id == R.id.forum_home_add_post) {
             ARouter.getInstance().build(Constants.AROUTER_FORUM_ADD_POST).navigation();
+        } else if (id == R.id.forum_home_my_follow) {
+
+        } else if (id == R.id.forum_home_my_collection) {
+            
         }
     }
 
