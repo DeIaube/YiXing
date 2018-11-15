@@ -1,6 +1,7 @@
 package arouter.dawn.zju.edu.module_forum.ui.post;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -109,7 +110,12 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
         if (id == R.id.post_menu_collection) {
 
         } else if (id == R.id.post_menu_share) {
-
+            // 分享文章
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, post.getContent());
+            shareIntent.setType("text/plain");
+            startActivity(shareIntent.createChooser(shareIntent, post.getTitle()));
         } else if (id == R.id.post_menu_report) {
 
         }
