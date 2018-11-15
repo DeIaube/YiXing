@@ -3,6 +3,7 @@ package arouter.dawn.zju.edu.module_forum.ui.post;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
@@ -117,9 +119,40 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
             shareIntent.setType("text/plain");
             startActivity(shareIntent.createChooser(shareIntent, post.getTitle()));
         } else if (id == R.id.post_menu_report) {
-
+           showReportDialog();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * 展示举报页面
+     */
+    private void showReportDialog() {
+        View rootView = LayoutInflater.from(this)
+                .inflate(R.layout.dialog_forum_post_report, null);
+        final EditText reasonEt = rootView.findViewById(R.id.forum_post_report_reason);
+        final RadioButton advertisementBtn = rootView.findViewById(R.id.forum_post_report_advertisement);
+        final RadioButton plagiarismBtn = rootView.findViewById(R.id.forum_post_report_plagiarism);
+        final RadioButton otherBtn = rootView.findViewById(R.id.forum_post_report_other);
+        new AlertDialog.Builder(this)
+                .setView(rootView)
+                .setNegativeButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (advertisementBtn.isChecked()) {
+                            mPresenter.report(post, advertisementBtn.getText().toString(),
+                                    reasonEt.getText().toString());
+                        } else if (plagiarismBtn.isChecked()) {
+                            mPresenter.report(post, plagiarismBtn.getText().toString(),
+                                    reasonEt.getText().toString());
+                        } else if (otherBtn.isChecked()) {
+                            mPresenter.report(post, otherBtn.getText().toString(),
+                                    reasonEt.getText().toString());
+                        }
+                    }
+                })
+                .setPositiveButton(R.string.cancel, null)
+                .show();
     }
 
     @Override

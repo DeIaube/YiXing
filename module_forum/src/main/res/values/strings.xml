@@ -22,6 +22,12 @@
     <string name="forum_post_sub_comment">发表评论</string>
     <string name="forum_post_comment_success">评论成功</string>
     <string name="forum_post_comment_not_null">评论不能为空</string>
+    <string name="forum_post_report_advertisement">广告或者垃圾信息</string>
+    <string name="forum_post_report_plagiarism">抄袭或转载</string>
+    <string name="forum_post_report_other">其他</string>
+    <string name="forum_post_report_please_input_report_reasib">请输入举报原因</string>
+    <string name="forum_post_report_content_not_null">投诉理由不能为空</string>
+    <string name="forum_post_report_success">投诉成功</string>
     <!--Forum_Post-->
 
 </resources>

@@ -25,6 +25,7 @@ public interface ForumPostContract {
         void cancelComment(String comment);
         void init(ForumPost post);
         void follow(User follower);
+        void report(ForumPost post, String type, String content);
     }
 
 }

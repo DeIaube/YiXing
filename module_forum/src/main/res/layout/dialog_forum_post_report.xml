@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:padding="16dp"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:id="@+id/forum_post_report_advertisement"
+            android:text="@string/forum_post_report_advertisement"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:checked="true"
+            android:textSize="18dp"
+            android:layout_height="56dp" />
+
+        <View
+            android:background="#f2f2f2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <RadioButton
+            android:id="@+id/forum_post_report_plagiarism"
+            android:text="@string/forum_post_report_plagiarism"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:textSize="18dp"
+            android:layout_height="56dp" />
+
+        <View
+            android:background="#f2f2f2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <RadioButton
+            android:id="@+id/forum_post_report_other"
+            android:text="@string/forum_post_report_other"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:textSize="18dp"
+            android:layout_height="56dp" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/forum_post_report_reason"
+        android:hint="@string/forum_post_report_please_input_report_reasib"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:maxLines="1"
+        android:background="@drawable/forum_post_report_reason_bg"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+
+</LinearLayout>

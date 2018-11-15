@@ -16,6 +16,7 @@ import java.util.List;
 import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
 import arouter.dawn.zju.edu.lib_net.bean.ForumFollow;
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
+import arouter.dawn.zju.edu.lib_net.bean.ForumPostReport;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_forum.R;
 import baselib.App;
@@ -173,5 +174,21 @@ public class ForumPostPresenter extends BasePresenter<ForumPostContract.View> im
                 }
             });
         }
+    }
+
+    @Override
+    public void report(ForumPost post, String type, String content) {
+        if (type.equals(App.getContext().getString(R.string.forum_post_report_other)) &&
+                TextUtils.isEmpty(content)) {
+            mView.showMessage(App.getContext().getString(R.string.forum_post_report_content_not_null));
+            return;
+        }
+        ForumPostReport report = new ForumPostReport();
+        report.setOwner(User.getCurrentUser(User.class));
+        report.setContent(content);
+        report.setPost(post);
+        report.setType(type);
+        report.saveInBackground();
+        mView.showMessage(App.getContext().getString(R.string.forum_post_report_success));
     }
 }

@@ -13,6 +13,7 @@ import arouter.dawn.zju.edu.lib_net.bean.Feedback;
 import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
 import arouter.dawn.zju.edu.lib_net.bean.ForumFollow;
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
+import arouter.dawn.zju.edu.lib_net.bean.ForumPostReport;
 import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import arouter.dawn.zju.edu.lib_net.bean.Order;
 import arouter.dawn.zju.edu.lib_net.bean.User;
@@ -52,6 +53,7 @@ public class App extends Application {
         AVObject.registerSubclass(ForumPost.class);
         AVObject.registerSubclass(ForumFollow.class);
         AVObject.registerSubclass(ForumComment.class);
+        AVObject.registerSubclass(ForumPostReport.class);
         AVObject.registerSubclass(Order.class);
         AVObject.registerSubclass(Feedback.class);
         PushService.setDefaultChannelId(this, "public");
