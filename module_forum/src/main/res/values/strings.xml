@@ -30,4 +30,6 @@
     <string name="forum_post_report_success">投诉成功</string>
     <!--Forum_Post-->
 
+    <string name="title_activity_forum_collection">我的收藏</string>
+
 </resources>

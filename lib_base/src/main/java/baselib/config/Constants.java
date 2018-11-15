@@ -54,6 +54,7 @@ public interface Constants {
     String AROUTER_FORUM_ADD_POST= "/forum/add_post";
     String AROUTER_FORUM_FORUM_LIST = "/forum/list";
     String AROUTER_FORUM_ALTER_TAB = "/forum/alter_tab";
+    String AROUTER_FORUM_COLLECTION = "/forum/collection";
     String AROUTER_FORUM_SHOW_IMAGE = "/forum/show_image";
 
     String FORUM_LIST_TAG = "forumListTag";

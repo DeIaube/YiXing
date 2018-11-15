@@ -16,7 +16,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.post.ForumPostActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.collection.ForumCollectionActivity"
+            android:label="@string/title_activity_forum_collection"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
