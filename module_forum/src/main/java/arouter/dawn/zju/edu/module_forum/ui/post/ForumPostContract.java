@@ -4,6 +4,7 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
+import arouter.dawn.zju.edu.lib_net.bean.User;
 import baselib.base.BaseContract;
 
 public interface ForumPostContract {
@@ -13,12 +14,16 @@ public interface ForumPostContract {
         void refreshCommentList(List<ForumComment> commentList);
         void showCommentList();
         void hideCommentList();
+        void showAuthorFollowing();
+        void showAuthorUnFollow();
+        void setFollowBtnClickAble(boolean able);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
         void comment(ForumPost post, String comment);
         void cancelComment(String comment);
-        void initCommentList(ForumPost post);
+        void init(ForumPost post);
+        void follow(User follower);
     }
 
 }

@@ -54,7 +54,7 @@
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/forum_post_follow"
-                    android:background="@drawable/forum_post_follow_bg"
+                    android:background="@drawable/forum_post_follow_unfollow_bg"
                     android:textColor="@color/white"
                     android:text="关注"
                     android:layout_width="84dp"

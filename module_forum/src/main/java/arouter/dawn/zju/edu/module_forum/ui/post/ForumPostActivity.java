@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -78,7 +77,7 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
         mCommentAdapter = new ForumPostCommentAdapter(this, new ArrayList<ForumComment>());
         postCommentListRv.setAdapter(mCommentAdapter);
 
-        mPresenter.initCommentList(post);
+        mPresenter.init(post);
     }
 
     @Override
@@ -123,7 +122,7 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
         if (id == R.id.forum_post_add_comment) {
             showCommentDialog();
         } else if (id == R.id.forum_post_follow) {
-
+            mPresenter.follow(post.getAuthor());
         }
     }
 
@@ -176,5 +175,24 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
     public void hideCommentList() {
         postCommentListRv.setVisibility(View.GONE);
         postCommentEmptyTipTv.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void showAuthorFollowing() {
+        followBtn.setText("已关注");
+        followBtn.setTextColor(getResources().getColor(R.color.colorPrimary));
+        followBtn.setBackground(getDrawable(R.drawable.forum_post_follow_following_bg));
+    }
+
+    @Override
+    public void showAuthorUnFollow() {
+        followBtn.setText("关注");
+        followBtn.setTextColor(getResources().getColor(R.color.white));
+        followBtn.setBackground(getDrawable(R.drawable.forum_post_follow_unfollow_bg));
+    }
+
+    @Override
+    public void setFollowBtnClickAble(boolean clickAble) {
+        followBtn.setClickable(clickAble);
     }
 }
