@@ -195,4 +195,13 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
     public void setFollowBtnClickAble(boolean clickAble) {
         followBtn.setClickable(clickAble);
     }
+
+    @Override
+    public void setFollowBtnVisiable(boolean visiable) {
+        if (visiable) {
+            followBtn.setVisibility(View.VISIBLE);
+        } else {
+            followBtn.setVisibility(View.GONE);
+        }
+    }
 }

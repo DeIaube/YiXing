@@ -17,6 +17,7 @@ public interface ForumPostContract {
         void showAuthorFollowing();
         void showAuthorUnFollow();
         void setFollowBtnClickAble(boolean able);
+        void setFollowBtnVisiable(boolean visiable);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {

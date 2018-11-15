@@ -84,7 +84,6 @@ public class ForumPostPresenter extends BasePresenter<ForumPostContract.View> im
         User user = User.getCurrentUser(User.class);
         User follower = post.getAuthor();
         if (follower.equals(user)) {
-            mView.setFollowBtnClickAble(false);
             return;
         }
         AVQuery<ForumFollow> followAVQuery = ForumFollow.getQuery(ForumFollow.class);
@@ -94,6 +93,7 @@ public class ForumPostPresenter extends BasePresenter<ForumPostContract.View> im
                     @Override
                     public void done(List<ForumFollow> list, AVException e) {
                         if (e == null) {
+                            mView.setFollowBtnVisiable(true);
                             if (!list.isEmpty()) {
                                 mForumFollow = list.get(0);
                             }
