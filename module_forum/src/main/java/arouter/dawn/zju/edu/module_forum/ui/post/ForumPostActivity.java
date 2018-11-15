@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -50,6 +51,7 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
     Button commentBtn;
     EditText commentEt;
 
+    private String mCollectionMenuContent;
     private ForumPostCommentAdapter mCommentAdapter;
 
     @Override
@@ -67,6 +69,8 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
 
         followBtn.setOnClickListener(this);
         findViewById(R.id.forum_post_add_comment).setOnClickListener(this);
+
+        mCollectionMenuContent = getString(R.string.forum_post_collection);
 
         authorNameTv.setText(post.getAuthor().getPickName());
         Picasso.with(this).load(post.getAuthor().getPortrait()).into(authorPortraitIv);
@@ -101,16 +105,21 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.post_menu, menu);
-        MenuItem collectionItem = menu.findItem(R.id.post_menu_collection);
-        collectionItem.setTitle(R.string.forum_post_collection);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem collectionItem = menu.findItem(R.id.post_menu_collection);
+        collectionItem.setTitle(mCollectionMenuContent);
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.post_menu_collection) {
-
+            mPresenter.collection(post);
         } else if (id == R.id.post_menu_share) {
             // 分享文章
             Intent shareIntent = new Intent();
@@ -228,6 +237,18 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
         followBtn.setText("关注");
         followBtn.setTextColor(getResources().getColor(R.color.white));
         followBtn.setBackground(getDrawable(R.drawable.forum_post_follow_unfollow_bg));
+    }
+
+    @Override
+    public void showPostAlreadyCollection() {
+        mCollectionMenuContent = getString(R.string.forum_post_cancel_collection);
+        getWindow().invalidatePanelMenu(Window.FEATURE_OPTIONS_PANEL);
+    }
+
+    @Override
+    public void showPostUnCollection() {
+        mCollectionMenuContent = getString(R.string.forum_post_collection);
+        getWindow().invalidatePanelMenu(Window.FEATURE_OPTIONS_PANEL);
     }
 
     @Override

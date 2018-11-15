@@ -16,6 +16,8 @@ public interface ForumPostContract {
         void hideCommentList();
         void showAuthorFollowing();
         void showAuthorUnFollow();
+        void showPostAlreadyCollection();
+        void showPostUnCollection();
         void setFollowBtnClickAble(boolean able);
         void setFollowBtnVisiable(boolean visiable);
     }
@@ -25,6 +27,7 @@ public interface ForumPostContract {
         void cancelComment(String comment);
         void init(ForumPost post);
         void follow(User follower);
+        void collection(ForumPost post);
         void report(ForumPost post, String type, String content);
     }
 

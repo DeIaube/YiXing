@@ -8,11 +8,13 @@ import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.DeleteCallback;
 import com.avos.avoscloud.FindCallback;
+import com.avos.avoscloud.GetCallback;
 import com.avos.avoscloud.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import arouter.dawn.zju.edu.lib_net.bean.ForumCollection;
 import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
 import arouter.dawn.zju.edu.lib_net.bean.ForumFollow;
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
@@ -30,6 +32,7 @@ public class ForumPostPresenter extends BasePresenter<ForumPostContract.View> im
 
     private List<ForumComment> mCommentList;
     private ForumFollow mForumFollow;
+    private ForumCollection mForumCollection;
 
     public ForumPostPresenter() {
         mCommentList = new ArrayList<>();
@@ -76,6 +79,32 @@ public class ForumPostPresenter extends BasePresenter<ForumPostContract.View> im
     public void init(ForumPost post) {
         initForumCommentList(post);
         initForumFollowState(post);
+        initForumCollection(post);
+    }
+
+    /**
+     * 初始化关注帖子
+     * @param post 帖子
+     */
+    private void initForumCollection(ForumPost post) {
+        AVQuery<ForumCollection> forumCollectionAVQuery = ForumCollection.getQuery(ForumCollection.class);
+        forumCollectionAVQuery.whereEqualTo("post", post)
+                .whereEqualTo("owner", User.getCurrentUser(User.class))
+                .getFirstInBackground(new GetCallback<ForumCollection>() {
+                    @Override
+                    public void done(ForumCollection forumCollection, AVException e) {
+                        if (e == null) {
+                            mForumCollection = forumCollection;
+                        } else {
+                            LogUtil.e(TAG, e.getLocalizedMessage());
+                        }
+                        if (mForumCollection == null) {
+                            mView.showPostUnCollection();
+                        } else {
+                            mView.showPostAlreadyCollection();
+                        }
+                    }
+                });
     }
 
     /**
@@ -170,6 +199,37 @@ public class ForumPostPresenter extends BasePresenter<ForumPostContract.View> im
                     } else {
                         LogUtil.e(TAG, e.getLocalizedMessage());
                         mView.showMessage(e.getLocalizedMessage());
+                    }
+                }
+            });
+        }
+    }
+
+    @Override
+    public void collection(ForumPost post) {
+        if (mForumCollection == null) {
+            mForumCollection = new ForumCollection();
+            mForumCollection.setOwner(User.getCurrentUser(User.class));
+            mForumCollection.setPost(post);
+            mForumCollection.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(AVException e) {
+                    if (e == null) {
+                        mView.showPostAlreadyCollection();
+                    } else {
+                        LogUtil.e(TAG, e.getLocalizedMessage());
+                    }
+                }
+            });
+        } else {
+            mForumCollection.deleteInBackground(new DeleteCallback() {
+                @Override
+                public void done(AVException e) {
+                    if (e == null) {
+                        mForumCollection = null;
+                        mView.showPostUnCollection();
+                    } else {
+                        LogUtil.e(TAG, e.getLocalizedMessage());
                     }
                 }
             });
