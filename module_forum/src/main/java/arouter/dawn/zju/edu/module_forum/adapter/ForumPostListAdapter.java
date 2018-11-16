@@ -66,7 +66,6 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
         holder.tagTv.setText(post.getTag());
         holder.titleTv.setText(post.getTitle());
         holder.contentTv.setText(post.getContent());
-        holder.likeCountTv.setText(String.valueOf(post.getLikesUser().size()));
         showCommentCounter(holder.commentCountTv, post);
         showLikeInformation(holder.likeCountTv, holder.likeBgIv, post);
         holder.postition = i;
@@ -86,7 +85,6 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
                                 }
                             }
                             setLikeState(likeCountTv, likeBg, mPostLikeMap.get(post) == null, list.size());
-                            likeCountTv.setText(String.valueOf(list.size()));
                         }
                     }
                 });
@@ -99,19 +97,24 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
      * @param statue 是否已经点赞
      */
     private void setLikeState(TextView likeCountTv, ImageView likeBg, boolean statue, int counter) {
+        setLikeState(likeBg, statue);
+        likeCountTv.setText(String.valueOf(counter));
+    }
+
+    private void changeLikeState(TextView likeCountTv, ImageView likeBg, boolean statue) {
+        setLikeState(likeBg, statue);
+        if (statue) {
+            likeCountTv.setText(String.valueOf(Integer.valueOf(likeCountTv.getText().toString()) - 1));
+        } else {
+            likeCountTv.setText(String.valueOf(Integer.valueOf(likeCountTv.getText().toString()) + 1));
+        }
+    }
+
+    private void setLikeState(ImageView likeBg, boolean statue) {
         if (statue) {
             Picasso.with(mContext).load(R.drawable.forum_unlike).into(likeBg);
         } else {
             Picasso.with(mContext).load(R.drawable.forum_likeing).into(likeBg);
-        }
-        if (counter == -1) {
-            if (statue) {
-                likeCountTv.setText(String.valueOf(Integer.valueOf(likeCountTv.getText().toString()) - 1));
-            } else {
-                likeCountTv.setText(String.valueOf(Integer.valueOf(likeCountTv.getText().toString()) + 1));
-            }
-        } else {
-            likeCountTv.setText(String.valueOf(counter));
         }
     }
 
@@ -194,7 +197,7 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
                 mPostLikeMap.remove(post);
                 forumPostLike.deleteInBackground();
             }
-            setLikeState(likeCounter, likeBg, mPostLikeMap.get(post) == null, -1);
+            changeLikeState(likeCounter, likeBg, mPostLikeMap.get(post) == null);
         }
 
         /**
