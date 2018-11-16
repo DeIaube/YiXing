@@ -38,6 +38,7 @@ android {
 dependencies {
     compile project(':lib_res')
     compile project(':lib_db')
+    compile project(':lib_pay')
     compile project(':lib_net')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //rxjava
