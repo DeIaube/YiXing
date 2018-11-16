@@ -12,7 +12,8 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:src="@drawable/forum_like_unselect"
+            android:id="@+id/like_bg"
+            android:src="@drawable/forum_unlike"
             android:layout_width="18dp"
             android:layout_height="18dp" />
 
