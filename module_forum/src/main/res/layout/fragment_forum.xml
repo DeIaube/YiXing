@@ -22,18 +22,14 @@
 
                         <android.support.design.widget.TabLayout
                             android:id="@+id/forum_tab_layout"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="50dp"
                             app:tabBackground="@color/colorPrimary"
                             app:tabSelectedTextColor="@color/white"
                             app:tabTextColor="#f2f2f2"
                             app:tabMode="scrollable"
                             app:tabIndicatorColor="@color/white" />
-
-                        <View
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"/>
 
                         <ImageView
                             android:id="@+id/forum_alter_tab_layout"
