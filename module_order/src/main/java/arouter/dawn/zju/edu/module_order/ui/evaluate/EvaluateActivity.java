@@ -13,7 +13,8 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_ORDER_EVALUATE)
-public class EvaluateActivity extends BaseActivity implements View.OnClickListener {
+public class EvaluateActivity extends BaseActivity<EvaluateContract.Presenter> implements
+        View.OnClickListener, EvaluateContract.View {
 
     ImageView frownIv;
     ImageView mehIv;
@@ -62,7 +63,7 @@ public class EvaluateActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new EvaluatePresenter();
     }
 
     @Override

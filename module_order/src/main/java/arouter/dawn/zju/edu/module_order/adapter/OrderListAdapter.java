@@ -49,7 +49,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         return new OrderListHolder(rootView);
     }
 
-    @SuppressLint("DefaultLocale")
+    @SuppressLint({"DefaultLocale", "SimpleDateFormat"})
     @Override
     public void onBindViewHolder(OrderListHolder holder, int position) {
         Order order = mOrders.get(position);
