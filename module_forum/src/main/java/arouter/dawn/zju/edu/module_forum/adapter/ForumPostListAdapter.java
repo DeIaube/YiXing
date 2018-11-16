@@ -10,30 +10,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.CountCallback;
-import com.avos.avoscloud.GetCallback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
-import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_forum.R;
 
-public class ForumListAdapter extends RecyclerView.Adapter<ForumListAdapter.ForumListHolder> {
+public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdapter.ForumListHolder> {
 
     private Context mContext;
     private List<ForumPost> mForumListItems;
     private onForumListClickListener mOnForumListClickListener;
 
-    public void setOnForumListClickListener(ForumListAdapter.onForumListClickListener onForumListClickListener) {
+    public void setOnForumListClickListener(ForumPostListAdapter.onForumListClickListener onForumListClickListener) {
         this.mOnForumListClickListener = onForumListClickListener;
     }
 
-    public ForumListAdapter(Context mContext, List<ForumPost> mForumListItems) {
+    public ForumPostListAdapter(Context mContext, List<ForumPost> mForumListItems) {
         this.mContext = mContext;
         this.mForumListItems = mForumListItems;
     }

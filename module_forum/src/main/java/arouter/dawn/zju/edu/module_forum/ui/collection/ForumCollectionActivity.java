@@ -10,7 +10,7 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
 import arouter.dawn.zju.edu.module_forum.R;
-import arouter.dawn.zju.edu.module_forum.adapter.ForumListAdapter;
+import arouter.dawn.zju.edu.module_forum.adapter.ForumPostListAdapter;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
@@ -19,12 +19,12 @@ public class ForumCollectionActivity extends BaseActivity<ForumCollectionContrac
 
     RecyclerView collectionListView;
 
-    private ForumListAdapter mPostListAdapter;
+    private ForumPostListAdapter mPostListAdapter;
 
     @Override
     protected void initView() {
         collectionListView = findViewById(R.id.forum_collection_list_view);
-        mPostListAdapter = new ForumListAdapter(this, new ArrayList<ForumPost>());
+        mPostListAdapter = new ForumPostListAdapter(this, new ArrayList<ForumPost>());
         collectionListView.setLayoutManager(new LinearLayoutManager(this));
         collectionListView.setAdapter(mPostListAdapter);
 

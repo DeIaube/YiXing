@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
@@ -16,12 +15,12 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
 import arouter.dawn.zju.edu.module_forum.R;
-import arouter.dawn.zju.edu.module_forum.adapter.ForumListAdapter;
+import arouter.dawn.zju.edu.module_forum.adapter.ForumPostListAdapter;
 import baselib.base.BaseFragment;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_FORUM_FORUM_LIST)
-public class ForumListFragment extends BaseFragment<ForumListContract.Presenter> implements ForumListContract.View, ForumListAdapter.onForumListClickListener {
+public class ForumListFragment extends BaseFragment<ForumListContract.Presenter> implements ForumListContract.View, ForumPostListAdapter.onForumListClickListener {
 
     SwipeRefreshLayout forumListrefreshLayout;
     RecyclerView forumListlistView;
@@ -29,7 +28,7 @@ public class ForumListFragment extends BaseFragment<ForumListContract.Presenter>
     @Autowired(name = Constants.FORUM_LIST_TAG)
     String tag;
 
-    private ForumListAdapter mAdapter;
+    private ForumPostListAdapter mAdapter;
 
     @Override
     protected int getLayoutId() {
@@ -55,7 +54,7 @@ public class ForumListFragment extends BaseFragment<ForumListContract.Presenter>
         });
 
         forumListlistView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAdapter = new ForumListAdapter(getContext(), new ArrayList<ForumPost>());
+        mAdapter = new ForumPostListAdapter(getContext(), new ArrayList<ForumPost>());
         forumListlistView.setAdapter(mAdapter);
         forumListlistView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
