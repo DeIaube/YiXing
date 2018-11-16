@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import arouter.dawn.zju.edu.module_order.R;
@@ -53,9 +54,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     public void onBindViewHolder(OrderListHolder holder, int position) {
         Order order = mOrders.get(position);
         initViewByType(holder, order.getType());
-        holder.createTimeTv.setText(String.
-                format("%d-%d-%d", order.getCreatedAt().getYear(),
-                        order.getCreatedAt().getMonth(), order.getCreatedAt().getDay()));
+        holder.createTimeTv.setText(new SimpleDateFormat("yyyy-MM-dd").format(order.getCreatedAt()));
         holder.payNumberTv.setText(String.format("￥ %.2f", order.getPay()));
         holder.realPayNumberTv.setText(String.format("￥ %.2f", order.getPay()));
         holder.goodsTitleTv.setText(order.getTitle());
