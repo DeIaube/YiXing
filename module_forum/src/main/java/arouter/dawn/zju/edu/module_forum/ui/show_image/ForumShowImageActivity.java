@@ -23,7 +23,8 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_FORUM_SHOW_IMAGE)
-public class ForumShowImageActivity extends BaseActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
+public class ForumShowImageActivity extends BaseActivity<ForumShowImageContract.Presenter>
+        implements View.OnClickListener, ViewPager.OnPageChangeListener, ForumShowImageContract.View {
 
     @Autowired(name = Constants.FORUM_SHOW_IMAGE_POSTION)
     int currentPosition;

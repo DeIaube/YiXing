@@ -13,8 +13,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
