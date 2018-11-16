@@ -16,10 +16,17 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_forum_post" />
+
+    <include
+        android:layout_gravity="bottom"
+        layout="@layout/forum_post_bottom_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </android.support.design.widget.CoordinatorLayout>
