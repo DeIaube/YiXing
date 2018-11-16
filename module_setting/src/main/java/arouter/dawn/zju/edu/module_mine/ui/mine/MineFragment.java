@@ -70,7 +70,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         view.findViewById(R.id.github_layout).setOnClickListener(this);
 
         User user = User.getCurrentUser(User.class);
-        accountNameTv.setText(user.getUsername());
+        accountNameTv.setText(user.getPickName());
         accountPhoneTv.setText(user.getMobilePhoneNumber());
         if (user.getPortrait() != null) {
             Picasso.with(getContext()).load(user.getPortrait()).into(accountProfileIv);
