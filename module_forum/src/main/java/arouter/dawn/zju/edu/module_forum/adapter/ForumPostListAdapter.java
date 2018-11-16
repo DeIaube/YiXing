@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.CountCallback;
@@ -19,23 +20,44 @@ import java.util.List;
 import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
 import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
 import arouter.dawn.zju.edu.module_forum.R;
+import baselib.config.Constants;
 
 public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdapter.ForumListHolder> {
 
     private Context mContext;
     private List<ForumPost> mForumListItems;
-    private onForumListClickListener mOnForumListClickListener;
+    private OnForumListClickListener mOnForumListClickListener;
 
-    public void setOnForumListClickListener(ForumPostListAdapter.onForumListClickListener onForumListClickListener) {
+    public void setOnForumListClickListener(OnForumListClickListener onForumListClickListener) {
         this.mOnForumListClickListener = onForumListClickListener;
     }
 
     public ForumPostListAdapter(Context mContext, List<ForumPost> mForumListItems) {
         this.mContext = mContext;
         this.mForumListItems = mForumListItems;
+        this.mOnForumListClickListener = new OnForumListClickListener() {
+            /**
+             * 点赞
+             * @param post 点赞的post
+             */
+            @Override
+            public void likePost(ForumPost post) {
+
+            }
+
+            /**
+             * 跳转入帖子详情
+             * @param post 点击的post
+             */
+            @Override
+            public void clickPost(ForumPost post) {
+                ARouter.getInstance().build(Constants.AROUTER_FORUM_FORUM_POST).
+                        withParcelable(Constants.FORUM_POST_POST, post).navigation();
+            }
+        };
     }
 
-    public interface onForumListClickListener {
+    public interface OnForumListClickListener {
         void likePost(ForumPost post);
         void clickPost(ForumPost post);
     }

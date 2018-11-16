@@ -20,7 +20,7 @@ import baselib.base.BaseFragment;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_FORUM_FORUM_LIST)
-public class ForumListFragment extends BaseFragment<ForumListContract.Presenter> implements ForumListContract.View, ForumPostListAdapter.onForumListClickListener {
+public class ForumListFragment extends BaseFragment<ForumListContract.Presenter> implements ForumListContract.View {
 
     SwipeRefreshLayout forumListrefreshLayout;
     RecyclerView forumListlistView;
@@ -76,8 +76,6 @@ public class ForumListFragment extends BaseFragment<ForumListContract.Presenter>
             }
         });
 
-        mAdapter.setOnForumListClickListener(this);
-
         mPresenter.refresh(tag);
     }
 
@@ -96,22 +94,4 @@ public class ForumListFragment extends BaseFragment<ForumListContract.Presenter>
         forumListrefreshLayout.setRefreshing(false);
     }
 
-    /**
-     * 点赞
-     * @param post 点赞的post
-     */
-    @Override
-    public void likePost(ForumPost post) {
-
-    }
-
-    /**
-     * 跳转入帖子详情
-     * @param post 点击的post
-     */
-    @Override
-    public void clickPost(ForumPost post) {
-        ARouter.getInstance().build(Constants.AROUTER_FORUM_FORUM_POST).
-                withParcelable(Constants.FORUM_POST_POST, post).navigation();
-    }
 }
