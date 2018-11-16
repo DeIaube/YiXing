@@ -60,7 +60,7 @@ public class ForumAlterTabAdapter extends RecyclerView.Adapter<ForumAlterTabAdap
         mKeys.add(Constants.TYPE_FASHION_KEY);
 
         mTitles.add(Constants.TYPE_EMOTION);
-        mKeys.add(Constants.TYPE_EMOTION);
+        mKeys.add(Constants.TYPE_EMOTION_KEY);
     }
 
     @NonNull
