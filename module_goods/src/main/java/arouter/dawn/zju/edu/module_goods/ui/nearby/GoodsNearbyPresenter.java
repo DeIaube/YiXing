@@ -20,7 +20,7 @@ import java.util.Objects;
 
 import arouter.dawn.zju.edu.module_goods.adapter.NearbyPagerAdapter;
 import arouter.dawn.zju.edu.module_goods.config.Constants;
-import arouter.dawn.zju.edu.module_goods.ui.goods_list.GoodsGoodsListFragment;
+import arouter.dawn.zju.edu.module_goods.ui.goods_list.GoodsListFragment;
 import baselib.base.BasePresenter;
 import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import baselib.util.LogUtil;
@@ -53,11 +53,11 @@ public class GoodsNearbyPresenter extends BasePresenter<GoodsNearbyContract.View
         mTitles.add(Constants.TYPE_MUSIC);
 
         mFragments = new ArrayList<>();
-        mFragments.add(new GoodsGoodsListFragment());
-        mFragments.add(new GoodsGoodsListFragment());
-        mFragments.add(new GoodsGoodsListFragment());
-        mFragments.add(new GoodsGoodsListFragment());
-        mFragments.add(new GoodsGoodsListFragment());
+        mFragments.add(new GoodsListFragment());
+        mFragments.add(new GoodsListFragment());
+        mFragments.add(new GoodsListFragment());
+        mFragments.add(new GoodsListFragment());
+        mFragments.add(new GoodsListFragment());
 
         NearbyPagerAdapter adapter = new NearbyPagerAdapter(fragmentManager, mTitles, mFragments);
         viewPager.setAdapter(adapter);
@@ -137,8 +137,8 @@ public class GoodsNearbyPresenter extends BasePresenter<GoodsNearbyContract.View
     private void refreshGoodsListFragment() {
         for (int i = 0; i < mFragments.size(); i++) {
             Fragment fragment = mFragments.get(i);
-            if (fragment instanceof GoodsGoodsListFragment) {
-                GoodsGoodsListFragment goodsListFragment = (GoodsGoodsListFragment) fragment;
+            if (fragment instanceof GoodsListFragment) {
+                GoodsListFragment goodsListFragment = (GoodsListFragment) fragment;
                 goodsListFragment.refresh(mGoodsMap.get(mTitles.get(i)));
             }
         }

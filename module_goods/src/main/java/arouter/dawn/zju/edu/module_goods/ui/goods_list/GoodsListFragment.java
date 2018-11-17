@@ -18,7 +18,7 @@ import baselib.callback.GoodsListRefreshCallback;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_GOODS_GOODS_LIST)
-public class GoodsGoodsListFragment extends BaseFragment<GoodsGoodsListContract.Presenter> implements GoodsGoodsListContract.View, GoodsListAdapter.OnGoodsClickListener , GoodsListRefreshCallback {
+public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter> implements GoodsListContract.View, GoodsListAdapter.OnGoodsClickListener , GoodsListRefreshCallback {
 
 
     RecyclerView recyclerView;
@@ -39,7 +39,7 @@ public class GoodsGoodsListFragment extends BaseFragment<GoodsGoodsListContract.
 
     @Override
     protected void bindPresenter() {
-        mPresenter = new GoodsGoodsListPresenter();
+        mPresenter = new GoodsListPresenter();
     }
 
     @Override
