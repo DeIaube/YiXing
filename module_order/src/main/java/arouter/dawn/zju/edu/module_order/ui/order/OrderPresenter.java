@@ -54,8 +54,6 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
         OrderPagerAdapter adapter = new OrderPagerAdapter(fragmentManager, mTitles, mFragments);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-
-        refresh();
     }
 
     @SuppressLint("CheckResult")
