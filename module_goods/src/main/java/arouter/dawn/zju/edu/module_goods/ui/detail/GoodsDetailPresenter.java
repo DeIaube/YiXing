@@ -39,7 +39,8 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
                     @Override
                     public void done(int i, AVException e) {
                         if (e == null) {
-                            mView.refreshBuyCounterTextView(String.format("已报名%d人", i));
+                            mView.refreshBuyCounterTextView(String.format(
+                                    App.getContext().getString(R.string.goods_detail_buy_counter), i));
                         }
                     }
                 });

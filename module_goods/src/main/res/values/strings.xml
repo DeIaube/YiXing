@@ -25,6 +25,8 @@
     <string name="goods_detail_cancel_collection">取消收藏</string>
     <string name="goods_detail_pay_success">支付成功</string>
     <string name="goods_detail_pay_failed">支付失败</string>
+    <string name="goods_detail_default_buy_counter">已报名0人</string>
+    <string name="goods_detail_buy_counter">已报名%d人</string>
     <!--GoodsDetail-->
 
 </resources>
