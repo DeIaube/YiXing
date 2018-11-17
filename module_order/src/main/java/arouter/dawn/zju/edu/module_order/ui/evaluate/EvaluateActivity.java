@@ -1,6 +1,9 @@
 package arouter.dawn.zju.edu.module_order.ui.evaluate;
 
+import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -8,6 +11,8 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.squareup.picasso.Picasso;
 
+import arouter.dawn.zju.edu.lib_net.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.Order;
 import arouter.dawn.zju.edu.module_order.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
@@ -24,13 +29,13 @@ public class EvaluateActivity extends BaseActivity<EvaluateContract.Presenter> i
     TextView frownTv;
     ImageView previewIv;
     TextView titleTv;
+    EditText contentEt;
+    Button submitBtn;
 
-    @Autowired(name = Constants.ORDER_GOODS_TITLE)
-    String goodsTitle;
-    @Autowired(name = Constants.ORDER_GOODS_TITLE)
-    String goodsPreview;
-    @Autowired(name = Constants.ORDER_GOODS_ID)
-    String goodsId;
+    @Autowired(name = Constants.ORDER_ORDER_LIST_BOUNDLE)
+    Bundle bundle;
+
+    Order order;
 
     @Override
     protected void initView() {
@@ -42,9 +47,13 @@ public class EvaluateActivity extends BaseActivity<EvaluateContract.Presenter> i
         frownTv = findViewById(R.id.frown_text);
         previewIv = findViewById(R.id.goods_preview);
         titleTv = findViewById(R.id.goods_title);
+        contentEt = findViewById(R.id.order_evaluate_content);
+        submitBtn = findViewById(R.id.order_evaluate_submit);
 
-        Picasso.with(this).load(goodsPreview).into(previewIv);
-        titleTv.setText(goodsTitle);
+        order = bundle.getParcelable(Constants.ORDER_ORDER_LIST_ORDER);
+
+        Picasso.with(this).load(order.getGoods().getPreview()).into(previewIv);
+        titleTv.setText(order.getGoods().getTitle());
 
         frownIv.setOnClickListener(this);
         mehIv.setOnClickListener(this);
@@ -52,6 +61,7 @@ public class EvaluateActivity extends BaseActivity<EvaluateContract.Presenter> i
         smileTv.setOnClickListener(this);
         mehTv.setOnClickListener(this);
         frownTv.setOnClickListener(this);
+        submitBtn.setOnClickListener(this);
 
         resetEvaluate();
     }
@@ -86,6 +96,8 @@ public class EvaluateActivity extends BaseActivity<EvaluateContract.Presenter> i
             resetEvaluate();
             frownTv.setTextColor(getResources().getColor(R.color.colorPrimary));
             Picasso.with(this).load(R.drawable.select_frown).into(frownIv);
+        } else if (id == R.id.order_evaluate_submit) {
+
         }
     }
 

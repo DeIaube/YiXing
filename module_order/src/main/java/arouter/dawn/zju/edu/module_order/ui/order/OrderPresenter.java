@@ -65,7 +65,8 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
         mView.showSwipeRefreshLayout();
 
         AVQuery<Order> query = Order.getQuery(Order.class);
-        query.findInBackground(new FindCallback<Order>() {
+        query.include("goods")
+                .findInBackground(new FindCallback<Order>() {
             @Override
             public void done(List<Order> list, AVException e) {
                 mView.hideSwipeRefreshLayout();

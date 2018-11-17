@@ -8,7 +8,6 @@ public interface EvaluateContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-
     }
 
 }

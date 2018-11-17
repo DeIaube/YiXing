@@ -6,20 +6,17 @@ import com.avos.avoscloud.AVObject;
 @AVClassName("Order")
 public class Order extends AVObject {
 
-    public String getTitle() {
-        return getString("title");
+    public void setGoods(Goods goods) {
+        put("goods", goods);
     }
 
-    public void setTitle(String title) {
-        put("title", title);
-    }
-
-    public String getPreview() {
-        return getString("preview");
-    }
-
-    public void setPreview(String preview) {
-        put("preview", preview);
+    public Goods getGoods() {
+        try {
+            return getAVObject("goods", Goods.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public String getType() {
@@ -30,11 +27,4 @@ public class Order extends AVObject {
         put("type", type);
     }
 
-    public double getPay() {
-        return getNumber("pay").doubleValue();
-    }
-
-    public void setPay(double pay) {
-        put("pay", pay);
-    }
 }

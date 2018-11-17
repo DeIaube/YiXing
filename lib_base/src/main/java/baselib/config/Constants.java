@@ -34,9 +34,9 @@ public interface Constants {
     String AROUTER_ORDER_EVALUATE = "/order/evaluate";
     String AROUTER_ORDER_ORDER = "/order/order";
     String AROUTER_ORDER_LIST = "/order/list";
-    String ORDER_GOODS_TITLE = "orderGoodsTitle";
-    String ORDER_GOODS_PREVIEW = "orderGoodsPreview";
-    String ORDER_GOODS_ID = "orderGoodsId";
+
+    String ORDER_ORDER_LIST_BOUNDLE = "orderOrderListBundle";
+    String ORDER_ORDER_LIST_ORDER = "orderListOrder";
 
     // Setting
     String AROUTER_SETTING_GROP = "setting";

@@ -1,6 +1,7 @@
 package arouter.dawn.zju.edu.module_order.ui.order_list;
 
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -74,10 +75,10 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
 
             @Override
             public void orderEvaluateClickListener(View view, Order orderBean) {
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(Constants.ORDER_ORDER_LIST_ORDER, orderBean);
                 ARouter.getInstance().build(Constants.AROUTER_ORDER_EVALUATE)
-                        .withString(Constants.ORDER_GOODS_TITLE, orderBean.getTitle())
-                        .withString(Constants.ORDER_GOODS_PREVIEW, orderBean.getPreview())
-                        .withString(Constants.ORDER_GOODS_ID, orderBean.getObjectId())
+                        .withBundle(Constants.ORDER_ORDER_LIST_BOUNDLE, bundle)
                         .navigation();
             }
 

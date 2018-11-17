@@ -55,11 +55,11 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         Order order = mOrders.get(position);
         initViewByType(holder, order.getType());
         holder.createTimeTv.setText(new SimpleDateFormat("yyyy-MM-dd").format(order.getCreatedAt()));
-        holder.payNumberTv.setText(String.format("￥ %.2f", order.getPay()));
-        holder.realPayNumberTv.setText(String.format("￥ %.2f", order.getPay()));
-        holder.goodsTitleTv.setText(order.getTitle());
+        holder.payNumberTv.setText(String.format("￥ %.2f", order.getGoods().getPrice()));
+        holder.realPayNumberTv.setText(String.format("￥ %.2f", order.getGoods().getPrice()));
+        holder.goodsTitleTv.setText(order.getGoods().getTitle());
         holder.typeTv.setText(order.getType());
-        Picasso.with(mContext).load(order.getPreview()).into(holder.goodsPreviewIv);
+        Picasso.with(mContext).load(order.getGoods().getPreview()).into(holder.goodsPreviewIv);
         initListener(holder, position);
     }
 
