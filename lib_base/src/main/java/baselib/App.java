@@ -17,6 +17,7 @@ import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
 import arouter.dawn.zju.edu.lib_net.bean.ForumPostLike;
 import arouter.dawn.zju.edu.lib_net.bean.ForumPostReport;
 import arouter.dawn.zju.edu.lib_net.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.GoodsCollection;
 import arouter.dawn.zju.edu.lib_net.bean.GoodsEvaluate;
 import arouter.dawn.zju.edu.lib_net.bean.Order;
 import arouter.dawn.zju.edu.lib_net.bean.User;
@@ -53,6 +54,7 @@ public class App extends Application {
     private void initLeanCloud() {
         AVObject.registerSubclass(User.class);
         AVObject.registerSubclass(Goods.class);
+        AVObject.registerSubclass(GoodsCollection.class);
         AVObject.registerSubclass(GoodsEvaluate.class);
         AVObject.registerSubclass(ForumPost.class);
         AVObject.registerSubclass(ForumFollow.class);

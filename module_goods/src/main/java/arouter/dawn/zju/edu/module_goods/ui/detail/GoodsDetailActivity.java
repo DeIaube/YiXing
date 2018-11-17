@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -47,6 +48,8 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
         goodsDetailBanner.start();
 
         mCollectionMenuContent = getString(R.string.goods_detail_collection);
+
+        mPresenter.init(goods);
     }
 
     @Override
@@ -82,6 +85,7 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
         int id = item.getItemId();
         if (id == R.id.detail_menu_collection) {
             // 收藏商品
+            mPresenter.collection(goods);
         } else if (id == R.id.detail_menu_share) {
             // 分享文章
             Intent shareIntent = new Intent();
@@ -93,4 +97,15 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void showGoodsAlreadyCollection() {
+        mCollectionMenuContent = getString(R.string.goods_detail_cancel_collection);
+        getWindow().invalidatePanelMenu(Window.FEATURE_OPTIONS_PANEL);
+    }
+
+    @Override
+    public void showGoodsUnCollection() {
+        mCollectionMenuContent = getString(R.string.goods_detail_collection);
+        getWindow().invalidatePanelMenu(Window.FEATURE_OPTIONS_PANEL);
+    }
 }
