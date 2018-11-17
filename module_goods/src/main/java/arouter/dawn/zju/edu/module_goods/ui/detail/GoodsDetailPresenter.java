@@ -8,7 +8,10 @@ import com.avos.avoscloud.SaveCallback;
 
 import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import arouter.dawn.zju.edu.lib_net.bean.GoodsCollection;
+import arouter.dawn.zju.edu.lib_net.bean.Order;
 import arouter.dawn.zju.edu.lib_net.bean.User;
+import arouter.dawn.zju.edu.module_nearby.R;
+import baselib.App;
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
 
@@ -72,5 +75,23 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
                 }
             });
         }
+    }
+
+    @Override
+    public void paySuccess(Goods goods) {
+        Order order = new Order();
+        order.setGoods(goods);
+        order.setType(1);
+        order.saveInBackground();
+        mView.showMessage(App.getContext().getString(R.string.goods_detail_pay_success));
+    }
+
+    @Override
+    public void payFailed(Goods goods) {
+        Order order = new Order();
+        order.setGoods(goods);
+        order.setType(2);
+        order.saveInBackground();
+        mView.showMessage(App.getContext().getString(R.string.goods_detail_pay_failed));
     }
 }

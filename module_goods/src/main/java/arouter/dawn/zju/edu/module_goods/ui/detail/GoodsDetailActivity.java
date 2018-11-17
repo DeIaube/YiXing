@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -16,15 +19,26 @@ import java.util.List;
 import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import arouter.dawn.zju.edu.module_goods.util.PicassoUrlImageLeader;
 import arouter.dawn.zju.edu.module_nearby.R;
+import arouter.dawn.zju.edu.module_pay.AliPay;
+import arouter.dawn.zju.edu.module_pay.PayCallback;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_GOODS_DETAIL)
-public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presenter> implements GoodsDetailContract.View {
+public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presenter> implements GoodsDetailContract.View, View.OnClickListener {
 
     @Autowired(name = Constants.GOODS_DETAIL_BUNDLE)
     Bundle bundle;
     Goods goods;
+
+    TextView goodsTitleTv;
+    TextView goodsBuyCounterTv;
+    TextView goodsLocationTv;
+    TextView goodsExplainTv;
+    TextView goodsStartTimeTv;
+    TextView goodsEndTimeTv;
+    TextView goodsPriceTv;
+    Button goodsPayBtn;
 
     Banner goodsDetailBanner;
 
@@ -32,9 +46,20 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
 
     @Override
     protected void initView() {
-        goodsDetailBanner = findViewById(R.id.goods_detail_banner);
         goods = bundle.getParcelable(Constants.GOODS_DETAIL_GOODS);
         setToolbarTitle(goods.getTitle());
+
+        goodsDetailBanner = findViewById(R.id.goods_detail_banner);
+        goodsTitleTv = findViewById(R.id.goods_detail_title);
+        goodsBuyCounterTv = findViewById(R.id.goods_detail_buy_counter);
+        goodsLocationTv = findViewById(R.id.goods_detail_loacation);
+        goodsExplainTv = findViewById(R.id.goods_detail_explain);
+        goodsStartTimeTv = findViewById(R.id.goods_detail_start_time);
+        goodsEndTimeTv = findViewById(R.id.goods_detail_end_time);
+        goodsPriceTv = findViewById(R.id.goods_detail_price);
+        goodsPayBtn = findViewById(R.id.goods_detail_pay);
+
+        goodsPayBtn.setOnClickListener(this);
 
         List<String> imageList = new ArrayList<>();
         imageList.add("http://lc-otc2yuns.cn-n1.lcfile.com/loVl6uctWbMc2uYj4aiZk47ad0yvovvgnfv5SSmv.jpg");
@@ -107,5 +132,29 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
     public void showGoodsUnCollection() {
         mCollectionMenuContent = getString(R.string.goods_detail_collection);
         getWindow().invalidatePanelMenu(Window.FEATURE_OPTIONS_PANEL);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.goods_detail_pay) {
+            new AliPay.Builed(this)
+                    .setPrice(goods.getPrice())
+                    .setTitle(goods.getTitle())
+                    .setContent(goods.getExplain())
+                    .setPayCallback(new PayCallback() {
+                        @Override
+                        public void paySuccess() {
+                            mPresenter.paySuccess(goods);
+                        }
+
+                        @Override
+                        public void payFailed() {
+                            mPresenter.payFailed(goods);
+                        }
+                    })
+                    .buile()
+                    .pay(v);
+        }
     }
 }
