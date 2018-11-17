@@ -27,12 +27,12 @@ public class GoodsEvaluate extends AVObject {
         put("content", type);
     }
 
-    public int getType() {
-        return getInt("type");
+    public int getLevel() {
+        return getInt("level");
     }
 
-    public void setType(int type) {
-        put("type", type);
+    public void setLevel(int type) {
+        put("level", type);
     }
 
 }
