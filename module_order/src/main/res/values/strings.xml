@@ -6,6 +6,10 @@
     <string name="order_list_type_cancel">已取消</string>
     <string name="order_list_type_reque_evaluate">待评价</string>
     <string name="order_list_type_evaluated">已评价</string>
+    <string name="order_list_order_refund">申请退款</string>
+    <string name="order_list_order_evaluate">商品评价</string>
+    <string name="order_list_cancel_order">取消订单</string>
+    <string name="order_list_pay_order">立即付款</string>
     <!--OrderList-->
 
     <!--Evaluate-->

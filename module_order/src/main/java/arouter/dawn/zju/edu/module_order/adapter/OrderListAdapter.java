@@ -32,6 +32,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         void payOrderClickListener(final View view, final Order orderBean);
         void orderEvaluateClickListener(final View view, final Order orderBean);
         void ordelDetailClickListener(final View view, final Order orderBean);
+        void ordelRefundClickListener(final View view, final Order orderBean);
     }
 
     public void setmOrderListClickListener(OnOrderListClickListener mOrderListClickListener) {
@@ -104,20 +105,30 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
                     mOrderListClickListener.orderEvaluateClickListener(v, mOrders.get(position));
                 }
             });
+            holder.orderRefundBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOrderListClickListener.ordelRefundClickListener(v, mOrders.get(position));
+                }
+            });
         }
     }
 
     private void initViewByType(OrderListHolder holder, int type) {
         if (type == Constants.ORDER_TYPE_PAYMENT) {
-            // 待付款 隐藏申请售后
+            // 待付款 隐藏评价与申请售后
             holder.orderEvaluateBtn.setVisibility(View.GONE);
         } else if (type == Constants.ORDER_TYPE_CANCEL) {
-            // 已取消 隐藏 申请售后 取消订单 立即付款
+            // 已取消 隐藏 申请售后 取消订单 立即付款 商品评价
             holder.buttonLayoutLv.setVisibility(View.GONE);
-        } else {
-            // 已完成 隐藏 取消订单 立即付款
+        } else if (type == Constants.ORDER_TYPE_COMPLETE_REQUE_EVALUATE){
+            // 已完成 隐藏 取消订单 立即付款 申请售后
             holder.cancelOrderBtn.setVisibility(View.GONE);
             holder.payOrderBtn.setVisibility(View.GONE);
+        } else if (type == Constants.ORDER_TYPE_COMPLETE_EVALUATED) {
+            holder.cancelOrderBtn.setVisibility(View.GONE);
+            holder.payOrderBtn.setVisibility(View.GONE);
+            holder.orderEvaluateBtn.setVisibility(View.GONE);
         }
     }
 
@@ -141,6 +152,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         TextView realPayNumberTv;
         Button cancelOrderBtn;
         Button payOrderBtn;
+        Button orderRefundBtn;
         Button orderEvaluateBtn;
         LinearLayout buttonLayoutLv;
 
@@ -154,6 +166,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             realPayNumberTv = itemView.findViewById(R.id.real_pay_number);
             cancelOrderBtn = itemView.findViewById(R.id.cancel_order);
             payOrderBtn = itemView.findViewById(R.id.pay_order);
+            orderRefundBtn = itemView.findViewById(R.id.order_refund);
             orderEvaluateBtn = itemView.findViewById(R.id.order_evaluate);
             buttonLayoutLv = itemView.findViewById(R.id.button_layout);
         }

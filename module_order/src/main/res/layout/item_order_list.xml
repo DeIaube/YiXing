@@ -148,36 +148,47 @@
                 android:layout_weight="1"/>
 
             <android.support.v7.widget.AppCompatButton
-                android:id="@+id/order_evaluate"
+                android:id="@+id/order_refund"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:background="@drawable/cancel_order_btn_bg"
                 android:textSize="13dp"
                 android:textColor="#5e5e5e"
                 android:layout_gravity="center_vertical"
-                android:text="商品评价" />
+                android:text="@string/order_list_order_refund" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/order_evaluate"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:background="@drawable/cancel_order_btn_bg"
+                android:textSize="13dp"
+                android:textColor="#5e5e5e"
+                android:layout_gravity="center_vertical"
+                android:text="@string/order_list_order_evaluate" />
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/cancel_order"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:background="@drawable/cancel_order_btn_bg"
                 android:textSize="13dp"
                 android:textColor="#5e5e5e"
                 android:layout_gravity="center_vertical"
-                android:text="取消订单" />
+                android:text="@string/order_list_cancel_order" />
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/pay_order"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:background="@drawable/pay_order_btn_bg"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:textSize="13dp"
                 android:textColor="#ffffff"
                 android:layout_gravity="center_vertical"
-                android:text="立即付款" />
+                android:text="@string/order_list_pay_order" />
 
         </LinearLayout>
 

@@ -86,6 +86,11 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
             public void ordelDetailClickListener(View view, Order orderBean) {
 
             }
+
+            @Override
+            public void ordelRefundClickListener(View view, Order orderBean) {
+
+            }
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
