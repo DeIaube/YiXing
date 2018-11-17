@@ -22,6 +22,7 @@ public class EvaluatePresenter extends BasePresenter<EvaluateContract.View> impl
     @SuppressLint("CheckResult")
     @Override
     public void submitEvaluate(Order order, final int evaluateLever, final String content) {
+        mView.showLoading();
         Observable.just(order)
                 .observeOn(Schedulers.io())
                 .doOnNext(new Consumer<Order>() {
@@ -42,6 +43,7 @@ public class EvaluatePresenter extends BasePresenter<EvaluateContract.View> impl
                     @Override
                     public void accept(Order order) throws Exception {
                         LogUtil.i(TAG, "submitEvaluate :" + order.toString());
+                        mView.hideLoading();
                         mView.showMessage(App.getContext().getString(R.string.order_evaluate_evaluation_success));
                         mView.finish();
                     }
@@ -49,6 +51,7 @@ public class EvaluatePresenter extends BasePresenter<EvaluateContract.View> impl
                     @Override
                     public void accept(Throwable throwable) throws Exception {
                         LogUtil.e(TAG, throwable.getLocalizedMessage());
+                        mView.hideLoading();
                         mView.showMessage(throwable.getLocalizedMessage());
                     }
                 });
