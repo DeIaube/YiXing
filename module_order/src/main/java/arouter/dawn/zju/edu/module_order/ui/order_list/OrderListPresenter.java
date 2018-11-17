@@ -1,6 +1,7 @@
 package arouter.dawn.zju.edu.module_order.ui.order_list;
 
 import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.DeleteCallback;
 import com.avos.avoscloud.SaveCallback;
 
 import org.greenrobot.eventbus.EventBus;
@@ -29,6 +30,25 @@ public class OrderListPresenter extends BasePresenter<OrderListContract.View> im
                     LogUtil.i(TAG, "savePayInformation: " + order.toString());
                     mView.showMessage(App.getContext().getString(R.string.order_pay_success));
                     sendOrderListRefreshEvent();
+                } else {
+                    LogUtil.e(TAG, e.getLocalizedMessage());
+                    mView.showMessage(e.getLocalizedMessage());
+                }
+            }
+        });
+    }
+
+    @Override
+    public void cancelOrder(Order order) {
+        mView.showLoading();
+        order.deleteInBackground(new DeleteCallback() {
+            @Override
+            public void done(AVException e) {
+                mView.hideLoading();
+                if (e == null) {
+                    LogUtil.i(TAG, "cancelOrder");
+                    sendOrderListRefreshEvent();
+                    mView.showMessage(App.getContext().getString(R.string.order_list_cancel_order_success));
                 } else {
                     LogUtil.e(TAG, e.getLocalizedMessage());
                     mView.showMessage(e.getLocalizedMessage());

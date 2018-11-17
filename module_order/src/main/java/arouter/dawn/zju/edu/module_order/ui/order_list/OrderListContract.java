@@ -10,6 +10,7 @@ public interface OrderListContract {
 
     interface Presenter extends BaseContract.BasePresenter<View> {
         void savePayInformation(Order order);
+        void cancelOrder(Order order);
     }
 
 }
