@@ -1,11 +1,13 @@
 package arouter.dawn.zju.edu.module_goods.ui.goods_list;
 
 
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +57,9 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
 
     @Override
     public void onGoodsClick(View v, Goods goods) {
-        // todo 商品点击回调
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(Constants.GOODS_DETAIL_GOODS, goods);
+        ARouter.getInstance().build(Constants.AROUTER_GOODS_DETAIL)
+                .withBundle(Constants.GOODS_DETAIL_BUNDLE, bundle).navigation();
     }
 }
