@@ -37,6 +37,8 @@ public class EvaluateActivity extends BaseActivity<EvaluateContract.Presenter> i
 
     Order order;
 
+    private int mEvaluateType;
+
     @Override
     protected void initView() {
         frownIv = findViewById(R.id.frown_image);
@@ -63,6 +65,7 @@ public class EvaluateActivity extends BaseActivity<EvaluateContract.Presenter> i
         frownTv.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
 
+        mEvaluateType = 1;
         resetEvaluate();
     }
 
@@ -85,19 +88,16 @@ public class EvaluateActivity extends BaseActivity<EvaluateContract.Presenter> i
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.smile_text || id == R.id.smile_image) {
+            mEvaluateType = 1;
             resetEvaluate();
-            smileTv.setTextColor(getResources().getColor(R.color.colorPrimary));
-            Picasso.with(this).load(R.drawable.select_smile).into(smileIv);
         } else if (id == R.id.meh_text || id == R.id.meh_image) {
+            mEvaluateType = 0;
             resetEvaluate();
-            mehTv.setTextColor(getResources().getColor(R.color.colorPrimary));
-            Picasso.with(this).load(R.drawable.select_meh).into(mehIv);
         } else if (id == R.id.frown_text || id == R.id.frown_image) {
+            mEvaluateType = -1;
             resetEvaluate();
-            frownTv.setTextColor(getResources().getColor(R.color.colorPrimary));
-            Picasso.with(this).load(R.drawable.select_frown).into(frownIv);
         } else if (id == R.id.order_evaluate_submit) {
-
+            mPresenter.submitEvaluate(order, mEvaluateType, contentEt.getText().toString());
         }
     }
 
@@ -108,5 +108,19 @@ public class EvaluateActivity extends BaseActivity<EvaluateContract.Presenter> i
         Picasso.with(this).load(R.drawable.default_meh).into(mehIv);
         frownTv.setTextColor(getResources().getColor(R.color.grey));
         Picasso.with(this).load(R.drawable.default_frown).into(frownIv);
+        switch (mEvaluateType) {
+            case -1:
+                frownTv.setTextColor(getResources().getColor(R.color.colorPrimary));
+                Picasso.with(this).load(R.drawable.select_frown).into(frownIv);
+                break;
+            case 0:
+                mehTv.setTextColor(getResources().getColor(R.color.colorPrimary));
+                Picasso.with(this).load(R.drawable.select_meh).into(mehIv);
+                break;
+            case 1:
+                smileTv.setTextColor(getResources().getColor(R.color.colorPrimary));
+                Picasso.with(this).load(R.drawable.select_smile).into(smileIv);
+                break;
+        }
     }
 }
