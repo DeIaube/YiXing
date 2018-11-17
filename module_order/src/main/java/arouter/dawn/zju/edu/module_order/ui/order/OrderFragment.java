@@ -9,10 +9,14 @@ import android.view.View;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_order.R;
+import arouter.dawn.zju.edu.module_order.config.EventBusCode;
 import baselib.base.BaseFragment;
+import baselib.bus.BusEvent;
 
 @Route(path = baselib.config.Constants.AROUTER_ORDER_ORDER)
 public class OrderFragment extends BaseFragment<OrderContract.Presenter> implements OrderContract.View{
+
+    public static final String TAG = "OrderFragment";
 
     ViewPager viewPager;
     TabLayout tabLayout;
@@ -22,6 +26,22 @@ public class OrderFragment extends BaseFragment<OrderContract.Presenter> impleme
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_order;
+    }
+
+    @Override
+    protected boolean useEventBus() {
+        return true;
+    }
+
+    @Override
+    protected void handleEventinMainThread(BusEvent event) {
+        if (event.getTarget() != null && !event.getTarget().equals(TAG)) {
+            return;
+        }
+        int code = event.getCode();
+        if (code == EventBusCode.ORDER_LIST_REFRESH) {
+            mPresenter.refresh();
+        }
     }
 
     @Override
