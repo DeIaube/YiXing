@@ -1,8 +1,1 @@
-<manifest package="arouter.dawn.zju.edu.module_pay"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <application>
-        <activity
-            android:name=".PayDemoActivity" />
-    </application>
-</manifest>
+<manifest package="arouter.dawn.zju.edu.module_pay" />
