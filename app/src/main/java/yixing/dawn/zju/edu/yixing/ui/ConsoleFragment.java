@@ -2,8 +2,11 @@ package yixing.dawn.zju.edu.yixing.ui;
 
 
 import android.view.View;
+import android.widget.Toast;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
+import arouter.dawn.zju.edu.module_pay.AliPay;
+import arouter.dawn.zju.edu.module_pay.PayCallback;
 import baselib.base.BaseFragment;
 import yixing.dawn.zju.edu.yixing.R;
 
@@ -22,6 +25,7 @@ public class ConsoleFragment extends BaseFragment implements View.OnClickListene
     @Override
     protected void initView(View view) {
         view.findViewById(R.id.exit_logon).setOnClickListener(this);
+        view.findViewById(R.id.pay).setOnClickListener(this);
     }
 
     @Override
@@ -29,6 +33,24 @@ public class ConsoleFragment extends BaseFragment implements View.OnClickListene
         int id = v.getId();
         if (id == R.id.exit_logon) {
             User.logOut();
+        } else if (id == R.id.pay) {
+            new AliPay.Builed(getActivity())
+                    .setTitle("测试商品")
+                    .setContent("测试测试")
+                    .setPrice(233)
+                    .setPayCallback(new PayCallback() {
+                        @Override
+                        public void paySuccess() {
+                            Toast.makeText(getContext(), "支付成功", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void payFailed() {
+                            Toast.makeText(getContext(), "支付失败", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .buile()
+                    .pay(v);
         }
     }
 }
