@@ -48,6 +48,14 @@ public class Goods extends AVObject {
         put("region", region);
     }
 
+    public void setLocation(String location) {
+        put("location", location);
+    }
+
+    public String getLocation() {
+        return getString("location");
+    }
+
     public String getCity() {
         return getString("city");
     }
