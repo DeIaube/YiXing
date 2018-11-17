@@ -51,7 +51,11 @@ public class OrderFragment extends BaseFragment<OrderContract.Presenter> impleme
         mPresenter.bindViewPager(getChildFragmentManager(), viewPager, tabLayout);
     }
 
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        mPresenter.refresh();
+    }
 
     @Override
     public void showSwipeRefreshLayout() {
