@@ -3,6 +3,9 @@ package arouter.dawn.zju.edu.lib_net.bean;
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;
 
+import java.util.Date;
+import java.util.List;
+
 @AVClassName("Goods")
 public class Goods extends AVObject {
 
@@ -86,5 +89,29 @@ public class Goods extends AVObject {
 
     public String getShop() {
         return getString("shop");
+    }
+
+    public void setStartTime(Date date) {
+        put("startDate", date);
+    }
+
+    public Date getStartTime() {
+        return getDate("startDate");
+    }
+
+    public void setEndTime(Date date) {
+        put("endDate", date);
+    }
+
+    public Date getEndTime() {
+        return getDate("endDate");
+    }
+
+    public void setPreviewList(List<String> previewList) {
+        put("previewList", previewList);
+    }
+
+    public List getPreviewList() {
+        return getList("previewList");
     }
 }

@@ -14,6 +14,7 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.youth.banner.Banner;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,22 +62,20 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
         goodsPriceTv = findViewById(R.id.goods_detail_price);
         goodsPayBtn = findViewById(R.id.goods_detail_pay);
 
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
         goodsTitleTv.setText(goods.getTitle());
         goodsExplainTv.setText(goods.getExplain());
         goodsLocationTv.setText(goods.getLocation());
         goodsPriceTv.setText(String.format("%.2f", goods.getPrice()));
+        goodsStartTimeTv.setText(sdf.format(goods.getStartTime()));
+        goodsEndTimeTv.setText(sdf.format(goods.getEndTime()));
 
         goodsPayBtn.setOnClickListener(this);
 
-        List<String> imageList = new ArrayList<>();
-        imageList.add("http://lc-otc2yuns.cn-n1.lcfile.com/loVl6uctWbMc2uYj4aiZk47ad0yvovvgnfv5SSmv.jpg");
-        imageList.add("http://lc-otc2yuns.cn-n1.lcfile.com/loVl6uctWbMc2uYj4aiZk47ad0yvovvgnfv5SSmv.jpg");
-        imageList.add("http://lc-otc2yuns.cn-n1.lcfile.com/loVl6uctWbMc2uYj4aiZk47ad0yvovvgnfv5SSmv.jpg");
-        imageList.add("http://lc-otc2yuns.cn-n1.lcfile.com/loVl6uctWbMc2uYj4aiZk47ad0yvovvgnfv5SSmv.jpg");
-        imageList.add("http://lc-otc2yuns.cn-n1.lcfile.com/loVl6uctWbMc2uYj4aiZk47ad0yvovvgnfv5SSmv.jpg");
 
         goodsDetailBanner.setImageLoader(new PicassoUrlImageLeader());
-        goodsDetailBanner.setImages(imageList);
+        goodsDetailBanner.setImages(goods.getPreviewList());
         goodsDetailBanner.start();
 
         mCollectionMenuContent = getString(R.string.goods_detail_collection);
