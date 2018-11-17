@@ -8,6 +8,7 @@ public interface GoodsDetailContract {
     interface View extends BaseContract.BaseView {
         void showGoodsAlreadyCollection();
         void showGoodsUnCollection();
+        void refreshBuyCounterTextView(String text);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {

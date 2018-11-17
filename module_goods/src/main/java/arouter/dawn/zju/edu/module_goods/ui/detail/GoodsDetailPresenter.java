@@ -1,7 +1,10 @@
 package arouter.dawn.zju.edu.module_goods.ui.detail;
 
+import android.annotation.SuppressLint;
+
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.CountCallback;
 import com.avos.avoscloud.DeleteCallback;
 import com.avos.avoscloud.GetCallback;
 import com.avos.avoscloud.SaveCallback;
@@ -25,6 +28,21 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
     @Override
     public void init(Goods goods) {
         initCollection(goods);
+        initBuyCounter(goods);
+    }
+
+    private void initBuyCounter(Goods goods) {
+        AVQuery<Order> orderAVQuery = Order.getQuery(Order.class);
+        orderAVQuery.whereEqualTo("goods", goods)
+                .countInBackground(new CountCallback() {
+                    @SuppressLint("DefaultLocale")
+                    @Override
+                    public void done(int i, AVException e) {
+                        if (e == null) {
+                            mView.refreshBuyCounterTextView(String.format("已报名%d人", i));
+                        }
+                    }
+                });
     }
 
     private void initCollection(Goods goods) {

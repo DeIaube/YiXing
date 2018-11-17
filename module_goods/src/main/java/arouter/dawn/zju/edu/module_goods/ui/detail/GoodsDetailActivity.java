@@ -1,5 +1,6 @@
 package arouter.dawn.zju.edu.module_goods.ui.detail;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -44,6 +45,7 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
 
     private String mCollectionMenuContent;
 
+    @SuppressLint("DefaultLocale")
     @Override
     protected void initView() {
         goods = bundle.getParcelable(Constants.GOODS_DETAIL_GOODS);
@@ -58,6 +60,11 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
         goodsEndTimeTv = findViewById(R.id.goods_detail_end_time);
         goodsPriceTv = findViewById(R.id.goods_detail_price);
         goodsPayBtn = findViewById(R.id.goods_detail_pay);
+
+        goodsTitleTv.setText(goods.getTitle());
+        goodsExplainTv.setText(goods.getExplain());
+        goodsLocationTv.setText(goods.getLocation());
+        goodsPriceTv.setText(String.format("%.2f", goods.getPrice()));
 
         goodsPayBtn.setOnClickListener(this);
 
@@ -132,6 +139,12 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
     public void showGoodsUnCollection() {
         mCollectionMenuContent = getString(R.string.goods_detail_collection);
         getWindow().invalidatePanelMenu(Window.FEATURE_OPTIONS_PANEL);
+    }
+
+    @Override
+    public void refreshBuyCounterTextView(String text) {
+        goodsBuyCounterTv.setVisibility(View.VISIBLE);
+        goodsBuyCounterTv.setText(text);
     }
 
     @Override
