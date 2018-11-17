@@ -68,8 +68,6 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     private String getTypeString(int type) {
         if (type == Constants.ORDER_TYPE_PAYMENT) {
             return App.getContext().getString(R.string.order_list_type_payment);
-        } else if (type == Constants.ORDER_TYPE_CANCEL) {
-            return App.getContext().getString(R.string.order_list_type_cancel);
         } else if (type == Constants.ORDER_TYPE_COMPLETE_REQUE_EVALUATE) {
             return App.getContext().getString(R.string.order_list_type_reque_evaluate);
         } else if (type == Constants.ORDER_TYPE_COMPLETE_EVALUATED) {
@@ -116,16 +114,15 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
     private void initViewByType(OrderListHolder holder, int type) {
         if (type == Constants.ORDER_TYPE_PAYMENT) {
-            // 待付款 隐藏评价与申请售后
+            // 待付款 隐藏评价与申请退款
             holder.orderEvaluateBtn.setVisibility(View.GONE);
-        } else if (type == Constants.ORDER_TYPE_CANCEL) {
-            // 已取消 隐藏 申请售后 取消订单 立即付款 商品评价
-            holder.buttonLayoutLv.setVisibility(View.GONE);
+            holder.orderRefundBtn.setVisibility(View.GONE);
         } else if (type == Constants.ORDER_TYPE_COMPLETE_REQUE_EVALUATE){
             // 已完成 隐藏 取消订单 立即付款 申请售后
             holder.cancelOrderBtn.setVisibility(View.GONE);
             holder.payOrderBtn.setVisibility(View.GONE);
         } else if (type == Constants.ORDER_TYPE_COMPLETE_EVALUATED) {
+            // 已评价 隐藏 取消订单 立即付款 申请售后
             holder.cancelOrderBtn.setVisibility(View.GONE);
             holder.payOrderBtn.setVisibility(View.GONE);
             holder.orderEvaluateBtn.setVisibility(View.GONE);

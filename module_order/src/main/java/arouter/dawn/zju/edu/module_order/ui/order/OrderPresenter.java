@@ -39,8 +39,8 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
         mTitles = new ArrayList<>();
         mTitles.add("全部");
         mTitles.add("待付款");
-        mTitles.add("已取消");
-        mTitles.add("已完成");
+        mTitles.add("待评价");
+        mTitles.add("已评价");
         for (int i = 0; i < mTitles.size(); i++) {
             mOrderWithTypeList.add(new ArrayList<Order>());
         }

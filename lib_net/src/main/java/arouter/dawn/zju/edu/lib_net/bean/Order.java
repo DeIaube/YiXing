@@ -21,9 +21,8 @@ public class Order extends AVObject {
 
     /**
      * 1:待付款
-     * 2:已取消
-     * 3:待评价
-     * 4:已评价
+     * 2:待评价
+     * 3:已评价
      * @return type
      */
     public int getType() {
