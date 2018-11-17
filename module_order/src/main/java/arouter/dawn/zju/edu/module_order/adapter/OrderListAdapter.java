@@ -19,6 +19,7 @@ import java.util.List;
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.config.Constants;
 import arouter.dawn.zju.edu.lib_net.bean.Order;
+import baselib.App;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.OrderListHolder> {
 
@@ -58,9 +59,23 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         holder.payNumberTv.setText(String.format("￥ %.2f", order.getGoods().getPrice()));
         holder.realPayNumberTv.setText(String.format("￥ %.2f", order.getGoods().getPrice()));
         holder.goodsTitleTv.setText(order.getGoods().getTitle());
-        holder.typeTv.setText(order.getType());
+        holder.typeTv.setText(getTypeString(order.getType()));
         Picasso.with(mContext).load(order.getGoods().getPreview()).into(holder.goodsPreviewIv);
         initListener(holder, position);
+    }
+
+    private String getTypeString(int type) {
+        if (type == Constants.ORDER_TYPE_PAYMENT) {
+            return App.getContext().getString(R.string.order_list_type_payment);
+        } else if (type == Constants.ORDER_TYPE_CANCEL) {
+            return App.getContext().getString(R.string.order_list_type_cancel);
+        } else if (type == Constants.ORDER_TYPE_COMPLETE_REQUE_EVALUATE) {
+            return App.getContext().getString(R.string.order_list_type_reque_evaluate);
+        } else if (type == Constants.ORDER_TYPE_COMPLETE_EVALUATED) {
+            return App.getContext().getString(R.string.order_list_type_evaluated);
+        } else {
+            return App.getContext().getString(R.string.order_list_type_all);
+        }
     }
 
     private void initListener(OrderListHolder holder, final int position) {
@@ -92,14 +107,14 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         }
     }
 
-    private void initViewByType(OrderListHolder holder, String type) {
-        if (type.equals(Constants.ORDER_TYPE_PAYMENT)) {
+    private void initViewByType(OrderListHolder holder, int type) {
+        if (type == Constants.ORDER_TYPE_PAYMENT) {
             // 待付款 隐藏申请售后
             holder.orderEvaluateBtn.setVisibility(View.GONE);
-        } else if (type.equals(Constants.ORDER_TYPE_CANCEL)) {
+        } else if (type == Constants.ORDER_TYPE_CANCEL) {
             // 已取消 隐藏 申请售后 取消订单 立即付款
             holder.buttonLayoutLv.setVisibility(View.GONE);
-        } else if (type.equals(Constants.ORDER_TYPE_COMPLETE)) {
+        } else {
             // 已完成 隐藏 取消订单 立即付款
             holder.cancelOrderBtn.setVisibility(View.GONE);
             holder.payOrderBtn.setVisibility(View.GONE);

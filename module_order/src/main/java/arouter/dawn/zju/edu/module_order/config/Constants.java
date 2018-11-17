@@ -2,8 +2,8 @@ package arouter.dawn.zju.edu.module_order.config;
 
 public interface Constants {
 
-    String ORDER_TYPE_ALL = "全部";
-    String ORDER_TYPE_PAYMENT = "待付款";
-    String ORDER_TYPE_CANCEL = "已取消";
-    String ORDER_TYPE_COMPLETE = "已完成";
+    int ORDER_TYPE_PAYMENT = 1;
+    int ORDER_TYPE_CANCEL = 2;
+    int ORDER_TYPE_COMPLETE_REQUE_EVALUATE = 3;
+    int ORDER_TYPE_COMPLETE_EVALUATED = 4;
 }

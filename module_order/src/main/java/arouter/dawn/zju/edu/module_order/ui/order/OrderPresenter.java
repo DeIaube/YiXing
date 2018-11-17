@@ -27,24 +27,23 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
 
     private static final String TAG = "OrderPresenter";
 
-    private Map<String, List<Order>> mOrdersMap;
+    List<List<Order>> mOrderWithTypeList;
     private List<String> mTitles;
     private List<Fragment> mFragments;
 
     @SuppressLint("CheckResult")
     @Override
     public void bindViewPager(final FragmentManager fragmentManager, final ViewPager viewPager, final TabLayout tabLayout) {
-        mOrdersMap = new HashMap<>();
-        mOrdersMap.put(Constants.ORDER_TYPE_ALL, new ArrayList<Order>());
-        mOrdersMap.put(Constants.ORDER_TYPE_PAYMENT, new ArrayList<Order>());
-        mOrdersMap.put(Constants.ORDER_TYPE_CANCEL, new ArrayList<Order>());
-        mOrdersMap.put(Constants.ORDER_TYPE_COMPLETE, new ArrayList<Order>());
 
+        mOrderWithTypeList = new ArrayList<>();
         mTitles = new ArrayList<>();
         mTitles.add("全部");
         mTitles.add("待付款");
         mTitles.add("已取消");
         mTitles.add("已完成");
+        for (int i = 0; i < mTitles.size(); i++) {
+            mOrderWithTypeList.add(new ArrayList<Order>());
+        }
 
         mFragments = new ArrayList<>();
         mFragments.add(new OrderListFragment());
@@ -72,12 +71,19 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
                 mView.hideSwipeRefreshLayout();
                 if (e == null) {
                     LogUtil.i(TAG, list.toString());
-                    for (List<Order> orderList : mOrdersMap.values()) {
+                    for (List<Order> orderList : mOrderWithTypeList) {
                         orderList.clear();
                     }
                     for (Order order : list) {
-                        Objects.requireNonNull(mOrdersMap.get("全部")).add(order);
-                        Objects.requireNonNull(mOrdersMap.get(order.getType())).add(order);
+                        mOrderWithTypeList.get(0).add(order);
+                        int type = order.getType();
+                        if (type == 1) {
+                            mOrderWithTypeList.get(1).add(order);
+                        } else if (type == 2) {
+                            mOrderWithTypeList.get(2).add(order);
+                        } else {
+                            mOrderWithTypeList.get(3).add(order);
+                        }
                     }
                     refreshOrderListFragment();
                 } else {
@@ -96,7 +102,7 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
             Fragment fragment = mFragments.get(i);
             if (fragment instanceof OrderListFragment) {
                 OrderListFragment orderListFragment = (OrderListFragment) fragment;
-                orderListFragment.refresh(mOrdersMap.get(mTitles.get(i)));
+                orderListFragment.refresh(mOrderWithTypeList.get(i));
             }
         }
     }

@@ -19,11 +19,18 @@ public class Order extends AVObject {
         return null;
     }
 
-    public String getType() {
-        return getString("type");
+    /**
+     * 1:待付款
+     * 2:已取消
+     * 3:待评价
+     * 4:已评价
+     * @return type
+     */
+    public int getType() {
+        return getInt("type");
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         put("type", type);
     }
 

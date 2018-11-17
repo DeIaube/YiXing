@@ -1,5 +1,13 @@
 <resources>
 
+    <!--OrderList-->
+    <string name="order_list_type_all">全部</string>
+    <string name="order_list_type_payment">待付款</string>
+    <string name="order_list_type_cancel">已取消</string>
+    <string name="order_list_type_reque_evaluate">待评价</string>
+    <string name="order_list_type_evaluated">已评价</string>
+    <!--OrderList-->
+
     <!--Evaluate-->
     <string name="title_activity_evaluate">商品评价</string>
     <string name="order_evaluate_evaluate">评价</string>
