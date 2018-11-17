@@ -20,7 +20,7 @@ import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_GOODS_CART)
-public class CartActivity extends BaseActivity<CartContract.Presenter> implements CartContract.View, CartGoodsListAdapter.CartStatusChangeListener {
+public class GoodsCartActivity extends BaseActivity<GoodsCartContract.Presenter> implements GoodsCartContract.View, CartGoodsListAdapter.CartStatusChangeListener {
 
     RecyclerView goodsListRv;
     Button submitBtn;
@@ -58,12 +58,12 @@ public class CartActivity extends BaseActivity<CartContract.Presenter> implement
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_cart;
+        return R.layout.activity_goods_cart;
     }
 
     @Override
     protected void bindPresenter() {
-        mPresenter = new CartPresenter();
+        mPresenter = new GoodsCartPresenter();
     }
 
     @Override

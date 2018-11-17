@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="arouter.dawn.zju.edu.module_goods.ui.cart.CartActivity"
-    tools:showIn="@layout/activity_cart">
+    tools:context="arouter.dawn.zju.edu.module_goods.ui.cart.GoodsCartActivity"
+    tools:showIn="@layout/activity_goods_cart">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/goods_list"
@@ -41,7 +41,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="8dp"
             android:layout_gravity="center_vertical"
-            android:text="@string/all_select"
+            android:text="@string/goods_cart_all_select"
             android:textSize="12dp" />
 
         <TextView
@@ -49,7 +49,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical|end"
-            android:text="@string/total"
+            android:text="@string/goods_cart_total"
             android:textColor="@color/black"
             android:textSize="13dp" />
 
@@ -59,7 +59,6 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical|end"
             android:paddingEnd="8dp"
-            android:text="￥0.00"
             android:maxLines="1"
             android:textColor="@color/colorPrimary"
             android:textSize="13dp" />
@@ -70,7 +69,7 @@
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="@string/settlement"
+            android:text="@string/goods_cart_settlement"
             android:textColor="@color/white"
             android:textSize="16dp" />
 

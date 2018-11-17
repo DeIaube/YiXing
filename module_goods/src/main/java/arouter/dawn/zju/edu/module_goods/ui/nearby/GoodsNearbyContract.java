@@ -6,7 +6,7 @@ import android.support.v4.view.ViewPager;
 
 import baselib.base.BaseContract;
 
-public interface NearbyContract {
+public interface GoodsNearbyContract {
 
     interface View extends BaseContract.BaseView {
         void showSwipeRefreshLayout();

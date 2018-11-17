@@ -22,7 +22,7 @@ import baselib.util.SPUtil;
 import static android.app.Activity.RESULT_OK;
 
 @Route(path = baselib.config.Constants.AROUTER_GOODS_NEARBY)
-public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> implements NearbyContract.View, View.OnClickListener {
+public class GoodsNearbyFragment extends BaseFragment<GoodsNearbyContract.Presenter> implements GoodsNearbyContract.View, View.OnClickListener {
 
     TextView searchTv;
     TextView loacationTv;
@@ -42,12 +42,12 @@ public class NearbyFragment extends BaseFragment<NearbyContract.Presenter> imple
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_nearby;
+        return R.layout.fragment_goods_nearby;
     }
 
     @Override
     protected void bindPresenter() {
-        mPresenter = new NearbyPresenter();
+        mPresenter = new GoodsNearbyPresenter();
     }
 
     @Override

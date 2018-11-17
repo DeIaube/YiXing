@@ -14,12 +14,12 @@
             android:windowSoftInputMode="stateHidden|adjustPan" />
 
         <activity
-            android:name="arouter.dawn.zju.edu.module_goods.ui.search.SearchActivity"
-            android:label="@string/please_input_goods_name"
+            android:name="arouter.dawn.zju.edu.module_goods.ui.search.GoodsSearchActivity"
+            android:label="@string/goods_search_please_input_goods_name"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="arouter.dawn.zju.edu.module_goods.ui.cart.CartActivity"
+            android:name="arouter.dawn.zju.edu.module_goods.ui.cart.GoodsCartActivity"
             android:label="@string/title_activity_cart"
             android:theme="@style/AppTheme.NoActionBar" />
 

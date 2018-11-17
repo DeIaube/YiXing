@@ -2,7 +2,7 @@ package arouter.dawn.zju.edu.module_goods.ui.goods_list;
 
 import baselib.base.BaseContract;
 
-public interface GoodsListContract {
+public interface GoodsGoodsListContract {
 
     interface View extends BaseContract.BaseView {
     }

@@ -18,7 +18,7 @@
         <TextView
             android:id="@+id/comprehensive_sort"
             android:layout_weight="1"
-            android:text="@string/comprehensive_sort"
+            android:text="@string/goods_nearby_comprehensive_sort"
             android:gravity="center"
             android:textColor="@color/gray"
             android:layout_width="0dp"
@@ -40,7 +40,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:text="@string/price"
+                android:text="@string/goods_nearby_price"
                 android:textColor="@color/gray"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +73,7 @@
         <TextView
             android:id="@+id/distence_sort"
             android:layout_weight="1"
-            android:text="@string/nearest"
+            android:text="@string/goods_nearby_nearest"
             android:gravity="center"
             android:textColor="@color/gray"
             android:layout_width="0dp"

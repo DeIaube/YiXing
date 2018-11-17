@@ -1,12 +1,22 @@
 <resources>
-    <string name="please_input_goods_name">请输入商品名称</string>
 
+    <!--GoodsSearch-->
+    <string name="goods_search_please_input_goods_name">请输入商品名称</string>
+    <!--GoodsSearch-->
+
+    <!--GoodsCart-->
     <string name="title_activity_cart">购物车</string>
+    <string name="goods_cart_all_select">全选</string>
+    <string name="goods_cart_settlement">结算</string>
+    <string name="goods_cart_total">合计</string>
+    <!--GoodsCart-->
 
-    <string name="comprehensive_sort">综合排序</string>
-    <string name="price">价格</string>
-    <string name="nearest">距离最近</string>
-    <string name="all_select">全选</string>
-    <string name="settlement">结算</string>
-    <string name="total">合计</string>
+    <!--GoodsNearby-->
+    <string name="goods_nearby_comprehensive_sort">综合排序</string>
+    <string name="goods_nearby_price">价格</string>
+    <string name="goods_nearby_nearest">距离最近</string>
+    <string name="goods_nearby_default_city">宁波</string>
+    <string name="goods_nearby_default_search_tip">给你推荐 我不配做你男朋友</string>
+    <!--GoodsNearby-->
+
 </resources>

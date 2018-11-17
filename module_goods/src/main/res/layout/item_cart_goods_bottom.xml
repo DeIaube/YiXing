@@ -6,13 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        android:text="活动优惠: -￥0.00"
         android:textColor="#4d4d4d"
         android:textSize="12dp"
         app:layout_constraintBottom_toTopOf="@+id/cart_total_price_title"
@@ -26,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="11dp"
         android:layout_marginBottom="15dp"
-        android:text="本仓总计(不含税): ￥169.00"
         android:textColor="#4d4d4d"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"

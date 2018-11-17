@@ -33,7 +33,6 @@
         android:layout_marginStart="23dp"
         android:paddingLeft="4dp"
         android:gravity="center_vertical"
-        android:text="小米8 青春版"
         android:textColor="#101010"
         android:textSize="18dp"
         app:layout_constraintStart_toEndOf="@+id/goods_pre"
@@ -46,7 +45,6 @@
         android:layout_marginStart="8dp"
         android:textSize="12dp"
         android:textColor="#bbbbbb"
-        android:text="宁波 高新区"
         app:layout_constraintStart_toEndOf="@+id/interest_logo"
         app:layout_constraintTop_toTopOf="@+id/interest_logo" />
 
@@ -57,7 +55,6 @@
         android:layout_marginStart="21dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="￥169"
         android:textSize="18dp"
         android:textColor="@color/colorPrimary"
         app:layout_constraintStart_toEndOf="@+id/goods_pre"

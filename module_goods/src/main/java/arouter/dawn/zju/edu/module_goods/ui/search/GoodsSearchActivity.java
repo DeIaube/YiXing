@@ -21,7 +21,7 @@ import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_GOODS_SEARCH)
-public class SearchActivity extends BaseActivity<SearchContract.Presenter> implements SearchContract.View, GoodsListAdapter.OnGoodsClickListener {
+public class GoodsSearchActivity extends BaseActivity<GoodsSearchContract.Presenter> implements GoodsSearchContract.View, GoodsListAdapter.OnGoodsClickListener {
 
     RecyclerView searchResultRv;
     GoodsListAdapter adapter;
@@ -74,12 +74,12 @@ public class SearchActivity extends BaseActivity<SearchContract.Presenter> imple
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_search;
+        return R.layout.activity_goods_search;
     }
 
     @Override
     protected void bindPresenter() {
-        mPresenter = new SearchPresenter();
+        mPresenter = new GoodsSearchPresenter();
     }
 
     @Override
