@@ -17,4 +17,7 @@ public interface Constants {
     int SORT_PRICE_DOWN = 3; // 价格排序 低->高
     int SORT_DISTANCE = 4; // 距离排序
 
+    int ORDER_TYPE_PAYMENT = 1;
+    int ORDER_TYPE_COMPLETE_REQUE_EVALUATE = 2;
+
 }

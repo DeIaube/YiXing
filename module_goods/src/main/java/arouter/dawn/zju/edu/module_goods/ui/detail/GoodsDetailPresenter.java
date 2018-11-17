@@ -10,6 +10,7 @@ import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import arouter.dawn.zju.edu.lib_net.bean.GoodsCollection;
 import arouter.dawn.zju.edu.lib_net.bean.Order;
 import arouter.dawn.zju.edu.lib_net.bean.User;
+import arouter.dawn.zju.edu.module_goods.config.Constants;
 import arouter.dawn.zju.edu.module_nearby.R;
 import baselib.App;
 import baselib.base.BasePresenter;
@@ -81,7 +82,7 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
     public void paySuccess(Goods goods) {
         Order order = new Order();
         order.setGoods(goods);
-        order.setType(1);
+        order.setType(Constants.ORDER_TYPE_PAYMENT);
         order.saveInBackground();
         mView.showMessage(App.getContext().getString(R.string.goods_detail_pay_success));
     }
@@ -90,7 +91,7 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
     public void payFailed(Goods goods) {
         Order order = new Order();
         order.setGoods(goods);
-        order.setType(2);
+        order.setType(Constants.ORDER_TYPE_COMPLETE_REQUE_EVALUATE);
         order.saveInBackground();
         mView.showMessage(App.getContext().getString(R.string.goods_detail_pay_failed));
     }
