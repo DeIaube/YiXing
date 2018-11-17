@@ -19,4 +19,10 @@
     <string name="goods_nearby_default_search_tip">给你推荐 我不配做你男朋友</string>
     <!--GoodsNearby-->
 
+    <!--GoodsDetail-->
+    <string name="goods_detail_menu_share">分享</string>
+    <string name="goods_detail_collection">收藏</string>
+    <string name="goods_detail_cancel_collection">取消收藏</string>
+    <!--GoodsDetail-->
+
 </resources>

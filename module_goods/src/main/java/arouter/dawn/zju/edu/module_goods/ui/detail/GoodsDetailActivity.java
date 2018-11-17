@@ -1,6 +1,9 @@
 package arouter.dawn.zju.edu.module_goods.ui.detail;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -24,6 +27,8 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
 
     Banner goodsDetailBanner;
 
+    private String mCollectionMenuContent;
+
     @Override
     protected void initView() {
         goodsDetailBanner = findViewById(R.id.goods_detail_banner);
@@ -40,6 +45,8 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
         goodsDetailBanner.setImageLoader(new PicassoUrlImageLeader());
         goodsDetailBanner.setImages(imageList);
         goodsDetailBanner.start();
+
+        mCollectionMenuContent = getString(R.string.goods_detail_collection);
     }
 
     @Override
@@ -55,6 +62,35 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
     @Override
     protected void bindPresenter() {
         mPresenter = new GoodsDetailPresenter();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.detail_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem collectionItem = menu.findItem(R.id.detail_menu_collection);
+        collectionItem.setTitle(mCollectionMenuContent);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.detail_menu_collection) {
+            // 收藏商品
+        } else if (id == R.id.detail_menu_share) {
+            // 分享文章
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, goods.getTitle());
+            shareIntent.setType("text/plain");
+            startActivity(shareIntent.createChooser(shareIntent, goods.getTitle()));
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

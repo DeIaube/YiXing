@@ -43,8 +43,8 @@ public class GoodsSearchActivity extends BaseActivity<GoodsSearchContract.Presen
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.search_toolbar, menu);
-        MenuItem item = menu.findItem(R.id.toolbar_search);
+        getMenuInflater().inflate(R.menu.search_menu, menu);
+        MenuItem item = menu.findItem(R.id.search_menu_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
         //进去打开搜索栏
         searchView.setIconified(false);
