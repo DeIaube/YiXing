@@ -31,8 +31,8 @@ public class GoodsEvaluate extends AVObject {
         return getInt("type");
     }
 
-    public int setInt() {
-        return getInt("type");
+    public void setType(int type) {
+        put("type", type);
     }
 
 }
