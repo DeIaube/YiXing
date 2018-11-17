@@ -16,6 +16,7 @@
     <string name="title_activity_evaluate">商品评价</string>
     <string name="order_evaluate_evaluate">评价</string>
     <string name="order_evaluate_goods_evaluation">商品评价</string>
+    <string name="order_evaluate_evaluation_success">评价成功</string>
     <string name="order_evaluate_meh">一般</string>
     <string name="order_evaluate_frown">不咋滴</string>
     <string name="order_evaluate_smile">超赞</string>
