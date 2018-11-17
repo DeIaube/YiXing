@@ -21,7 +21,7 @@
             android:label="@string/title_activity_cart"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="arouter.dawn.zju.edu.module_goods.ui.goods_detail.GoodsDetailActivity"
+            android:name="arouter.dawn.zju.edu.module_goods.ui.detail.GoodsDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
