@@ -31,8 +31,8 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         void cancelOrderClickListener(final View view, final Order orderBean);
         void payOrderClickListener(final View view, final Order orderBean);
         void orderEvaluateClickListener(final View view, final Order orderBean);
-        void ordelDetailClickListener(final View view, final Order orderBean);
-        void ordelRefundClickListener(final View view, final Order orderBean);
+        void orderDetailClickListener(final View view, final Order orderBean);
+        void orderRefundClickListener(final View view, final Order orderBean);
     }
 
     public void setmOrderListClickListener(OnOrderListClickListener mOrderListClickListener) {
@@ -84,7 +84,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mOrderListClickListener.ordelDetailClickListener(v, mOrders.get(position));
+                    mOrderListClickListener.orderDetailClickListener(v, mOrders.get(position));
                 }
             });
             holder.cancelOrderBtn.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +108,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             holder.orderRefundBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mOrderListClickListener.ordelRefundClickListener(v, mOrders.get(position));
+                    mOrderListClickListener.orderRefundClickListener(v, mOrders.get(position));
                 }
             });
         }

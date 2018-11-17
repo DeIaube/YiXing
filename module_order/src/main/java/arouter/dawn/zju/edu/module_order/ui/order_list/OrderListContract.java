@@ -1,5 +1,6 @@
 package arouter.dawn.zju.edu.module_order.ui.order_list;
 
+import arouter.dawn.zju.edu.lib_net.bean.Order;
 import baselib.base.BaseContract;
 
 public interface OrderListContract {
@@ -8,7 +9,7 @@ public interface OrderListContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-
+        void savePayInformation(Order order);
     }
 
 }

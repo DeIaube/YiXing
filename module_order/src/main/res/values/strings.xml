@@ -1,5 +1,11 @@
 <resources>
 
+    <!--Base-->
+    <string name="cancel_order">确认要取消订单么</string>
+    <string name="order_pay_success">支付成功</string>
+    <string name="order_pay_failed">支付失败</string>
+    <!--Base-->
+
     <!--OrderList-->
     <string name="order_list_type_all">全部</string>
     <string name="order_list_type_payment">待付款</string>
@@ -24,7 +30,8 @@
     <string name="order_evaluate_submit">请评价购物满意度</string>
     <!--Evaluate-->
 
-    <string name="cancel_order">确认要取消订单么</string>
+    <!--Order-->
     <string name="title_activity_order">我的订单</string>
+    <!--Order-->
 
 </resources>

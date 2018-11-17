@@ -15,6 +15,8 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.adapter.OrderListAdapter;
+import arouter.dawn.zju.edu.module_pay.AliPay;
+import arouter.dawn.zju.edu.module_pay.PayCallback;
 import baselib.base.BaseFragment;
 import arouter.dawn.zju.edu.lib_net.bean.Order;
 import baselib.config.Constants;
@@ -69,8 +71,24 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
             }
 
             @Override
-            public void payOrderClickListener(View view, Order orderBean) {
+            public void payOrderClickListener(View view, final Order orderBean) {
+                new AliPay.Builed(getActivity())
+                        .setTitle(orderBean.getGoods().getTitle())
+                        .setContent(orderBean.getGoods().getExplain())
+                        .setPrice(orderBean.getGoods().getPrice())
+                        .setPayCallback(new PayCallback() {
+                            @Override
+                            public void paySuccess() {
+                                mPresenter.savePayInformation(orderBean);
+                            }
 
+                            @Override
+                            public void payFailed() {
+                                showMessage(getString(R.string.order_pay_failed));
+                            }
+                        })
+                        .buile()
+                        .pay(view);
             }
 
             @Override
@@ -83,12 +101,12 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
             }
 
             @Override
-            public void ordelDetailClickListener(View view, Order orderBean) {
+            public void orderDetailClickListener(View view, Order orderBean) {
 
             }
 
             @Override
-            public void ordelRefundClickListener(View view, Order orderBean) {
+            public void orderRefundClickListener(View view, Order orderBean) {
 
             }
         });
