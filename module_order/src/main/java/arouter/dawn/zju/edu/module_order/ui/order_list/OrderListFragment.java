@@ -55,11 +55,12 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
             public void cancelOrderClickListener(View view, Order orderBean) {
                 new AlertDialog.Builder(getContext())
                         .setTitle(R.string.tips)
-                        .setMessage(R.string.cancellation_of_order)
+                        .setMessage(R.string.cancel_order)
                         .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 // todo 取消订单
+
                             }
                         })
                         .setNegativeButton(R.string.cancel, null)

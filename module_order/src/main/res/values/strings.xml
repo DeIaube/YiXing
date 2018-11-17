@@ -1,10 +1,17 @@
 <resources>
-    <string name="evaluate">评价</string>
-    <string name="goods_evaluation">商品评价</string>
-    <string name="meh_evaluation">一般</string>
-    <string name="frown_evaluation">不咋滴</string>
-    <string name="smile_evaluation">超赞</string>
-    <string name="cancellation_of_order">确认要取消订单么</string>
-    <string name="title_activity_order">我的订单</string>
+
+    <!--Evaluate-->
     <string name="title_activity_evaluate">商品评价</string>
+    <string name="order_evaluate_evaluate">评价</string>
+    <string name="order_evaluate_goods_evaluation">商品评价</string>
+    <string name="order_evaluate_meh">一般</string>
+    <string name="order_evaluate_frown">不咋滴</string>
+    <string name="order_evaluate_smile">超赞</string>
+    <string name="order_evaluate_content_hint">说说哪儿里好,鼓励一下我吧~</string>
+    <string name="order_evaluate_submit">请评价购物满意度</string>
+    <!--Evaluate-->
+
+    <string name="cancel_order">确认要取消订单么</string>
+    <string name="title_activity_order">我的订单</string>
+
 </resources>

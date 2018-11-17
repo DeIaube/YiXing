@@ -20,7 +20,7 @@
 
             <TextView
                 android:textSize="20dp"
-                android:text="@string/evaluate"
+                android:text="@string/order_evaluate_evaluate"
                 android:paddingLeft="-50dp"
                 android:maxLines="1"
                 android:gravity="center"

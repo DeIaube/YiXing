@@ -26,7 +26,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="10dp"
         android:gravity="center_vertical"
-        android:text="张姐脆皮鸡烤肉拌饭(高新店)"
         android:textColor="#101010"
         app:layout_constraintBottom_toBottomOf="@+id/goods_preview"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +40,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+        app:layout_constraintBottom_toTopOf="@+id/order_evaluate_submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/goods_preview">
@@ -58,7 +57,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="8dp"
                 android:gravity="center"
-                android:text="@string/goods_evaluation"
+                android:text="@string/order_evaluate_goods_evaluation"
                 android:textColor="#101010"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -84,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="@string/meh_evaluation"
+                android:text="@string/order_evaluate_meh"
                 app:layout_constraintEnd_toEndOf="@+id/meh_image"
                 app:layout_constraintStart_toStartOf="@+id/meh_image"
                 app:layout_constraintTop_toBottomOf="@+id/meh_image" />
@@ -105,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="@string/frown_evaluation"
+                android:text="@string/order_evaluate_frown"
                 app:layout_constraintEnd_toEndOf="@+id/frown_image"
                 app:layout_constraintStart_toStartOf="@+id/frown_image"
                 app:layout_constraintTop_toBottomOf="@+id/frown_image" />
@@ -126,12 +125,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="@string/smile_evaluation"
+                android:text="@string/order_evaluate_smile"
                 app:layout_constraintEnd_toEndOf="@+id/smile_image"
                 app:layout_constraintStart_toStartOf="@+id/smile_image"
                 app:layout_constraintTop_toBottomOf="@+id/smile_image" />
 
             <EditText
+                android:id="@+id/order_evaluate_content"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="12dp"
@@ -140,7 +140,7 @@
                 android:layout_marginBottom="16dp"
                 android:background="#fafafa"
                 android:gravity="start"
-                android:hint="说说哪儿里好,鼓励一下我吧~"
+                android:hint="@string/order_evaluate_content_hint"
                 android:padding="8dp"
                 android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -153,7 +153,7 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/order_evaluate_submit"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
@@ -161,7 +161,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/evaluate_submit_btn_bg"
         android:gravity="center"
-        android:text="请评价购物满意度"
+        android:text="@string/order_evaluate_submit"
         android:textColor="@color/white"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
