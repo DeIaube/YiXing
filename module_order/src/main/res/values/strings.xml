@@ -37,6 +37,7 @@
 
     <!--CashCoupon-->
     <string name="title_activity_cash_coupon">我的代金券</string>
+    <string name="cash_coupon_infamation">1. 优惠券需在有效期内使用 \n2. 优惠券仅可用于支付商品金额 \n3. 同一订单只能使用一张优惠券 \n4. 优惠券仅限指定商品使用</string>
     <!--CashCoupon-->
 
 </resources>

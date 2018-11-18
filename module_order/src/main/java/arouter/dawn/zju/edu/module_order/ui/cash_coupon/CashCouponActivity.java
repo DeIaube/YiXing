@@ -1,6 +1,10 @@
 package arouter.dawn.zju.edu.module_order.ui.cash_coupon;
 
 
+import android.support.v7.app.AlertDialog;
+import android.view.Menu;
+import android.view.MenuItem;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_order.R;
@@ -28,5 +32,24 @@ public class CashCouponActivity extends BaseActivity<CashCouponContract.Presente
     @Override
     protected boolean showHomeAsUp() {
         return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.cash_coupon, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.cash_coupon_menu_infamation) {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.tips)
+                    .setMessage(R.string.cash_coupon_infamation)
+                    .setNegativeButton(R.string.confirm, null)
+                    .show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
