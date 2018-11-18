@@ -48,4 +48,12 @@ public class CashCoupon extends AVObject {
         return getDate("endDate");
     }
 
+    public void setIntegral(int integral) {
+        put("integral", integral);
+    }
+
+    public int getIntegral() {
+        return getInt("integral");
+    }
+
 }
