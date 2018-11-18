@@ -97,7 +97,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             ARouter.getInstance().build(Constants.AROUTER_ORDER_CASH_COUPON).navigation();
         } else if (id == R.id.integral_layout) {
             // 点击积分
-            ARouter.getInstance().build(Constants.AROUTER_SETTING_INTEGRAL).navigation();
+            ARouter.getInstance().build(Constants.AROUTER_ORDER_INTEGRAL).navigation();
         } else if (id == R.id.collection_layout) {
             // 点击我的收藏
             ARouter.getInstance().build(Constants.AROUTER_SETTING_COLLECTION).navigation();
@@ -106,7 +106,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             ARouter.getInstance().build(Constants.AROUTER_GOODS_CART).navigation();
         } else if (id == R.id.integral_mall_layout) {
             // 点击积分商城
-            ARouter.getInstance().build(Constants.AROUTER_SETTING_INTEGRAL).navigation();
+            ARouter.getInstance().build(Constants.AROUTER_ORDER_INTEGRAL).navigation();
         } else if (id == R.id.feedback) {
             // 点击问题反馈
             ARouter.getInstance().build(Constants.AROUTER_SETTING_FEEDBACK).navigation();

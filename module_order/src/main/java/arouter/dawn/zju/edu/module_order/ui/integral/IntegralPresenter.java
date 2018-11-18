@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_mine.ui.integral;
+package arouter.dawn.zju.edu.module_order.ui.integral;
 
 import baselib.base.BasePresenter;
 

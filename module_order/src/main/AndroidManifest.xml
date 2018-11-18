@@ -11,6 +11,10 @@
             android:name=".ui.cash_coupon.CashCouponActivity"
             android:label="@string/title_activity_cash_coupon"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name="arouter.dawn.zju.edu.module_order.ui.integral.IntegralActivity"
+            android:label="@string/title_activity_integral"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

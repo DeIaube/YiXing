@@ -19,10 +19,6 @@
             android:name=".ui.notice.NoticeActivity"
             android:label="@string/title_activity_notice"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.integral.IntegralActivity"
-            android:label="@string/title_activity_integral"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

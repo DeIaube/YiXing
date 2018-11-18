@@ -1,12 +1,12 @@
-package arouter.dawn.zju.edu.module_mine.ui.integral;
+package arouter.dawn.zju.edu.module_order.ui.integral;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
-import arouter.dawn.zju.edu.module_mine.R;
+import arouter.dawn.zju.edu.module_order.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
-@Route(path = Constants.AROUTER_SETTING_INTEGRAL)
+@Route(path = Constants.AROUTER_ORDER_INTEGRAL)
 public class IntegralActivity extends BaseActivity<IntegralContract.Presenter> implements IntegralContract.View {
 
     @Override

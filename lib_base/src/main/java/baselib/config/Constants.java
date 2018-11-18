@@ -39,6 +39,7 @@ public interface Constants {
     String AROUTER_ORDER_ORDER = "/order/order";
     String AROUTER_ORDER_LIST = "/order/list";
     String AROUTER_ORDER_CASH_COUPON = "/order/cashCoupon";
+    String AROUTER_ORDER_INTEGRAL = "/order/integral";
 
     String ORDER_ORDER_LIST_BOUNDLE = "orderOrderListBundle";
     String ORDER_ORDER_LIST_ORDER = "orderListOrder";
@@ -48,7 +49,6 @@ public interface Constants {
     String AROUTER_SETTING_MINE = "/setting/mine";
     String AROUTER_SETTING_SETTING = "/setting/setting";
     String AROUTER_SETTING_NOTICE = "/setting/notice";
-    String AROUTER_SETTING_INTEGRAL = "/setting/integral";
     String AROUTER_SETTING_COLLECTION = "/setting/collection";
     String AROUTER_SETTING_FEEDBACK = "/setting/feedback";
 
