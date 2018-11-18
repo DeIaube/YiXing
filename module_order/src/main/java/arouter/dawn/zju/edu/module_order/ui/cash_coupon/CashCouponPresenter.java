@@ -43,7 +43,8 @@ public class CashCouponPresenter extends BasePresenter<CashCouponContract.View> 
         CashCouponPagerAdapter adapter = new CashCouponPagerAdapter(fragmentManager, mTitles, mFragments);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-
+        viewPager.setOffscreenPageLimit(mTitles.size());
+        
         refreshUserCashCouponList();
     }
 
