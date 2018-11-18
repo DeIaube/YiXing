@@ -47,7 +47,7 @@
         <TextView
             android:id="@+id/cash_coupon_balance"
             android:gravity="center_horizontal|bottom"
-            android:text="6个"
+            android:text="0"
             android:layout_weight="1"
             android:textSize="18dp"
             android:textColor="@color/colorPrimary"

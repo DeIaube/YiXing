@@ -19,7 +19,8 @@ import baselib.base.BaseFragment;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_SETTING_MINE)
-public class MineFragment extends BaseFragment implements View.OnClickListener {
+public class MineFragment extends BaseFragment<MineContract.Presenter> implements
+        View.OnClickListener, MineContract.View {
 
     // 钱包余额 0.00元
     TextView walletBalanceTv;
@@ -40,7 +41,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new MinePresenter();
     }
 
     @Override
@@ -67,7 +68,15 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         view.findViewById(R.id.cooperate_layout).setOnClickListener(this);
         view.findViewById(R.id.about_layout).setOnClickListener(this);
         view.findViewById(R.id.github_layout).setOnClickListener(this);
+    }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        refreshView();
+    }
+
+    private void refreshView() {
         User user = User.getCurrentUser(User.class);
         accountNameTv.setText(user.getPickName());
         accountPhoneTv.setText(user.getMobilePhoneNumber());
@@ -75,7 +84,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         if (user.getPortrait() != null) {
             Picasso.with(getContext()).load(user.getPortrait()).into(accountProfileIv);
         }
-
+        mPresenter.refreshCashCouponCount();
     }
 
     @Override
@@ -148,5 +157,10 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                                 .translationZ(1.0f).setDuration(250);
                     }
                 }).start();
+    }
+
+    @Override
+    public void refreshCashCouponCount(int count) {
+        cashCouponBalanceTv.setText(String.valueOf(count));
     }
 }
