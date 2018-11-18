@@ -12,16 +12,16 @@ public class CashCoupon extends AVObject {
         put("discount", discount);
     }
 
-    public void getDiscount() {
-        getDouble("discount");
+    public double getDiscount() {
+        return getDouble("discount");
     }
 
     public void setDoorsill(double doorsill) {
         put("doorsill", doorsill);
     }
 
-    public void getDoorsill() {
-        getDouble("doorsill");
+    public double getDoorsill() {
+        return getDouble("doorsill");
     }
 
     public String getTitle() {
