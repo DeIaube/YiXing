@@ -3,12 +3,14 @@
     package="arouter.dawn.zju.edu.module_order">
 
     <application>
-
         <activity
             android:name=".ui.evaluate.EvaluateActivity"
             android:label="@string/title_activity_evaluate"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity
+            android:name=".ui.cash_coupon.CashCouponActivity"
+            android:label="@string/title_activity_cash_coupon"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

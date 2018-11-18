@@ -95,6 +95,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             // 点击钱包
         }  else if (id == R.id.cash_coupon_layout) {
             // 点击代金券
+            ARouter.getInstance().build(Constants.AROUTER_ORDER_CASH_COUPON).navigation();
         } else if (id == R.id.integral_layout) {
             // 点击积分
             ARouter.getInstance().build(Constants.AROUTER_SETTING_INTEGRAL).navigation();

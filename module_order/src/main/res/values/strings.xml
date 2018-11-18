@@ -35,4 +35,8 @@
     <string name="title_activity_order">我的订单</string>
     <!--Order-->
 
+    <!--CashCoupon-->
+    <string name="title_activity_cash_coupon">我的代金券</string>
+    <!--CashCoupon-->
+
 </resources>
