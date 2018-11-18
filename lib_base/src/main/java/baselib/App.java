@@ -9,6 +9,7 @@ import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.PushService;
 
+import arouter.dawn.zju.edu.lib_net.bean.CashCoupon;
 import arouter.dawn.zju.edu.lib_net.bean.Feedback;
 import arouter.dawn.zju.edu.lib_net.bean.ForumCollection;
 import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
@@ -21,6 +22,7 @@ import arouter.dawn.zju.edu.lib_net.bean.GoodsCollection;
 import arouter.dawn.zju.edu.lib_net.bean.GoodsEvaluate;
 import arouter.dawn.zju.edu.lib_net.bean.Order;
 import arouter.dawn.zju.edu.lib_net.bean.User;
+import arouter.dawn.zju.edu.lib_net.bean.UserCashCoupon;
 import baselib.config.Constants;
 import baselib.util.SPUtil;
 import io.realm.Realm;
@@ -62,6 +64,8 @@ public class App extends Application {
         AVObject.registerSubclass(ForumPostLike.class);
         AVObject.registerSubclass(ForumCollection.class);
         AVObject.registerSubclass(ForumPostReport.class);
+        AVObject.registerSubclass(UserCashCoupon.class);
+        AVObject.registerSubclass(CashCoupon.class);
         AVObject.registerSubclass(Order.class);
         AVObject.registerSubclass(Feedback.class);
         PushService.setDefaultChannelId(this, "public");

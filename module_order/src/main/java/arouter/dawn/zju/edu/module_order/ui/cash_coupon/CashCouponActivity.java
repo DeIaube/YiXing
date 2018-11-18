@@ -1,6 +1,8 @@
 package arouter.dawn.zju.edu.module_order.ui.cash_coupon;
 
 
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,9 +16,15 @@ import baselib.config.Constants;
 @Route(path = Constants.AROUTER_ORDER_CASH_COUPON)
 public class CashCouponActivity extends BaseActivity<CashCouponContract.Presenter> implements CashCouponContract.View {
 
+    TabLayout cashCouponTabLayout;
+    ViewPager cashCouponViewPager;
+
     @Override
     protected void initView() {
+        cashCouponTabLayout = findViewById(R.id.cash_coupon_tab_layout);
+        cashCouponViewPager = findViewById(R.id.cash_coupon_view_pager);
 
+        mPresenter.bindViewPager(getSupportFragmentManager(), cashCouponViewPager, cashCouponTabLayout);
     }
 
     @Override
