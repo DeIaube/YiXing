@@ -5,8 +5,11 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import arouter.dawn.zju.edu.lib_net.bean.GoodsCollection;
+import arouter.dawn.zju.edu.lib_net.bean.User;
 import baselib.base.BasePresenter;
 import arouter.dawn.zju.edu.lib_net.bean.Goods;
 import baselib.util.LogUtil;
@@ -18,19 +21,26 @@ public class CollectionPresenter extends BasePresenter<CollectionContract.View> 
     @Override
     public void refresh() {
         mView.showLoading();
-        AVQuery<Goods> query = Goods.getQuery(Goods.class);
-        query.findInBackground(new FindCallback<Goods>() {
-            @Override
-            public void done(List<Goods> list, AVException e) {
-                mView.hideLoading();
-                if (e == null) {
-                    LogUtil.i(TAG, list.toString());
-                    mView.refresh(list);
-                } else {
-                    LogUtil.e(TAG, e.toString());
-                }
-            }
-        });
+        AVQuery<GoodsCollection> goodsCollectionAVQuery = GoodsCollection.getQuery(GoodsCollection.class);
+        goodsCollectionAVQuery.
+                whereEqualTo("user", User.getCurrentUser(User.class))
+                .include("goods")
+                .findInBackground(new FindCallback<GoodsCollection>() {
+                    @Override
+                    public void done(List<GoodsCollection> list, AVException e) {
+                        mView.hideLoading();
+                        if (e == null) {
+                            LogUtil.i(TAG, list.toString());
+                            List<Goods> goodsList = new ArrayList<>();
+                            for (GoodsCollection goodsCollection : list) {
+                                goodsList.add(goodsCollection.getGoods());
+                                mView.refresh(goodsList);
+                            }
+                        } else {
+                            LogUtil.e(TAG, e.toString());
+                        }
+                    }
+                });
     }
 
 }
