@@ -103,6 +103,7 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
             ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_PERSONAL).navigation();
         } else if (id == R.id.wallet_layout) {
             // 点击钱包
+            ARouter.getInstance().build(Constants.AROUTER_WALLET_HOME).navigation();
         }  else if (id == R.id.cash_coupon_layout) {
             // 点击代金券
             ARouter.getInstance().build(Constants.AROUTER_ORDER_CASH_COUPON).navigation();

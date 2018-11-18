@@ -1,3 +1,3 @@
 <resources>
-    <string name="app_name">module_wallet</string>
+    <string name="title_activity_wallet">我的钱包</string>
 </resources>

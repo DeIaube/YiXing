@@ -67,4 +67,8 @@ public interface Constants {
     String FORUM_SHOW_IMAGE_BUNDLE = "forumShowImageBundle";
     String FORUM_SHOW_IMAGE_LIST = "forumShowImageList";
     String FORUM_POST_POST = "forumPostPost";
+
+    // Wallet
+    String AROUTER_WALLET_GROP = "wallet";
+    String AROUTER_WALLET_HOME = "/wallet/home";
 }
