@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_wallet;
+package arouter.dawn.zju.edu.module_wallet.ui.home;
 
 import android.view.View;
 import android.widget.TextView;
@@ -6,6 +6,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 

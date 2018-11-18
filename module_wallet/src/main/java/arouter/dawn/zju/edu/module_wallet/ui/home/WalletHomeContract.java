@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_wallet;
+package arouter.dawn.zju.edu.module_wallet.ui.home;
 
 
 import java.util.List;

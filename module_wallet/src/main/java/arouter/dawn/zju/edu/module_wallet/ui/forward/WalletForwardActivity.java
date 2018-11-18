@@ -1,7 +1,8 @@
-package arouter.dawn.zju.edu.module_wallet;
+package arouter.dawn.zju.edu.module_wallet.ui.forward;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
+import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
