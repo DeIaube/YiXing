@@ -29,6 +29,10 @@ public class ModifyPicknameActivity extends BaseActivity<ModifyPicknameContract.
         modifyPicknameEt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() >= 5 && s.length() <= 24) {
                     confirmModifyBtn.setClickable(true);
                     confirmModifyBtn.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
@@ -36,10 +40,6 @@ public class ModifyPicknameActivity extends BaseActivity<ModifyPicknameContract.
                     confirmModifyBtn.setClickable(false);
                     confirmModifyBtn.setBackgroundColor(getResources().getColor(R.color.lightgrey));
                 }
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
 
             @Override
