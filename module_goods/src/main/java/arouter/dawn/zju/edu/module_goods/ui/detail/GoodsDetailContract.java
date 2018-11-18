@@ -1,6 +1,6 @@
 package arouter.dawn.zju.edu.module_goods.ui.detail;
 
-import arouter.dawn.zju.edu.lib_net.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import baselib.base.BaseContract;
 
 public interface GoodsDetailContract {

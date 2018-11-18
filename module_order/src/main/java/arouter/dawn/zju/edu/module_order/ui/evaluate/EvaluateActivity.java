@@ -11,8 +11,7 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.squareup.picasso.Picasso;
 
-import arouter.dawn.zju.edu.lib_net.bean.Goods;
-import arouter.dawn.zju.edu.lib_net.bean.Order;
+import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import arouter.dawn.zju.edu.module_order.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;

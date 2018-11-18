@@ -4,7 +4,7 @@ import android.view.View;
 
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.UserCashCoupon;
+import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_order.R;
 import baselib.base.BaseFragment;
 

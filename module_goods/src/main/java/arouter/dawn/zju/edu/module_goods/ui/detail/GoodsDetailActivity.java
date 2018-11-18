@@ -15,10 +15,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.youth.banner.Banner;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import arouter.dawn.zju.edu.module_goods.util.PicassoUrlImageLeader;
 import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.module_pay.AliPay;

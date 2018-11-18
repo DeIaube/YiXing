@@ -8,8 +8,8 @@ import com.avos.avoscloud.FindCallback;
 import java.util.ArrayList;
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.ForumCollection;
-import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumCollection;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;

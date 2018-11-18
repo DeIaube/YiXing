@@ -15,7 +15,7 @@ import java.util.List;
 import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.module_goods.adapter.GoodsListAdapter;
 import baselib.base.BaseFragment;
-import arouter.dawn.zju.edu.lib_net.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import baselib.callback.GoodsListRefreshCallback;
 import baselib.config.Constants;
 

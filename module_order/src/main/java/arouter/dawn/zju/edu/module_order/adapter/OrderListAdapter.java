@@ -18,7 +18,7 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.config.Constants;
-import arouter.dawn.zju.edu.lib_net.bean.Order;
+import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import baselib.App;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.OrderListHolder> {

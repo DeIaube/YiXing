@@ -1,10 +1,9 @@
 package arouter.dawn.zju.edu.module_order.ui.evaluate;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 
-import arouter.dawn.zju.edu.lib_net.bean.GoodsEvaluate;
-import arouter.dawn.zju.edu.lib_net.bean.Order;
+import arouter.dawn.zju.edu.lib_net.bean.goods.GoodsEvaluate;
+import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.config.Constants;
 import baselib.App;

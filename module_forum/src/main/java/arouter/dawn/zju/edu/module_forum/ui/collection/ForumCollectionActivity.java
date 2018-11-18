@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import java.util.ArrayList;
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumPostListAdapter;
 import baselib.base.BaseActivity;

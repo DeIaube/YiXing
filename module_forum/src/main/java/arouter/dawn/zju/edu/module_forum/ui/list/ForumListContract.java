@@ -3,7 +3,7 @@ package arouter.dawn.zju.edu.module_forum.ui.list;
 
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
 import baselib.base.BaseContract;
 
 public interface ForumListContract {

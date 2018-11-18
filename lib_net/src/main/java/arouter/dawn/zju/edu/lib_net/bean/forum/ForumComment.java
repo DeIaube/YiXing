@@ -1,7 +1,9 @@
-package arouter.dawn.zju.edu.lib_net.bean;
+package arouter.dawn.zju.edu.lib_net.bean.forum;
 
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;
+
+import arouter.dawn.zju.edu.lib_net.bean.User;
 
 @AVClassName("ForumComment")
 public class ForumComment extends AVObject {

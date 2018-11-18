@@ -8,10 +8,10 @@ import com.avos.avoscloud.FindCallback;
 import java.util.ArrayList;
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.GoodsCollection;
+import arouter.dawn.zju.edu.lib_net.bean.goods.GoodsCollection;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import baselib.base.BasePresenter;
-import arouter.dawn.zju.edu.lib_net.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import baselib.util.LogUtil;
 
 public class CollectionPresenter extends BasePresenter<CollectionContract.View> implements CollectionContract.Presenter {

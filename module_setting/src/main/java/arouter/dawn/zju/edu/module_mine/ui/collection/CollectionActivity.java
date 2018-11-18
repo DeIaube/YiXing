@@ -10,7 +10,7 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.module_mine.R;
 import baselib.base.BaseActivity;
-import arouter.dawn.zju.edu.lib_net.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import baselib.callback.GoodsListRefreshCallback;
 import baselib.config.Constants;
 

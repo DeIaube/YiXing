@@ -18,7 +18,7 @@ import arouter.dawn.zju.edu.module_order.adapter.OrderListAdapter;
 import arouter.dawn.zju.edu.module_pay.AliPay;
 import arouter.dawn.zju.edu.module_pay.PayCallback;
 import baselib.base.BaseFragment;
-import arouter.dawn.zju.edu.lib_net.bean.Order;
+import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_ORDER_LIST)

@@ -1,17 +1,19 @@
-package arouter.dawn.zju.edu.lib_net.bean;
+package arouter.dawn.zju.edu.lib_net.bean.forum;
 
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;
 
-@AVClassName("ForumPostLike")
-public class ForumPostLike extends AVObject {
+import arouter.dawn.zju.edu.lib_net.bean.User;
+
+@AVClassName("ForumCollection")
+public class ForumCollection extends AVObject {
 
     public void setOwner(User user) {
-        put("user", user);
+        put("owner", user);
     }
 
     public User getOwner() {
-        return getAVUser("user", User.class);
+        return getAVUser("owner", User.class);
     }
 
     public ForumPost getPost() {

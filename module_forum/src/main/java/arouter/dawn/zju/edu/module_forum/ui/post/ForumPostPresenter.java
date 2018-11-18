@@ -14,11 +14,11 @@ import com.avos.avoscloud.SaveCallback;
 import java.util.ArrayList;
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.ForumCollection;
-import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
-import arouter.dawn.zju.edu.lib_net.bean.ForumFollow;
-import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
-import arouter.dawn.zju.edu.lib_net.bean.ForumPostReport;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumCollection;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumComment;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumFollow;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPostReport;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_forum.R;
 import baselib.App;

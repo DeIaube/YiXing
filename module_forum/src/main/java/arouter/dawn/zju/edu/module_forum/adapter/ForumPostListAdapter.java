@@ -20,9 +20,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
-import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
-import arouter.dawn.zju.edu.lib_net.bean.ForumPostLike;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumComment;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPostLike;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_forum.R;
 import baselib.config.Constants;

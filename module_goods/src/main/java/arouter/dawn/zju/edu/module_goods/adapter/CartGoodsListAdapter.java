@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 import arouter.dawn.zju.edu.module_nearby.R;
-import arouter.dawn.zju.edu.lib_net.bean.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 
 public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdapter.CartGoodsHolder> {
 

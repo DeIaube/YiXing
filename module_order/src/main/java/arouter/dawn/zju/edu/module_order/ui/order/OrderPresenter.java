@@ -11,16 +11,12 @@ import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 import arouter.dawn.zju.edu.module_order.adapter.OrderPagerAdapter;
-import arouter.dawn.zju.edu.module_order.config.Constants;
 import arouter.dawn.zju.edu.module_order.ui.order_list.OrderListFragment;
 import baselib.base.BasePresenter;
-import arouter.dawn.zju.edu.lib_net.bean.Order;
+import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import baselib.util.LogUtil;
 
 public class OrderPresenter extends BasePresenter<OrderContract.View> implements OrderContract.Presenter {

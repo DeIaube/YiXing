@@ -13,9 +13,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.CashCoupon;
 import arouter.dawn.zju.edu.lib_net.bean.User;
-import arouter.dawn.zju.edu.lib_net.bean.UserCashCoupon;
+import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_order.adapter.CashCouponPagerAdapter;
 import arouter.dawn.zju.edu.module_order.ui.cash_coupon_list.CashCouponListFragment;
 import baselib.base.BasePresenter;

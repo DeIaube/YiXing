@@ -9,9 +9,9 @@ import com.avos.avoscloud.DeleteCallback;
 import com.avos.avoscloud.GetCallback;
 import com.avos.avoscloud.SaveCallback;
 
-import arouter.dawn.zju.edu.lib_net.bean.Goods;
-import arouter.dawn.zju.edu.lib_net.bean.GoodsCollection;
-import arouter.dawn.zju.edu.lib_net.bean.Order;
+import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
+import arouter.dawn.zju.edu.lib_net.bean.goods.GoodsCollection;
+import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_goods.config.Constants;
 import arouter.dawn.zju.edu.module_nearby.R;

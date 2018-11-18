@@ -2,8 +2,8 @@ package arouter.dawn.zju.edu.module_forum.ui.post;
 
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
-import arouter.dawn.zju.edu.lib_net.bean.ForumPost;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumComment;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import baselib.base.BaseContract;
 

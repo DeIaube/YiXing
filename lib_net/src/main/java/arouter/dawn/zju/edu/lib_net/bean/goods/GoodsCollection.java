@@ -1,7 +1,9 @@
-package arouter.dawn.zju.edu.lib_net.bean;
+package arouter.dawn.zju.edu.lib_net.bean.goods;
 
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;
+
+import arouter.dawn.zju.edu.lib_net.bean.User;
 
 @AVClassName("GoodsCollection")
 public class GoodsCollection extends AVObject {

@@ -6,7 +6,7 @@ import com.avos.avoscloud.SaveCallback;
 
 import org.greenrobot.eventbus.EventBus;
 
-import arouter.dawn.zju.edu.lib_net.bean.Order;
+import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.config.Constants;

@@ -1,6 +1,6 @@
 package arouter.dawn.zju.edu.module_order.ui.order_list;
 
-import arouter.dawn.zju.edu.lib_net.bean.Order;
+import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import baselib.base.BaseContract;
 
 public interface OrderListContract {

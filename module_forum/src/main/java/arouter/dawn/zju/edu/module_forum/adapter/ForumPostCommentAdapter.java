@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_net.bean.ForumComment;
+import arouter.dawn.zju.edu.lib_net.bean.forum.ForumComment;
 import arouter.dawn.zju.edu.module_forum.R;
 
 public class ForumPostCommentAdapter extends RecyclerView.Adapter<ForumPostCommentAdapter.CommentHolder> {
