@@ -22,6 +22,7 @@ public class WalletHomeActivity extends BaseActivity<WalletHomeContract.Presente
         findViewById(R.id.wallet_home_forward).setOnClickListener(this);
         findViewById(R.id.wallet_home_recharge).setOnClickListener(this);
         findViewById(R.id.wallet_home_bill).setOnClickListener(this);
+        findViewById(R.id.wallet_home_question).setOnClickListener(this);
         findViewById(R.id.wallet_home_payment_setting).setOnClickListener(this);
     }
 
@@ -37,6 +38,9 @@ public class WalletHomeActivity extends BaseActivity<WalletHomeContract.Presente
             // 账单
         } else if (id == R.id.wallet_home_payment_setting) {
             // 支付设置
+        } else if (id == R.id.wallet_home_question) {
+            // 常见问题
+            ARouter.getInstance().build(Constants.AROUTER_WALLET_QUESTION).navigation();
         }
     }
 

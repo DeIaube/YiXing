@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_wallet.ui.forward;
+package arouter.dawn.zju.edu.module_wallet.ui.question;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
@@ -6,9 +6,9 @@ import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
-@Route(path = Constants.AROUTER_WALLET_FIRWARD)
-public class WalletForwardActivity extends BaseActivity<WalletForwardContract.Presenter> implements
-        WalletForwardContract.View{
+@Route(path = Constants.AROUTER_WALLET_QUESTION)
+public class WalletQuestionActivity extends BaseActivity<WalletQuestionContract.Presenter> implements
+        WalletQuestionContract.View {
 
     @Override
     protected void initView() {
@@ -17,12 +17,12 @@ public class WalletForwardActivity extends BaseActivity<WalletForwardContract.Pr
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_wallet_forward;
+        return R.layout.activity_wallet_question;
     }
 
     @Override
     protected void bindPresenter() {
-        mPresenter = new WalletForwardPresenter();
+        mPresenter = new WalletQuestionPresenter();
     }
 
     @Override

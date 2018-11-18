@@ -181,4 +181,14 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/wallet_home_question"
+        android:text="@string/title_activity_wallet_question"
+        android:layout_marginBottom="20dp"
+        android:textSize="14dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </FrameLayout>

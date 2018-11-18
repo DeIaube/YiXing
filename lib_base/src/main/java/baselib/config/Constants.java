@@ -72,4 +72,5 @@ public interface Constants {
     String AROUTER_WALLET_GROP = "wallet";
     String AROUTER_WALLET_HOME = "/wallet/home";
     String AROUTER_WALLET_FIRWARD = "/wallet/forward";
+    String AROUTER_WALLET_QUESTION= "/wallet/question";
 }
