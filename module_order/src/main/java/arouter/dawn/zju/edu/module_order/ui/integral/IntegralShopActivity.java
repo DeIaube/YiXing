@@ -6,7 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.module_order.R;
@@ -24,7 +26,8 @@ public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Pres
     @Override
     protected void initView() {
         cashCouponListView = findViewById(R.id.cash_coupon_list_view);
-        mAdapter = new IntegralShopCashCouponListAdapter(new ArrayList<CashCoupon>(), this);
+        mAdapter = new IntegralShopCashCouponListAdapter(
+                this, new ArrayList<CashCoupon>(), new ArrayList<CashCoupon>());
         cashCouponListView.setLayoutManager(new LinearLayoutManager(this));
         cashCouponListView.setAdapter(mAdapter);
 
@@ -47,7 +50,7 @@ public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Pres
     }
 
     @Override
-    public void refresh(List<CashCoupon> cashCouponList) {
-        mAdapter.refresh(cashCouponList);
+    public void refresh(List<CashCoupon> cashCouponList, List<CashCoupon> userCashCoupons) {
+        mAdapter.refresh(cashCouponList, userCashCoupons);
     }
 }

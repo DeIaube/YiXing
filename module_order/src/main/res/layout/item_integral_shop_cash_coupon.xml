@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:layout_marginTop="10dp"
     android:layout_marginStart="10dp"
@@ -9,27 +10,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:src="@drawable/default_portrait"
-        android:id="@+id/imageView"
-        android:layout_width="76dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/cash_coupon_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="19dp"
+        android:text="123123123"
         android:textColor="#101010"
         android:textSize="13dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -42,18 +32,22 @@
         android:textColor="#E51C23"
         android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/cash_coupon_discount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
         android:layout_marginBottom="8dp"
+        android:text="100"
         android:textColor="#E51C23"
         android:textSize="21dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2" />
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/cash_coupon_title"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/cash_coupon_doorsill_information"
@@ -72,10 +66,8 @@
         android:layout_height="22dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/integral_shop_cash_coupon_buy_btn_bg"
-        android:text="立即抢购"
+        android:background="@drawable/integral_shop_cash_coupon_able_buy_btn_bg"
         android:gravity="center"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -86,6 +78,19 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/cash_coupon_title"
         app:layout_constraintEnd_toEndOf="@+id/cash_coupon_buy"
+        app:layout_constraintTop_toTopOf="@+id/cash_coupon_title" />
+
+    <TextView
+        android:id="@+id/cash_coupon_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:maxLines="1"
+        android:text="2018.04.11至2018.05.11"
+        android:textColor="#999999"
+        android:textSize="11dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cash_coupon_title"
+        app:layout_constraintStart_toEndOf="@+id/cash_coupon_title"
         app:layout_constraintTop_toTopOf="@+id/cash_coupon_title" />
 
 </android.support.constraint.ConstraintLayout>
