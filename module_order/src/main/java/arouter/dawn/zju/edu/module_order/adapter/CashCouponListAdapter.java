@@ -41,7 +41,7 @@ public class CashCouponListAdapter extends RecyclerView.Adapter<CashCouponListAd
         holder.cashCouponTitleTv.setText(userCashCoupon.getCashCoupon().getTitle());
         holder.discountNumberTv.setText(String.valueOf(userCashCoupon.getCashCoupon().getDiscount()));
         @SuppressLint("SimpleDateFormat")
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         holder.cashCouponTimeTv.setText(String.format("%s至%s",
                 sdf.format(userCashCoupon.getCashCoupon().getStartTime()),
                 sdf.format(userCashCoupon.getCashCoupon().getEndTime())));
