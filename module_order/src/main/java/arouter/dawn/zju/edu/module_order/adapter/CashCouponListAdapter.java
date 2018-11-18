@@ -46,7 +46,7 @@ public class CashCouponListAdapter extends RecyclerView.Adapter<CashCouponListAd
                 sdf.format(userCashCoupon.getCashCoupon().getStartTime()),
                 sdf.format(userCashCoupon.getCashCoupon().getEndTime())));
         if (userCashCoupon.getCashCoupon().getDoorsill() != 0) {
-            holder.cashCouponTypeTv.setText(String.format("满%.2f元使用", userCashCoupon.getCashCoupon().getDoorsill()));
+            holder.cashCouponTypeTv.setText(String.format("满%d元使用", userCashCoupon.getCashCoupon().getDoorsill()));
             holder.cashCouponCouponTypeTv.setText("满减券");
         }
         if (userCashCoupon.getCashCoupon().getEndTime().before(new Date())) {

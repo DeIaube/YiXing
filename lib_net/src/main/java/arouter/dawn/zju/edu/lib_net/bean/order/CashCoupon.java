@@ -8,20 +8,20 @@ import java.util.Date;
 @AVClassName("CashCoupon")
 public class CashCoupon extends AVObject {
 
-    public void setDiscount(double discount) {
+    public void setDiscount(int discount) {
         put("discount", discount);
     }
 
-    public double getDiscount() {
-        return getDouble("discount");
+    public int getDiscount() {
+        return getInt("discount");
     }
 
-    public void setDoorsill(double doorsill) {
+    public void setDoorsill(int doorsill) {
         put("doorsill", doorsill);
     }
 
-    public double getDoorsill() {
-        return getDouble("doorsill");
+    public int getDoorsill() {
+        return getInt("doorsill");
     }
 
     public String getTitle() {
