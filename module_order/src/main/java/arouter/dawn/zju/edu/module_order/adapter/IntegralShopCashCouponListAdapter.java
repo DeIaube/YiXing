@@ -34,9 +34,6 @@ public class IntegralShopCashCouponListAdapter extends RecyclerView.Adapter<Inte
         this.mCashCoupons = cashCoupons;
         this.mUserCashCoupons = userCashCoupons;
         notifyDataSetChanged();
-        for (CashCoupon mCashCoupon : mCashCoupons) {
-            Log.e("aaa", mCashCoupon.getTitle());
-        }
     }
 
     @NonNull
