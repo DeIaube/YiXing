@@ -60,7 +60,7 @@ public class IntegralShopCashCouponListAdapter extends RecyclerView.Adapter<Inte
         if (cashCoupon.getDoorsill() == 0) {
             holder.cashCouponDoorsillInformationTv.setText("无门槛");
         } else {
-            holder.cashCouponDoorsillInformationTv.setText(String.format("满%d可用", (int)cashCoupon.getDoorsill()));
+            holder.cashCouponDoorsillInformationTv.setText(String.format("满%d可用", cashCoupon.getDoorsill()));
         }
         if (mUserCashCoupons.contains(cashCoupon)) {
             holder.cashCouponBuyBtn.setTextColor(mContext.getColor(R.color.colorPrimary));
