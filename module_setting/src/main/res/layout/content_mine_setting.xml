@@ -83,31 +83,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/sign_in_obtain_cash_coupon_layout"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="56dp">
-
-        <ImageView
-            android:layout_marginStart="16dp"
-            android:src="@drawable/mine_cash_coupon"
-            android:layout_gravity="center_vertical"
-            android:layout_width="24dp"
-            android:layout_height="24dp" />
-
-        <TextView
-            android:layout_marginStart="16dp"
-            android:gravity="center_vertical"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            android:text="@string/sign_in_obtain_cash_coupon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/feedback"
         android:background="@color/white"
         android:orientation="horizontal"
