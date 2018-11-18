@@ -54,7 +54,7 @@ public class CashCouponListFragment extends BaseFragment<CashCouponListContract.
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.cash_coupon_get_cash_coupon) {
-            ARouter.getInstance().build(Constants.AROUTER_ORDER_INTEGRAL).navigation();
+            ARouter.getInstance().build(Constants.AROUTER_ORDER_INTEGRAL_SHOP).navigation();
         }
     }
 }

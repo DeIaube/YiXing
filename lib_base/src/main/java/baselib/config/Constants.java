@@ -39,7 +39,7 @@ public interface Constants {
     String AROUTER_ORDER_ORDER = "/order/order";
     String AROUTER_ORDER_LIST = "/order/list";
     String AROUTER_ORDER_CASH_COUPON = "/order/cashCoupon";
-    String AROUTER_ORDER_INTEGRAL = "/order/integral";
+    String AROUTER_ORDER_INTEGRAL_SHOP = "/order/integralShop";
 
     String ORDER_ORDER_LIST_BOUNDLE = "orderOrderListBundle";
     String ORDER_ORDER_LIST_ORDER = "orderListOrder";

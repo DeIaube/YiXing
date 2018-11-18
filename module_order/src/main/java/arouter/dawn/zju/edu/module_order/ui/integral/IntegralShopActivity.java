@@ -1,17 +1,21 @@
 package arouter.dawn.zju.edu.module_order.ui.integral;
 
+import android.support.v7.widget.RecyclerView;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_order.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
-@Route(path = Constants.AROUTER_ORDER_INTEGRAL)
-public class IntegralActivity extends BaseActivity<IntegralContract.Presenter> implements IntegralContract.View {
+@Route(path = Constants.AROUTER_ORDER_INTEGRAL_SHOP)
+public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Presenter> implements IntegralShopContract.View {
+
+    RecyclerView cashCouponListView;
 
     @Override
     protected void initView() {
-
+        cashCouponListView = findViewById(R.id.cash_coupon_list_view);
     }
 
     @Override
@@ -21,7 +25,7 @@ public class IntegralActivity extends BaseActivity<IntegralContract.Presenter> i
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new IntegralShopPresenter();
     }
 
     @Override

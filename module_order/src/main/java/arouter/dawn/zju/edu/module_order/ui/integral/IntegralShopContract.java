@@ -3,7 +3,7 @@ package arouter.dawn.zju.edu.module_order.ui.integral;
 
 import baselib.base.BaseContract;
 
-public interface IntegralContract {
+public interface IntegralShopContract {
 
     interface View extends BaseContract.BaseView {
 

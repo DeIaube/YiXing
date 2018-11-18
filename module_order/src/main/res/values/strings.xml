@@ -41,6 +41,6 @@
     <string name="cash_coupon_get_cash_coupon_btn">去积分商城兑换几张吧~</string>
     <!--CashCoupon-->
 
-    <string name="title_activity_integral">积分商城</string>
+    <string name="title_activity_integral_shop">积分商城</string>
 
 </resources>
