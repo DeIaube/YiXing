@@ -101,7 +101,7 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
     public void paySuccess(Goods goods) {
         Order order = new Order();
         order.setGoods(goods);
-        order.setType(Constants.ORDER_TYPE_PAYMENT);
+        order.setType(Constants.ORDER_TYPE_COMPLETE_REQUE_EVALUATE);
         order.saveInBackground();
         mView.showMessage(App.getContext().getString(R.string.goods_detail_pay_success));
     }
@@ -110,7 +110,7 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
     public void payFailed(Goods goods) {
         Order order = new Order();
         order.setGoods(goods);
-        order.setType(Constants.ORDER_TYPE_COMPLETE_REQUE_EVALUATE);
+        order.setType(Constants.ORDER_TYPE_PAYMENT);
         order.saveInBackground();
         mView.showMessage(App.getContext().getString(R.string.goods_detail_pay_failed));
     }
