@@ -29,6 +29,14 @@ public class User extends AVUser {
         put("birth", date);
     }
 
+    public int getShopPoint() {
+        return getInt("shopPoint");
+    }
+
+    public void setShopPoint(int shopPoint) {
+        put("shopPoint", shopPoint);
+    }
+
     public String getPortrait() {
         String portrait = getString("portrait");
         return portrait == null ? 
