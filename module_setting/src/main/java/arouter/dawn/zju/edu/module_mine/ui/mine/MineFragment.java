@@ -2,6 +2,7 @@ package arouter.dawn.zju.edu.module_mine.ui.mine;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
@@ -76,11 +77,12 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
         refreshView();
     }
 
+    @SuppressLint("DefaultLocale")
     private void refreshView() {
         User user = User.getCurrentUser(User.class);
         accountNameTv.setText(user.getPickName());
         accountPhoneTv.setText(user.getMobilePhoneNumber());
-        integralBalanceTv.setText(String.valueOf(user.getShopPoint()));
+        integralBalanceTv.setText(String.format("%d分", user.getShopPoint()));
         if (user.getPortrait() != null) {
             Picasso.with(getContext()).load(user.getPortrait()).into(accountProfileIv);
         }
@@ -159,8 +161,9 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
                 }).start();
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public void refreshCashCouponCount(int count) {
-        cashCouponBalanceTv.setText(String.valueOf(count));
+        cashCouponBalanceTv.setText(String.format("%d个", count));
     }
 }
