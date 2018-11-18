@@ -54,6 +54,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     @SuppressLint({"DefaultLocale", "SimpleDateFormat"})
     @Override
     public void onBindViewHolder(OrderListHolder holder, int position) {
+        holder.setIsRecyclable(false);
         Order order = mOrders.get(position);
         initViewByType(holder, order.getType());
         holder.createTimeTv.setText(new SimpleDateFormat("yyyy-MM-dd").format(order.getCreatedAt()));
