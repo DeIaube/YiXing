@@ -15,6 +15,7 @@ public interface IntegralShopContract {
 
     interface Presenter extends BaseContract.BasePresenter<View> {
         void init();
+        void buyCashCoupon(CashCoupon cashCoupon);
     }
 
 }

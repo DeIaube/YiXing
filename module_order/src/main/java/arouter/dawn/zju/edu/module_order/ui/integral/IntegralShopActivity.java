@@ -6,9 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.module_order.R;
@@ -17,7 +15,7 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_ORDER_INTEGRAL_SHOP)
-public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Presenter> implements IntegralShopContract.View {
+public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Presenter> implements IntegralShopContract.View, IntegralShopCashCouponListAdapter.OnBuyClickListener {
 
     RecyclerView cashCouponListView;
 
@@ -30,6 +28,7 @@ public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Pres
                 this, new ArrayList<CashCoupon>(), new ArrayList<CashCoupon>());
         cashCouponListView.setLayoutManager(new LinearLayoutManager(this));
         cashCouponListView.setAdapter(mAdapter);
+        mAdapter.setOnBuyClickListener(this);
 
         mPresenter.init();
     }
@@ -52,5 +51,15 @@ public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Pres
     @Override
     public void refresh(List<CashCoupon> cashCouponList, List<CashCoupon> userCashCoupons) {
         mAdapter.refresh(cashCouponList, userCashCoupons);
+    }
+
+    @Override
+    public void buyCashCoupon(CashCoupon cashCoupon) {
+        mPresenter.buyCashCoupon(cashCoupon);
+    }
+
+    @Override
+    public void useCashCoupon(CashCoupon cashCoupon) {
+
     }
 }

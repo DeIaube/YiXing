@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +20,7 @@ public class IntegralShopCashCouponListAdapter extends RecyclerView.Adapter<Inte
 
     private List<CashCoupon> mCashCoupons;
     private List<CashCoupon> mUserCashCoupons;
+    private OnBuyClickListener mOnBuyClickListener;
     private Context mContext;
 
     public IntegralShopCashCouponListAdapter(Context context, List<CashCoupon> cashCoupons,
@@ -28,6 +28,15 @@ public class IntegralShopCashCouponListAdapter extends RecyclerView.Adapter<Inte
         this.mContext = context;
         this.mCashCoupons = cashCoupons;
         this.mUserCashCoupons = userCashCoupons;
+    }
+
+    public void setOnBuyClickListener(OnBuyClickListener onBuyClickListener) {
+        this.mOnBuyClickListener = onBuyClickListener;
+    }
+
+    public interface OnBuyClickListener {
+        void buyCashCoupon(CashCoupon cashCoupon);
+        void useCashCoupon(CashCoupon cashCoupon);
     }
 
     public void refresh(List<CashCoupon> cashCoupons, List<CashCoupon> userCashCoupons) {
@@ -46,7 +55,7 @@ public class IntegralShopCashCouponListAdapter extends RecyclerView.Adapter<Inte
     @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(@NonNull IntegralShopCashCouponListHolder holder, int i) {
-        CashCoupon cashCoupon = mCashCoupons.get(i);
+        final CashCoupon cashCoupon = mCashCoupons.get(i);
         holder.cashCouponTitleTv.setText(cashCoupon.getTitle());
         holder.cashCouponDiscountTv.setText(String.valueOf(cashCoupon.getDiscount()));
         holder.cashCouponIntegralTv.setText(String.format("%d分", cashCoupon.getIntegral()));
@@ -63,10 +72,26 @@ public class IntegralShopCashCouponListAdapter extends RecyclerView.Adapter<Inte
             holder.cashCouponBuyBtn.setTextColor(mContext.getColor(R.color.colorPrimary));
             holder.cashCouponBuyBtn.setBackgroundResource(R.drawable.integral_shop_cash_coupon_unable_buy_btn_bg);
             holder.cashCouponBuyBtn.setText("去使用");
+            holder.cashCouponBuyBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mOnBuyClickListener != null) {
+                        mOnBuyClickListener.useCashCoupon(cashCoupon);
+                    }
+                }
+            });
         } else {
             holder.cashCouponBuyBtn.setTextColor(mContext.getResources().getColor(R.color.white));
             holder.cashCouponBuyBtn.setBackground(mContext.getDrawable(R.drawable.integral_shop_cash_coupon_able_buy_btn_bg));
             holder.cashCouponBuyBtn.setText("立即抢购");
+            holder.cashCouponBuyBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mOnBuyClickListener != null) {
+                        mOnBuyClickListener.buyCashCoupon(cashCoupon);
+                    }
+                }
+            });
         }
     }
 

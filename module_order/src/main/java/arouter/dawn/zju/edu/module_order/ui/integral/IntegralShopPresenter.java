@@ -3,9 +3,8 @@ package arouter.dawn.zju.edu.module_order.ui.integral;
 import android.annotation.SuppressLint;
 
 import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import com.avos.avoscloud.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,21 +17,53 @@ import baselib.util.LogUtil;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 public class IntegralShopPresenter extends BasePresenter<IntegralShopContract.View> implements IntegralShopContract.Presenter {
 
     static final String TAG = "IntegralPresenter";
 
+    private List<List<CashCoupon>> cashCouponLists;
+
+    public IntegralShopPresenter() {
+        cashCouponLists = new ArrayList<>();
+    }
+
+    @Override
+    public void buyCashCoupon(final CashCoupon cashCoupon) {
+        final User user = User.getCurrentUser(User.class);
+        if (user.getShopPoint() < cashCoupon.getIntegral()) {
+            mView.showMessage("抱歉,积分不足");
+            return;
+        }
+        final UserCashCoupon userCashCoupon = new UserCashCoupon();
+        userCashCoupon.setOwner(user);
+        userCashCoupon.setCashCoupon(cashCoupon);
+        mView.showLoading();
+        userCashCoupon.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(AVException e) {
+                mView.hideLoading();
+                if (e == null) {
+                    LogUtil.i(TAG, "buyCashCoupon: " + userCashCoupon.toString());
+                    cashCouponLists.get(0).add(cashCoupon);
+                    mView.refresh(cashCouponLists.get(1), cashCouponLists.get(0));
+                    user.setShopPoint(user.getShopPoint() - cashCoupon.getIntegral());
+                    user.saveInBackground();
+                } else {
+                    LogUtil.e(TAG, e.getLocalizedMessage());
+                    mView.showMessage(e.getLocalizedMessage());
+                }
+            }
+        });
+    }
+
     @SuppressLint("CheckResult")
     @Override
     public void init() {
-        final List<List<CashCoupon>> cashCouponLists = new ArrayList<>();
         final AVQuery<UserCashCoupon> userCashCouponAVQuery = UserCashCoupon.getQuery(UserCashCoupon.class);
         final AVQuery<CashCoupon> cashCouponAVQuery = CashCoupon.getQuery(CashCoupon.class);
         Observable.create(new ObservableOnSubscribe<List<CashCoupon>>() {
