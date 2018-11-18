@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
@@ -28,6 +29,7 @@ public class WalletHomeActivity extends BaseActivity<WalletHomeContract.Presente
         int id = v.getId();
         if (id == R.id.wallet_home_forward) {
             // 充值
+            ARouter.getInstance().build(Constants.AROUTER_WALLET_FIRWARD).navigation();
         } else if (id == R.id.wallet_home_recharge) {
             // 提现
         } else if (id == R.id.wallet_home_bill) {

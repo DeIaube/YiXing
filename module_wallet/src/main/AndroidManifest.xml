@@ -6,6 +6,10 @@
         <activity
             android:name=".WalletHomeActivity"
             android:label="@string/title_activity_wallet"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WalletForwardActivity"
+            android:label="@string/title_activity_forward"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
