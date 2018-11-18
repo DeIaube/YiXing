@@ -104,6 +104,9 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
         order.setType(Constants.ORDER_TYPE_COMPLETE_REQUE_EVALUATE);
         order.saveInBackground();
         mView.showMessage(App.getContext().getString(R.string.goods_detail_pay_success));
+        User currentUser = User.getCurrentUser(User.class);
+        currentUser.setShopPoint(currentUser.getShopPoint() + (int)order.getGoods().getPrice());
+        currentUser.saveInBackground();
     }
 
     @Override

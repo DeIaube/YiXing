@@ -72,6 +72,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         User user = User.getCurrentUser(User.class);
         accountNameTv.setText(user.getPickName());
         accountPhoneTv.setText(user.getMobilePhoneNumber());
+        integralBalanceTv.setText(String.valueOf(user.getShopPoint()));
         if (user.getPortrait() != null) {
             Picasso.with(getContext()).load(user.getPortrait()).into(accountProfileIv);
         }
