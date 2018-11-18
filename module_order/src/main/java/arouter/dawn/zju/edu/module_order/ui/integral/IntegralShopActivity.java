@@ -1,10 +1,16 @@
 package arouter.dawn.zju.edu.module_order.ui.integral;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.module_order.R;
+import arouter.dawn.zju.edu.module_order.adapter.IntegralShopCashCouponListAdapter;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
@@ -13,9 +19,16 @@ public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Pres
 
     RecyclerView cashCouponListView;
 
+    private IntegralShopCashCouponListAdapter mAdapter;
+
     @Override
     protected void initView() {
         cashCouponListView = findViewById(R.id.cash_coupon_list_view);
+        mAdapter = new IntegralShopCashCouponListAdapter(new ArrayList<CashCoupon>(), this);
+        cashCouponListView.setLayoutManager(new LinearLayoutManager(this));
+        cashCouponListView.setAdapter(mAdapter);
+
+        mPresenter.init();
     }
 
     @Override
@@ -31,5 +44,10 @@ public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Pres
     @Override
     protected boolean showHomeAsUp() {
         return true;
+    }
+
+    @Override
+    public void refresh(List<CashCoupon> cashCouponList) {
+        mAdapter.refresh(cashCouponList);
     }
 }
