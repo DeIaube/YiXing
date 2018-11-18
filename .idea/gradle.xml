@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/module_goods" />
             <option value="$PROJECT_DIR$/module_order" />
             <option value="$PROJECT_DIR$/module_setting" />
+            <option value="$PROJECT_DIR$/module_wallet" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
