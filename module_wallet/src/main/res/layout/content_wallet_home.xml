@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,4 +9,176 @@
     tools:context=".WalletHomeActivity"
     tools:showIn="@layout/activity_wallet_home">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="123dp"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/wallet_home_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/wallet_home_default_balance"
+                android:textColor="@color/white"
+                android:textSize="36dp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/wallet_home_total_money"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wallet_home_balance" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <LinearLayout
+            android:background="#88E91E63"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+
+            <LinearLayout
+                android:id="@+id/wallet_home_forward"
+                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    tools:ignore="NestedWeights" />
+
+                <ImageView
+                    android:src="@drawable/wallet_home_forward"
+                    android:layout_gravity="center"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp" />
+
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:textSize="18dp"
+                    android:textColor="@color/white"
+                    android:text="@string/wallet_home_forward"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+            <View
+                android:background="@color/colorPrimary"
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:id="@+id/wallet_home_recharge"
+                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    tools:ignore="NestedWeights" />
+
+                <ImageView
+                    android:src="@drawable/wallet_home_recharge"
+                    android:layout_gravity="center"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp" />
+
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:textSize="18dp"
+                    android:textColor="@color/white"
+                    android:text="@string/wallet_home_recharge"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/wallet_home_bill"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+
+            <TextView
+                android:text="@string/wallet_home_bill"
+                android:textSize="14dp"
+                android:layout_marginStart="12dp"
+                android:textColor="#101010"
+                android:layout_gravity="center_vertical|start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_gravity="end|center_vertical"
+                android:src="@drawable/wallet_home_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/wallet_home_payment_setting"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+
+            <TextView
+                android:text="@string/wallet_home_payment_setting"
+                android:textSize="14dp"
+                android:layout_marginStart="12dp"
+                android:textColor="#101010"
+                android:layout_gravity="center_vertical|start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_gravity="end|center_vertical"
+                android:src="@drawable/wallet_home_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</FrameLayout>
