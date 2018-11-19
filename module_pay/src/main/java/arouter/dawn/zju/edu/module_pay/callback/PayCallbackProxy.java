@@ -4,8 +4,26 @@ public class PayCallbackProxy implements PayCallback {
 
     private PayCallback payCallback;
     private String type;
+    private double price;
+    private String title;
+    private String content;
 
-    public PayCallback setType(String type) {
+    public PayCallbackProxy setPrice(double price) {
+        this.price = price;
+        return this;
+    }
+
+    public PayCallbackProxy setTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public PayCallbackProxy setContent(String content) {
+        this.content = content;
+        return this;
+    }
+
+    public PayCallbackProxy setType(String type) {
         this.type = type;
         return this;
     }

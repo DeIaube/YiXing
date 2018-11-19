@@ -49,7 +49,7 @@ public class ConsoleFragment extends BaseFragment implements View.OnClickListene
                             Toast.makeText(getContext(), "支付失败", Toast.LENGTH_SHORT).show();
                         }
                     })
-                    .buileAliPay()
+                    .builedAliPay()
                     .pay(v);
         }
     }

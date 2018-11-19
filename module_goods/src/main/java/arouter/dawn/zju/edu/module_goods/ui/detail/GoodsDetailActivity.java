@@ -163,7 +163,7 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
                             mPresenter.payFailed(goods);
                         }
                     })
-                    .buileAliPay()
+                    .builedAliPay()
                     .pay(v);
         }
     }

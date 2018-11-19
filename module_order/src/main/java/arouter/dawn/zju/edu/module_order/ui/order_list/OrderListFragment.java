@@ -87,7 +87,7 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
                                 showMessage(getString(R.string.order_pay_failed));
                             }
                         })
-                        .buileAliPay()
+                        .builedAliPay()
                         .pay(view);
             }
 

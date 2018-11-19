@@ -100,7 +100,7 @@ public class WalletForwardActivity extends BaseActivity<WalletForwardContract.Pr
                             mPresenter.pasFaile();
                         }
                     })
-                    .buileAliPay()
+                    .builedAliPay()
                     .pay(v);
         }
     }

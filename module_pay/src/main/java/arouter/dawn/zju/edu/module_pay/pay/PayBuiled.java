@@ -36,7 +36,20 @@ public class PayBuiled {
         this.context = context;
     }
 
-    public AliPay buileAliPay() {
-        return new AliPay(context, price, title, content, payCallbackProxy.setType("支付宝"));
+    public AliPay builedAliPay() {
+        return new AliPay(context, price, title, content,
+                payCallbackProxy.setType("支付宝")
+                .setContent(content)
+                .setPrice(price)
+                .setTitle(title)
+        );
+    }
+
+    public WalletPay builedWalletPay() {
+        return new WalletPay(context, price, title, content,
+                payCallbackProxy.setType("余额支付")
+                        .setContent(content)
+                        .setPrice(price)
+                        .setTitle(title));
     }
 }
