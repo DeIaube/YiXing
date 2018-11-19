@@ -13,8 +13,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
-import arouter.dawn.zju.edu.module_pay.SignUtils;
-
 public class OrderInfoUtil2_0 {
 
 	/**

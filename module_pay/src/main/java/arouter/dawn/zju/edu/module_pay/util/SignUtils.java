@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_pay;
+package arouter.dawn.zju.edu.module_pay.util;
 
 import java.security.KeyFactory;
 import java.security.PrivateKey;
@@ -21,7 +21,7 @@ public class SignUtils {
 	public static String sign(String content, String privateKey, boolean rsa2) {
 		try {
 			PKCS8EncodedKeySpec priPKCS8 = new PKCS8EncodedKeySpec(
-					Base64.decode(privateKey));
+					Base64Util.decode(privateKey));
 			KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM, "BC");
 			PrivateKey priKey = keyFactory.generatePrivate(priPKCS8);
 
@@ -33,7 +33,7 @@ public class SignUtils {
 
 			byte[] signed = signature.sign();
 
-			return Base64.encode(signed);
+			return Base64Util.encode(signed);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

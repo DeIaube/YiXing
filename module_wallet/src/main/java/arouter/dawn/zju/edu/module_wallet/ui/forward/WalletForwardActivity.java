@@ -9,8 +9,8 @@ import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
-import arouter.dawn.zju.edu.module_pay.AliPay;
-import arouter.dawn.zju.edu.module_pay.PayCallback;
+import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
+import arouter.dawn.zju.edu.module_pay.pay.PayBuiled;
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
@@ -85,7 +85,7 @@ public class WalletForwardActivity extends BaseActivity<WalletForwardContract.Pr
             showMessage("目前只支持支付宝");
         } else if (id == R.id.wallet_forward_submit) {
             final Double amount = Double.valueOf(walletForwardAmountEt.getText().toString());
-            new AliPay.Builed(this)
+            new PayBuiled(this)
                     .setTitle("余额充值")
                     .setContent("余额充值")
                     .setPrice(amount)
@@ -100,7 +100,7 @@ public class WalletForwardActivity extends BaseActivity<WalletForwardContract.Pr
                             mPresenter.pasFaile();
                         }
                     })
-                    .buile()
+                    .buileAliPay()
                     .pay(v);
         }
     }

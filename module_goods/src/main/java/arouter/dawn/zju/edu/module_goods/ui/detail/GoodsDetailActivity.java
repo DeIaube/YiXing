@@ -19,8 +19,8 @@ import java.text.SimpleDateFormat;
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import arouter.dawn.zju.edu.module_goods.util.PicassoUrlImageLeader;
 import arouter.dawn.zju.edu.module_nearby.R;
-import arouter.dawn.zju.edu.module_pay.AliPay;
-import arouter.dawn.zju.edu.module_pay.PayCallback;
+import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
+import arouter.dawn.zju.edu.module_pay.pay.PayBuiled;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
@@ -148,7 +148,7 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.goods_detail_pay) {
-            new AliPay.Builed(this)
+            new PayBuiled(this)
                     .setPrice(goods.getPrice())
                     .setTitle(goods.getTitle())
                     .setContent(goods.getExplain())
@@ -163,7 +163,7 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
                             mPresenter.payFailed(goods);
                         }
                     })
-                    .buile()
+                    .buileAliPay()
                     .pay(v);
         }
     }

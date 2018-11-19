@@ -23,6 +23,7 @@ android {
 }
 
 dependencies {
+    compile project(':lib_base')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation files('libs/alipaySdk-20180601.jar')
 }

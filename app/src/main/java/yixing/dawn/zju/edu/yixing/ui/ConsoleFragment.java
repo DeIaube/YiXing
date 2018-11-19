@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
-import arouter.dawn.zju.edu.module_pay.AliPay;
-import arouter.dawn.zju.edu.module_pay.PayCallback;
+import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
+import arouter.dawn.zju.edu.module_pay.pay.PayBuiled;
 import baselib.base.BaseFragment;
 import yixing.dawn.zju.edu.yixing.R;
 
@@ -34,7 +34,7 @@ public class ConsoleFragment extends BaseFragment implements View.OnClickListene
         if (id == R.id.exit_logon) {
             User.logOut();
         } else if (id == R.id.pay) {
-            new AliPay.Builed(getActivity())
+            new PayBuiled(getActivity())
                     .setTitle("测试商品")
                     .setContent("测试测试")
                     .setPrice(233)
@@ -49,7 +49,7 @@ public class ConsoleFragment extends BaseFragment implements View.OnClickListene
                             Toast.makeText(getContext(), "支付失败", Toast.LENGTH_SHORT).show();
                         }
                     })
-                    .buile()
+                    .buileAliPay()
                     .pay(v);
         }
     }

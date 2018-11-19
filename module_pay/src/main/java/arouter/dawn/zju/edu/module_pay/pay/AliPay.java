@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_pay;
+package arouter.dawn.zju.edu.module_pay.pay;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -12,6 +12,8 @@ import com.alipay.sdk.app.PayTask;
 
 import java.util.Map;
 
+import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
+import arouter.dawn.zju.edu.module_pay.bean.PayResult;
 import arouter.dawn.zju.edu.module_pay.util.OrderInfoUtil2_0;
 
 public class AliPay {
@@ -24,7 +26,7 @@ public class AliPay {
 	private String content;
 	private PayCallback payCallback;
 
-	private AliPay(Activity context, double price, String title, String content, PayCallback payCallback) {
+	AliPay(Activity context, double price, String title, String content, PayCallback payCallback) {
 		this.context = context;
 		this.price = price;
 		this.title = title;
@@ -38,7 +40,7 @@ public class AliPay {
 			switch (msg.what) {
 			case SDK_PAY_FLAG: {
 				@SuppressWarnings("unchecked")
-				PayResult payResult = new PayResult((Map<String, String>) msg.obj);
+                PayResult payResult = new PayResult((Map<String, String>) msg.obj);
 				String resultStatus = payResult.getResultStatus();
 				if (TextUtils.equals(resultStatus, "9000")) {
 					payCallback.paySuccess();
@@ -77,49 +79,4 @@ public class AliPay {
 		payThread.start();
 	}
 
-	public static class Builed {
-		private Activity context;
-		private double price;
-		private String title;
-		private String content;
-		private PayCallback payCallback = new PayCallback() {
-			@Override
-			public void paySuccess() {
-
-			}
-
-			@Override
-			public void payFailed() {
-
-			}
-		};
-
-		public Builed setPayCallback(PayCallback payCallback) {
-			this.payCallback = payCallback;
-			return this;
-		}
-
-		public Builed setPrice(double price) {
-			this.price = price;
-			return this;
-		}
-
-		public Builed setTitle(String title) {
-			this.title = title;
-			return this;
-		}
-
-		public Builed setContent(String content) {
-			this.content = content;
-			return this;
-		}
-
-		public Builed(Activity context) {
-			this.context = context;
-		}
-
-		public AliPay buile() {
-			return new AliPay(context, price, title, content, payCallback);
-		}
-	}
 }

@@ -1,6 +1,6 @@
-package arouter.dawn.zju.edu.module_pay;
+package arouter.dawn.zju.edu.module_pay.util;
 
-final class Base64 {
+final class Base64Util {
 
 	private static final int BASELENGTH = 128;
 	private static final int LOOKUPLENGTH = 64;

@@ -15,8 +15,8 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.adapter.OrderListAdapter;
-import arouter.dawn.zju.edu.module_pay.AliPay;
-import arouter.dawn.zju.edu.module_pay.PayCallback;
+import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
+import arouter.dawn.zju.edu.module_pay.pay.PayBuiled;
 import baselib.base.BaseFragment;
 import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import baselib.config.Constants;
@@ -72,7 +72,7 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
 
             @Override
             public void payOrderClickListener(View view, final Order orderBean) {
-                new AliPay.Builed(getActivity())
+                new PayBuiled(getActivity())
                         .setTitle(orderBean.getGoods().getTitle())
                         .setContent(orderBean.getGoods().getExplain())
                         .setPrice(orderBean.getGoods().getPrice())
@@ -87,7 +87,7 @@ public class OrderListFragment extends BaseFragment<OrderListContract.Presenter>
                                 showMessage(getString(R.string.order_pay_failed));
                             }
                         })
-                        .buile()
+                        .buileAliPay()
                         .pay(view);
             }
 
