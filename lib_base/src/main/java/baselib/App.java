@@ -23,6 +23,7 @@ import arouter.dawn.zju.edu.lib_net.bean.goods.GoodsEvaluate;
 import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
+import arouter.dawn.zju.edu.lib_net.bean.wallet.Bill;
 import baselib.config.Constants;
 import baselib.util.SPUtil;
 import io.realm.Realm;
@@ -67,6 +68,7 @@ public class App extends Application {
         AVObject.registerSubclass(UserCashCoupon.class);
         AVObject.registerSubclass(CashCoupon.class);
         AVObject.registerSubclass(Order.class);
+        AVObject.registerSubclass(Bill.class);
         AVObject.registerSubclass(Feedback.class);
         PushService.setDefaultChannelId(this, "public");
         AVOSCloud.initialize(this,Constants.CLOUD_APPLICATION_ID,Constants.CLOUD_CLIENT_LEY);
