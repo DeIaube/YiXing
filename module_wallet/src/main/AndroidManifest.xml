@@ -17,6 +17,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.answer.WalletAnswerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.bill.WalletBillActivity"
+            android:label="@string/title_activity_wallet_bill"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
