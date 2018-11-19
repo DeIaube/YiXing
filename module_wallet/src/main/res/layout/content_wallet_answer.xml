@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,4 +9,59 @@
     tools:context=".ui.answer.WalletAnswerActivity"
     tools:showIn="@layout/activity_wallet_answer">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="8dp"
+            android:text="什么是余额？"
+            android:textColor="#101010"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="12dp"
+            android:background="#f2f2f2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="会计学中，某一特定时期某账户中左方金额合计与右方金额合计之差叫做余额。会计学中，某一特定时期某账户中左方金额合计与右方金额合计之差叫做余额。
+
+会计学中，某一特定时期某账户中左方金额合计与右方金额合计之差叫做余额。
+
+会计学中，某一特定时期某账户中左方金额合计与右方金额合计之差叫做余额。会计学中，某一特定时期某账户中左方金额合计与右方金额合计之差叫做余额。
+
+会计学中，某一特定时期某账户中左方金额合计与右方金额合计之差叫做余额。
+会计学中，某一特定时期某账户中左方金额合计与右方金额合计之差叫做余额。
+会计学中，某一特定时期某账户中左方金额合计与右方金额合计之差叫做余额。会计学中，某一特定时期某账户中左方金额合计与右方金额合计之差叫做余额。
+会计学中，某一特定时期某账户中左方金额合计与右方金额合计之差叫做余额。
+
+
+"
+            android:textSize="14dp"
+            android:textColor="#888888"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>
