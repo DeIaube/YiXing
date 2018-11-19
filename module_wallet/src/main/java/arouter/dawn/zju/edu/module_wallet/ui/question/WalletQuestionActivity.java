@@ -3,6 +3,7 @@ package arouter.dawn.zju.edu.module_wallet.ui.question;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
@@ -53,5 +54,6 @@ public class WalletQuestionActivity extends BaseActivity<WalletQuestionContract.
         } else if (id == R.id.wallet_question_function_of_wallet_layout) {
             // 钱包的功能
         }
+        ARouter.getInstance().build(Constants.AROUTER_WALLET_ANSWER).navigation();
     }
 }
