@@ -29,8 +29,8 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     compile project(':lib_base')
+    compile project(':module_pay')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //ARouter
     annotationProcessor "com.alibaba:arouter-compiler:1.1.4"

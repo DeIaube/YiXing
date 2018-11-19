@@ -30,6 +30,7 @@ android {
 
 dependencies {
     compile project(':lib_base')
+    compile project(':module_pay')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //ARouter
     annotationProcessor "com.alibaba:arouter-compiler:1.1.4"
