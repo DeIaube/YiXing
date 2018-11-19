@@ -10,6 +10,8 @@ public interface WalletForwardContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
+        void paySuccess(double amount);
+        void pasFaile();
     }
 
 }

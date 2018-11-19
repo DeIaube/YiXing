@@ -31,6 +31,8 @@
     <string name="wallet_forward_hint_please_input_amount">请输入金额</string>
     <string name="wallet_forward_max_forward_amount">该卡本次最多可充值¥10000</string>
     <string name="wallet_forward_confirm_forward">确认充值</string>
+    <string name="wallet_forward_success">充值成功</string>
+    <string name="wallet_forward_faile">充值失败,请重试</string>
     <!--WalletForward-->
 
 </resources>

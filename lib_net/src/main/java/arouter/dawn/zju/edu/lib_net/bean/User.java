@@ -43,4 +43,12 @@ public class User extends AVUser {
                 "http://5b0988e595225.cdn.sohucs.com/images/20171231/fe11a76f654549a78d00feb4d118d744.jpeg" : portrait;
     }
 
+    public void setBalance(double balance) {
+        put("balance", balance);
+    }
+
+    public double getBalance() {
+        return getDouble("balance");
+    }
+
 }
