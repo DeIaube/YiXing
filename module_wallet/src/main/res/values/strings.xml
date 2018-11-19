@@ -37,9 +37,15 @@
 
     <!--WalletBill-->
     <string name="title_activity_wallet_bill">账单明细</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!--WalletBill-->
+
+    <!--WalletDetail-->
+    <string name="title_activity_wallet_bill_detail">账单详情</string>
+    <string name="wallet_bill_detail_amount">交易金额</string>
+    <string name="wallet_bill_detail_type">交易类型</string>
+    <string name="wallet_bill_detail_time">交易时间</string>
+    <string name="wallet_bill_detail_id">流水单号</string>
+    <string name="wallet_bill_detail_remarks">备注</string>
+    <!--WalletDetail-->
 
 </resources>

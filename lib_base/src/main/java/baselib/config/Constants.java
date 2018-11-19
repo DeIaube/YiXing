@@ -72,7 +72,11 @@ public interface Constants {
     String AROUTER_WALLET_GROP = "wallet";
     String AROUTER_WALLET_HOME = "/wallet/home";
     String AROUTER_WALLET_BILL= "/wallet/bill";
+    String AROUTER_WALLET_BILL_DETAIL= "/wallet/bill_detail";
     String AROUTER_WALLET_FIRWARD = "/wallet/forward";
     String AROUTER_WALLET_QUESTION = "/wallet/question";
     String AROUTER_WALLET_ANSWER= "/wallet/answer";
+
+    String WALLET_BILL_DETAIL_BUNDLE = "walletBillDetailBundle";
+    String WALLET_BILL_DETAIL_BILL = "walletBillDetailBill";
 }

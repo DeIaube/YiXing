@@ -19,6 +19,15 @@ public class WalletBillListAdapter extends RecyclerView.Adapter<WalletBillListAd
 
     private Context mContext;
     private List<Bill> mBillList;
+    private WalletBillListClickListener mWalletBillListClickListener;
+
+    public void setWalletBillListClickListener(WalletBillListClickListener walletBillListClickListener) {
+        this.mWalletBillListClickListener = walletBillListClickListener;
+    }
+
+    public interface WalletBillListClickListener {
+        void billClick(Bill bill);
+    }
 
     public WalletBillListAdapter(Context context, List<Bill> billList) {
         this.mContext = context;
@@ -40,6 +49,7 @@ public class WalletBillListAdapter extends RecyclerView.Adapter<WalletBillListAd
     @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(@NonNull WalletBillListholder holder, int i) {
+        holder.position = i;
         Bill bill = mBillList.get(i);
         holder.billDealTv.setText(bill.getDeal());
         @SuppressLint("SimpleDateFormat")
@@ -61,6 +71,7 @@ public class WalletBillListAdapter extends RecyclerView.Adapter<WalletBillListAd
 
     class WalletBillListholder extends RecyclerView.ViewHolder {
 
+        int position;
         TextView billDealTv;
         TextView billTimeTv;
         TextView billAmountTv;
@@ -70,6 +81,14 @@ public class WalletBillListAdapter extends RecyclerView.Adapter<WalletBillListAd
             billDealTv = itemView.findViewById(R.id.bill_deal);
             billTimeTv = itemView.findViewById(R.id.bill_time);
             billAmountTv = itemView.findViewById(R.id.bill_amount);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mWalletBillListClickListener != null) {
+                        mWalletBillListClickListener.billClick(mBillList.get(position));
+                    }
+                }
+            });
         }
     }
 }

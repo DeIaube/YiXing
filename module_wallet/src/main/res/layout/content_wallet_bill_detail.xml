@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.bill_detail.WalletBillDetailActivity"
+    tools:showIn="@layout/activity_wallet_bill_detail">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:text="@string/wallet_bill_detail_amount"
+                android:textSize="16dp"
+                android:textColor="#101010"
+                android:gravity="center"
+                android:layout_gravity="start"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/wallet_bill_detail_amount"
+                android:textColor="@color/colorPrimary"
+                android:textSize="28dp"
+                android:gravity="center"
+                android:layout_gravity="end"
+                android:text="+5.00"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <View
+            android:layout_marginTop="17dp"
+            android:layout_marginBottom="17dp"
+            android:background="#f2f2f2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <FrameLayout
+            android:layout_marginStart="21dp"
+            android:layout_marginEnd="21dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:text="@string/wallet_bill_detail_type"
+                android:textSize="14dp"
+                android:textColor="#999999"
+                android:layout_gravity="start"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/wallet_bill_detail_type"
+                android:text="充值"
+                android:textSize="14dp"
+                android:textColor="#999999"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_marginStart="21dp"
+            android:layout_marginEnd="21dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:text="@string/wallet_bill_detail_time"
+                android:textSize="14dp"
+                android:textColor="#999999"
+                android:layout_gravity="start"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/wallet_bill_detail_time"
+                android:text="2017-02-30 12:30:20"
+                android:textSize="14dp"
+                android:textColor="#999999"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_marginStart="21dp"
+            android:layout_marginEnd="21dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:text="@string/wallet_bill_detail_id"
+                android:textSize="14dp"
+                android:textColor="#999999"
+                android:layout_gravity="start"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/wallet_bill_detail_id"
+                android:text="12345678901234567890"
+                android:textSize="14dp"
+                android:textColor="#999999"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_marginStart="21dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:text="@string/wallet_bill_detail_remarks"
+                android:textSize="14dp"
+                android:textColor="#999999"
+                android:layout_gravity="start"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/wallet_bill_detail_remarks"
+                android:text="微信支付"
+                android:textSize="14dp"
+                android:textColor="#999999"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
