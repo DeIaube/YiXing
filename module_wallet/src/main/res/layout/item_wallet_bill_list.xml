@@ -67,5 +67,4 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
-
 </android.support.constraint.ConstraintLayout>
