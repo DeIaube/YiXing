@@ -1,11 +1,13 @@
 package arouter.dawn.zju.edu.module_wallet.ui.home;
 
+import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
@@ -16,6 +18,7 @@ public class WalletHomeActivity extends BaseActivity<WalletHomeContract.Presente
 
     TextView homeBalanceTv;
 
+    @SuppressLint("DefaultLocale")
     @Override
     protected void initView() {
         homeBalanceTv = findViewById(R.id.wallet_home_balance);
@@ -24,6 +27,16 @@ public class WalletHomeActivity extends BaseActivity<WalletHomeContract.Presente
         findViewById(R.id.wallet_home_bill).setOnClickListener(this);
         findViewById(R.id.wallet_home_question).setOnClickListener(this);
         findViewById(R.id.wallet_home_payment_setting).setOnClickListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        refreshView();
+    }
+
+    private void refreshView() {
+        homeBalanceTv.setText(String.format("%.2f", User.getCurrentUser(User.class).getBalance()));
     }
 
     @Override

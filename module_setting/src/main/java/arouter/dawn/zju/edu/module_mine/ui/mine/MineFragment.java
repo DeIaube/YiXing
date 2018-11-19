@@ -83,6 +83,7 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
         accountNameTv.setText(user.getPickName());
         accountPhoneTv.setText(user.getMobilePhoneNumber());
         integralBalanceTv.setText(String.format("%d分", user.getShopPoint()));
+        walletBalanceTv.setText(String.format("%.2f元", user.getBalance()));
         if (user.getPortrait() != null) {
             Picasso.with(getContext()).load(user.getPortrait()).into(accountProfileIv);
         }
