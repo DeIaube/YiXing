@@ -3,26 +3,17 @@ package arouter.dawn.zju.edu.module_pay.pay;
 import android.app.Activity;
 
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
+import arouter.dawn.zju.edu.module_pay.callback.PayCallbackProxy;
 
 public class PayBuiled {
     private Activity context;
     private double price;
     private String title;
     private String content;
-    private PayCallback payCallback = new PayCallback() {
-        @Override
-        public void paySuccess() {
-
-        }
-
-        @Override
-        public void payFailed() {
-
-        }
-    };
+    private PayCallbackProxy payCallbackProxy;
 
     public PayBuiled setPayCallback(PayCallback payCallback) {
-        this.payCallback = payCallback;
+        this.payCallbackProxy = new PayCallbackProxy(payCallback);
         return this;
     }
 
@@ -46,6 +37,6 @@ public class PayBuiled {
     }
 
     public AliPay buileAliPay() {
-        return new AliPay(context, price, title, content, payCallback);
+        return new AliPay(context, price, title, content, payCallbackProxy.setType("支付宝"));
     }
 }
