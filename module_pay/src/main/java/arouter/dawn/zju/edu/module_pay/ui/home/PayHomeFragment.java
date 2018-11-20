@@ -10,6 +10,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import org.greenrobot.eventbus.EventBus;
 
+import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.module_pay.R;
 import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
@@ -23,6 +24,8 @@ public class PayHomeFragment extends BaseFragment implements View.OnClickListene
     TextView payHomePayAmountTv;
     CheckBox payHomePayAgreementCb;
     Button payHomeSubmitBtn;
+
+    private CashCoupon mCashCoupon;
 
     @Override
     protected void initView(View view) {
@@ -90,5 +93,14 @@ public class PayHomeFragment extends BaseFragment implements View.OnClickListene
 
     public void setPayType(String type) {
         payHomePayTypeTv.setText(type);
+    }
+
+    public void setCashCoupon(CashCoupon cashCoupon) {
+        mCashCoupon = cashCoupon;
+        if (mCashCoupon == null) {
+            payHomeCashCouponTv.setText("不使用");
+        } else {
+            payHomeCashCouponTv.setText(mCashCoupon.getTitle());
+        }
     }
 }

@@ -1,12 +1,15 @@
 package arouter.dawn.zju.edu.module_pay.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
@@ -46,6 +49,15 @@ public class PayCashCouponListAdapter extends RecyclerView.Adapter<PayCashCoupon
     @Override
     public void onBindViewHolder(@NonNull PayCashCouponListHolder holder, int i) {
         holder.position = i;
+        CashCoupon cashCoupon = mCashCouponList.get(i);
+        holder.discountNumberTv.setText(String.valueOf(cashCoupon.getDiscount()));
+        holder.cashCouponTitleTv.setText(cashCoupon.getTitle());
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        holder.cashCouponTimeTv.setText(String.format("%s至%s",
+                sdf.format(cashCoupon.getStartTime()),
+                sdf.format(cashCoupon.getEndTime())));
+        holder.cashCouponCouponTypeTv.setText(cashCoupon.getDoorsill() == 0 ? "现金券" : "满减券");
     }
 
     @Override
@@ -57,8 +69,20 @@ public class PayCashCouponListAdapter extends RecyclerView.Adapter<PayCashCoupon
 
         int position;
 
+        TextView discountNumberTv;
+        TextView cashCouponCouponTypeTv;
+        TextView cashCouponTitleTv;
+        TextView cashCouponTimeTv;
+
+
         public PayCashCouponListHolder(@NonNull View itemView) {
             super(itemView);
+
+            discountNumberTv = itemView.findViewById(R.id.discount_number);
+            cashCouponCouponTypeTv = itemView.findViewById(R.id.cash_coupon_coupon_type);
+            cashCouponTitleTv = itemView.findViewById(R.id.cash_coupon_title);
+            cashCouponTimeTv = itemView.findViewById(R.id.cash_coupon_time);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

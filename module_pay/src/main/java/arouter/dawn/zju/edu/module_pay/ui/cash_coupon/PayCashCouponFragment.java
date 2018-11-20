@@ -5,13 +5,18 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.module_pay.R;
 import arouter.dawn.zju.edu.module_pay.adapter.PayCashCouponListAdapter;
+import arouter.dawn.zju.edu.module_pay.config.Constants;
+import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
+import baselib.bus.BusEvent;
 
 public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Presenter> implements PayCashCouponContract.View, PayCashCouponListAdapter.OnCashCouponClickListener {
 
@@ -47,6 +52,10 @@ public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Pr
 
     @Override
     public void selectCashCoupon(View v, CashCoupon cashCoupon) {
-
+        BusEvent busEvent = new BusEvent();
+        busEvent.setCode(Constants.EVENT_SELETED_CASH_COUPON);
+        busEvent.setTarget(PayContainerFragment.TAG);
+        busEvent.setData(cashCoupon);
+        EventBus.getDefault().post(busEvent);
     }
 }
