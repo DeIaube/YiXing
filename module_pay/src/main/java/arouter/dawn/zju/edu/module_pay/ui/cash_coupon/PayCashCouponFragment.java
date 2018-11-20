@@ -18,7 +18,7 @@ import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
 
-public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Presenter> implements PayCashCouponContract.View, PayCashCouponListAdapter.OnCashCouponClickListener {
+public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Presenter> implements PayCashCouponContract.View, PayCashCouponListAdapter.OnCashCouponClickListener, View.OnClickListener {
 
     RecyclerView payCashCouponListView;
 
@@ -37,6 +37,7 @@ public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Pr
     @Override
     protected void initView(View view) {
         payCashCouponListView = view.findViewById(R.id.pay_cash_coupon_list_view);
+        view.findViewById(R.id.pay_cash_coupon_dont_use_cash_coupon).setOnClickListener(this);
         mAdapter = new PayCashCouponListAdapter(new ArrayList<CashCoupon>(), getContext());
         payCashCouponListView.setLayoutManager(new LinearLayoutManager(getContext()));
         payCashCouponListView.setAdapter(mAdapter);
@@ -57,5 +58,17 @@ public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Pr
         busEvent.setTarget(PayContainerFragment.TAG);
         busEvent.setData(cashCoupon);
         EventBus.getDefault().post(busEvent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.pay_cash_coupon_dont_use_cash_coupon) {
+            BusEvent busEvent = new BusEvent();
+            busEvent.setCode(Constants.EVENT_SELETED_CASH_COUPON);
+            busEvent.setTarget(PayContainerFragment.TAG);
+            busEvent.setData(null);
+            EventBus.getDefault().post(busEvent);
+        }
     }
 }
