@@ -56,10 +56,9 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
 
         payType = Constants.PAY_TYPE_ALI;
 
-        //监听back必须设置的
+        // 拦截父类的后退按键
         rootView.setFocusable(true);
         rootView.setFocusableInTouchMode(true);
-        //然后在写这个监听器
         rootView.setOnKeyListener(this);
 
         payHomeFragment = new PayHomeFragment();
@@ -74,7 +73,6 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
     @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {
         if (event.getAction() == KeyEvent.ACTION_DOWN) {
-            //这边判断,如果是back的按键被点击了   就自己拦截实现掉
             if (keyCode == KeyEvent.KEYCODE_BACK) {
                 int count = getChildFragmentManager().getBackStackEntryCount();
                 if (count < 0) {
@@ -85,7 +83,7 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
                 } else {
                     getChildFragmentManager().popBackStack();
                 }
-                return true;//表示处理了
+                return true;
             }
         }
         return false;
@@ -104,7 +102,11 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
             return;
         }
         if (event.getCode() == Constants.EVENT_SELETE_PAY_TYPE) {
-            getChildFragmentManager().beginTransaction().replace(R.id.container, paySelectPayTypeFragment).addToBackStack(null).commit();
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, paySelectPayTypeFragment)
+                    .addToBackStack(null)
+                    .commit();
         } else if (event.getCode() == Constants.EVENT_SELETED_PAY_TYPE) {
             payType = (int) event.getData();
             getChildFragmentManager().popBackStack();
@@ -114,7 +116,11 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
                 payHomeFragment.setPayType(getString(R.string.pay_type_wallet));
             }
         } else if (event.getCode() == Constants.EVENT_SELETE_CASH_COUPON) {
-            getChildFragmentManager().beginTransaction().replace(R.id.container, payCashCouponFragment).addToBackStack(null).commit();
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, payCashCouponFragment)
+                    .addToBackStack(null)
+                    .commit();
         }
     }
 }
