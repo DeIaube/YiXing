@@ -18,7 +18,13 @@
 
     <Button
         android:id="@+id/pay"
-        android:text="测试支付"
+        android:text="支付宝支付"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/pay_fragment"
+        android:text="支付页面"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

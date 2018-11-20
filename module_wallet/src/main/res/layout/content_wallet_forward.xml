@@ -142,7 +142,7 @@
         android:layout_marginEnd="12dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/white"
-        android:background="@drawable/wallet_forward_submit_unable_bg"
+        android:background="@drawable/pay_home_submit_unable_bg"
         android:text="@string/wallet_forward_confirm_forward"
         android:layout_width="match_parent"
         android:clickable="false"

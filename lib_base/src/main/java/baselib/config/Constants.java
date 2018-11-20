@@ -79,4 +79,8 @@ public interface Constants {
 
     String WALLET_BILL_DETAIL_BUNDLE = "walletBillDetailBundle";
     String WALLET_BILL_DETAIL_BILL = "walletBillDetailBill";
+
+    // Pay
+    String AROUTER_PAY_GROP = "pay";
+    String AROUTER_PAY_PROTOTOL = "/pay/protocol";
 }

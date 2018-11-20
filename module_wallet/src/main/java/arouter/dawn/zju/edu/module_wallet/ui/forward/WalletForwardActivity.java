@@ -41,16 +41,16 @@ public class WalletForwardActivity extends BaseActivity<WalletForwardContract.Pr
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (TextUtils.isEmpty(s)) {
-                    walletSubmitBtn.setBackgroundResource(R.drawable.wallet_forward_submit_unable_bg);
+                    walletSubmitBtn.setBackgroundResource(R.drawable.pay_home_submit_unable_bg);
                     walletSubmitBtn.setClickable(false);
                     return;
                 }
                 int amount = Integer.valueOf(s.toString());
                 if (amount == 0 || amount > 10000) {
-                    walletSubmitBtn.setBackgroundResource(R.drawable.wallet_forward_submit_unable_bg);
+                    walletSubmitBtn.setBackgroundResource(R.drawable.pay_home_submit_unable_bg);
                     walletSubmitBtn.setClickable(false);
                 } else {
-                    walletSubmitBtn.setBackgroundResource(R.drawable.wallet_forward_submit_able_bg);
+                    walletSubmitBtn.setBackgroundResource(R.drawable.pay_home_submit_able_bg);
                     walletSubmitBtn.setClickable(true);
                 }
             }

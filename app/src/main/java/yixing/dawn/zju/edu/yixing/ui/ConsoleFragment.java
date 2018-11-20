@@ -7,6 +7,7 @@ import android.widget.Toast;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.pay.PayBuiled;
+import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
 import yixing.dawn.zju.edu.yixing.R;
 
@@ -26,6 +27,7 @@ public class ConsoleFragment extends BaseFragment implements View.OnClickListene
     protected void initView(View view) {
         view.findViewById(R.id.exit_logon).setOnClickListener(this);
         view.findViewById(R.id.pay).setOnClickListener(this);
+        view.findViewById(R.id.pay_fragment).setOnClickListener(this);
     }
 
     @Override
@@ -51,6 +53,9 @@ public class ConsoleFragment extends BaseFragment implements View.OnClickListene
                     })
                     .builedAliPay()
                     .pay(v);
+        } else if (id == R.id.pay_fragment) {
+            PayContainerFragment payBottomFragment = new PayContainerFragment();
+            payBottomFragment.show(getFragmentManager(), 100.0, "title", "content");
         }
     }
 }

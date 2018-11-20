@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--PayHome-->
+    <string name="pay_home_cash_coupon">代金券</string>
+    <string name="pay_home_cash_coupon_default">不使用</string>
+    <string name="pay_home_invoice">发票</string>
+    <string name="pay_home_invoice_default">不支持开发票</string>
+    <string name="pay_home_pay_type">支付方式</string>
+    <string name="pay_home_pay_type_default">支付宝</string>
+    <string name="pay_home_pay_amount">应付总额</string>
+    <string name="pay_home_pay_protocol_default">本人同意并接受支付协议</string>
+    <string name="pay_home_submit">提交订单</string>
+    <!--PayHome-->
+
+    <!--PayProtocol-->
+    <string name="title_activity_pay_protocol">支付协议</string>
+    <!--PayProtocol-->
+
+</resources>

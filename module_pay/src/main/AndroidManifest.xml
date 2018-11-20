@@ -1,1 +1,12 @@
-<manifest package="arouter.dawn.zju.edu.module_pay" />
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="arouter.dawn.zju.edu.module_pay">
+
+    <application>
+        <activity
+            android:name=".ui.protocol.PayProtocolActivity"
+            android:label="@string/title_activity_pay_protocol"
+            android:theme="@style/AppTheme.NoActionBar"/>
+    </application>
+
+</manifest>
