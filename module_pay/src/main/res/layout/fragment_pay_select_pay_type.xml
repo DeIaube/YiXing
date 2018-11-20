@@ -7,4 +7,129 @@
     android:layout_height="match_parent"
     tools:context=".ui.select_pay_type.PaySelectPayTypeFragment">
 
+    <View
+        android:background="#f2f2f2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+    <LinearLayout
+        android:id="@+id/pay_type_ali_layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/pay_type_ali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/pay_type_ali"
+            android:text="支付宝"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="14dp"
+            android:textColor="#101010"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:src="@drawable/pay_home_right"
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pay_type_wechat_layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/pay_type_wechat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/pay_type_wechat"
+            android:text="微信支付"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="14dp"
+            android:textColor="#101010"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:src="@drawable/pay_home_right"
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pay_type_wallet_layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/pay_type_wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/pay_type_wallet"
+            android:text="钱包余额"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="14dp"
+            android:textColor="#101010"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:src="@drawable/pay_home_right"
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </LinearLayout>
+
 </LinearLayout>
