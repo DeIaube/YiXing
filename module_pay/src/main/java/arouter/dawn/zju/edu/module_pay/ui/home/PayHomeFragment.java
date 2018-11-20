@@ -33,10 +33,12 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
     private double price;
     private String title;
     private String content;
+    private double realPrice;
 
     @SuppressLint("ValidFragment")
     public PayHomeFragment(double price, String title, String content) {
         this.price = price;
+        this.realPrice = price;
         this.title = title;
         this.content = content;
         this.mCashCoupon = null;
@@ -53,7 +55,7 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
         payHomePayAgreementCb = view.findViewById(R.id.pay_home_pay_protocol);
         payHomeSubmitBtn = view.findViewById(R.id.pay_home_submit);
 
-        payHomePayAmountTv.setText(String.format("￥%.2f", price));
+        payHomePayAmountTv.setText(String.format("￥%.2f", realPrice));
 
         payHomePayAgreementCb.setOnCheckedChangeListener(this);
 
@@ -119,6 +121,7 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
         }
     }
 
+    @SuppressLint("DefaultLocale")
     public void setCashCoupon(CashCoupon cashCoupon) {
         mCashCoupon = cashCoupon;
         if (mCashCoupon == null) {
@@ -126,5 +129,8 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
         } else {
             payHomeCashCouponTv.setText(mCashCoupon.getTitle());
         }
+        realPrice = price - mCashCoupon.getDiscount();
+        realPrice = Math.max(0, realPrice);
+        payHomePayAmountTv.setText(String.format("￥%.2f", realPrice));
     }
 }
