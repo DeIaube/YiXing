@@ -8,8 +8,12 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import org.greenrobot.eventbus.EventBus;
+
 import arouter.dawn.zju.edu.module_pay.R;
+import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
+import baselib.bus.BusEvent;
 import baselib.config.Constants;
 
 public class PayHomeFragment extends BaseFragment implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
@@ -54,8 +58,13 @@ public class PayHomeFragment extends BaseFragment implements View.OnClickListene
             // 选择代金券
         } else if (id == R.id.pay_home_invoice_layout) {
             // 选择开发票
+            showMessage("当前不支持开发票");
         } else if (id == R.id.pay_home_pay_type_layout) {
             // 选择支付方式
+            BusEvent busEvent = new BusEvent();
+            busEvent.setTarget(PayContainerFragment.TAG);
+            busEvent.setCode(arouter.dawn.zju.edu.module_pay.config.Constants.EVENT_SELETE_PAY_TYPE);
+            EventBus.getDefault().post(busEvent);
         } else if (id == R.id.pay_home_pay_protocol_layout) {
             // 查看支付协议
             ARouter.getInstance().build(Constants.AROUTER_PAY_PROTOTOL).navigation();
@@ -73,5 +82,9 @@ public class PayHomeFragment extends BaseFragment implements View.OnClickListene
             payHomeSubmitBtn.setClickable(false);
             payHomeSubmitBtn.setBackgroundResource(R.drawable.pay_home_submit_unable_bg);
         }
+    }
+
+    public void setPayType(String type) {
+        payHomePayTypeTv.setText(type);
     }
 }

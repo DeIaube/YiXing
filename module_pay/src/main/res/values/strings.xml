@@ -17,4 +17,10 @@
     <string name="title_activity_pay_protocol">支付协议</string>
     <!--PayProtocol-->
 
+    <!--PayType-->
+    <string name="pay_type_wallet">钱包余额</string>
+    <string name="pay_type_wechat">微信支付</string>
+    <string name="pay_type_ali">支付宝</string>
+    <!--PayType-->
+
 </resources>

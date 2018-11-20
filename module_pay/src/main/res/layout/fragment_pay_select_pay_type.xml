@@ -33,7 +33,7 @@
 
         <TextView
             android:id="@+id/pay_type_ali"
-            android:text="支付宝"
+            android:text="@string/pay_type_ali"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -73,7 +73,7 @@
 
         <TextView
             android:id="@+id/pay_type_wechat"
-            android:text="微信支付"
+            android:text="@string/pay_type_wechat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -113,7 +113,7 @@
 
         <TextView
             android:id="@+id/pay_type_wallet"
-            android:text="钱包余额"
+            android:text="@string/pay_type_wallet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
