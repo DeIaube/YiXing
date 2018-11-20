@@ -17,6 +17,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import arouter.dawn.zju.edu.module_pay.R;
 import arouter.dawn.zju.edu.module_pay.config.Constants;
+import arouter.dawn.zju.edu.module_pay.ui.cash_coupon.PayCashCouponFragment;
 import arouter.dawn.zju.edu.module_pay.ui.home.PayHomeFragment;
 import arouter.dawn.zju.edu.module_pay.ui.select_pay_type.PaySelectPayTypeFragment;
 import baselib.bus.BusEvent;
@@ -32,6 +33,7 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
     private int payType;
 
     PayHomeFragment payHomeFragment;
+    PayCashCouponFragment payCashCouponFragment;
     PaySelectPayTypeFragment paySelectPayTypeFragment;
 
 
@@ -61,6 +63,7 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
         rootView.setOnKeyListener(this);
 
         payHomeFragment = new PayHomeFragment();
+        payCashCouponFragment = new PayCashCouponFragment();
         paySelectPayTypeFragment = new PaySelectPayTypeFragment();
 
         getChildFragmentManager().beginTransaction().add(R.id.container, payHomeFragment).commit();
@@ -110,7 +113,8 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
             } else if (payType == Constants.PAY_TYPE_WALLET) {
                 payHomeFragment.setPayType(getString(R.string.pay_type_wallet));
             }
-
+        } else if (event.getCode() == Constants.EVENT_SELETE_CASH_COUPON) {
+            getChildFragmentManager().beginTransaction().replace(R.id.container, payCashCouponFragment).addToBackStack(null).commit();
         }
     }
 }

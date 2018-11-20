@@ -21,6 +21,9 @@
     <string name="pay_type_wallet">钱包余额</string>
     <string name="pay_type_wechat">微信支付</string>
     <string name="pay_type_ali">支付宝</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!--PayType-->
 
 </resources>

@@ -56,6 +56,10 @@ public class PayHomeFragment extends BaseFragment implements View.OnClickListene
         int id = v.getId();
         if (id == R.id.pay_home_cash_coupon_layout) {
             // 选择代金券
+            BusEvent busEvent = new BusEvent();
+            busEvent.setTarget(PayContainerFragment.TAG);
+            busEvent.setCode(arouter.dawn.zju.edu.module_pay.config.Constants.EVENT_SELETE_CASH_COUPON);
+            EventBus.getDefault().post(busEvent);
         } else if (id == R.id.pay_home_invoice_layout) {
             // 选择开发票
             showMessage("当前不支持开发票");
