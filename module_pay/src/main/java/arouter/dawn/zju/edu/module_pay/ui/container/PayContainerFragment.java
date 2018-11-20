@@ -62,7 +62,7 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
         rootView.setOnKeyListener(this);
 
         payHomeFragment = new PayHomeFragment(price, title, content);
-        payCashCouponFragment = new PayCashCouponFragment();
+        payCashCouponFragment = new PayCashCouponFragment(price);
         paySelectPayTypeFragment = new PaySelectPayTypeFragment();
 
         getChildFragmentManager().beginTransaction().add(R.id.container, payHomeFragment).commit();

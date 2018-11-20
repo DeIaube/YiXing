@@ -1,8 +1,8 @@
 package arouter.dawn.zju.edu.module_pay.ui.cash_coupon;
 
+import android.annotation.SuppressLint;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import org.greenrobot.eventbus.EventBus;
@@ -18,11 +18,19 @@ import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
 
+@SuppressLint("ValidFragment")
 public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Presenter> implements PayCashCouponContract.View, PayCashCouponListAdapter.OnCashCouponClickListener, View.OnClickListener {
 
     RecyclerView payCashCouponListView;
 
     private PayCashCouponListAdapter mAdapter;
+
+    private double price;
+
+    @SuppressLint("ValidFragment")
+    public PayCashCouponFragment(double price) {
+        this.price = price;
+    }
 
     @Override
     protected int getLayoutId() {
@@ -53,11 +61,7 @@ public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Pr
 
     @Override
     public void selectCashCoupon(View v, CashCoupon cashCoupon) {
-        BusEvent busEvent = new BusEvent();
-        busEvent.setCode(Constants.EVENT_SELETED_CASH_COUPON);
-        busEvent.setTarget(PayContainerFragment.TAG);
-        busEvent.setData(cashCoupon);
-        EventBus.getDefault().post(busEvent);
+        mPresenter.selectCashCoupon(cashCoupon, price);
     }
 
     @Override

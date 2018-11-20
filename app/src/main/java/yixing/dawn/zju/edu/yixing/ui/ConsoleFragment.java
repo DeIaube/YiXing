@@ -55,7 +55,7 @@ public class ConsoleFragment extends BaseFragment implements View.OnClickListene
                     .pay(v);
         } else if (id == R.id.pay_fragment) {
             PayContainerFragment payBottomFragment = new PayContainerFragment();
-            payBottomFragment.show(getFragmentManager(), 100.0, "title", "content");
+            payBottomFragment.show(getFragmentManager(), 10.0, "title", "content");
         }
     }
 }

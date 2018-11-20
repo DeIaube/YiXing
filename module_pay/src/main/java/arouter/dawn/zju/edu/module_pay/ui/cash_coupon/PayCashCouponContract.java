@@ -13,6 +13,7 @@ public interface PayCashCouponContract {
 
     interface Presenter extends BaseContract.BasePresenter<View> {
         void refreshCashCouponList();
+        void selectCashCoupon(CashCoupon cashCoupon, double price);
     }
 
 }

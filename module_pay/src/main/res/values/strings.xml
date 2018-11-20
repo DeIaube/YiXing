@@ -25,6 +25,7 @@
 
     <!--PayCashCoupon-->
     <string name="pay_cash_coupon_dont_use_cash_coupon">不使用代金券</string>
+    <string name="pay_cash_coupon_dont_achieve_doorsill">未达到使用门槛</string>
     <!--PayCashCoupon-->
 
 </resources>
