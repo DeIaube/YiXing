@@ -10,7 +10,8 @@ import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
 
-public class PaySelectPayTypeFragment extends BaseFragment implements View.OnClickListener {
+public class PaySelectPayTypeFragment extends BaseFragment<PaySelectPayTypeContract.Presenter> implements
+        View.OnClickListener, PaySelectPayTypeContract.View{
 
     @Override
     protected int getLayoutId() {
@@ -19,7 +20,7 @@ public class PaySelectPayTypeFragment extends BaseFragment implements View.OnCli
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new PaySelectPayTypePresenter();
     }
 
     @Override

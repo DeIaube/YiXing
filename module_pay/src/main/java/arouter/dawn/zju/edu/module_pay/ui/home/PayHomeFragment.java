@@ -19,7 +19,8 @@ import baselib.bus.BusEvent;
 import baselib.config.Constants;
 
 @SuppressLint("ValidFragment")
-public class PayHomeFragment extends BaseFragment implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> implements
+        View.OnClickListener, CompoundButton.OnCheckedChangeListener, PayHomeContract.View {
 
     TextView payHomeCashCouponTv;
     TextView payHomePayTypeTv;

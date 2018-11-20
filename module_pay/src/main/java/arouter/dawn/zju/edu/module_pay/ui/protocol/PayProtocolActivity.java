@@ -7,7 +7,7 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_PAY_PROTOTOL)
-public class PayProtocolActivity extends BaseActivity {
+public class PayProtocolActivity extends BaseActivity<PayProtocolContract.Presenter> implements PayProtocolContract.View {
 
     @Override
     protected void initView() {
@@ -21,7 +21,7 @@ public class PayProtocolActivity extends BaseActivity {
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new PayProtocolPresenter();
     }
 
     @Override
