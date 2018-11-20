@@ -1,5 +1,6 @@
 package arouter.dawn.zju.edu.module_pay.ui.home;
 
+import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,6 +18,7 @@ import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
 import baselib.config.Constants;
 
+@SuppressLint("ValidFragment")
 public class PayHomeFragment extends BaseFragment implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     TextView payHomeCashCouponTv;
@@ -26,7 +28,22 @@ public class PayHomeFragment extends BaseFragment implements View.OnClickListene
     Button payHomeSubmitBtn;
 
     private CashCoupon mCashCoupon;
+    private int type;
+    private double price;
+    private String title;
+    private String content;
 
+    @SuppressLint("ValidFragment")
+    public PayHomeFragment(double price, String title, String content) {
+        this.price = price;
+        this.title = title;
+        this.content = content;
+        this.mCashCoupon = null;
+        this.type = arouter.dawn.zju.edu.module_pay.config.Constants.PAY_TYPE_ALI;
+    }
+
+
+    @SuppressLint("DefaultLocale")
     @Override
     protected void initView(View view) {
         payHomeCashCouponTv = view.findViewById(R.id.pay_home_cash_coupon);
@@ -34,6 +51,8 @@ public class PayHomeFragment extends BaseFragment implements View.OnClickListene
         payHomePayAmountTv = view.findViewById(R.id.pay_home_pay_amount);
         payHomePayAgreementCb = view.findViewById(R.id.pay_home_pay_protocol);
         payHomeSubmitBtn = view.findViewById(R.id.pay_home_submit);
+
+        payHomePayAmountTv.setText(String.format("￥%.2f", price));
 
         payHomePayAgreementCb.setOnCheckedChangeListener(this);
 
@@ -91,8 +110,12 @@ public class PayHomeFragment extends BaseFragment implements View.OnClickListene
         }
     }
 
-    public void setPayType(String type) {
-        payHomePayTypeTv.setText(type);
+    public void setPayType(int type) {
+        if (type == arouter.dawn.zju.edu.module_pay.config.Constants.PAY_TYPE_ALI) {
+            payHomePayTypeTv.setText(getString(R.string.pay_type_ali));
+        } else if (type == arouter.dawn.zju.edu.module_pay.config.Constants.PAY_TYPE_WALLET) {
+            payHomePayTypeTv.setText(getString(R.string.pay_type_wallet));
+        }
     }
 
     public void setCashCoupon(CashCoupon cashCoupon) {

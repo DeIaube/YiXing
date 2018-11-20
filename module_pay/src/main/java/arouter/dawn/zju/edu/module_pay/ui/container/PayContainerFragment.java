@@ -62,7 +62,7 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
         rootView.setFocusableInTouchMode(true);
         rootView.setOnKeyListener(this);
 
-        payHomeFragment = new PayHomeFragment();
+        payHomeFragment = new PayHomeFragment(price, title, content);
         payCashCouponFragment = new PayCashCouponFragment();
         paySelectPayTypeFragment = new PaySelectPayTypeFragment();
 
@@ -111,11 +111,7 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
         } else if (event.getCode() == Constants.EVENT_SELETED_PAY_TYPE) {
             payType = (int) event.getData();
             getChildFragmentManager().popBackStack();
-            if (payType == Constants.PAY_TYPE_ALI) {
-                payHomeFragment.setPayType(getString(R.string.pay_type_ali));
-            } else if (payType == Constants.PAY_TYPE_WALLET) {
-                payHomeFragment.setPayType(getString(R.string.pay_type_wallet));
-            }
+            payHomeFragment.setPayType(payType);
         } else if (event.getCode() == Constants.EVENT_SELETE_CASH_COUPON) {
             getChildFragmentManager()
                     .beginTransaction()
