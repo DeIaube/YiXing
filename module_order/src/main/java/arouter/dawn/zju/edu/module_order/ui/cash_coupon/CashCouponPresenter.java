@@ -24,26 +24,26 @@ public class CashCouponPresenter extends BasePresenter<CashCouponContract.View> 
 
     private static final String TAG = "CashCouponPresenter";
 
-    private List<String> mTitles;
-    private List<Fragment> mFragments;
+    private CashCouponListFragment mEffectiveCouponListFragmen;
+    private CashCouponListFragment mUsedCashCouponListFragmen;
+    private CashCouponListFragment mOverdueCashCouponListFragmen;
+
 
     @Override
     public void bindViewPager(FragmentManager fragmentManager, ViewPager viewPager, TabLayout tabLayout) {
-        mTitles = new ArrayList<>();
-        mFragments = new ArrayList<>();
+        List<String> titles = new ArrayList<>();
+        titles.add("未使用");
+        titles.add("已使用");
+        titles.add("已过期");
+        List<Fragment> fragments = new ArrayList<>();
+        fragments.add(mEffectiveCouponListFragmen = new CashCouponListFragment());
+        fragments.add(mUsedCashCouponListFragmen = new CashCouponListFragment());
+        fragments.add(mOverdueCashCouponListFragmen = new CashCouponListFragment());
 
-        mTitles.add("未使用");
-        mTitles.add("已使用");
-        mTitles.add("已过期");
-
-        for (int i = 0; i < mTitles.size(); i++) {
-            mFragments.add(new CashCouponListFragment());
-        }
-
-        CashCouponPagerAdapter adapter = new CashCouponPagerAdapter(fragmentManager, mTitles, mFragments);
+        CashCouponPagerAdapter adapter = new CashCouponPagerAdapter(fragmentManager, titles, fragments);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-        viewPager.setOffscreenPageLimit(mTitles.size());
+        viewPager.setOffscreenPageLimit(titles.size());
 
         refreshUserCashCouponList();
     }
@@ -79,24 +79,15 @@ public class CashCouponPresenter extends BasePresenter<CashCouponContract.View> 
                 overdueCashCouponList.add(userCashCoupon);
             } else {
                 if (userCashCoupon.getUsed()) {
-                    usedCashCouponList.add(userCashCoupon);
-                } else {
                     effectiveCashCouponList.add(userCashCoupon);
+                } else {
+                    usedCashCouponList.add(userCashCoupon);
                 }
             }
         }
 
-        if (mFragments.get(0) instanceof CashCouponListFragment) {
-            ((CashCouponListFragment)mFragments.get(0)).refresh(usedCashCouponList);
-        }
-
-        if (mFragments.get(1) instanceof CashCouponListFragment) {
-            ((CashCouponListFragment)mFragments.get(1)).refresh(effectiveCashCouponList);
-        }
-
-        if (mFragments.get(2) instanceof CashCouponListFragment) {
-            ((CashCouponListFragment)mFragments.get(2)).refresh(overdueCashCouponList);
-        }
-
+        mEffectiveCouponListFragmen.refresh(effectiveCashCouponList);
+        mUsedCashCouponListFragmen.refresh(usedCashCouponList);
+        mOverdueCashCouponListFragmen.refresh(overdueCashCouponList);
     }
 }
