@@ -25,6 +25,8 @@ public class PayHomePresenter extends BasePresenter<PayHomeContract.View> implem
                     @Override
                     public void paySuccess() {
                         mView.paySuccess();
+                        userCashCoupon.setUsed(false);
+                        userCashCoupon.saveInBackground();
                     }
 
                     @Override
