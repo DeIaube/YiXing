@@ -77,4 +77,8 @@
     <string name="wallet_non_secret_1000">¥1000</string>
     <!--WalletNonSecretPayment-->
 
+    <!--WallerAlertPayPassword-->
+    <string name="title_activity_wallet_alert_pay_password">修改支付密码</string>
+    <!--WallerAlertPayPassword-->
+
 </resources>

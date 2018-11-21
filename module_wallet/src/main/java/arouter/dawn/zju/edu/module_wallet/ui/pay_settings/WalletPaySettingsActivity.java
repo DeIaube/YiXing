@@ -50,6 +50,7 @@ public class WalletPaySettingsActivity extends BaseActivity<WalletPaySettingsCon
         int id = v.getId();
         if (id == R.id.wallet_settings_alert_pay_password) {
             // 修改支付密码
+            ARouter.getInstance().build(Constants.AROUTER_WALLET_ALERT_PAY_PASSWORD).navigation();
         } else if (id == R.id.wallet_settings_reset_pay_password) {
             // 忘记(重置)支付密码
         } else if (id == R.id.wallet_settings_non_secret_payment) {
