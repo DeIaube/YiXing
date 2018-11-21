@@ -3,6 +3,7 @@ package arouter.dawn.zju.edu.module_pay.pay;
 import android.app.Activity;
 import android.view.View;
 
+import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 
 public class WalletPay {
@@ -22,6 +23,13 @@ public class WalletPay {
     }
 
     public void pay(View v) {
-        payCallback.paySuccess();
+        User user = User.getCurrentUser(User.class);
+        if (user.getBalance() < price) {
+            payCallback.payFailed();
+        } else {
+            user.setBalance(user.getBalance() - price);
+            user.saveInBackground();
+            payCallback.paySuccess();
+        }
     }
 }
