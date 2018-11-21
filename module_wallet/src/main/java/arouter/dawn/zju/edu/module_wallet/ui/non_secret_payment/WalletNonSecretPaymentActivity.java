@@ -71,22 +71,18 @@ public class WalletNonSecretPaymentActivity extends BaseActivity<WalletNonSecret
             mCurrentQuota = QUOTA_50;
             resetQuota();
             walletNonSecretPaymentSwitch.setChecked(true);
-            mPresenter.updateSecretPayment(500);
         } else if (id == R.id.wallet_non_secret_200) {
             mCurrentQuota = QUOTA_200;
             resetQuota();
             walletNonSecretPaymentSwitch.setChecked(true);
-            mPresenter.updateSecretPayment(200);
         } else if (id == R.id.wallet_non_secret_500) {
             mCurrentQuota = QUOTA_500;
             resetQuota();
             walletNonSecretPaymentSwitch.setChecked(true);
-            mPresenter.updateSecretPayment(500);
         } else if (id == R.id.wallet_non_secret_1000) {
             mCurrentQuota = QUOTA_1000;
             resetQuota();
             walletNonSecretPaymentSwitch.setChecked(true);
-            mPresenter.updateSecretPayment(1000);
         }
     }
 
@@ -113,6 +109,17 @@ public class WalletNonSecretPaymentActivity extends BaseActivity<WalletNonSecret
         } else if (mCurrentQuota == QUOTA_1000) {
             quota1000Tv.setTextColor(getResources().getColor(R.color.colorPrimary));
             quota1000Tv.setBackgroundResource(R.drawable.wallet_non_secret_payment_quota_select_bg);
+        }
+        if (mCurrentQuota == QUOTA_50) {
+            mPresenter.updateSecretPayment(50);
+        } else if (mCurrentQuota == QUOTA_200) {
+            mPresenter.updateSecretPayment(200);
+        } else if (mCurrentQuota == QUOTA_500) {
+            mPresenter.updateSecretPayment(500);
+        } else if (mCurrentQuota == QUOTA_1000) {
+            mPresenter.updateSecretPayment(1000);
+        } else {
+            mPresenter.updateSecretPayment(0);
         }
     }
 
