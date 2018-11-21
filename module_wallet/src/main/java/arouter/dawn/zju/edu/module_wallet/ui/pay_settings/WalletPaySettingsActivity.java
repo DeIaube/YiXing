@@ -3,12 +3,12 @@ package arouter.dawn.zju.edu.module_wallet.ui.pay_settings;
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
@@ -28,6 +28,24 @@ public class WalletPaySettingsActivity extends BaseActivity<WalletPaySettingsCon
         findViewById(R.id.wallet_settings_reset_pay_password).setOnClickListener(this);
         findViewById(R.id.wallet_settings_non_secret_payment).setOnClickListener(this);
         walletSettingsFingerprintPaymentSwitch.setOnCheckedChangeListener(this);
+
+        refreshLayout();
+    }
+
+    private void refreshLayout() {
+        if (User.getCurrentUser(User.class).getSeretPayment() != 0) {
+            walletSettingsNonSecretPaymentState.setText(R.string.wallet_settings_non_secret_payment_able);
+            walletSettingsNonSecretPaymentState.setTextColor(getResources().getColor(R.color.colorPrimary));
+        } else {
+            walletSettingsNonSecretPaymentState.setText(R.string.wallet_settings_non_secret_payment_unable);
+            walletSettingsNonSecretPaymentState.setTextColor(getResources().getColor(R.color.wallet_settings_non_secret_payment_state));
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        refreshLayout();
     }
 
     @Override

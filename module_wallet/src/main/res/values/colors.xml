@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="bec2c9">#BEC2C9</color>
+    <color name="wallet_settings_non_secret_payment_state">#888888</color>
 </resources>

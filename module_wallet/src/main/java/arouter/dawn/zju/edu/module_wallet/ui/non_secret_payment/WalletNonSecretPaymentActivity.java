@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
@@ -44,6 +45,25 @@ public class WalletNonSecretPaymentActivity extends BaseActivity<WalletNonSecret
         quota1000Tv.setOnClickListener(this);
         walletNonSecretPaymentSwitch.setOnCheckedChangeListener(this);
         findViewById(R.id.wallet_non_secret_protocol).setOnClickListener(this);
+
+        refreshLayout();
+    }
+
+    private void refreshLayout() {
+        int seretPayment = User.getCurrentUser(User.class).getSeretPayment();
+        walletNonSecretPaymentSwitch.setChecked(seretPayment != 0);
+        if (seretPayment == 50) {
+            mCurrentQuota = QUOTA_50;
+        } else if (seretPayment == 200) {
+            mCurrentQuota = QUOTA_200;
+        } else if (seretPayment == 500) {
+            mCurrentQuota = QUOTA_500;
+        } else if (seretPayment == 1000) {
+            mCurrentQuota = QUOTA_1000;
+        } else {
+            mCurrentQuota = QUOTA_NULL;
+        }
+        resetQuota();
     }
 
     @Override
