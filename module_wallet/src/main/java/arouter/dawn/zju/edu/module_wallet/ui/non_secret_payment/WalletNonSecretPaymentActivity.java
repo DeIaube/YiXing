@@ -7,6 +7,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
@@ -65,6 +66,7 @@ public class WalletNonSecretPaymentActivity extends BaseActivity<WalletNonSecret
         int id = v.getId();
         if (id == R.id.wallet_non_secret_protocol) {
             // 跳转到免密协议
+            ARouter.getInstance().build(Constants.AROUTER_PAY_PROTOTOL).navigation();
         } else if (id == R.id.wallet_non_secret_50) {
             mCurrentQuota = QUOTA_50;
             resetQuota();
