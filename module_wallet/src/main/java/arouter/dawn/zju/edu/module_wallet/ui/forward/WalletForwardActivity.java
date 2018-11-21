@@ -96,8 +96,8 @@ public class WalletForwardActivity extends BaseActivity<WalletForwardContract.Pr
                         }
 
                         @Override
-                        public void payFailed() {
-                            mPresenter.pasFaile();
+                        public void payFailed(String msg) {
+                            mPresenter.payFaile(msg);
                         }
                     })
                     .builedAliPay()

@@ -9,7 +9,7 @@ public interface PayHomeContract {
 
     interface View extends BaseContract.BaseView {
         void paySuccess();
-        void payFailed();
+        void payFailed(String msg);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {

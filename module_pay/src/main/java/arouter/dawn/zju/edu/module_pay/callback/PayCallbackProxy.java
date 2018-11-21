@@ -59,7 +59,7 @@ public class PayCallbackProxy implements PayCallback {
     }
 
     @Override
-    public void payFailed() {
-        payCallback.payFailed();
+    public void payFailed(String msg) {
+        payCallback.payFailed(msg);
     }
 }

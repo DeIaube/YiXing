@@ -159,7 +159,7 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
                         }
 
                         @Override
-                        public void payFailed() {
+                        public void payFailed(String msg) {
                             mPresenter.payFailed(goods);
                         }
                     })

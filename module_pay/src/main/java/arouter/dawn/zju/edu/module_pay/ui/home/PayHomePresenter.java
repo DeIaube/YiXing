@@ -30,8 +30,8 @@ public class PayHomePresenter extends BasePresenter<PayHomeContract.View> implem
                     }
 
                     @Override
-                    public void payFailed() {
-                        mView.payFailed();
+                    public void payFailed(String msg) {
+                        mView.payFailed(msg);
                     }
                 });
         if (type == Constants.PAY_TYPE_ALI) {

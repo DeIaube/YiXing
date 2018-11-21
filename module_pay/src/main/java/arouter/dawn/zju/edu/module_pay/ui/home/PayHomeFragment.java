@@ -149,7 +149,7 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
     }
 
     @Override
-    public void payFailed() {
-        payCallback.payFailed();
+    public void payFailed(String msg) {
+        payCallback.payFailed(msg);
     }
 }

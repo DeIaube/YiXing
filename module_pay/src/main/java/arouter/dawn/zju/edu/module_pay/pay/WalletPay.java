@@ -25,7 +25,7 @@ public class WalletPay {
     public void pay(View v) {
         User user = User.getCurrentUser(User.class);
         if (user.getBalance() < price) {
-            payCallback.payFailed();
+            payCallback.payFailed("余额不足");
         } else {
             user.setBalance(user.getBalance() - price);
             user.saveInBackground();

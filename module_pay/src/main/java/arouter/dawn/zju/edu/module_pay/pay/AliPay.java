@@ -45,7 +45,7 @@ public class AliPay {
 				if (TextUtils.equals(resultStatus, "9000")) {
 					payCallback.paySuccess();
 				} else {
-					payCallback.payFailed();
+					payCallback.payFailed(payResult.getFaileMessage());
 				}
 				break;
 			}

@@ -31,7 +31,7 @@ public class WalletForwardPresenter extends BasePresenter<WalletForwardContract.
     }
 
     @Override
-    public void pasFaile() {
+    public void payFaile(String msg) {
         mView.showMessage(App.getContext().getString(R.string.wallet_forward_faile));
     }
 

@@ -47,7 +47,7 @@ public class ConsoleFragment extends BaseFragment implements View.OnClickListene
                         }
 
                         @Override
-                        public void payFailed() {
+                        public void payFailed(String msg) {
                             Toast.makeText(getContext(), "支付失败", Toast.LENGTH_SHORT).show();
                         }
                     })
@@ -58,11 +58,11 @@ public class ConsoleFragment extends BaseFragment implements View.OnClickListene
             payBottomFragment.show(getFragmentManager(), 10.0, "title", "content", new PayCallback() {
                 @Override
                 public void paySuccess() {
-                    
+
                 }
 
                 @Override
-                public void payFailed() {
+                public void payFailed(String msg) {
 
                 }
             });
