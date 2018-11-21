@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_order.ui.order;
+package arouter.dawn.zju.edu.module_order.ui.home;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -6,7 +6,7 @@ import android.support.v4.view.ViewPager;
 
 import baselib.base.BaseContract;
 
-public interface OrderContract {
+public interface OrderHomeContract {
 
     interface View extends BaseContract.BaseView {
         void showSwipeRefreshLayout();

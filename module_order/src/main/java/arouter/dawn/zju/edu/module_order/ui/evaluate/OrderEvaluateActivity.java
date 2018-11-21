@@ -17,8 +17,8 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_ORDER_EVALUATE)
-public class EvaluateActivity extends BaseActivity<EvaluateContract.Presenter> implements
-        View.OnClickListener, EvaluateContract.View {
+public class OrderEvaluateActivity extends BaseActivity<OrderEvaluateContract.Presenter> implements
+        View.OnClickListener, OrderEvaluateContract.View {
 
     ImageView frownIv;
     ImageView mehIv;
@@ -70,12 +70,12 @@ public class EvaluateActivity extends BaseActivity<EvaluateContract.Presenter> i
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_evaluate;
+        return R.layout.activity_order_evaluate;
     }
 
     @Override
     protected void bindPresenter() {
-        mPresenter = new EvaluatePresenter();
+        mPresenter = new OrderEvaluatePresenter();
     }
 
     @Override

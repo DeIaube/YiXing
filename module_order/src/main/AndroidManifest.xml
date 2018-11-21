@@ -4,8 +4,8 @@
 
     <application>
         <activity
-            android:name=".ui.evaluate.EvaluateActivity"
-            android:label="@string/title_activity_evaluate"
+            android:name=".ui.evaluate.OrderEvaluateActivity"
+            android:label="@string/title_activity_order_evaluate"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.cash_coupon.CashCouponActivity"

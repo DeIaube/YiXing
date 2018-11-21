@@ -36,7 +36,7 @@ public interface Constants {
     // Order
     String AROUTER_ORDER_GROP = "order";
     String AROUTER_ORDER_EVALUATE = "/order/evaluate";
-    String AROUTER_ORDER_ORDER = "/order/order";
+    String AROUTER_ORDER_HOME = "/order/home";
     String AROUTER_ORDER_LIST = "/order/list";
     String AROUTER_ORDER_CASH_COUPON = "/order/cashCoupon";
     String AROUTER_ORDER_INTEGRAL_SHOP = "/order/integralShop";

@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_order.ui.order_list;
+package arouter.dawn.zju.edu.module_order.ui.list;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -22,25 +22,25 @@ import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_ORDER_LIST)
-public class OrderListFragment extends BaseFragment<OrderListContract.Presenter> implements OrderListContract.View {
+public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Presenter> implements OrderHomeListContract.View {
 
     RecyclerView recyclerView;
 
     private List<Order> orders;
     private OrderListAdapter adapter;
 
-    public OrderListFragment() {
+    public OrderHomeListFragment() {
         orders = new ArrayList<>();
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_order_list;
+        return R.layout.fragment_order_home_list;
     }
 
     @Override
     protected void bindPresenter() {
-        mPresenter = new OrderListPresenter();
+        mPresenter = new OrderHomeListPresenter();
     }
 
     public void refresh(List<Order> orders) {

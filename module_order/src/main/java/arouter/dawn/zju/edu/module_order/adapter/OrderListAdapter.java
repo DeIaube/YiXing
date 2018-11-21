@@ -68,13 +68,13 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
     private String getTypeString(int type) {
         if (type == Constants.ORDER_TYPE_PAYMENT) {
-            return App.getContext().getString(R.string.order_list_type_payment);
+            return App.getContext().getString(R.string.order_home_list_type_payment);
         } else if (type == Constants.ORDER_TYPE_COMPLETE_REQUE_EVALUATE) {
-            return App.getContext().getString(R.string.order_list_type_reque_evaluate);
+            return App.getContext().getString(R.string.order_home_list_type_reque_evaluate);
         } else if (type == Constants.ORDER_TYPE_COMPLETE_EVALUATED) {
-            return App.getContext().getString(R.string.order_list_type_evaluated);
+            return App.getContext().getString(R.string.order_home_list_type_evaluated);
         } else {
-            return App.getContext().getString(R.string.order_list_type_all);
+            return App.getContext().getString(R.string.order_home_list_type_all);
         }
     }
 

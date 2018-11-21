@@ -14,9 +14,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-public class EvaluatePresenter extends BasePresenter<EvaluateContract.View> implements EvaluateContract.Presenter {
+public class OrderEvaluatePresenter extends BasePresenter<OrderEvaluateContract.View> implements OrderEvaluateContract.Presenter {
 
-    private static final String TAG = "EvaluatePresenter";
+    private static final String TAG = "OrderEvaluatePresenter";
 
     @SuppressLint("CheckResult")
     @Override

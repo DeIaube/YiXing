@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_order.ui.order;
+package arouter.dawn.zju.edu.module_order.ui.home;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -13,10 +13,10 @@ import arouter.dawn.zju.edu.module_order.config.EventBusCode;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
 
-@Route(path = baselib.config.Constants.AROUTER_ORDER_ORDER)
-public class OrderFragment extends BaseFragment<OrderContract.Presenter> implements OrderContract.View{
+@Route(path = baselib.config.Constants.AROUTER_ORDER_HOME)
+public class OrderHomeFragment extends BaseFragment<OrderHomeContract.Presenter> implements OrderHomeContract.View{
 
-    public static final String TAG = "OrderFragment";
+    public static final String TAG = "OrderHomeFragment";
 
     ViewPager viewPager;
     TabLayout tabLayout;
@@ -25,7 +25,7 @@ public class OrderFragment extends BaseFragment<OrderContract.Presenter> impleme
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_order;
+        return R.layout.fragment_order_home;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class OrderFragment extends BaseFragment<OrderContract.Presenter> impleme
 
     @Override
     protected void bindPresenter() {
-        mPresenter = new OrderPresenter();
+        mPresenter = new OrderHomePresenter();
     }
 
     @Override

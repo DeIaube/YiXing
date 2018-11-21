@@ -6,21 +6,21 @@
     <string name="order_pay_failed">支付失败</string>
     <!--Base-->
 
-    <!--OrderList-->
-    <string name="order_list_type_all">全部</string>
-    <string name="order_list_type_payment">待付款</string>
-    <string name="order_list_type_cancel">已取消</string>
-    <string name="order_list_type_reque_evaluate">待评价</string>
-    <string name="order_list_type_evaluated">已评价</string>
-    <string name="order_list_order_refund">申请退款</string>
-    <string name="order_list_order_evaluate">商品评价</string>
-    <string name="order_list_cancel_order">取消订单</string>
-    <string name="order_list_cancel_order_success">取消成功</string>
-    <string name="order_list_pay_order">立即付款</string>
-    <!--OrderList-->
+    <!--OrderHomeList-->
+    <string name="order_home_list_type_all">全部</string>
+    <string name="order_home_list_type_payment">待付款</string>
+    <string name="order_home_list_type_cancel">已取消</string>
+    <string name="order_home_list_type_reque_evaluate">待评价</string>
+    <string name="order_home_list_type_evaluated">已评价</string>
+    <string name="order_home_list_order_refund">申请退款</string>
+    <string name="order_home_list_order_evaluate">商品评价</string>
+    <string name="order_home_list_cancel_order">取消订单</string>
+    <string name="order_home_list_cancel_order_success">取消成功</string>
+    <string name="order_home_list_pay_order">立即付款</string>
+    <!--OrderHomeList-->
 
-    <!--Evaluate-->
-    <string name="title_activity_evaluate">商品评价</string>
+    <!--OrderEvaluate-->
+    <string name="title_activity_order_evaluate">商品评价</string>
     <string name="order_evaluate_evaluate">评价</string>
     <string name="order_evaluate_goods_evaluation">商品评价</string>
     <string name="order_evaluate_evaluation_success">评价成功</string>
@@ -29,11 +29,11 @@
     <string name="order_evaluate_smile">超赞</string>
     <string name="order_evaluate_content_hint">说说哪儿里好,鼓励一下我吧~</string>
     <string name="order_evaluate_submit">请评价购物满意度</string>
-    <!--Evaluate-->
+    <!--OrderEvaluate-->
 
-    <!--Order-->
-    <string name="title_activity_order">我的订单</string>
-    <!--Order-->
+    <!--OrderHome-->
+    <string name="title_activity_order_home">我的订单</string>
+    <!--OrderHome-->
 
     <!--CashCoupon-->
     <string name="title_activity_cash_coupon">我的代金券</string>

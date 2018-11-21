@@ -1,15 +1,16 @@
-package arouter.dawn.zju.edu.module_order.ui.evaluate;
+package arouter.dawn.zju.edu.module_order.ui.list;
 
 import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import baselib.base.BaseContract;
 
-public interface EvaluateContract {
+public interface OrderHomeListContract {
 
     interface View extends BaseContract.BaseView {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void submitEvaluate(Order order, int evaluateLever, String content);
+        void savePayInformation(Order order);
+        void cancelOrder(Order order);
     }
 
 }

@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_order.ui.order;
+package arouter.dawn.zju.edu.module_order.ui.home;
 
 import android.annotation.SuppressLint;
 import android.support.design.widget.TabLayout;
@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import arouter.dawn.zju.edu.module_order.adapter.OrderPagerAdapter;
-import arouter.dawn.zju.edu.module_order.ui.order_list.OrderListFragment;
+import arouter.dawn.zju.edu.module_order.ui.list.OrderHomeListFragment;
 import baselib.base.BasePresenter;
 import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import baselib.util.LogUtil;
 
-public class OrderPresenter extends BasePresenter<OrderContract.View> implements OrderContract.Presenter {
+public class OrderHomePresenter extends BasePresenter<OrderHomeContract.View> implements OrderHomeContract.Presenter {
 
-    private static final String TAG = "OrderPresenter";
+    private static final String TAG = "OrderHomePresenter";
 
     List<List<Order>> mOrderWithTypeList;
     private List<String> mTitles;
@@ -42,10 +42,10 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
         }
 
         mFragments = new ArrayList<>();
-        mFragments.add(new OrderListFragment());
-        mFragments.add(new OrderListFragment());
-        mFragments.add(new OrderListFragment());
-        mFragments.add(new OrderListFragment());
+        mFragments.add(new OrderHomeListFragment());
+        mFragments.add(new OrderHomeListFragment());
+        mFragments.add(new OrderHomeListFragment());
+        mFragments.add(new OrderHomeListFragment());
 
         OrderPagerAdapter adapter = new OrderPagerAdapter(fragmentManager, mTitles, mFragments);
         viewPager.setAdapter(adapter);
@@ -94,8 +94,8 @@ public class OrderPresenter extends BasePresenter<OrderContract.View> implements
     private void refreshOrderListFragment() {
         for (int i = 0; i < mFragments.size(); i++) {
             Fragment fragment = mFragments.get(i);
-            if (fragment instanceof OrderListFragment) {
-                OrderListFragment orderListFragment = (OrderListFragment) fragment;
+            if (fragment instanceof OrderHomeListFragment) {
+                OrderHomeListFragment orderListFragment = (OrderHomeListFragment) fragment;
                 orderListFragment.refresh(mOrderWithTypeList.get(i));
             }
         }

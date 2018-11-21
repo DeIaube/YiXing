@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/white"
-        tools:context=".ui.order_list.OrderListFragment">
+        tools:context=".ui.list.OrderHomeListFragment">
 
         <FrameLayout
             android:id="@+id/frameLayout"
@@ -155,7 +155,7 @@
                 android:textSize="13dp"
                 android:textColor="#5e5e5e"
                 android:layout_gravity="center_vertical"
-                android:text="@string/order_list_order_refund" />
+                android:text="@string/order_home_list_order_refund" />
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/order_evaluate"
@@ -166,7 +166,7 @@
                 android:textSize="13dp"
                 android:textColor="#5e5e5e"
                 android:layout_gravity="center_vertical"
-                android:text="@string/order_list_order_evaluate" />
+                android:text="@string/order_home_list_order_evaluate" />
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/cancel_order"
@@ -177,7 +177,7 @@
                 android:textSize="13dp"
                 android:textColor="#5e5e5e"
                 android:layout_gravity="center_vertical"
-                android:text="@string/order_list_cancel_order" />
+                android:text="@string/order_home_list_cancel_order" />
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/pay_order"
@@ -188,7 +188,7 @@
                 android:textSize="13dp"
                 android:textColor="#ffffff"
                 android:layout_gravity="center_vertical"
-                android:text="@string/order_list_pay_order" />
+                android:text="@string/order_home_list_pay_order" />
 
         </LinearLayout>
 

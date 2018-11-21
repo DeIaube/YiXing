@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_order.ui.order_list;
+package arouter.dawn.zju.edu.module_order.ui.list;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.DeleteCallback;
@@ -7,19 +7,18 @@ import com.avos.avoscloud.SaveCallback;
 import org.greenrobot.eventbus.EventBus;
 
 import arouter.dawn.zju.edu.lib_net.bean.order.Order;
-import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.config.Constants;
 import arouter.dawn.zju.edu.module_order.config.EventBusCode;
-import arouter.dawn.zju.edu.module_order.ui.order.OrderFragment;
+import arouter.dawn.zju.edu.module_order.ui.home.OrderHomeFragment;
 import baselib.App;
 import baselib.base.BasePresenter;
 import baselib.bus.BusEvent;
 import baselib.util.LogUtil;
 
-public class OrderListPresenter extends BasePresenter<OrderListContract.View> implements OrderListContract.Presenter {
+public class OrderHomeListPresenter extends BasePresenter<OrderHomeListContract.View> implements OrderHomeListContract.Presenter {
 
-    private static final String TAG = "OrderListPresenter";
+    private static final String TAG = "OrderHomeListPresenter";
 
     @Override
     public void savePayInformation(final Order order) {
@@ -49,7 +48,7 @@ public class OrderListPresenter extends BasePresenter<OrderListContract.View> im
                 if (e == null) {
                     LogUtil.i(TAG, "cancelOrder");
                     sendOrderListRefreshEvent();
-                    mView.showMessage(App.getContext().getString(R.string.order_list_cancel_order_success));
+                    mView.showMessage(App.getContext().getString(R.string.order_home_list_cancel_order_success));
                 } else {
                     LogUtil.e(TAG, e.getLocalizedMessage());
                     mView.showMessage(e.getLocalizedMessage());
@@ -60,7 +59,7 @@ public class OrderListPresenter extends BasePresenter<OrderListContract.View> im
 
     private void sendOrderListRefreshEvent() {
         BusEvent event = new BusEvent();
-        event.setTarget(OrderFragment.TAG);
+        event.setTarget(OrderHomeFragment.TAG);
         event.setCode(EventBusCode.ORDER_LIST_REFRESH);
         EventBus.getDefault().post(event);
     }
