@@ -4,11 +4,14 @@ package yixing.dawn.zju.edu.yixing.ui;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.pay.PayBuiled;
 import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
+import baselib.config.Constants;
 import yixing.dawn.zju.edu.yixing.R;
 
 public class ConsoleFragment extends BaseFragment implements View.OnClickListener {
@@ -34,7 +37,8 @@ public class ConsoleFragment extends BaseFragment implements View.OnClickListene
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.exit_logon) {
-            User.logOut();
+//            User.logOut();
+            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_SET_PAY_PASSWORD).navigation();
         } else if (id == R.id.pay) {
             new PayBuiled(getActivity())
                     .setTitle("测试商品")

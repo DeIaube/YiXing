@@ -81,6 +81,9 @@
 
     <!--AccountSetPayPassword-->
     <string name="title_activity_account_set_pay_password">设置支付密码</string>
+    <string name="set_pay_password_input_pay_password">请设置支付密码</string>
+    <string name="set_pay_password_confirm_pay_password">请确认支付密码</string>
+    <string name="set_pay_password_pay_password_diff">两次输入密码不同,请重试</string>
     <!--AccountSetPayPassword-->
 
 </resources>
