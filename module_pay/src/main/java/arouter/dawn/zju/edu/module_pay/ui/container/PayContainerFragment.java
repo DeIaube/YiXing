@@ -14,7 +14,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
+import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_pay.R;
 import arouter.dawn.zju.edu.module_pay.config.Constants;
 import arouter.dawn.zju.edu.module_pay.ui.cash_coupon.PayCashCouponFragment;
@@ -118,8 +118,8 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
                     .addToBackStack(null)
                     .commit();
         } else if (event.getCode() == Constants.EVENT_SELETED_CASH_COUPON) {
-            CashCoupon cashCoupon = (CashCoupon) event.getData();
-            payHomeFragment.setCashCoupon(cashCoupon);
+            UserCashCoupon userCashCoupon = (UserCashCoupon) event.getData();
+            payHomeFragment.setUserCashCoupon(userCashCoupon);
             getChildFragmentManager().popBackStack();
         } else if (event.getCode() == Constants.EVENT_PAY_SUCCESS) {
             dismiss();

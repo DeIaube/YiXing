@@ -11,7 +11,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import org.greenrobot.eventbus.EventBus;
 
-import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
+import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_pay.R;
 import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
@@ -28,7 +28,7 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
     CheckBox payHomePayAgreementCb;
     Button payHomeSubmitBtn;
 
-    private CashCoupon mCashCoupon;
+    private UserCashCoupon mUserCashCoupon;
     private int type;
     private double price;
     private String title;
@@ -41,7 +41,7 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
         this.realPrice = price;
         this.title = title;
         this.content = content;
-        this.mCashCoupon = null;
+        this.mUserCashCoupon = null;
         this.type = arouter.dawn.zju.edu.module_pay.config.Constants.PAY_TYPE_ALI;
     }
 
@@ -99,7 +99,7 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
             ARouter.getInstance().build(Constants.AROUTER_PAY_PROTOTOL).navigation();
         } else if (id == R.id.pay_home_submit) {
             // 提交
-            mPresenter.pay(getActivity(), v, price, realPrice, title, content, mCashCoupon, type);
+            mPresenter.pay(getActivity(), v, price, realPrice, title, content, mUserCashCoupon, type);
         }
     }
 
@@ -124,14 +124,14 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
     }
 
     @SuppressLint("DefaultLocale")
-    public void setCashCoupon(CashCoupon cashCoupon) {
-        mCashCoupon = cashCoupon;
-        if (mCashCoupon == null) {
+    public void setUserCashCoupon(UserCashCoupon cashCoupon) {
+        mUserCashCoupon = cashCoupon;
+        if (mUserCashCoupon == null) {
             payHomeCashCouponTv.setText("不使用");
         } else {
-            payHomeCashCouponTv.setText(mCashCoupon.getTitle());
+            payHomeCashCouponTv.setText(mUserCashCoupon.getCashCoupon().getTitle());
         }
-        realPrice = price - (mCashCoupon == null ? 0 : mCashCoupon.getDiscount());
+        realPrice = price - (mUserCashCoupon == null ? 0 : mUserCashCoupon.getCashCoupon().getDiscount());
         realPrice = Math.max(0, realPrice);
         payHomePayAmountTv.setText(String.format("￥%.2f", realPrice));
     }

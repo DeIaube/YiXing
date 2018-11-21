@@ -30,7 +30,7 @@ public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Pr
     RecyclerView payCashCouponListView;
 
     private PayCashCouponListAdapter mAdapter;
-    private List<CashCoupon> mCashCouponList;
+    private List<UserCashCoupon> mUserCashCouponList;
 
     private double price;
 
@@ -54,10 +54,10 @@ public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Pr
     protected void initView(View view) {
         payCashCouponListView = view.findViewById(R.id.pay_cash_coupon_list_view);
         view.findViewById(R.id.pay_cash_coupon_dont_use_cash_coupon).setOnClickListener(this);
-        if (mCashCouponList == null) {
-            mCashCouponList = new ArrayList<>();
+        if (mUserCashCouponList == null) {
+            mUserCashCouponList = new ArrayList<>();
         }
-        mAdapter = new PayCashCouponListAdapter(mCashCouponList, getContext());
+        mAdapter = new PayCashCouponListAdapter(mUserCashCouponList, getContext());
         payCashCouponListView.setLayoutManager(new LinearLayoutManager(getContext()));
         payCashCouponListView.setAdapter(mAdapter);
         mAdapter.setOnCashCouponClickListener(this);
@@ -66,12 +66,12 @@ public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Pr
 
     private void refresh() {
         if(mAdapter != null) {
-            mAdapter.refresh(mCashCouponList);
+            mAdapter.refresh(mUserCashCouponList);
         }
     }
 
     @Override
-    public void selectCashCoupon(View v, CashCoupon cashCoupon) {
+    public void selectCashCoupon(View v, UserCashCoupon cashCoupon) {
         mPresenter.selectCashCoupon(cashCoupon, price);
     }
 
@@ -96,11 +96,7 @@ public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Pr
                     @Override
                     public void done(List<UserCashCoupon> list, AVException e) {
                         if (e == null) {
-                            List<CashCoupon> cashCouponList = new ArrayList<>();
-                            for (UserCashCoupon userCashCoupon : list) {
-                                cashCouponList.add(userCashCoupon.getCashCoupon());
-                            }
-                            mCashCouponList = cashCouponList;
+                            mUserCashCouponList = list;
                             refresh();
                         }
                     }

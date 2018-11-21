@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 
 import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
+import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.config.Constants;
 import arouter.dawn.zju.edu.module_pay.pay.PayBuiled;
@@ -14,7 +15,8 @@ public class PayHomePresenter extends BasePresenter<PayHomeContract.View> implem
     private static final String TAG = "PayHomePresenter";
 
     @Override
-    public void pay(Activity activity, final View v, double price, double realPrice, String title, String content, CashCoupon cashCoupon, int type) {
+    public void pay(Activity activity, final View v, double price,
+                    double realPrice, String title, String content, final UserCashCoupon userCashCoupon, int type) {
         PayBuiled payBuiled = new PayBuiled(activity)
                 .setPrice(realPrice)
                 .setContent(content)
