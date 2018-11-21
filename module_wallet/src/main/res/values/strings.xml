@@ -49,5 +49,8 @@
     <!--WalletDetail-->
 
     <string name="title_activity_wallet_pay_settings">支付设置</string>
+    <string name="wallet_home_backcard">我的银行卡</string>
+    <string name="wallet_home_alipay">我的支付宝</string>
+    <string name="wallet_home_backcard_un_bind">未绑定</string>
 
 </resources>
