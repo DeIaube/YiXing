@@ -27,7 +27,11 @@
         <activity
             android:name=".ui.modify_pickname.ModifyPicknameActivity"
             android:label="@string/title_activity_modify_pickname"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.set_pay_password.AccountSetPayPasswordActivity"
+            android:label="@string/title_activity_account_set_pay_password"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

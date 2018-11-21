@@ -78,5 +78,9 @@
     <string name="modify_success">修改成功</string>
     <string name="personal_birth">生日</string>
     <!--modify_pickname-->
-    
+
+    <!--AccountSetPayPassword-->
+    <string name="title_activity_account_set_pay_password">设置支付密码</string>
+    <!--AccountSetPayPassword-->
+
 </resources>
