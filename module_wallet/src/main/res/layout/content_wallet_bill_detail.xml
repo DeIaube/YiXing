@@ -38,7 +38,6 @@
                 android:textSize="28dp"
                 android:gravity="center"
                 android:layout_gravity="end"
-                android:text="+5.00"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
 
@@ -68,7 +67,6 @@
 
             <TextView
                 android:id="@+id/wallet_bill_detail_type"
-                android:text="充值"
                 android:textSize="14dp"
                 android:textColor="#999999"
                 android:layout_gravity="end"
@@ -95,7 +93,6 @@
 
             <TextView
                 android:id="@+id/wallet_bill_detail_time"
-                android:text="2017-02-30 12:30:20"
                 android:textSize="14dp"
                 android:textColor="#999999"
                 android:layout_gravity="end"
@@ -122,7 +119,6 @@
 
             <TextView
                 android:id="@+id/wallet_bill_detail_id"
-                android:text="12345678901234567890"
                 android:textSize="14dp"
                 android:textColor="#999999"
                 android:layout_gravity="end"
@@ -140,7 +136,7 @@
             android:layout_height="40dp">
 
             <TextView
-                android:text="@string/wallet_bill_detail_remarks"
+                android:text="@string/wallet_bill_detail_source"
                 android:textSize="14dp"
                 android:textColor="#999999"
                 android:layout_gravity="start"
@@ -149,8 +145,7 @@
                 android:layout_height="match_parent" />
 
             <TextView
-                android:id="@+id/wallet_bill_detail_remarks"
-                android:text="微信支付"
+                android:id="@+id/wallet_bill_detail_source"
                 android:textSize="14dp"
                 android:textColor="#999999"
                 android:layout_gravity="end"

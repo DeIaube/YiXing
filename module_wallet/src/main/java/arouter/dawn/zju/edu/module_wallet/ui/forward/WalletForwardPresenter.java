@@ -22,7 +22,7 @@ public class WalletForwardPresenter extends BasePresenter<WalletForwardContract.
         Bill bill = new Bill();
         bill.setOwner(User.getCurrentUser(User.class));
         bill.setType(true);
-        bill.setRemarks(source);
+        bill.setSource(source);
         bill.setAmount(amount);
         bill.setDeal(title);
         bill.saveInBackground();

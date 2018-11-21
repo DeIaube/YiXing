@@ -48,7 +48,7 @@ public class PayCallbackProxy implements PayCallback {
         bill.setType(false);
         bill.setAmount(price);
         bill.setDeal(title);
-        bill.setRemarks(type);
+        bill.setSource(type);
         bill.saveInBackground();
     }
 

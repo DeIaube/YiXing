@@ -22,7 +22,7 @@ public class WalletBillDetailActivity extends BaseActivity<WalletBillDetailContr
     TextView walletBillDetailTypeTv;
     TextView walletBill_Detail_TimeTv;
     TextView walletBillDetailIdTv;
-    TextView walletBillDetailRemarksTv;
+    TextView walletBillDetailSourceTv;
 
     @Autowired(name = Constants.WALLET_BILL_DETAIL_BUNDLE)
     Bundle bundle;
@@ -38,9 +38,9 @@ public class WalletBillDetailActivity extends BaseActivity<WalletBillDetailContr
         walletBillDetailTypeTv = findViewById(R.id.wallet_bill_detail_type);
         walletBill_Detail_TimeTv = findViewById(R.id.wallet_bill_detail_time);
         walletBillDetailIdTv = findViewById(R.id.wallet_bill_detail_id);
-        walletBillDetailRemarksTv = findViewById(R.id.wallet_bill_detail_remarks);
+        walletBillDetailSourceTv = findViewById(R.id.wallet_bill_detail_source);
 
-        walletBillDetailRemarksTv.setText(bill.getRemarks());
+        walletBillDetailSourceTv.setText(bill.getSource());
         walletBillDetailIdTv.setText(bill.getObjectId());
         walletBillDetailTypeTv.setText(bill.getDeal());
         @SuppressLint("SimpleDateFormat")

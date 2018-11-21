@@ -36,12 +36,12 @@ public class Bill extends AVObject {
         put("deal", deal);
     }
 
-    public String getRemarks() {
-        return getString("remarks");
+    public String getSource() {
+        return getString("source");
     }
 
-    public void setRemarks(String remarks) {
-        put("remarks", remarks);
+    public void setSource(String source) {
+        put("source", source);
     }
 
     public double getAmount() {
