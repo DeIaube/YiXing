@@ -1,5 +1,7 @@
 package arouter.dawn.zju.edu.module_pay.callback;
 
+import arouter.dawn.zju.edu.lib_net.bean.User;
+
 public class PayCallbackProxy implements PayCallback {
 
     private PayCallback payCallback;
@@ -34,7 +36,14 @@ public class PayCallbackProxy implements PayCallback {
 
     @Override
     public void paySuccess() {
+        updateUserShopPoint();
         payCallback.paySuccess();
+    }
+
+    private void updateUserShopPoint() {
+        User user = User.getCurrentUser(User.class);
+        user.setShopPoint((int) (user.getShopPoint() + price));
+        user.saveInBackground();
     }
 
     @Override
