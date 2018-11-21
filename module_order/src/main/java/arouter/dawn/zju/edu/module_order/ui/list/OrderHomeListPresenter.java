@@ -21,7 +21,7 @@ public class OrderHomeListPresenter extends BasePresenter<OrderHomeListContract.
     private static final String TAG = "OrderHomeListPresenter";
 
     @Override
-    public void savePayInformation(final Order order) {
+    public void paySuccess(final Order order) {
         order.setType(Constants.ORDER_TYPE_COMPLETE_REQUE_EVALUATE);
         order.saveInBackground(new SaveCallback() {
             @Override
@@ -36,6 +36,11 @@ public class OrderHomeListPresenter extends BasePresenter<OrderHomeListContract.
                 }
             }
         });
+    }
+
+    @Override
+    public void payFailed(Order order, String failed) {
+        mView.showMessage(failed);
     }
 
     @Override

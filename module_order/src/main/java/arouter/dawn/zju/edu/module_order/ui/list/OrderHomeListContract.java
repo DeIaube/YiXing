@@ -9,7 +9,8 @@ public interface OrderHomeListContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void savePayInformation(Order order);
+        void paySuccess(Order order);
+        void payFailed(Order order, String failed);
         void cancelOrder(Order order);
     }
 

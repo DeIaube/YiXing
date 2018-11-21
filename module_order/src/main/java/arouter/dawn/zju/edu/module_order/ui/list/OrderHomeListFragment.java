@@ -78,12 +78,12 @@ public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Pr
                                 , new PayCallback() {
                                     @Override
                                     public void paySuccess() {
-                                        mPresenter.savePayInformation(orderBean);
+                                        mPresenter.paySuccess(orderBean);
                                     }
 
                                     @Override
                                     public void payFailed(String msg) {
-                                        showMessage(msg);
+                                        mPresenter.payFailed(orderBean, msg);
                                     }
                                 });
             }
