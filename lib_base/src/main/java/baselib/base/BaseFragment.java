@@ -59,6 +59,12 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
         }
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        multipleFreshView();
+    }
+
     protected void multipleFreshView() {
 
     }
