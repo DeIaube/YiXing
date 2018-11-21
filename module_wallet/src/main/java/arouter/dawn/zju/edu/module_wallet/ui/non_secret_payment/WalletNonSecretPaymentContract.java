@@ -10,6 +10,7 @@ public interface WalletNonSecretPaymentContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
+        void updateSecretPayment(int quota);
     }
 
 }

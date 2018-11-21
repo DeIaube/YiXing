@@ -21,6 +21,14 @@ public class User extends AVUser {
         return getString("payPassword");
     }
 
+    public int getSeretPayment() {
+        return getInt("seretPayment");
+    }
+
+    public void setSeretPayment(int seretPayment) {
+        put("seretPayment", seretPayment);
+    }
+
     public void setPayPassword(String payPassword) {
         put("payPassword", payPassword);
     }

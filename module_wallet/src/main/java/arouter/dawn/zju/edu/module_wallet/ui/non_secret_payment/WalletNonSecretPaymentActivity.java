@@ -71,18 +71,22 @@ public class WalletNonSecretPaymentActivity extends BaseActivity<WalletNonSecret
             mCurrentQuota = QUOTA_50;
             resetQuota();
             walletNonSecretPaymentSwitch.setChecked(true);
+            mPresenter.updateSecretPayment(500);
         } else if (id == R.id.wallet_non_secret_200) {
             mCurrentQuota = QUOTA_200;
             resetQuota();
             walletNonSecretPaymentSwitch.setChecked(true);
+            mPresenter.updateSecretPayment(200);
         } else if (id == R.id.wallet_non_secret_500) {
             mCurrentQuota = QUOTA_500;
             resetQuota();
             walletNonSecretPaymentSwitch.setChecked(true);
+            mPresenter.updateSecretPayment(500);
         } else if (id == R.id.wallet_non_secret_1000) {
             mCurrentQuota = QUOTA_1000;
             resetQuota();
             walletNonSecretPaymentSwitch.setChecked(true);
+            mPresenter.updateSecretPayment(1000);
         }
     }
 
