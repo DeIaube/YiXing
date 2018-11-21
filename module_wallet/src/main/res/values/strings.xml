@@ -8,6 +8,9 @@
     <string name="wallet_home_recharge">提现</string>
     <string name="wallet_home_bill">账单明细</string>
     <string name="wallet_home_payment_setting">支付设置</string>
+    <string name="wallet_home_back_card">我的银行卡</string>
+    <string name="wallet_home_alipay">我的支付宝</string>
+    <string name="wallet_home_backcard_un_bind">未绑定</string>
     <!--WalletHome-->
 
     <!--WalletForward-->
@@ -48,9 +51,12 @@
     <string name="wallet_bill_detail_source">来源</string>
     <!--WalletDetail-->
 
+    <!--WalletPaySettings-->
     <string name="title_activity_wallet_pay_settings">支付设置</string>
-    <string name="wallet_home_backcard">我的银行卡</string>
-    <string name="wallet_home_alipay">我的支付宝</string>
-    <string name="wallet_home_backcard_un_bind">未绑定</string>
+    <!--WalletPaySettings-->
+
+    <!--WalletBankCard-->
+    <string name="title_activity_wallet_bank_card">我的银行卡</string>
+    <!--WalletBankCard-->
 
 </resources>

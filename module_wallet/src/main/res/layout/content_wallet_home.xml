@@ -168,7 +168,7 @@
                 android:layout_height="wrap_content">
 
                 <android.support.constraint.ConstraintLayout
-                    android:id="@+id/wallet_home_backcard"
+                    android:id="@+id/wallet_home_bank_card"
                     android:layout_width="match_parent"
                     android:layout_height="44dp">
 
@@ -178,7 +178,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:text="@string/wallet_home_backcard"
+                        android:text="@string/wallet_home_back_card"
                         android:textColor="#101010"
                         android:textSize="14dp"
                         app:layout_constraintBottom_toBottomOf="parent"

@@ -26,6 +26,8 @@ public class WalletHomeActivity extends BaseActivity<WalletHomeContract.Presente
         findViewById(R.id.wallet_home_recharge).setOnClickListener(this);
         findViewById(R.id.wallet_home_bill).setOnClickListener(this);
         findViewById(R.id.wallet_home_question).setOnClickListener(this);
+        findViewById(R.id.wallet_home_bank_card).setOnClickListener(this);
+        findViewById(R.id.wallet_home_alipay).setOnClickListener(this);
         findViewById(R.id.wallet_home_payment_setting).setOnClickListener(this);
     }
 
@@ -56,6 +58,11 @@ public class WalletHomeActivity extends BaseActivity<WalletHomeContract.Presente
         } else if (id == R.id.wallet_home_question) {
             // 常见问题
             ARouter.getInstance().build(Constants.AROUTER_WALLET_QUESTION).navigation();
+        } else if (id == R.id.wallet_home_bank_card) {
+            // 我的银行卡
+            ARouter.getInstance().build(Constants.AROUTER_WALLET_BANK_CARD).navigation();
+        } else if (id == R.id.wallet_home_alipay) {
+            // 支付宝
         }
     }
 
