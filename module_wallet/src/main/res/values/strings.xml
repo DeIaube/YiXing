@@ -66,4 +66,15 @@
     <string name="title_activity_wallet_bank_card">我的银行卡</string>
     <!--WalletBankCard-->
 
+    <!--WalletNonSecretPayment-->
+    <string name="title_activity_wallet_non_secret_payment">设置小额免密</string>
+    <string name="wallet_non_secret_payment">小额免密支付</string>
+    <string name="wallet_non_secret_protocol">《小额免密支付协议》</string>
+    <string name="wallet_non_secret_tip">开启后，支付时无需输入支付密码或指纹</string>
+    <string name="wallet_non_secret_50">¥50</string>
+    <string name="wallet_non_secret_200">¥200</string>
+    <string name="wallet_non_secret_500">¥500</string>
+    <string name="wallet_non_secret_1000">¥1000</string>
+    <!--WalletNonSecretPayment-->
+
 </resources>

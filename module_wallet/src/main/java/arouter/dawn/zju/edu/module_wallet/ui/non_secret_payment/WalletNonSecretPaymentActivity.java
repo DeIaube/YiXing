@@ -1,31 +1,36 @@
 package arouter.dawn.zju.edu.module_wallet.ui.non_secret_payment;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+
+import android.support.v7.widget.SwitchCompat;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_wallet.R;
+import baselib.base.BaseActivity;
+import baselib.config.Constants;
 
-public class WalletNonSecretPaymentActivity extends AppCompatActivity {
+@Route(path = Constants.AROUTER_WALLET_NON_SECRET_PAYMENT)
+public class WalletNonSecretPaymentActivity extends BaseActivity<WalletNonSecretPaymentContract.Presenter> implements WalletNonSecretPaymentContract.View {
+
+    SwitchCompat walletNonSecretPaymentSwitch;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wallet_non_secret_payment);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+    protected void initView() {
+        walletNonSecretPaymentSwitch = findViewById(R.id.wallet_non_secret_payment);
     }
 
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_wallet_non_secret_payment;
+    }
+
+    @Override
+    protected void bindPresenter() {
+        mPresenter = new WalletNonSeretPaymentPresenter();
+    }
+
+    @Override
+    protected boolean showHomeAsUp() {
+        return true;
+    }
 }

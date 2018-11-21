@@ -77,6 +77,7 @@ public interface Constants {
     String AROUTER_WALLET_FIRWARD = "/wallet/forward";
     String AROUTER_WALLET_QUESTION = "/wallet/question";
     String AROUTER_WALLET_PAY_SETTINGS = "/wallet/pay_settings";
+    String AROUTER_WALLET_NON_SECRET_PAYMENT = "/wallet/non_secret_payment";
     String AROUTER_WALLET_ANSWER= "/wallet/answer";
 
     String WALLET_BILL_DETAIL_BUNDLE = "walletBillDetailBundle";
