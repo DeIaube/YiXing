@@ -4,6 +4,8 @@ import android.app.Activity;
 
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.callback.PayCallbackProxy;
+import arouter.dawn.zju.edu.module_pay.pay.ali.AliPay;
+import arouter.dawn.zju.edu.module_pay.pay.wallet.WalletPay;
 
 public class PayBuiled {
     private Activity context;

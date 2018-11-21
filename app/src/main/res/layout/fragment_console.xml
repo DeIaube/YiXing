@@ -17,8 +17,14 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/pay"
+        android:id="@+id/ali_pay"
         android:text="支付宝支付"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/wallet_pay"
+        android:text="钱包支付支付"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

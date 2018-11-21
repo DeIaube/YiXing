@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_pay.pay;
+package arouter.dawn.zju.edu.module_pay.pay.ali;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -26,7 +26,7 @@ public class AliPay {
 	private String content;
 	private PayCallback payCallback;
 
-	AliPay(Activity context, double price, String title, String content, PayCallback payCallback) {
+	public AliPay(Activity context, double price, String title, String content, PayCallback payCallback) {
 		this.context = context;
 		this.price = price;
 		this.title = title;
