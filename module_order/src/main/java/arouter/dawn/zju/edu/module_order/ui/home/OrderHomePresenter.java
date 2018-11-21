@@ -11,6 +11,8 @@ import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import arouter.dawn.zju.edu.module_order.adapter.OrderPagerAdapter;
@@ -93,10 +95,17 @@ public class OrderHomePresenter extends BasePresenter<OrderHomeContract.View> im
      */
     private void refreshOrderListFragment() {
         for (int i = 0; i < mFragments.size(); i++) {
+            List<Order> orderList = mOrderWithTypeList.get(i);
+            Collections.sort(orderList, new Comparator<Order>() {
+                @Override
+                public int compare(Order o1, Order o2) {
+                    return o2.getCreatedAt().compareTo(o1.getCreatedAt());
+                }
+            });
             Fragment fragment = mFragments.get(i);
             if (fragment instanceof OrderHomeListFragment) {
                 OrderHomeListFragment orderListFragment = (OrderHomeListFragment) fragment;
-                orderListFragment.refresh(mOrderWithTypeList.get(i));
+                orderListFragment.refresh(orderList);
             }
         }
     }
