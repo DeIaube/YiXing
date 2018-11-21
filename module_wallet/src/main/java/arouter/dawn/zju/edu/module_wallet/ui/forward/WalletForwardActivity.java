@@ -92,7 +92,7 @@ public class WalletForwardActivity extends BaseActivity<WalletForwardContract.Pr
                     .setPayCallback(new PayCallback() {
                         @Override
                         public void paySuccess() {
-                            mPresenter.paySuccess("余额充值", "余额充值","支付宝", amount);
+                            mPresenter.paySuccess("余额充值", "余额充值","账户余额", amount);
                         }
 
                         @Override
