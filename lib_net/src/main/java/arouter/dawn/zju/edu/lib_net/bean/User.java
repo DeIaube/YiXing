@@ -17,6 +17,14 @@ public class User extends AVUser {
         return name == null ? getMobilePhoneNumber() : name;
     }
 
+    public int getPayPassword() {
+        return getInt("payPassword");
+    }
+
+    public void setPayPassword(int payPassword) {
+        put("payPassword", payPassword);
+    }
+
     public void setPortrait(String portrait) {
         put("portrait", portrait);
     }
