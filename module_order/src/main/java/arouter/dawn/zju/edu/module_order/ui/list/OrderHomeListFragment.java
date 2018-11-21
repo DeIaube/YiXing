@@ -17,6 +17,7 @@ import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.adapter.OrderListAdapter;
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.pay.PayBuiled;
+import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
 import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import baselib.config.Constants;
@@ -72,23 +73,37 @@ public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Pr
 
             @Override
             public void payOrderClickListener(View view, final Order orderBean) {
-                new PayBuiled(getActivity())
-                        .setTitle(orderBean.getGoods().getTitle())
-                        .setContent(orderBean.getGoods().getExplain())
-                        .setPrice(orderBean.getGoods().getPrice())
-                        .setPayCallback(new PayCallback() {
-                            @Override
-                            public void paySuccess() {
-                                mPresenter.savePayInformation(orderBean);
-                            }
+                new PayContainerFragment()
+                        .show(getFragmentManager(), orderBean.getGoods().getPrice(),
+                                orderBean.getGoods().getTitle(), orderBean.getGoods().getExplain()
+                                , new PayCallback() {
+                                    @Override
+                                    public void paySuccess() {
+                                        mPresenter.savePayInformation(orderBean);
+                                    }
 
-                            @Override
-                            public void payFailed() {
-                                showMessage(getString(R.string.order_pay_failed));
-                            }
-                        })
-                        .builedAliPay()
-                        .pay(view);
+                                    @Override
+                                    public void payFailed() {
+                                        showMessage(getString(R.string.order_pay_failed));
+                                    }
+                                });
+//                new PayBuiled(getActivity())
+//                        .setTitle(orderBean.getGoods().getTitle())
+//                        .setContent(orderBean.getGoods().getExplain())
+//                        .setPrice(orderBean.getGoods().getPrice())
+//                        .setPayCallback(new PayCallback() {
+//                            @Override
+//                            public void paySuccess() {
+//
+//                            }
+//
+//                            @Override
+//                            public void payFailed() {
+//
+//                            }
+//                        })
+//                        .builedAliPay()
+//                        .pay(view);
             }
 
             @Override

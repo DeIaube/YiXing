@@ -13,6 +13,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_pay.R;
+import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
@@ -29,6 +30,7 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
     Button payHomeSubmitBtn;
 
     private UserCashCoupon mUserCashCoupon;
+    private PayCallback payCallback;
     private int type;
     private double price;
     private String title;
@@ -36,13 +38,14 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
     private double realPrice;
 
     @SuppressLint("ValidFragment")
-    public PayHomeFragment(double price, String title, String content) {
+    public PayHomeFragment(double price, String title, String content, PayCallback payCallback) {
         this.price = price;
         this.realPrice = price;
         this.title = title;
         this.content = content;
         this.mUserCashCoupon = null;
         this.type = arouter.dawn.zju.edu.module_pay.config.Constants.PAY_TYPE_ALI;
+        this.payCallback = payCallback;
     }
 
 
@@ -142,10 +145,11 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
         busEvent.setTarget(PayContainerFragment.TAG);
         busEvent.setCode(arouter.dawn.zju.edu.module_pay.config.Constants.EVENT_PAY_SUCCESS);
         EventBus.getDefault().post(busEvent);
+        payCallback.paySuccess();
     }
 
     @Override
     public void payFailed() {
-
+        payCallback.payFailed();
     }
 }

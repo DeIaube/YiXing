@@ -16,6 +16,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_pay.R;
+import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.config.Constants;
 import arouter.dawn.zju.edu.module_pay.ui.cash_coupon.PayCashCouponFragment;
 import arouter.dawn.zju.edu.module_pay.ui.home.PayHomeFragment;
@@ -29,6 +30,7 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
     private double price;
     private String title;
     private String content;
+    private PayCallback payCallback;
 
     private int payType;
 
@@ -61,7 +63,7 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
         rootView.setFocusableInTouchMode(true);
         rootView.setOnKeyListener(this);
 
-        payHomeFragment = new PayHomeFragment(price, title, content);
+        payHomeFragment = new PayHomeFragment(price, title, content, payCallback);
         payCashCouponFragment = new PayCashCouponFragment(price);
         paySelectPayTypeFragment = new PaySelectPayTypeFragment();
 
@@ -89,10 +91,11 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
         return false;
     }
 
-    public void show(FragmentManager manager, double price, String title, String content) {
+    public void show(FragmentManager manager, double price, String title, String content, PayCallback payCallback) {
         this.price = price;
         this.title = title;
         this.content = content;
+        this.payCallback = payCallback;
         show(manager, this.getClass().getSimpleName());
     }
 
