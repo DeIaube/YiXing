@@ -75,14 +75,14 @@ public class CashCouponPresenter extends BasePresenter<CashCouponContract.View> 
         Date currentDate = new Date();
 
         for (UserCashCoupon userCashCoupon : list) {
-            if (userCashCoupon.getUsed()) {
-                usedCashCouponList.add(userCashCoupon);
-                continue;
-            }
             if (userCashCoupon.getCashCoupon().getEndTime().before(currentDate)) {
                 overdueCashCouponList.add(userCashCoupon);
             } else {
-                effectiveCashCouponList.add(userCashCoupon);
+                if (userCashCoupon.getUsed()) {
+                    usedCashCouponList.add(userCashCoupon);
+                } else {
+                    effectiveCashCouponList.add(userCashCoupon);
+                }
             }
         }
 
