@@ -31,9 +31,6 @@ public class OrderListPresenter extends BasePresenter<OrderListContract.View> im
                     LogUtil.i(TAG, "savePayInformation: " + order.toString());
                     mView.showMessage(App.getContext().getString(R.string.order_pay_success));
                     sendOrderListRefreshEvent();
-                    User currentUser = User.getCurrentUser(User.class);
-                    currentUser.setShopPoint(currentUser.getShopPoint() + (int)order.getGoods().getPrice());
-                    currentUser.saveInBackground();
                 } else {
                     LogUtil.e(TAG, e.getLocalizedMessage());
                     mView.showMessage(e.getLocalizedMessage());
