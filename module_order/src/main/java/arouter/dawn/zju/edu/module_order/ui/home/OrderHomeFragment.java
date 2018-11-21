@@ -69,11 +69,13 @@ public class OrderHomeFragment extends BaseFragment<OrderHomeContract.Presenter>
         });
 
         mPresenter.bindViewPager(getChildFragmentManager(), viewPager, tabLayout);
+
+        mPresenter.refresh();
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    protected void multipleFreshView() {
+        super.multipleFreshView();
         mPresenter.refresh();
     }
 

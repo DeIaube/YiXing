@@ -24,6 +24,8 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
 
     private View mRootView;
 
+    protected boolean isCreated = false;
+
     protected abstract int getLayoutId();
 
     protected abstract void bindPresenter();
@@ -43,6 +45,22 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
         }
         bindPresenter();
         attachView();
+        isCreated = true;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (!isCreated) {
+            return;
+        }
+        if (isVisibleToUser) {
+            multipleFreshView();
+        }
+    }
+
+    protected void multipleFreshView() {
+
     }
 
     @Nullable

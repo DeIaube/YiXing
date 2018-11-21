@@ -32,8 +32,6 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
     // 积分 6个
     TextView integralBalanceTv;
 
-    boolean isCreated = false;
-
     TextView accountNameTv;
     TextView accountPhoneTv;
     ImageView accountProfileIv;
@@ -46,23 +44,6 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
     @Override
     protected void bindPresenter() {
         mPresenter = new MinePresenter();
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        isCreated = true;
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (!isCreated) {
-            return;
-        }
-        if (isVisibleToUser) {
-            refreshView();
-        }
     }
 
     @Override
@@ -90,11 +71,17 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
         view.findViewById(R.id.about_layout).setOnClickListener(this);
         view.findViewById(R.id.github_layout).setOnClickListener(this);
 
-        refreshView();
+        freshView();
+    }
+
+    @Override
+    protected void multipleFreshView() {
+        super.multipleFreshView();
+        freshView();
     }
 
     @SuppressLint("DefaultLocale")
-    private void refreshView() {
+    private void freshView() {
         User user = User.getCurrentUser(User.class);
         accountNameTv.setText(user.getPickName());
         accountPhoneTv.setText(user.getMobilePhoneNumber());
