@@ -52,6 +52,7 @@ public class WalletHomeActivity extends BaseActivity<WalletHomeContract.Presente
             ARouter.getInstance().build(Constants.AROUTER_WALLET_BILL).navigation();
         } else if (id == R.id.wallet_home_payment_setting) {
             // 支付设置
+            ARouter.getInstance().build(Constants.AROUTER_WALLET_PAY_SETTINGS).navigation();
         } else if (id == R.id.wallet_home_question) {
             // 常见问题
             ARouter.getInstance().build(Constants.AROUTER_WALLET_QUESTION).navigation();
