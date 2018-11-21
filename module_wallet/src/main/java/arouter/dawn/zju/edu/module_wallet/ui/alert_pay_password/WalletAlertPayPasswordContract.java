@@ -10,6 +10,7 @@ public interface WalletAlertPayPasswordContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
+        void alertPayPassword(String payPassword);
     }
 
 }
