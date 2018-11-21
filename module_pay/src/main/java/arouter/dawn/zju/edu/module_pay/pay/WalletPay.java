@@ -22,5 +22,6 @@ public class WalletPay {
     }
 
     public void pay(View v) {
+        payCallback.paySuccess();
     }
 }

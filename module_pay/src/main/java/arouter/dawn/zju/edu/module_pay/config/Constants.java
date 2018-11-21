@@ -5,6 +5,7 @@ public interface Constants {
     int EVENT_SELETED_PAY_TYPE =0x2;
     int EVENT_SELETE_CASH_COUPON =0x3;
     int EVENT_SELETED_CASH_COUPON =0x4;
+    int EVENT_PAY_SUCCESS =0x5;
 
 
     int PAY_TYPE_ALI = 0x1;

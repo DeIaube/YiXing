@@ -121,6 +121,8 @@ public class PayContainerFragment extends BottomSheetDialogFragment implements V
             CashCoupon cashCoupon = (CashCoupon) event.getData();
             payHomeFragment.setCashCoupon(cashCoupon);
             getChildFragmentManager().popBackStack();
+        } else if (event.getCode() == Constants.EVENT_PAY_SUCCESS) {
+            dismiss();
         }
     }
 }

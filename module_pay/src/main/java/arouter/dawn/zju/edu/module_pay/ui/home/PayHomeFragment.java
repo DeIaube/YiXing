@@ -73,7 +73,7 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new PayHomePresenter();
     }
 
     @Override
@@ -99,6 +99,7 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
             ARouter.getInstance().build(Constants.AROUTER_PAY_PROTOTOL).navigation();
         } else if (id == R.id.pay_home_submit) {
             // 提交
+            mPresenter.pay(getActivity(), v, price, realPrice, title, content, mCashCoupon, type);
         }
     }
 
@@ -114,6 +115,7 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
     }
 
     public void setPayType(int type) {
+        this.type = type;
         if (type == arouter.dawn.zju.edu.module_pay.config.Constants.PAY_TYPE_ALI) {
             payHomePayTypeTv.setText(getString(R.string.pay_type_ali));
         } else if (type == arouter.dawn.zju.edu.module_pay.config.Constants.PAY_TYPE_WALLET) {
@@ -132,5 +134,18 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
         realPrice = price - (mCashCoupon == null ? 0 : mCashCoupon.getDiscount());
         realPrice = Math.max(0, realPrice);
         payHomePayAmountTv.setText(String.format("￥%.2f", realPrice));
+    }
+
+    @Override
+    public void paySuccess() {
+        BusEvent busEvent = new BusEvent();
+        busEvent.setTarget(PayContainerFragment.TAG);
+        busEvent.setCode(arouter.dawn.zju.edu.module_pay.config.Constants.EVENT_PAY_SUCCESS);
+        EventBus.getDefault().post(busEvent);
+    }
+
+    @Override
+    public void payFailed() {
+
     }
 }
