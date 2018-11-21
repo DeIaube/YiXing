@@ -17,11 +17,11 @@ public class User extends AVUser {
         return name == null ? getMobilePhoneNumber() : name;
     }
 
-    public int getPayPassword() {
-        return getInt("payPassword");
+    public String getPayPassword() {
+        return getString("payPassword");
     }
 
-    public void setPayPassword(int payPassword) {
+    public void setPayPassword(String payPassword) {
         put("payPassword", payPassword);
     }
 
