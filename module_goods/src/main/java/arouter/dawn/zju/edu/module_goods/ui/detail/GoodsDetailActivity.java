@@ -21,6 +21,7 @@ import arouter.dawn.zju.edu.module_goods.util.PicassoUrlImageLeader;
 import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.pay.PayBuiled;
+import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
@@ -148,23 +149,20 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.goods_detail_pay) {
-            new PayBuiled(this)
-                    .setPrice(goods.getPrice())
-                    .setTitle(goods.getTitle())
-                    .setContent(goods.getExplain())
-                    .setPayCallback(new PayCallback() {
-                        @Override
-                        public void paySuccess() {
-                            mPresenter.paySuccess(goods);
-                        }
+            new PayContainerFragment()
+                    .show(getSupportFragmentManager(), goods.getPrice(),
+                            goods.getTitle(), goods.getExplain()
+                            , new PayCallback() {
+                                @Override
+                                public void paySuccess() {
+                                    mPresenter.paySuccess(goods);
+                                }
 
-                        @Override
-                        public void payFailed(String msg) {
-                            mPresenter.payFailed(goods);
-                        }
-                    })
-                    .builedAliPay()
-                    .pay(v);
+                                @Override
+                                public void payFailed(String msg) {
+                                    mPresenter.payFailed(goods, msg);
+                                }
+                            });
         }
     }
 }

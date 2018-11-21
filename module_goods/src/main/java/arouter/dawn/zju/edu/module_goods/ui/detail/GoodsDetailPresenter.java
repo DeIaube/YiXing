@@ -107,11 +107,11 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
     }
 
     @Override
-    public void payFailed(Goods goods) {
+    public void payFailed(Goods goods, String failed) {
         Order order = new Order();
         order.setGoods(goods);
         order.setType(Constants.ORDER_TYPE_PAYMENT);
         order.saveInBackground();
-        mView.showMessage(App.getContext().getString(R.string.goods_detail_pay_failed));
+        mView.showMessage(failed);
     }
 }

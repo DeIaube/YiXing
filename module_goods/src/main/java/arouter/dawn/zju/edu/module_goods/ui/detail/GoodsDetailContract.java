@@ -15,7 +15,7 @@ public interface GoodsDetailContract {
         void init(Goods goods);
         void collection(Goods goods);
         void paySuccess(Goods goods);
-        void payFailed(Goods goods);
+        void payFailed(Goods goods, String failed);
     }
 
 }
