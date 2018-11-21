@@ -5,6 +5,8 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ImageView;
@@ -30,6 +32,7 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
     // 积分 6个
     TextView integralBalanceTv;
 
+    boolean isCreated = false;
 
     TextView accountNameTv;
     TextView accountPhoneTv;
@@ -43,6 +46,23 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
     @Override
     protected void bindPresenter() {
         mPresenter = new MinePresenter();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        isCreated = true;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (!isCreated) {
+            return;
+        }
+        if (isVisibleToUser) {
+            refreshView();
+        }
     }
 
     @Override
@@ -69,11 +89,7 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
         view.findViewById(R.id.cooperate_layout).setOnClickListener(this);
         view.findViewById(R.id.about_layout).setOnClickListener(this);
         view.findViewById(R.id.github_layout).setOnClickListener(this);
-    }
 
-    @Override
-    public void onStart() {
-        super.onStart();
         refreshView();
     }
 
