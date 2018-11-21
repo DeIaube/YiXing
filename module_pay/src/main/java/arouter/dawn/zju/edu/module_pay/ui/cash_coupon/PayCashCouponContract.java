@@ -8,11 +8,9 @@ import baselib.base.BaseContract;
 public interface PayCashCouponContract {
 
     interface View extends BaseContract.BaseView {
-        void refreshCashCouponList(List<CashCoupon> cashCouponList);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void refreshCashCouponList();
         void selectCashCoupon(CashCoupon cashCoupon, double price);
     }
 
