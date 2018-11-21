@@ -60,4 +60,6 @@ dependencies {
     compile('com.jph.takephoto:takephoto_library:4.0.3')
     // eventbus
     compile 'org.greenrobot:eventbus:3.0.0'
+    // PasswordInput
+    compile 'com.github.EthanCo:PasswordInput:1.5.3'
 }
