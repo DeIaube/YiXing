@@ -129,7 +129,7 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
         } else {
             payHomeCashCouponTv.setText(mCashCoupon.getTitle());
         }
-        realPrice = price - mCashCoupon.getDiscount();
+        realPrice = price - (mCashCoupon == null ? 0 : mCashCoupon.getDiscount());
         realPrice = Math.max(0, realPrice);
         payHomePayAmountTv.setText(String.format("￥%.2f", realPrice));
     }
