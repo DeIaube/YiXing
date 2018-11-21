@@ -83,7 +83,7 @@ public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Pr
 
                                     @Override
                                     public void payFailed(String msg) {
-                                        showMessage(getString(R.string.order_pay_failed));
+                                        showMessage(msg);
                                     }
                                 });
             }
