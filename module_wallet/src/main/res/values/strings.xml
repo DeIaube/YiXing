@@ -53,6 +53,13 @@
 
     <!--WalletPaySettings-->
     <string name="title_activity_wallet_pay_settings">支付设置</string>
+    <string name="wallet_settings_alert_pay_password">修改支付密码</string>
+    <string name="wallet_settings_reset_pay_password">找回支付密码</string>
+    <string name="wallet_settings_non_secret_payment_tip">开启后，支付时无需输入密码或指纹</string>
+    <string name="wallet_settings_non_secret_payment">小额免密</string>
+    <string name="wallet_settings_non_secret_payment_state">未开启</string>
+    <string name="wallet_settings_fingerprint_payment_tip">开启后，可通过验证指纹快速完成付款</string>
+    <string name="wallet_settings_fingerprint_payment">指纹支付</string>
     <!--WalletPaySettings-->
 
     <!--WalletBankCard-->

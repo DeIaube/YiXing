@@ -35,7 +35,7 @@ public class WalletBankCardActivity extends BaseActivity<WalletBankCardContract.
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.wallet_bank_card_add_bank_card) {
-            
+
         }
     }
 }
