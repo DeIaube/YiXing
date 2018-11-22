@@ -89,10 +89,13 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
             startActivityForResult(intent, REQUEST_ALERT_TAB_CODE);
         } else if (id == R.id.forum_home_add_post) {
             ARouter.getInstance().build(Constants.AROUTER_FORUM_ADD_POST).navigation();
+            forumMenu.close(true);
         } else if (id == R.id.forum_home_my_follow) {
             ARouter.getInstance().build(Constants.AROUTER_FORUM_FORUM_FOLLOW).navigation();
+            forumMenu.close(true);
         } else if (id == R.id.forum_home_my_collection) {
             ARouter.getInstance().build(Constants.AROUTER_FORUM_COLLECTION).navigation();
+            forumMenu.close(true);
         }
     }
 
