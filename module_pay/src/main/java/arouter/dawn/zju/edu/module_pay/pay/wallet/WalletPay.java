@@ -41,7 +41,8 @@ public class WalletPay {
         if (price <= User.getCurrentUser(User.class).getSeretPayment()) {
             checkBalance();
         } else {
-            if (SPUtil.getBoolean(Constants.SP_PAY_FOR_FINGERPRINT, false)) {
+            if (FingerPrintUtils.isFinger() &&
+                    SPUtil.getBoolean(Constants.SP_PAY_FOR_FINGERPRINT, false)) {
                 payByFingerPrint();
             } else {
                 payByPayPassword();

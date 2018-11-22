@@ -21,6 +21,10 @@ public class WalletPaySettingsPresenter extends BasePresenter<WalletPaySettingsC
 
     @Override
     public void refreshView() {
+        if (!FingerPrintUtils.isFinger()) {
+            mView.setFingerprintStatus(false);
+            return;
+        }
         mView.setFingerprintStatus(SPUtil.getBoolean(Constants.SP_PAY_FOR_FINGERPRINT, false));
     }
 
