@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.module_pay.util;
+package baselib.util;
 
 import android.app.KeyguardManager;
 import android.content.Context;

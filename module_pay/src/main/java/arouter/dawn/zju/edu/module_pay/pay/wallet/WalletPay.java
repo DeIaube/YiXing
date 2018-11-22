@@ -7,7 +7,6 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ethanco.lib.PasswordInput;
@@ -18,7 +17,7 @@ import java.util.TimerTask;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_pay.R;
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
-import arouter.dawn.zju.edu.module_pay.util.FingerPrintUtils;
+import baselib.util.FingerPrintUtils;
 import baselib.config.Constants;
 import baselib.util.SPUtil;
 
