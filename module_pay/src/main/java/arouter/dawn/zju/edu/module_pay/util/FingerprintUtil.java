@@ -11,8 +11,6 @@ import baselib.App;
 
 public class FingerprintUtil {
     
-    @SuppressLint("MissingPermission")
-    @RequiresApi(api = Build.VERSION_CODES.M)
     private boolean isFinger() {
         FingerprintManager manager = (FingerprintManager) App.getContext().getSystemService(Context.FINGERPRINT_SERVICE);
         KeyguardManager keyManager = (KeyguardManager) App.getContext().getSystemService(Context.KEYGUARD_SERVICE);

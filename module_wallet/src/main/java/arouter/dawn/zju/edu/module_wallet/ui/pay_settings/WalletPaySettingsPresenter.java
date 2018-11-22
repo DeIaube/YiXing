@@ -25,17 +25,12 @@ public class WalletPaySettingsPresenter extends BasePresenter<WalletPaySettingsC
 
     @Override
     public void openFingerprint() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!isFinger()) {
-                mView.setFingerprintStatus(false);
-                return;
-            }
-            SPUtil.put(Constants.SP_PAY_FOR_FINGERPRINT, true);
-            mView.setFingerprintStatus(true);
-        } else {
-            mView.showMessage(App.getContext().getString(R.string.wallet_settings_phone_leve_too_low));
+        if (!isFinger()) {
             mView.setFingerprintStatus(false);
+            return;
         }
+        SPUtil.put(Constants.SP_PAY_FOR_FINGERPRINT, true);
+        mView.setFingerprintStatus(true);
     }
 
     @Override
@@ -44,8 +39,6 @@ public class WalletPaySettingsPresenter extends BasePresenter<WalletPaySettingsC
         mView.setFingerprintStatus(false);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    @SuppressLint("MissingPermission")
     private boolean isFinger() {
         FingerprintManager manager = (FingerprintManager) App.getContext().getSystemService(Context.FINGERPRINT_SERVICE);
         KeyguardManager keyManager = (KeyguardManager) App.getContext().getSystemService(Context.KEYGUARD_SERVICE);
