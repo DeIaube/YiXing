@@ -23,7 +23,7 @@ public class SetPasswordPresenter extends BasePresenter<SetPasswordContract.View
     String TAG = "SetPasswordPresenter";
 
     @Override
-    public void resetPassword(String phoneNumber, String password, String repassword) {
+    public void setPassword(String phoneNumber, String payPassword, String password, String repassword) {
         if (!VerificationUtil.checkPasswordCorrect(mView, password, repassword)) {
             return;
         }
@@ -31,6 +31,7 @@ public class SetPasswordPresenter extends BasePresenter<SetPasswordContract.View
         user.setUsername(phoneNumber);
         user.setPassword(password);
         user.setBirth(new Date());
+        user.setPayPassword(payPassword);
         user.setMobilePhoneNumber(phoneNumber);
         mView.showLoading();
         user.signUpInBackground(new SignUpCallback() {

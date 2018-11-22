@@ -30,7 +30,9 @@ public interface Constants {
     String AROUTER_ACCOUNT_SET_PAY_PASSWORD = "/account/set_pay_password";
     String AROUTER_ACCOUNT_MODIFY_PICKNAME = "/account/modify_pickname";
     String AROUTER_ACCOUNT_RESET_PASSWORD = "/account/reset_password";
+
     String ACCOUNT_PHONE_NUMBER = "accountPhoneNumber";
+    String ACCOUNT_PAY_PASSWORD = "accountPayPassword";
 
     // Goods
     String AROUTER_GOODS_GROP = "goods";

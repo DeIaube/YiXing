@@ -7,7 +7,9 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.ethanco.lib.PasswordInput;
 
 import java.util.concurrent.TimeUnit;
@@ -30,6 +32,9 @@ public class AccountSetPayPasswordActivity extends BaseActivity<AccountSetPayPas
 
     PasswordInput setPayPasswordInput;
     TextView setPayPasswordTipTv;
+
+    @Autowired(name = Constants.ACCOUNT_PHONE_NUMBER)
+    String phoneNumber;
 
     private String mPayPassword;
 
@@ -81,8 +86,10 @@ public class AccountSetPayPasswordActivity extends BaseActivity<AccountSetPayPas
             resetPasswordLayout();
         } else {
             if (password.equals(mPayPassword)) {
-                // ojbk
-                showMessage("ojbk");
+                // 设置支付密码成功 进入设置密码页面
+                ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_SET_PASSWORD).
+                        withString(Constants.ACCOUNT_PAY_PASSWORD, mPayPassword).
+                        withString(Constants.ACCOUNT_PHONE_NUMBER, phoneNumber).navigation();
             } else {
                 setPayPasswordTipTv.setText(getString(R.string.set_pay_password_input_pay_password));
                 showMessage(getString(R.string.set_pay_password_pay_password_diff));

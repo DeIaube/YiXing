@@ -14,7 +14,7 @@ public interface SetPasswordContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void resetPassword(final String phoneNumber, final String password, final String repassword);
+        void setPassword(final String phoneNumber, final String payPassword, final String password, final String repassword);
     }
 
 }

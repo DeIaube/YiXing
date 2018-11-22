@@ -25,6 +25,8 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordPresenter> impl
 
     @Autowired(name = Constants.ACCOUNT_PHONE_NUMBER)
     String phoneNumber;
+    @Autowired(name = Constants.ACCOUNT_PAY_PASSWORD)
+    String payPassword;
 
     @Override
     protected void initView() {
@@ -45,7 +47,7 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordPresenter> impl
     public void onViewClicked(View view) {
         int id = view.getId();
         if (id == R.id.reset_password_submit) {
-            mPresenter.resetPassword(phoneNumber,
+            mPresenter.setPassword(phoneNumber,payPassword,
                     passwordEt.getText().toString(), rePasswordEt.getText().toString());
         }
     }
