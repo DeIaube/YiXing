@@ -14,7 +14,7 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_WALLET_PAY_SETTINGS)
-public class WalletPaySettingsActivity extends BaseActivity<WalletPaySettingsContract.Presenter> implements WalletPaySettingsContract.View, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+public class WalletPaySettingsActivity extends BaseActivity<WalletPaySettingsContract.Presenter> implements WalletPaySettingsContract.View, View.OnClickListener {
 
     SwitchCompat walletSettingsFingerprintPaymentSwitch;
     TextView walletSettingsNonSecretPaymentState;
@@ -82,11 +82,6 @@ public class WalletPaySettingsActivity extends BaseActivity<WalletPaySettingsCon
                 mPresenter.closeFingerprint();
             }
         }
-    }
-
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
     }
 
     @Override

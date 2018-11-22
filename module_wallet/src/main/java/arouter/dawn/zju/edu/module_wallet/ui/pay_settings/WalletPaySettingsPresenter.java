@@ -26,11 +26,12 @@ public class WalletPaySettingsPresenter extends BasePresenter<WalletPaySettingsC
     @Override
     public void openFingerprint() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (isFinger()) {
+            if (!isFinger()) {
                 mView.setFingerprintStatus(false);
                 return;
             }
             SPUtil.put(Constants.SP_PAY_FOR_FINGERPRINT, true);
+            mView.setFingerprintStatus(true);
         } else {
             mView.showMessage(App.getContext().getString(R.string.wallet_settings_phone_leve_too_low));
             mView.setFingerprintStatus(false);
@@ -40,6 +41,7 @@ public class WalletPaySettingsPresenter extends BasePresenter<WalletPaySettingsC
     @Override
     public void closeFingerprint() {
         SPUtil.put(Constants.SP_PAY_FOR_FINGERPRINT, false);
+        mView.setFingerprintStatus(false);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
