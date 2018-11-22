@@ -2,7 +2,7 @@
 
     <string name="title_activity_forum_alter_tab">首页特别展示</string>
 
-    <!--Forum_Add_Post-->
+    <!--ForumAddPost-->
     <string name="title_activity_add_post">分享帖子</string>
     <string name="forum_add_post_add_post_menu">发布</string>
     <string name="forum_add_post_content">此刻你的想法...</string>
@@ -10,9 +10,9 @@
     <string name="forum_add_post_share_success">分享成功</string>
     <string name="forum_add_post_title_not_null">标题不能为空</string>
     <string name="forum_add_post_content_not_null">内容不能为空</string>
-    <!--Forum_Add_Post-->
+    <!--ForumAddPost-->
 
-    <!--Forum_Post-->
+    <!--ForumPost-->
     <string name="forum_post_collection">收藏</string>
     <string name="forum_post_cancel_collection">取消收藏</string>
     <string name="forum_post_share">分享</string>
@@ -28,9 +28,11 @@
     <string name="forum_post_report_please_input_report_reasib">请输入举报原因</string>
     <string name="forum_post_report_content_not_null">投诉理由不能为空</string>
     <string name="forum_post_report_success">投诉成功</string>
-    <!--Forum_Post-->
+    <!--ForumPost-->
 
+    <!--ForumCollection-->
     <string name="title_activity_forum_collection">我的收藏</string>
+    <!--ForumCollection-->
 
     <!--ForumFollow-->
     <string name="title_activity_forum_follow">我的关注</string>
