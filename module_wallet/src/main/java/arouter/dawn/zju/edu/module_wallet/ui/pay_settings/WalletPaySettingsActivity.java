@@ -27,7 +27,7 @@ public class WalletPaySettingsActivity extends BaseActivity<WalletPaySettingsCon
         findViewById(R.id.wallet_settings_alert_pay_password).setOnClickListener(this);
         findViewById(R.id.wallet_settings_reset_pay_password).setOnClickListener(this);
         findViewById(R.id.wallet_settings_non_secret_payment).setOnClickListener(this);
-        walletSettingsFingerprintPaymentSwitch.setOnCheckedChangeListener(this);
+        findViewById(R.id.wallet_settings_fingerprint_payment_layout).setOnClickListener(this);
 
         refreshLayout();
     }
@@ -40,6 +40,7 @@ public class WalletPaySettingsActivity extends BaseActivity<WalletPaySettingsCon
             walletSettingsNonSecretPaymentState.setText(R.string.wallet_settings_non_secret_payment_unable);
             walletSettingsNonSecretPaymentState.setTextColor(getResources().getColor(R.color.wallet_settings_non_secret_payment_state));
         }
+        mPresenter.refreshView();
     }
 
     @Override
@@ -74,11 +75,22 @@ public class WalletPaySettingsActivity extends BaseActivity<WalletPaySettingsCon
         } else if (id == R.id.wallet_settings_non_secret_payment) {
             // 小额免密
             ARouter.getInstance().build(Constants.AROUTER_WALLET_NON_SECRET_PAYMENT).navigation();
+        } else if (id == R.id.wallet_settings_fingerprint_payment_layout) {
+            if (!walletSettingsFingerprintPaymentSwitch.isChecked()) {
+                mPresenter.openFingerprint();
+            } else {
+                mPresenter.closeFingerprint();
+            }
         }
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+    }
+
+    @Override
+    public void setFingerprintStatus(boolean status) {
+        walletSettingsFingerprintPaymentSwitch.setChecked(status);
     }
 }

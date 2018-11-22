@@ -5,6 +5,9 @@ public interface Constants {
     // isDebug
     boolean isDebug = true;
 
+    // sp
+    String SP_PAY_FOR_FINGERPRINT = "sp_pay_for_fingerprint";
+
     String CLOUD_APPLICATION_ID = "otc2yunsXXUGetz84g9NM9eX-gzGzoHsz";
     String CLOUD_CLIENT_LEY = "woIpcGUxFiOUevOnNXfiadcG";
 
