@@ -107,6 +107,7 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
         Order order = new Order();
         order.setGoods(goods);
         order.setType(Constants.ORDER_TYPE_COMPLETE_REQUE_EVALUATE);
+        order.setOwner(User.getCurrentUser(User.class));
         order.saveInBackground();
         mView.showMessage(App.getContext().getString(R.string.goods_detail_pay_success));
     }
@@ -116,6 +117,7 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
         Order order = new Order();
         order.setGoods(goods);
         order.setType(Constants.ORDER_TYPE_PAYMENT);
+        order.setOwner(User.getCurrentUser(User.class));
         order.saveInBackground();
         mView.showMessage(failed);
     }

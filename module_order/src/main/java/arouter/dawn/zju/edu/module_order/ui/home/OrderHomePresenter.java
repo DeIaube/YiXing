@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_order.adapter.OrderPagerAdapter;
 import arouter.dawn.zju.edu.module_order.ui.list.OrderHomeListFragment;
 import baselib.base.BasePresenter;
@@ -66,6 +67,7 @@ public class OrderHomePresenter extends BasePresenter<OrderHomeContract.View> im
 
         AVQuery<Order> query = Order.getQuery(Order.class);
         query.include("goods")
+                .whereEqualTo("owner", User.getCurrentUser(User.class))
                 .findInBackground(new FindCallback<Order>() {
             @Override
             public void done(List<Order> list, AVException e) {
