@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.SaveCallback;
 
+import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_mine.R;
 import baselib.App;
 import baselib.base.BasePresenter;
@@ -34,20 +35,9 @@ public class FeedbackPresenter extends BasePresenter<FeedbackContract.View> impl
         final Feedback feedback = new Feedback();
         feedback.setTitle(title);
         feedback.setContent(content);
-        mView.showLoading();
-        feedback.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(AVException e) {
-                mView.hideLoading();
-                if (e == null) {
-                    LogUtil.i(TAG, feedback.toString());
-                    mView.showMessage(App.getContext().getString(R.string.feedback_submit_succeed));
-                    mView.finish();
-                } else {
-                    LogUtil.e(TAG, e.toString());
-                    mView.showNetworkError();
-                }
-            }
-        });
+        feedback.setOwner(User.getCurrentUser(User.class));
+        mView.showMessage(App.getContext().getString(R.string.feedback_submit_succeed));
+        mView.finish();
+        feedback.saveInBackground();
     }
 }

@@ -12,6 +12,14 @@ import com.avos.avoscloud.AVObject;
 @AVClassName("Feedback")
 public class Feedback extends AVObject {
 
+    public void setOwner(User user) {
+        put("owner", user);
+    }
+
+    public User getOwner() {
+        return getAVUser("owner", User.class);
+    }
+
     public void setTitle(String title) {
         put("title", title);
     }
