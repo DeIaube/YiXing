@@ -12,6 +12,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
+import arouter.dawn.zju.edu.module_forum.config.Constants;
 import arouter.dawn.zju.edu.module_forum.config.EventBusCode;
 import arouter.dawn.zju.edu.module_forum.ui.home.ForumHomeFragment;
 import baselib.base.BasePresenter;
@@ -48,8 +49,10 @@ public class ForumListPresenter extends BasePresenter<ForumListContract.View> im
     public void refresh(final String tag) {
         mView.showSwipeRefreshLayout();
         final AVQuery<ForumPost> query = ForumPost.getQuery(ForumPost.class);
-        query.whereEqualTo("tag", tag).
-                include("author").
+        if (!tag.equals(Constants.TYPE_HOME)) {
+            query.whereEqualTo("tag", tag);
+        }
+        query.include("author").
                 include("likes_user_list").
                 include("comment_List").
                 findInBackground(new FindCallback<ForumPost>() {
