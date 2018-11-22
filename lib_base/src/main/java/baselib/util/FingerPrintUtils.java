@@ -10,7 +10,7 @@ import baselib.App;
 
 public class FingerPrintUtils {
     
-    private boolean isFinger() {
+    public static boolean isFinger() {
         FingerprintManager manager = (FingerprintManager) App.getContext().getSystemService(Context.FINGERPRINT_SERVICE);
         KeyguardManager keyManager = (KeyguardManager) App.getContext().getSystemService(Context.KEYGUARD_SERVICE);
         if (!manager.isHardwareDetected()) {
