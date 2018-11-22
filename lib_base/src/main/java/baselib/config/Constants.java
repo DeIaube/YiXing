@@ -60,6 +60,7 @@ public interface Constants {
     String AROUTER_FORUM_GROP = "forum";
     String AROUTER_FORUM_FORUM_HOME = "/forum/home";
     String AROUTER_FORUM_FORUM_POST = "/forum/post";
+    String AROUTER_FORUM_FORUM_FOLLOW = "/forum/follow";
     String AROUTER_FORUM_ADD_POST= "/forum/add_post";
     String AROUTER_FORUM_FORUM_LIST = "/forum/list";
     String AROUTER_FORUM_ALTER_TAB = "/forum/alter_tab";

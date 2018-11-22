@@ -32,4 +32,8 @@
 
     <string name="title_activity_forum_collection">我的收藏</string>
 
+    <!--ForumFollow-->
+    <string name="title_activity_forum_follow">我的关注</string>
+    <!--ForumFollow-->
+
 </resources>

@@ -20,6 +20,10 @@
         <activity
             android:name=".ui.collection.ForumCollectionActivity"
             android:label="@string/title_activity_forum_collection"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.follow.ForumFollowActivity"
+            android:label="@string/title_activity_forum_follow"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
