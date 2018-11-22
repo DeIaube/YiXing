@@ -57,11 +57,6 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
         forumMyFollowFab.setOnClickListener(this);
         forumMyCollectionFab.setOnClickListener(this);
         view.findViewById(R.id.forum_alter_tab_layout).setOnClickListener(this);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
         mPresenter.bindViewPager(getChildFragmentManager(), forumViewPager, forumTabLayou);
     }
 
