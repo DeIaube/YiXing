@@ -6,10 +6,12 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import com.ethanco.lib.PasswordInput;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_pay.R;
@@ -75,19 +77,49 @@ public class WalletPay {
                 payPassworDialog.dismiss();
             }
         });
-        payPassworDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+        passwordInput.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
             @Override
-            public void onShow(DialogInterface dialog) {
-                // 密码框获取焦点
-                passwordInput.setFocusable(true);
-                passwordInput.setFocusableInTouchMode(true);
-                passwordInput.requestFocus();
-                context.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-                InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.showSoftInput(passwordInput,0);
+            public void onSystemUiVisibilityChange(int visibility) {
+                if (visibility == View.VISIBLE) {
+                    showSoftInput(passwordInput);
+                }
+            }
+        });
+        payPassworDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                hideSoftInput();
             }
         });
         payPassworDialog.show();
+    }
+
+    /**
+     * 隐藏软键盘
+     * 延时任务
+     */
+    private void hideSoftInput() {
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                InputMethodManager imm =  (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                if(imm != null) {
+                    imm.hideSoftInputFromWindow(context.getWindow().getDecorView().getWindowToken(),
+                            0);
+                }
+            }
+        }, 250);
+    }
+
+    /**
+     * 显示软键盘
+     */
+    private void showSoftInput(final View v) {
+        v.setFocusable(true);
+        v.setFocusableInTouchMode(true);
+        v.requestFocus();
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(v,0);
     }
 
 }
