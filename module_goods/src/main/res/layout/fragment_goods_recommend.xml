@@ -1,0 +1,68 @@
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="arouter.dawn.zju.edu.module_goods.ui.recommend.GoodsRecommendFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="猜你喜欢"
+            android:textSize="21dp"
+            android:textColor="#101010"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="小仙女最爱的美妆好物"
+            android:textColor="#7c7c7c"
+            android:textSize="14dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="#DD3E3E"
+                android:textColor="@color/white"
+                android:text="热销推荐"
+                android:textSize="14dp"
+                android:gravity="center"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="#F68383"
+                android:textColor="@color/white"
+                android:text="人气新品"
+                android:textSize="14dp"
+                android:gravity="center"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/goods_recommend_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
