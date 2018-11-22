@@ -34,7 +34,11 @@ public class WalletPay {
     }
 
     public void pay(View v) {
-        payByPayPassword();
+        if (price <= User.getCurrentUser(User.class).getSeretPayment()) {
+            checkBalance();
+        } else {
+            payByPayPassword();
+        }
     }
 
     private void checkBalance() {
