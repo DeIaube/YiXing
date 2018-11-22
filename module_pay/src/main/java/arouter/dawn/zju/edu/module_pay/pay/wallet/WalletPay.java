@@ -7,6 +7,8 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.ethanco.lib.PasswordInput;
 
@@ -16,6 +18,9 @@ import java.util.TimerTask;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_pay.R;
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
+import arouter.dawn.zju.edu.module_pay.util.FingerPrintUtils;
+import baselib.config.Constants;
+import baselib.util.SPUtil;
 
 public class WalletPay {
 
@@ -37,8 +42,48 @@ public class WalletPay {
         if (price <= User.getCurrentUser(User.class).getSeretPayment()) {
             checkBalance();
         } else {
-            payByPayPassword();
+            if (SPUtil.getBoolean(Constants.SP_PAY_FOR_FINGERPRINT, false)) {
+                payByFingerPrint();
+            } else {
+                payByPayPassword();
+            }
         }
+    }
+
+    private void payByFingerPrint() {
+        final AlertDialog checkFingerPrintDialog = new AlertDialog.Builder(context)
+                .setTitle(R.string.wallet_pay_check_finger_print)
+                .setNegativeButton(R.string.cancel, null)
+                .setView(R.layout.dialog_wallet_pay_finger)
+                .create();
+        
+        FingerPrintUtils.init(context, new FingerPrintUtils.FingerPrintResult() {
+            @Override
+            public void success() {
+                checkFingerPrintDialog.dismiss();
+                checkBalance();
+            }
+
+            @Override
+            public void error(int code, CharSequence info) {
+                Toast.makeText(context, context.getString(R.string.wallet_pay_finger_print_check_error), Toast.LENGTH_SHORT).show();
+                checkFingerPrintDialog.dismiss();
+            }
+            
+            @Override
+            public void retry(int code, CharSequence info) {
+                Toast.makeText(context, context.getString(R.string.wallet_pay_finger_print_check_retry), Toast.LENGTH_SHORT).show();
+            }
+        });
+        
+        checkFingerPrintDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                FingerPrintUtils.cancelCallback();
+            }
+        });
+        checkFingerPrintDialog.setCancelable(false);
+        checkFingerPrintDialog.show();
     }
 
     private void checkBalance() {
@@ -56,12 +101,12 @@ public class WalletPay {
         View rootView = LayoutInflater.from(context).inflate(R.layout.dialog_wallet_input_pay_pay_password, null);
         final AlertDialog payPassworDialog = new AlertDialog.Builder(context)
                 .setView(rootView)
-                .setTitle("请输入支付密码")
+                .setTitle(R.string.wallet_pay_please_input_pay_password)
                 .setCancelable(false)
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        payCallback.payFailed("操作已经取消。");
+                        payCallback.payFailed(context.getString(R.string.wallet_pay_cancel_pay));
                     }
                 })
                 .create();
@@ -76,7 +121,7 @@ public class WalletPay {
                 if (User.getCurrentUser(User.class).getPayPassword().equals(password)) {
                     checkBalance();
                 } else {
-                    payCallback.payFailed("支付密码错误");
+                    payCallback.payFailed(context.getString(R.string.wallet_pay_password_error));
                 }
                 payPassworDialog.dismiss();
             }

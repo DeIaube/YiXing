@@ -28,4 +28,14 @@
     <string name="pay_cash_coupon_dont_achieve_doorsill">未达到使用门槛</string>
     <!--PayCashCoupon-->
 
+    <!--WalletPay-->
+    <string name="wallet_pay_finger_print_check_retry">验证失败</string>
+    <string name="wallet_pay_finger_print_check_error">多次失败, 请重试</string>
+    <string name="wallet_pay_finger_print_check_success">验证成功</string>
+    <string name="wallet_pay_check_finger_print">验证指纹</string>
+    <string name="wallet_pay_please_input_pay_password">请输入支付密码</string>
+    <string name="wallet_pay_cancel_pay">操作已经取消。</string>
+    <string name="wallet_pay_password_error">支付密码错误</string>
+    <!--WalletPay-->
+
 </resources>
