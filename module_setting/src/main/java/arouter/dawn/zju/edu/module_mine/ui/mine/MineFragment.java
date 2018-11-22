@@ -21,6 +21,12 @@ import arouter.dawn.zju.edu.module_mine.R;
 import baselib.base.BaseFragment;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 我的信息页面
+ */
 @Route(path = Constants.AROUTER_SETTING_MINE)
 public class MineFragment extends BaseFragment<MineContract.Presenter> implements
         View.OnClickListener, MineContract.View {

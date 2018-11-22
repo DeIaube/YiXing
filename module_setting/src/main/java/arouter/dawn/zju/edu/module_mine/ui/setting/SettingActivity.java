@@ -6,6 +6,12 @@ import arouter.dawn.zju.edu.module_mine.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 设置页面
+ */
 @Route(path = Constants.AROUTER_SETTING_SETTING)
 public class SettingActivity extends BaseActivity {
     @Override

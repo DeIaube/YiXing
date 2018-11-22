@@ -7,6 +7,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 论坛不同Tab的Fragment适配器
+ */
 public class ForumPagerAdapter extends FragmentPagerAdapter {
 
     private List<String> mTitles;

@@ -8,7 +8,12 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 
-// todo 获取定位权限
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 定位帮助类
+ */
 public class LocationManager {
     public static void getLocation(Context context) {
         //声明AMapLocationClient类对象

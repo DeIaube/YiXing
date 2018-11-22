@@ -7,6 +7,11 @@ import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import baselib.base.BaseContract;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public interface ForumPostContract {
 
     interface View extends BaseContract.BaseView {

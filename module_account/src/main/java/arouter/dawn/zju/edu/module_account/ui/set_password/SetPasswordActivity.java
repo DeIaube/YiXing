@@ -11,6 +11,12 @@ import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 用户设置密码页面
+ */
 @Route(path = Constants.AROUTER_ACCOUNT_SET_PASSWORD)
 public class SetPasswordActivity extends BaseActivity<SetPasswordPresenter> implements SetPasswordContract.View {
 

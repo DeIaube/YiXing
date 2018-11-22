@@ -14,6 +14,12 @@ import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 免密支付设置页面
+ */
 @Route(path = Constants.AROUTER_WALLET_NON_SECRET_PAYMENT)
 public class WalletNonSecretPaymentActivity extends BaseActivity<WalletNonSecretPaymentContract.Presenter> implements WalletNonSecretPaymentContract.View, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 

@@ -10,6 +10,9 @@ import baselib.App;
 import baselib.base.BaseContract;
 
 /**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
  * 验证密码以及验证码的正确性
  */
 public class VerificationUtil {

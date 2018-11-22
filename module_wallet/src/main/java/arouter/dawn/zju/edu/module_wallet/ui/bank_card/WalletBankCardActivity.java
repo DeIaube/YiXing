@@ -8,6 +8,12 @@ import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 我的银行卡页面
+ */
 @Route(path = Constants.AROUTER_WALLET_BANK_CARD)
 public class WalletBankCardActivity extends BaseActivity<WalletBankCardContract.Presenter> implements WalletBankCardContract.View, View.OnClickListener {
 

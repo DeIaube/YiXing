@@ -27,6 +27,12 @@ import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_forum.R;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 帖子列表的适配器
+ */
 public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdapter.ForumListHolder> {
 
     private Context mContext;

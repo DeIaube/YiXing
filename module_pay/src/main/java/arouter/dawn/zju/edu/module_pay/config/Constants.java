@@ -1,5 +1,10 @@
 package arouter.dawn.zju.edu.module_pay.config;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public interface Constants {
     int EVENT_SELETE_PAY_TYPE =0x1;
     int EVENT_SELETED_PAY_TYPE =0x2;

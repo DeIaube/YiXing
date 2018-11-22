@@ -9,6 +9,11 @@ import baselib.App;
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class ModifyPicknamePresenter extends BasePresenter<ModifyPicknameContract.View> implements ModifyPicknameContract.Presenter {
 
     private static final String TAG = "ModifyPicknamePresenter";

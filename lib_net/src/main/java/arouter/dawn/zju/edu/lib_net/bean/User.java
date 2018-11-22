@@ -5,6 +5,12 @@ import com.avos.avoscloud.AVUser;
 
 import java.util.Date;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 用户实体类
+ */
 @AVClassName("User")
 public class User extends AVUser {
 

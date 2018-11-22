@@ -10,6 +10,11 @@ import arouter.dawn.zju.edu.module_pay.config.Constants;
 import arouter.dawn.zju.edu.module_pay.pay.PayBuiled;
 import baselib.base.BasePresenter;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class PayHomePresenter extends BasePresenter<PayHomeContract.View> implements PayHomeContract.Presenter {
 
     private static final String TAG = "PayHomePresenter";

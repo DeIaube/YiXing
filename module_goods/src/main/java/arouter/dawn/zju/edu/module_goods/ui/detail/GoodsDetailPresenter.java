@@ -19,6 +19,11 @@ import baselib.App;
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View> implements GoodsDetailContract.Presenter {
 
     String TAG = "GoodsDetailPresenter";

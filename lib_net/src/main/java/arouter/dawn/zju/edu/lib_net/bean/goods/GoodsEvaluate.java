@@ -3,6 +3,12 @@ package arouter.dawn.zju.edu.lib_net.bean.goods;
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 用户评价商品实体类
+ */
 @AVClassName("GoodsEvaluate")
 public class GoodsEvaluate extends AVObject {
 

@@ -3,6 +3,11 @@ package arouter.dawn.zju.edu.module_goods.ui.detail;
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import baselib.base.BaseContract;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public interface GoodsDetailContract {
 
     interface View extends BaseContract.BaseView {

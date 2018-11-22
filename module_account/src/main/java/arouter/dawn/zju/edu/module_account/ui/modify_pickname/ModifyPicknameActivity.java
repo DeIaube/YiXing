@@ -13,6 +13,12 @@ import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 用户更改昵称页面
+ */
 @Route(path = Constants.AROUTER_ACCOUNT_MODIFY_PICKNAME)
 public class ModifyPicknameActivity extends BaseActivity<ModifyPicknameContract.Presenter> implements ModifyPicknameContract.View, View.OnClickListener {
 

@@ -15,6 +15,12 @@ import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 账户充值页面
+ */
 @Route(path = Constants.AROUTER_WALLET_FIRWARD)
 public class WalletForwardActivity extends BaseActivity<WalletForwardContract.Presenter> implements
         WalletForwardContract.View, View.OnClickListener {

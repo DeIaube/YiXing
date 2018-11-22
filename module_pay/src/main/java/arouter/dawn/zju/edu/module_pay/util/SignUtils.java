@@ -4,6 +4,12 @@ import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 签名工具类
+ */
 public class SignUtils {
 
 	private static final String ALGORITHM = "RSA";

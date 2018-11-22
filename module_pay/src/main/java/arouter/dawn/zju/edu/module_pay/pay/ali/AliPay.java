@@ -16,6 +16,12 @@ import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.bean.PayResult;
 import arouter.dawn.zju.edu.module_pay.util.OrderInfoUtil2_0;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 支付宝支付
+ */
 public class AliPay {
 
 	private static final int SDK_PAY_FLAG = 1;

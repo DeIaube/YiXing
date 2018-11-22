@@ -12,7 +12,12 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import baselib.config.Constants;
 
-
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 拦截器(拦截未用户登录)
+ */
 @Interceptor(priority = 1)
 public class LoginInterceptor implements IInterceptor {
 

@@ -13,6 +13,11 @@ import baselib.App;
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class SetPasswordPresenter extends BasePresenter<SetPasswordContract.View> implements SetPasswordContract.Presenter {
 
     String TAG = "SetPasswordPresenter";

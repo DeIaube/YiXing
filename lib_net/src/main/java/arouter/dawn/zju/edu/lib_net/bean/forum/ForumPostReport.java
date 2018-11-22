@@ -5,6 +5,12 @@ import com.avos.avoscloud.AVObject;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 用户举报信息实体类
+ */
 @AVClassName("ForumPostReport")
 public class ForumPostReport extends AVObject {
 

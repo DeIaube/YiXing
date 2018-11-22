@@ -13,6 +13,13 @@ import baselib.config.Constants;
 import io.reactivex.functions.Consumer;
 import yixing.dawn.zju.edu.yixing.R;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 初始化数据以及权限
+ * 跳转至主页面
+ */
 public class SplashActivity extends BaseActivity {
 
     static final String TAG = "SplashActivity";

@@ -12,6 +12,12 @@ import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 我的钱包首页
+ */
 @Route(path = Constants.AROUTER_WALLET_HOME)
 public class WalletHomeActivity extends BaseActivity<WalletHomeContract.Presenter> implements
         WalletHomeContract.View, View.OnClickListener {

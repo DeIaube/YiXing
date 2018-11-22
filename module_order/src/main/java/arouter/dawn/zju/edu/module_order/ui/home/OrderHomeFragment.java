@@ -13,6 +13,12 @@ import arouter.dawn.zju.edu.module_order.config.EventBusCode;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 我的订单主页面
+ */
 @Route(path = baselib.config.Constants.AROUTER_ORDER_HOME)
 public class OrderHomeFragment extends BaseFragment<OrderHomeContract.Presenter> implements OrderHomeContract.View{
 

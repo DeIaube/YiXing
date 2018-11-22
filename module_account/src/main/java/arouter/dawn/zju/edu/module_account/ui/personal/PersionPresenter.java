@@ -16,6 +16,11 @@ import arouter.dawn.zju.edu.lib_net.bean.User;
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class PersionPresenter extends BasePresenter<PersionContract.View> implements PersionContract.Presenter {
 
     private static final String TAG = "PersionPresenter";

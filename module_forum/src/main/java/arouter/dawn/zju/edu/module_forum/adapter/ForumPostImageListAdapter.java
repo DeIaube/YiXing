@@ -18,6 +18,12 @@ import java.util.List;
 import arouter.dawn.zju.edu.module_forum.R;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 帖子中图片列表的适配器
+ */
 public class ForumPostImageListAdapter extends RecyclerView.Adapter<ForumPostImageListAdapter.PostImageListHolder> {
 
     private Context mContext;

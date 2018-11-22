@@ -10,6 +10,12 @@ import android.widget.Toast;
 
 import arouter.dawn.zju.edu.module_mine.R;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 真正的设置页面
+ */
 public class SettingFragment extends PreferenceFragmentCompat {
 
     @Override

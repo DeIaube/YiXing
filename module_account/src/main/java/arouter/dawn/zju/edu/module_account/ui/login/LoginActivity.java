@@ -13,6 +13,12 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 import baselib.util.SPUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 用户登录页面
+ */
 @Route(path = Constants.AROUTER_ACCOUNT_LOGIN)
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View{
 

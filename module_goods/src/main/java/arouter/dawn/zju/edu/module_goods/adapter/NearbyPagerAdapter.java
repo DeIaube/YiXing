@@ -7,6 +7,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 附近不同品类商品Fragment适配器
+ */
 public class NearbyPagerAdapter extends FragmentPagerAdapter {
 
     private List<String> mTitles;

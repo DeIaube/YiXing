@@ -10,6 +10,11 @@ import baselib.util.LogUtil;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class NoticePresenter extends BasePresenter<NoticeContract.View> implements NoticeContract.Presenter {
 
     static final String TAG = "NoticePresenter";

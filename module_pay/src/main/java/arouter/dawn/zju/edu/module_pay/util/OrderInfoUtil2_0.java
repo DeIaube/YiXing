@@ -13,6 +13,12 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 构建支付宝支付参数
+ */
 public class OrderInfoUtil2_0 {
 
 	/**

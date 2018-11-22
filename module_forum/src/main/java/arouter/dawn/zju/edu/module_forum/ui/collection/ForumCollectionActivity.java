@@ -14,6 +14,12 @@ import arouter.dawn.zju.edu.module_forum.adapter.ForumPostListAdapter;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 展示用户收藏帖子页面
+ */
 @Route(path = Constants.AROUTER_FORUM_COLLECTION)
 public class ForumCollectionActivity extends BaseActivity<ForumCollectionContract.Presenter> implements ForumCollectionContract.View {
 

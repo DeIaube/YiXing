@@ -18,6 +18,12 @@ import arouter.dawn.zju.edu.module_forum.adapter.ForumPostListAdapter;
 import baselib.base.BaseFragment;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 真正的论坛主页面
+ */
 @Route(path = Constants.AROUTER_FORUM_FORUM_LIST)
 public class ForumListFragment extends BaseFragment<ForumListContract.Presenter> implements ForumListContract.View {
 

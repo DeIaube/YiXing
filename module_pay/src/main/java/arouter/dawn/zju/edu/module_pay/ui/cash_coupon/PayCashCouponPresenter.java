@@ -12,6 +12,11 @@ import baselib.App;
 import baselib.base.BasePresenter;
 import baselib.bus.BusEvent;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class PayCashCouponPresenter extends BasePresenter<PayCashCouponContract.View> implements PayCashCouponContract.Presenter {
 
     private static final String TAG = "PayCashCouponPresenter";

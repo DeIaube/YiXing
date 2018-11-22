@@ -10,6 +10,12 @@ import arouter.dawn.zju.edu.module_forum.adapter.ForumAlterTabAdapter;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 更改首页Tab页面
+ */
 @Route(path = Constants.AROUTER_FORUM_ALTER_TAB)
 public class ForumAlterTabActivity extends BaseActivity<ForumAlterTabContract.Presenter> implements ForumAlterTabContract.View, ForumAlterTabAdapter.TabStatusListener {
 

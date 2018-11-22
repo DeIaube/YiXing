@@ -14,6 +14,13 @@ import arouter.dawn.zju.edu.module_order.adapter.IntegralShopCashCouponListAdapt
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 积分商城页面
+ * 兑换代金券
+ */
 @Route(path = Constants.AROUTER_ORDER_INTEGRAL_SHOP)
 public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Presenter> implements IntegralShopContract.View, IntegralShopCashCouponListAdapter.OnBuyClickListener {
 

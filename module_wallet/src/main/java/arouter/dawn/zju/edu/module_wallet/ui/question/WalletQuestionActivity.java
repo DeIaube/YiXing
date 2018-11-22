@@ -9,6 +9,12 @@ import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 常见问题页面
+ */
 @Route(path = Constants.AROUTER_WALLET_QUESTION)
 public class WalletQuestionActivity extends BaseActivity<WalletQuestionContract.Presenter> implements
         WalletQuestionContract.View, View.OnClickListener {

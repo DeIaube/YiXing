@@ -6,6 +6,12 @@ import arouter.dawn.zju.edu.module_forum.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 展示用户关注用户页面
+ */
 @Route(path = Constants.AROUTER_FORUM_FORUM_FOLLOW)
 public class ForumFollowActivity extends BaseActivity<ForumFollowContract.Presenter> implements ForumFollowContract.View {
 

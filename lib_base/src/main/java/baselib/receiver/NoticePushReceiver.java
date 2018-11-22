@@ -12,7 +12,10 @@ import baselib.util.LogUtil;
 import io.realm.Realm;
 
 /**
- * 接收推送的Receiver
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 接收消息推送
  */
 public class NoticePushReceiver extends BroadcastReceiver {
 

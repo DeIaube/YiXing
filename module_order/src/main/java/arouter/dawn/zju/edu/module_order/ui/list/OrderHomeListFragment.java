@@ -21,6 +21,13 @@ import baselib.base.BaseFragment;
 import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 我的订单主页面
+ * 展示订单列表
+ */
 @Route(path = Constants.AROUTER_ORDER_LIST)
 public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Presenter> implements OrderHomeListContract.View {
 

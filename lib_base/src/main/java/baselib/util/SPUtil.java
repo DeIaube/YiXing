@@ -3,6 +3,11 @@ package baselib.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class SPUtil {
 
     private static SharedPreferences sp;

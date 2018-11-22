@@ -11,6 +11,12 @@ import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
 import yixing.dawn.zju.edu.yixing.R;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * debug专用页面
+ */
 public class ConsoleFragment extends BaseFragment implements View.OnClickListener {
 
     @Override

@@ -15,6 +15,12 @@ import java.util.List;
 import arouter.dawn.zju.edu.lib_net.bean.wallet.Bill;
 import arouter.dawn.zju.edu.module_wallet.R;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 账单列表适配器
+ */
 public class WalletBillListAdapter extends RecyclerView.Adapter<WalletBillListAdapter.WalletBillListholder> {
 
     private Context mContext;

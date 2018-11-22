@@ -8,6 +8,12 @@ import android.support.v4.os.CancellationSignal;
 
 import baselib.App;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 指纹相关的工具类
+ */
 public class FingerPrintUtils {
     
     public static boolean isFinger() {

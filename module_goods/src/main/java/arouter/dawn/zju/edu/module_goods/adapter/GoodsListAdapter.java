@@ -16,6 +16,12 @@ import java.util.List;
 import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 商品列表适配器
+ */
 public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.GoodsListHolder> {
 
     private List<Goods> mGoodsList;

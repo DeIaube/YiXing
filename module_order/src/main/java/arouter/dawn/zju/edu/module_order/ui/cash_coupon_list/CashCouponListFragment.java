@@ -16,6 +16,12 @@ import arouter.dawn.zju.edu.module_order.adapter.CashCouponListAdapter;
 import baselib.base.BaseFragment;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 我的代金券列表页面
+ */
 public class CashCouponListFragment extends BaseFragment<CashCouponListContract.Presenter> implements CashCouponListContract.View, View.OnClickListener {
 
     RecyclerView cashCouponListView;

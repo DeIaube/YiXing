@@ -14,6 +14,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class OrderEvaluatePresenter extends BasePresenter<OrderEvaluateContract.View> implements OrderEvaluateContract.Presenter {
 
     private static final String TAG = "OrderEvaluatePresenter";

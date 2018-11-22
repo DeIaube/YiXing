@@ -5,6 +5,11 @@ import android.app.Activity;
 import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import baselib.base.BaseContract;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public interface PayHomeContract {
 
     interface View extends BaseContract.BaseView {

@@ -21,6 +21,12 @@ import arouter.dawn.zju.edu.module_order.config.Constants;
 import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import baselib.App;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 订单列表适配器
+ */
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.OrderListHolder> {
 
     private Context mContext;

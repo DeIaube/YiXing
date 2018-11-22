@@ -25,6 +25,12 @@ import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 商品详情页
+ */
 @Route(path = Constants.AROUTER_GOODS_DETAIL)
 public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presenter> implements GoodsDetailContract.View, View.OnClickListener {
 

@@ -13,6 +13,12 @@ import java.util.List;
 import arouter.dawn.zju.edu.lib_db.bean.Notice;
 import arouter.dawn.zju.edu.module_mine.R;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 通知适配器
+ */
 public class NoticeListAdapter extends RecyclerView.Adapter<NoticeListAdapter.NoticeListHolder> {
 
     private Context mContext;

@@ -12,6 +12,12 @@ import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 用户注册页面
+ */
 @Route(path = Constants.AROUTER_ACCOUNT_REGISTER)
 public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> implements RegisterContract.View{
 

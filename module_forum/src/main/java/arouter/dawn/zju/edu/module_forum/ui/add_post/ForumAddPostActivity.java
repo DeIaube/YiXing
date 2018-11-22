@@ -33,6 +33,12 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 import baselib.util.LogUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 发布帖子页面
+ */
 @Route(path = Constants.AROUTER_FORUM_ADD_POST)
 public class ForumAddPostActivity extends BaseActivity<ForumAddPostContract.Presenter> implements ForumAddPostContract.View,
         ForumAddPostSelectImageAdapter.SelectImageLisener, TakePhoto.TakeResultListener, InvokeListener {

@@ -16,6 +16,11 @@ import arouter.dawn.zju.edu.module_forum.config.Constants;
 import baselib.base.BasePresenter;
 import baselib.util.SPUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class ForumHomePresenter extends BasePresenter<ForumHomeContract.View> implements ForumHomeContract.Presenter {
 
     String TAG = "ForumHomePresenter";

@@ -14,6 +14,11 @@ import baselib.base.BasePresenter;
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import baselib.util.LogUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class CollectionPresenter extends BasePresenter<CollectionContract.View> implements CollectionContract.Presenter {
 
     static final String TAG = "CollectionPresenter";

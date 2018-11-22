@@ -21,6 +21,12 @@ import baselib.util.FingerPrintUtils;
 import baselib.config.Constants;
 import baselib.util.SPUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 钱包余额支付
+ */
 public class WalletPay {
 
     private Activity context;

@@ -18,6 +18,11 @@ import java.util.Objects;
 
 import baselib.bus.BusEvent;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends Fragment implements BaseContract.BaseView{
 
     protected T mPresenter;

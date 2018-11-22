@@ -24,6 +24,12 @@ import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 钱包余额支付选择代金券页面
+ */
 @SuppressLint("ValidFragment")
 public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Presenter> implements PayCashCouponContract.View, PayCashCouponListAdapter.OnCashCouponClickListener, View.OnClickListener {
 

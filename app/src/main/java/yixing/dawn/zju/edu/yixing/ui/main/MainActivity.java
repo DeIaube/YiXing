@@ -10,6 +10,13 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 import yixing.dawn.zju.edu.yixing.R;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 主页面 控制五个不同module的Fragment
+ * 通过ARouter获取Fragment
+ */
 @Route(path = Constants.AROUTER_APP_MAIN)
 public class MainActivity extends BaseActivity<MainContract.Presenter> implements MainContract.View{
 

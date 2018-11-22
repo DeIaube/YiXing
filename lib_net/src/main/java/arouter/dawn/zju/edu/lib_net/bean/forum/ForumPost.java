@@ -7,6 +7,12 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 用户帖子实体类
+ */
 @AVClassName("ForumPost")
 public class ForumPost extends AVObject {
 

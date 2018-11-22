@@ -6,6 +6,12 @@ import com.avos.avoscloud.AVObject;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 商品实体类
+ */
 @AVClassName("Goods")
 public class Goods extends AVObject {
 

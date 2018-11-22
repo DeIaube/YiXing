@@ -7,6 +7,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 代金券Fragment适配器
+ */
 public class CashCouponPagerAdapter extends FragmentPagerAdapter {
 
     private List<String> mTitles;

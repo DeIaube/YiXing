@@ -6,6 +6,11 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 import com.youth.banner.loader.ImageLoader;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class PicassoUrlImageLeader extends ImageLoader {
 
     @Override

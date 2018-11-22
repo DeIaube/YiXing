@@ -12,6 +12,12 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.module_forum.R;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 发布帖子页面标签的适配器
+ */
 public class ForumAddPostSelectTagAdapter extends RecyclerView.Adapter<ForumAddPostSelectTagAdapter.PostSelectTagHolder> {
 
     private Context mContext;

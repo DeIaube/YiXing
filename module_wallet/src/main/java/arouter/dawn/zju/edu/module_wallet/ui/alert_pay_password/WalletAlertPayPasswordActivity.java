@@ -20,6 +20,12 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 更改支付密码页面
+ */
 @Route(path = Constants.AROUTER_WALLET_ALERT_PAY_PASSWORD)
 public class WalletAlertPayPasswordActivity extends BaseActivity<WalletAlertPayPasswordContract.Presenter> implements WalletAlertPayPasswordContract.View, PasswordInput.TextLenChangeListener {
 

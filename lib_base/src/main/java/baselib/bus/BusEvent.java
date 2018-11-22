@@ -1,5 +1,11 @@
 package baselib.bus;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * EventBus御用
+ */
 public class BusEvent {
     private int code;
     private String target;

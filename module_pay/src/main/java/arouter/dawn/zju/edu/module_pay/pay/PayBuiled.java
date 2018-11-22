@@ -7,6 +7,12 @@ import arouter.dawn.zju.edu.module_pay.callback.PayCallbackProxy;
 import arouter.dawn.zju.edu.module_pay.pay.ali.AliPay;
 import arouter.dawn.zju.edu.module_pay.pay.wallet.WalletPay;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 支付构建者
+ */
 public class PayBuiled {
     private Activity context;
     private double price;

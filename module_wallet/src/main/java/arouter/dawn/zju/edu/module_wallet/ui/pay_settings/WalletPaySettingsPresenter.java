@@ -1,13 +1,6 @@
 package arouter.dawn.zju.edu.module_wallet.ui.pay_settings;
 
 
-import android.annotation.SuppressLint;
-import android.app.KeyguardManager;
-import android.content.Context;
-import android.hardware.fingerprint.FingerprintManager;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.App;
 import baselib.base.BasePresenter;
@@ -15,6 +8,11 @@ import baselib.config.Constants;
 import baselib.util.FingerPrintUtils;
 import baselib.util.SPUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class WalletPaySettingsPresenter extends BasePresenter<WalletPaySettingsContract.View> implements WalletPaySettingsContract.Presenter {
 
     static final String TAG = "WalletPaySettingsPresenter";

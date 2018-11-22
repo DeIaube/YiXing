@@ -22,6 +22,12 @@ import baselib.base.BaseActivity;
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 搜索商品页面
+ */
 @Route(path = Constants.AROUTER_GOODS_SEARCH)
 public class GoodsSearchActivity extends BaseActivity<GoodsSearchContract.Presenter> implements GoodsSearchContract.View, GoodsListAdapter.OnGoodsClickListener {
 

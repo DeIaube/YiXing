@@ -19,6 +19,11 @@ import java.util.Objects;
 import arouter.dawn.zju.edu.lib_res.R;
 import baselib.bus.BusEvent;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public abstract class BaseActivity <T extends BaseContract.BasePresenter> extends AppCompatActivity implements BaseContract.BaseView {
 
     protected T mPresenter;

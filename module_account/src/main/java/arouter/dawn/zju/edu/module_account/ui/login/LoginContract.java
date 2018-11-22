@@ -2,6 +2,11 @@ package arouter.dawn.zju.edu.module_account.ui.login;
 
 import baselib.base.BaseContract;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public interface LoginContract {
 
     interface View extends BaseContract.BaseView {

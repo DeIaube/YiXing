@@ -14,6 +14,11 @@ import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
 import baselib.util.SPUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class LoginPresenter extends BasePresenter<LoginContract.View> implements LoginContract.Presenter {
 
     private static final String TAG = "LoginPresenter";

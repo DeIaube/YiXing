@@ -13,6 +13,12 @@ import arouter.dawn.zju.edu.module_order.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 我的代金券页面
+ */
 @Route(path = Constants.AROUTER_ORDER_CASH_COUPON)
 public class CashCouponActivity extends BaseActivity<CashCouponContract.Presenter> implements CashCouponContract.View {
 

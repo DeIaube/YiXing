@@ -21,6 +21,12 @@ import baselib.util.SPUtil;
 
 import static android.app.Activity.RESULT_OK;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 附近的商品页面
+ */
 @Route(path = baselib.config.Constants.AROUTER_GOODS_NEARBY)
 public class GoodsNearbyFragment extends BaseFragment<GoodsNearbyContract.Presenter> implements GoodsNearbyContract.View, View.OnClickListener {
 

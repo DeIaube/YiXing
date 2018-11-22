@@ -14,6 +14,12 @@ import arouter.dawn.zju.edu.module_mine.adapter.NoticeListAdapter;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 通知页面
+ */
 @Route(path = Constants.AROUTER_SETTING_NOTICE)
 public class NoticeActivity extends BaseActivity<NoticeContract.Presenter> implements NoticeContract.View{
 

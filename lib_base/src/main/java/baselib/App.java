@@ -28,7 +28,12 @@ import baselib.config.Constants;
 import baselib.util.SPUtil;
 import io.realm.Realm;
 
-
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 全局唯一APP
+ */
 public class App extends Application {
 
     private static Context appContext;

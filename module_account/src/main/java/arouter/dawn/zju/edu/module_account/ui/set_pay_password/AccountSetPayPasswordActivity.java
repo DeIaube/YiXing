@@ -19,6 +19,12 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 用户设置支付密码页面
+ */
 @Route(path = Constants.AROUTER_ACCOUNT_SET_PAY_PASSWORD)
 public class AccountSetPayPasswordActivity extends BaseActivity<AccountSetPayPasswordContract.Presenter> implements AccountSetPayPasswordContract.View, PasswordInput.TextLenChangeListener {
 

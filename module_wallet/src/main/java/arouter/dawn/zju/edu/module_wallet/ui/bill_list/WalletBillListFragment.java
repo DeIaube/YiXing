@@ -16,6 +16,12 @@ import arouter.dawn.zju.edu.module_wallet.adapter.WalletBillListAdapter;
 import baselib.base.BaseFragment;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 我的账单列表页面
+ */
 public class WalletBillListFragment extends BaseFragment<WalletBillListContract.Presenter> implements
         WalletBillListContract.View, WalletBillListAdapter.WalletBillListClickListener {
 

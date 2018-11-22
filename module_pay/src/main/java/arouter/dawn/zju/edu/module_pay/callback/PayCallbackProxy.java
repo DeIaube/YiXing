@@ -3,6 +3,12 @@ package arouter.dawn.zju.edu.module_pay.callback;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.lib_net.bean.wallet.Bill;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 支付结果回调代理
+ */
 public class PayCallbackProxy implements PayCallback {
 
     private PayCallback payCallback;

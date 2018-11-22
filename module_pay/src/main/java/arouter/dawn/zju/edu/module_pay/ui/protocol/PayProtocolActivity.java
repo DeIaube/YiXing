@@ -6,6 +6,12 @@ import arouter.dawn.zju.edu.module_pay.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 展示协议页面
+ */
 @Route(path = Constants.AROUTER_PAY_PROTOTOL)
 public class PayProtocolActivity extends BaseActivity<PayProtocolContract.Presenter> implements PayProtocolContract.View {
 

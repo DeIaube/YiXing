@@ -10,6 +10,13 @@ import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 选择支付方式
+ * 支付宝or微信or钱包余额
+ */
 public class PaySelectPayTypeFragment extends BaseFragment<PaySelectPayTypeContract.Presenter> implements
         View.OnClickListener, PaySelectPayTypeContract.View{
 

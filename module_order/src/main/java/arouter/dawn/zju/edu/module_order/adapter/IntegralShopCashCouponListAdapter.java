@@ -16,6 +16,12 @@ import java.util.List;
 import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.module_order.R;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 积分商城适配器
+ */
 public class IntegralShopCashCouponListAdapter extends RecyclerView.Adapter<IntegralShopCashCouponListAdapter.IntegralShopCashCouponListHolder> {
 
     private List<CashCoupon> mCashCoupons;

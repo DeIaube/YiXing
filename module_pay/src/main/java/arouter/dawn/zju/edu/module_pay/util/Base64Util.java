@@ -1,5 +1,11 @@
 package arouter.dawn.zju.edu.module_pay.util;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * Base64工具类
+ */
 final class Base64Util {
 
 	private static final int BASELENGTH = 128;

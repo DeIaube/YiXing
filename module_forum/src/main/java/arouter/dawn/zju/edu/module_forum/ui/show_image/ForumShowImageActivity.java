@@ -22,6 +22,12 @@ import arouter.dawn.zju.edu.module_forum.adapter.ForumShowImageAdapter;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 展示图片页面
+ */
 @Route(path = Constants.AROUTER_FORUM_SHOW_IMAGE)
 public class ForumShowImageActivity extends BaseActivity<ForumShowImageContract.Presenter>
         implements View.OnClickListener, ViewPager.OnPageChangeListener, ForumShowImageContract.View {

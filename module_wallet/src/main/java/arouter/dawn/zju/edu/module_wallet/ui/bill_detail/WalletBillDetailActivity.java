@@ -14,6 +14,12 @@ import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 我的账单详情页面
+ */
 @Route(path = Constants.AROUTER_WALLET_BILL_DETAIL)
 public class WalletBillDetailActivity extends BaseActivity<WalletBillDetailContract.Presenter> implements
         WalletBillDetailContract.View {

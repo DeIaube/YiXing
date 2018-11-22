@@ -14,6 +14,11 @@ import arouter.dawn.zju.edu.lib_net.bean.User;
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class ForumCollectionPresenter extends BasePresenter<ForumCollectionContract.View> implements ForumCollectionContract.Presenter {
 
     private String TAG = "ForumCollectionPresenter";

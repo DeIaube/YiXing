@@ -1,5 +1,11 @@
 package baselib.config;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 全局常量信息类
+ */
 public interface Constants {
 
     // isDebug

@@ -5,6 +5,12 @@ import com.avos.avoscloud.AVObject;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 用户账单实体类
+ */
 @AVClassName("Bill")
 public class Bill extends AVObject {
 

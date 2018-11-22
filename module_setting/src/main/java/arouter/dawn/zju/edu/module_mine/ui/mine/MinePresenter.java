@@ -10,6 +10,11 @@ import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class MinePresenter extends BasePresenter<MineContract.View> implements MineContract.Presenter {
 
     static final String TAG = "MinePresenter";

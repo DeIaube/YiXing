@@ -16,6 +16,11 @@ import baselib.base.BasePresenter;
 import baselib.bus.BusEvent;
 import baselib.util.LogUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class OrderHomeListPresenter extends BasePresenter<OrderHomeListContract.View> implements OrderHomeListContract.Presenter {
 
     private static final String TAG = "OrderHomeListPresenter";

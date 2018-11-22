@@ -20,6 +20,11 @@ import arouter.dawn.zju.edu.module_order.ui.cash_coupon_list.CashCouponListFragm
 import baselib.base.BasePresenter;
 import baselib.util.LogUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class CashCouponPresenter extends BasePresenter<CashCouponContract.View> implements CashCouponContract.Presenter {
 
     private static final String TAG = "CashCouponPresenter";

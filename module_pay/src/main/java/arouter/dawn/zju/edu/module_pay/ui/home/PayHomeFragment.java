@@ -19,6 +19,12 @@ import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 真正的支付页面主页面
+ */
 @SuppressLint("ValidFragment")
 public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> implements
         View.OnClickListener, CompoundButton.OnCheckedChangeListener, PayHomeContract.View {

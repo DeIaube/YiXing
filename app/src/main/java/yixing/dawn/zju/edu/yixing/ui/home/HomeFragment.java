@@ -6,6 +6,11 @@ import android.view.View;
 import baselib.base.BaseFragment;
 import yixing.dawn.zju.edu.yixing.R;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class HomeFragment extends BaseFragment<HomeContract.Presenter> implements HomeContract.View {
 
     @Override

@@ -14,6 +14,12 @@ import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import baselib.callback.GoodsListRefreshCallback;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 我的商品收藏页面
+ */
 @Route(path = Constants.AROUTER_SETTING_COLLECTION)
 public class CollectionActivity extends BaseActivity<CollectionContract.Presenter> implements CollectionContract.View {
 

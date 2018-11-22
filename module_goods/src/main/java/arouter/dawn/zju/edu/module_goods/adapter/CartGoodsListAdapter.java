@@ -25,6 +25,12 @@ import java.util.Map;
 import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 购物车适配器
+ */
 public class CartGoodsListAdapter extends RecyclerView.Adapter<CartGoodsListAdapter.CartGoodsHolder> {
 
     private Context mContext;

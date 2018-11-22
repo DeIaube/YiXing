@@ -22,6 +22,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class IntegralShopPresenter extends BasePresenter<IntegralShopContract.View> implements IntegralShopContract.Presenter {
 
     static final String TAG = "IntegralPresenter";

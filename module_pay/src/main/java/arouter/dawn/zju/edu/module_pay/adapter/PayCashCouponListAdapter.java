@@ -16,6 +16,12 @@ import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_pay.R;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 代金券列表适配器
+ */
 public class PayCashCouponListAdapter extends RecyclerView.Adapter<PayCashCouponListAdapter.PayCashCouponListHolder> {
 
     private List<UserCashCoupon> mCashCouponList;

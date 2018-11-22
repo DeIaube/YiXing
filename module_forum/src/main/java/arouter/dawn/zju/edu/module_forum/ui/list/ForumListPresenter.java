@@ -18,6 +18,11 @@ import baselib.base.BasePresenter;
 import baselib.bus.BusEvent;
 import baselib.util.LogUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class ForumListPresenter extends BasePresenter<ForumListContract.View> implements ForumListContract.Presenter {
 
     String TAG = "ForumListPresenter";

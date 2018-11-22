@@ -18,6 +18,12 @@ import java.util.List;
 import arouter.dawn.zju.edu.lib_net.bean.forum.ForumComment;
 import arouter.dawn.zju.edu.module_forum.R;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 帖子回复的适配器
+ */
 public class ForumPostCommentAdapter extends RecyclerView.Adapter<ForumPostCommentAdapter.CommentHolder> {
 
     private Context mContext;

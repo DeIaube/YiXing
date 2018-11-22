@@ -16,6 +16,12 @@ import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.config.Constants;
 import baselib.util.SPUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 更改论坛首页Tab页面的适配器
+ */
 public class ForumAlterTabAdapter extends RecyclerView.Adapter<ForumAlterTabAdapter.ForumAlterTabHolder> {
 
     private Context mContext;

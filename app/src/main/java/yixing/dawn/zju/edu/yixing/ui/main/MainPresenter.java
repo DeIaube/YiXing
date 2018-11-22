@@ -15,6 +15,11 @@ import baselib.config.Constants;
 import yixing.dawn.zju.edu.yixing.ui.ConsoleFragment;
 import yixing.dawn.zju.edu.yixing.adapter.MainPagerAdapter;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
 
     @Override

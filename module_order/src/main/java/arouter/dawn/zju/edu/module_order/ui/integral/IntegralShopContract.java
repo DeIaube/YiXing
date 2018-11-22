@@ -7,6 +7,11 @@ import java.util.Set;
 import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import baselib.base.BaseContract;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public interface IntegralShopContract {
 
     interface View extends BaseContract.BaseView {

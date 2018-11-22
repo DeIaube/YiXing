@@ -41,6 +41,12 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 import baselib.util.LogUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 展示用户个人信息页面
+ */
 @Route(path = Constants.AROUTER_ACCOUNT_PERSONAL)
 public class PersonalActivity extends BaseActivity<PersionContract.Presenter> implements View.OnClickListener,
         TakePhoto.TakeResultListener, InvokeListener, PersionContract.View {

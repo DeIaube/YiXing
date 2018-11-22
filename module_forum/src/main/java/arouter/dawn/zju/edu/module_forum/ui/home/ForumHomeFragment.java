@@ -21,6 +21,12 @@ import baselib.config.Constants;
 
 import static android.app.Activity.RESULT_OK;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 论坛主页面
+ */
 @Route(path = Constants.AROUTER_FORUM_FORUM_HOME)
 public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter> implements ForumHomeContract.View, View.OnClickListener {
 

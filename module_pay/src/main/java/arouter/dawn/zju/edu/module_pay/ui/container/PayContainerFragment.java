@@ -23,6 +23,13 @@ import arouter.dawn.zju.edu.module_pay.ui.home.PayHomeFragment;
 import arouter.dawn.zju.edu.module_pay.ui.select_pay_type.PaySelectPayTypeFragment;
 import baselib.bus.BusEvent;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 支付页面主页面
+ * 通过EventBus管理多个Fragment
+ */
 public class PayContainerFragment extends BottomSheetDialogFragment implements View.OnKeyListener {
 
     public static final String TAG = "PayContainerFragment";

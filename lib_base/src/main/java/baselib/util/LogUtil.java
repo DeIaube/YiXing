@@ -4,6 +4,11 @@ import android.util.Log;
 
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ */
 public class LogUtil {
     public static void i(String key, String value) {
         if (Constants.isDebug) {

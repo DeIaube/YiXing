@@ -16,6 +16,12 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.module_forum.R;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 发布帖子页面图片的适配器
+ */
 public class ForumAddPostSelectImageAdapter extends RecyclerView.Adapter<ForumAddPostSelectImageAdapter.PostSelectImageHolder> {
 
     private List<String> mImages;

@@ -33,6 +33,12 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 import baselib.util.SPUtil;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 帖子详情页面
+ */
 @Route(path = Constants.AROUTER_FORUM_FORUM_POST)
 public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter> implements ForumPostContract.View, View.OnClickListener {
 

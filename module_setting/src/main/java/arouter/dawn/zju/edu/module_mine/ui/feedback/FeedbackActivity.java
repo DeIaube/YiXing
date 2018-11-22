@@ -12,6 +12,12 @@ import arouter.dawn.zju.edu.module_mine.R;
 import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 用户反馈页面
+ */
 @Route(path = Constants.AROUTER_SETTING_FEEDBACK)
 public class FeedbackActivity extends BaseActivity<FeedbackContract.Presenter> implements View.OnClickListener , FeedbackContract.View{
 

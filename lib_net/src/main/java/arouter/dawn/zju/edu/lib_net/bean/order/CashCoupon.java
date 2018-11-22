@@ -5,6 +5,12 @@ import com.avos.avoscloud.AVObject;
 
 import java.util.Date;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2018/11/22 22:01
+ * @Description:
+ * 满减券实体类
+ */
 @AVClassName("CashCoupon")
 public class CashCoupon extends AVObject {
 
