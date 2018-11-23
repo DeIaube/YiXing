@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,6 +11,39 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:background="@color/white"
+            android:id="@+id/order_list_empty_view"
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="360dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/order_home_list_empty"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="还没有该类型订单哦～"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        </android.support.constraint.ConstraintLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/order_list_recycler_view"

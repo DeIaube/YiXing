@@ -33,6 +33,7 @@ import baselib.config.Constants;
 public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Presenter> implements OrderHomeListContract.View {
 
     RecyclerView recyclerView;
+    View emptyLayout;
 
     private List<Order> orders;
     private OrderListAdapter adapter;
@@ -55,6 +56,11 @@ public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Pr
     public void refresh(List<Order> orders) {
         this.orders = orders;
         adapter.refresh(orders);
+        if (orders.isEmpty()) {
+            emptyLayout.setVisibility(View.VISIBLE);
+        } else {
+            emptyLayout.setVisibility(View.GONE);
+        }
         if (recommendFragment == null) {
             recommendFragment = (Fragment) ARouter.getInstance().build(Constants.AROUTER_GOODS_RECOMMEND).navigation();
             getChildFragmentManager().beginTransaction().add(R.id.container, recommendFragment).commit();
@@ -64,6 +70,7 @@ public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Pr
     @Override
     protected void initView(View view) {
         recyclerView = view.findViewById(R.id.order_list_recycler_view);
+        emptyLayout = view.findViewById(R.id.order_list_empty_view);
         adapter = new OrderListAdapter(getContext(), orders);
         // item回调
         adapter.setmOrderListClickListener(new OrderListAdapter.OnOrderListClickListener() {
