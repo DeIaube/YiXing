@@ -57,6 +57,15 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
         notifyDataSetChanged();
     }
 
+    public void loadMore(List<ForumPost> forumPostList) {
+        if (forumPostList.isEmpty()) {
+            return;
+        }
+        int startIndex = mForumListItems.size();
+        this.mForumListItems.addAll(forumPostList);
+        notifyItemRangeChanged(startIndex, forumPostList.size());
+    }
+
     @NonNull
     @Override
     public ForumListHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {

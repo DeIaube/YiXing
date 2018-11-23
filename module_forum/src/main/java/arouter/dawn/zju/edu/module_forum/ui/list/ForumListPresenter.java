@@ -28,6 +28,9 @@ public class ForumListPresenter extends BasePresenter<ForumListContract.View> im
 
     String TAG = "ForumListPresenter";
 
+    private int currentIndex = 0;
+    private static final int MAX_LIMIT = 10;
+
     @Override
     public void sendScrollUpEvent() {
         BusEvent event = new BusEvent();
@@ -48,20 +51,52 @@ public class ForumListPresenter extends BasePresenter<ForumListContract.View> im
     @Override
     public void refresh(final String tag) {
         mView.showSwipeRefreshLayout();
+        currentIndex = 0;
         final AVQuery<ForumPost> query = ForumPost.getQuery(ForumPost.class);
         if (!tag.equals(Constants.TYPE_HOME)) {
             query.whereEqualTo("tag", tag);
         }
-        query.include("author").
-                include("likes_user_list").
-                include("comment_List").
-                findInBackground(new FindCallback<ForumPost>() {
+        query.include("author")
+                .limit(MAX_LIMIT)
+                .skip(MAX_LIMIT * currentIndex)
+                .include("likes_user_list")
+                .include("comment_List")
+                .findInBackground(new FindCallback<ForumPost>() {
                     @Override
                     public void done(List<ForumPost> list, AVException e) {
                         mView.hideSwipeRefreshLayout();
                         if (e == null) {
+                            currentIndex++;
                             LogUtil.i(TAG, "refresh:" + list.toString());
                             mView.refresh(list);
+                        } else {
+                            LogUtil.e(TAG, e.getLocalizedMessage());
+                            mView.showMessage(e.getLocalizedMessage());
+                        }
+                    }
+                });
+    }
+
+    @Override
+    public void loadMore(final String tag) {
+        mView.showSwipeRefreshLayout();
+        final AVQuery<ForumPost> query = ForumPost.getQuery(ForumPost.class);
+        if (!tag.equals(Constants.TYPE_HOME)) {
+            query.whereEqualTo("tag", tag);
+        }
+        query.include("author")
+                .limit(MAX_LIMIT)
+                .skip(MAX_LIMIT * (currentIndex))
+                .include("likes_user_list")
+                .include("comment_List")
+                .findInBackground(new FindCallback<ForumPost>() {
+                    @Override
+                    public void done(List<ForumPost> list, AVException e) {
+                        mView.hideSwipeRefreshLayout();
+                        if (e == null) {
+                            LogUtil.i(TAG, "loadMore:" + list.toString());
+                            currentIndex++;
+                            mView.loadMore(list);
                         } else {
                             LogUtil.e(TAG, e.getLocalizedMessage());
                             mView.showMessage(e.getLocalizedMessage());

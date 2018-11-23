@@ -35,6 +35,8 @@ public class ForumListFragment extends BaseFragment<ForumListContract.Presenter>
 
     private ForumPostListAdapter mAdapter;
 
+    private int lastVisivleItem;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_forum_list;
@@ -61,6 +63,26 @@ public class ForumListFragment extends BaseFragment<ForumListContract.Presenter>
         forumListlistView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new ForumPostListAdapter(getContext(), new ArrayList<ForumPost>());
         forumListlistView.setAdapter(mAdapter);
+
+        forumListlistView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                // 停止滑动并且当前剩余的item小于两个的时候进行数据加载
+                if(newState == RecyclerView.SCROLL_STATE_IDLE &&
+                        lastVisivleItem + 2 >=  (recyclerView.getLayoutManager()).getItemCount()){
+                    mPresenter.loadMore(tag);
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                // 获取能看到的最后一个item的下标
+                lastVisivleItem = ((LinearLayoutManager)recyclerView.getLayoutManager()).findLastVisibleItemPosition();
+            }
+        });
+
         forumListlistView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
@@ -87,6 +109,11 @@ public class ForumListFragment extends BaseFragment<ForumListContract.Presenter>
     @Override
     public void refresh(List<ForumPost> postList) {
         mAdapter.refresh(postList);
+    }
+
+    @Override
+    public void loadMore(List<ForumPost> postList) {
+        mAdapter.loadMore(postList);
     }
 
     @Override

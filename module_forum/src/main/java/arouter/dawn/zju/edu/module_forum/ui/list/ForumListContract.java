@@ -16,6 +16,7 @@ public interface ForumListContract {
     interface View extends BaseContract.BaseView {
 
         void refresh(List<ForumPost> postList);
+        void loadMore(List<ForumPost> postList);
         void showSwipeRefreshLayout();
         void hideSwipeRefreshLayout();
 
@@ -26,6 +27,7 @@ public interface ForumListContract {
         void sendScrollUpEvent();
         void sendScrollDownEvent();
         void refresh(String tag);
+        void loadMore(final String tag);
 
     }
 
