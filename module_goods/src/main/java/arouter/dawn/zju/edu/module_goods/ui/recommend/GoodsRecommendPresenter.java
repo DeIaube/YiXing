@@ -22,7 +22,9 @@ public class GoodsRecommendPresenter extends BasePresenter<GoodsRecommendContrac
     @Override
     public void refreshRecommendGoodsList() {
         AVQuery<Goods> goodsAVQuery = Goods.getQuery(Goods.class);
-        goodsAVQuery.findInBackground(new FindCallback<Goods>() {
+        goodsAVQuery
+                .limit(12)
+                .findInBackground(new FindCallback<Goods>() {
             @Override
             public void done(List<Goods> list, AVException e) {
                 if (e == null) {
