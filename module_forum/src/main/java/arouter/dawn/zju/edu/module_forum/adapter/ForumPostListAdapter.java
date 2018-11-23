@@ -39,12 +39,18 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
     private List<ForumPost> mForumListItems;
     private OnForumListClickListener mOnForumListClickListener;
     private Map<ForumPost, ForumPostLike> mPostLikeMap;
+    private Map<String, Integer> mPostLikeCountCache;
+    private Map<String, Boolean> mPostLikeStatusCache;
+    private Map<String, Integer> mPostCommentCountCache;
 
     public ForumPostListAdapter(Context mContext, List<ForumPost> mForumListItems) {
         this.mContext = mContext;
         this.mForumListItems = mForumListItems;
         this.mOnForumListClickListener = new DeafultOnForumListClickListener();
         this.mPostLikeMap = new HashMap<>();
+        this.mPostLikeCountCache = new HashMap<>();
+        this.mPostLikeStatusCache = new HashMap<>();
+        this.mPostCommentCountCache = new HashMap<>();
     }
 
     public interface OnForumListClickListener {
@@ -88,6 +94,12 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
 
     private void showLikeInformation(final TextView likeCountTv, final ImageView likeBg,
                                      final ForumPost post) {
+        if (mPostLikeStatusCache.containsKey(post.getObjectId()) &&
+                mPostLikeCountCache.containsKey(post.getObjectId())) {
+            setLikeState(likeCountTv, likeBg,
+                    mPostLikeStatusCache.get(post.getObjectId()),
+                    mPostLikeCountCache.get(post.getObjectId()));
+        }
         AVQuery<ForumPostLike> forumPostLikeAVQuery = ForumPostLike.getQuery(ForumPostLike.class);
         forumPostLikeAVQuery.whereEqualTo("post", post)
                 .findInBackground(new FindCallback<ForumPostLike>() {
@@ -99,6 +111,8 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
                                     mPostLikeMap.put(post, forumPostLike);
                                 }
                             }
+                            mPostLikeCountCache.put(post.getObjectId(), list.size());
+                            mPostLikeStatusCache.put(post.getObjectId(), mPostLikeMap.get(post) == null);
                             setLikeState(likeCountTv, likeBg, mPostLikeMap.get(post) == null, list.size());
                         }
                     }
@@ -133,13 +147,17 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
         }
     }
 
-    private void showCommentCounter(final TextView counterTv, ForumPost post) {
+    private void showCommentCounter(final TextView counterTv, final ForumPost post) {
+        if (mPostCommentCountCache.containsKey(post.getObjectId())) {
+            counterTv.setText(String.valueOf(mPostCommentCountCache.get(post.getObjectId())));
+        }
         AVQuery<ForumComment> commentAVQuery = ForumComment.getQuery(ForumComment.class);
         commentAVQuery.whereEqualTo("post", post)
                 .countInBackground(new CountCallback() {
                     @Override
                     public void done(int i, AVException e) {
                         if (e == null) {
+                            mPostCommentCountCache.put(post.getObjectId(), i);
                             counterTv.setText(String.valueOf(i));
                         }
                     }
