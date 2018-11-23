@@ -5,6 +5,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,7 @@ import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import arouter.dawn.zju.edu.module_goods.adapter.GoodsRecommendListAdapter;
 import arouter.dawn.zju.edu.module_nearby.R;
 import baselib.base.BaseFragment;
+import baselib.config.Constants;
 
 /**
  * @Auther: Dawn
@@ -19,6 +22,7 @@ import baselib.base.BaseFragment;
  * @Description:
  * 商品推荐页面
  */
+@Route(path = Constants.AROUTER_GOODS_RECOMMEND)
 public class GoodsRecommendFragment extends BaseFragment<GoodsRecommendContract.Presenter> implements GoodsRecommendContract.View {
 
     RecyclerView goodsRecommendListView;

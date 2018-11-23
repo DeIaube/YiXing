@@ -40,6 +40,7 @@ public interface Constants {
     String AROUTER_GOODS_SEARCH = "/goods/search";
     String AROUTER_GOODS_CART = "/goods/cart";
     String AROUTER_GOODS_DETAIL = "/goods/detail";
+    String AROUTER_GOODS_RECOMMEND = "/goods/recommend";
     String AROUTER_GOODS_GOODS_LIST = "/goods/goods_list";
 
     String GOODS_DETAIL_BUNDLE = "goodsDetailBundle";

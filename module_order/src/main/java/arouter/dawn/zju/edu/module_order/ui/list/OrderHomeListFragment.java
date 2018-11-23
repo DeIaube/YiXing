@@ -2,6 +2,7 @@ package arouter.dawn.zju.edu.module_order.ui.list;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -35,6 +36,7 @@ public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Pr
 
     private List<Order> orders;
     private OrderListAdapter adapter;
+    private Fragment recommendFragment;
 
     public OrderHomeListFragment() {
         orders = new ArrayList<>();
@@ -53,6 +55,10 @@ public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Pr
     public void refresh(List<Order> orders) {
         this.orders = orders;
         adapter.refresh(orders);
+        if (recommendFragment == null) {
+            recommendFragment = (Fragment) ARouter.getInstance().build(Constants.AROUTER_GOODS_RECOMMEND).navigation();
+            getChildFragmentManager().beginTransaction().add(R.id.container, recommendFragment).commit();
+        }
     }
 
     @Override
