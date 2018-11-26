@@ -9,6 +9,7 @@ import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.PushService;
 
+import arouter.dawn.zju.edu.lib_net.bean.DailyRecommend;
 import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.lib_net.bean.Feedback;
 import arouter.dawn.zju.edu.lib_net.bean.forum.ForumCollection;
@@ -64,6 +65,7 @@ public class App extends Application {
         AVObject.registerSubclass(Goods.class);
         AVObject.registerSubclass(GoodsCollection.class);
         AVObject.registerSubclass(GoodsEvaluate.class);
+        AVObject.registerSubclass(DailyRecommend.class);
         AVObject.registerSubclass(ForumPost.class);
         AVObject.registerSubclass(ForumFollow.class);
         AVObject.registerSubclass(ForumComment.class);
