@@ -16,6 +16,7 @@
     <string name="goods_nearby_price">价格</string>
     <string name="goods_nearby_nearest">距离最近</string>
     <string name="goods_nearby_default_city">宁波</string>
+    <string name="goods_list_empty_tip">还没有该类型活动哦～</string>
     <string name="goods_nearby_default_search_tip">给你推荐 我不配做你男朋友</string>
     <!--GoodsNearby-->
 
@@ -27,9 +28,6 @@
     <string name="goods_detail_pay_failed">支付失败</string>
     <string name="goods_detail_default_buy_counter">已报名0人</string>
     <string name="goods_detail_buy_counter">已报名%d人</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!--GoodsDetail-->
 
 </resources>

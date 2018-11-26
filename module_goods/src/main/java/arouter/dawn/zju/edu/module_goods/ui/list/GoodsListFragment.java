@@ -30,12 +30,14 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
 
 
     RecyclerView recyclerView;
+    View goodsListEmptyView;
 
     private List<Goods> mGoodsList;
     private GoodsListAdapter mAdapter;
 
     @Override
     public void refresh(List<Goods> goodsList) {
+        goodsListEmptyView.setVisibility(goodsList.isEmpty() ? View.VISIBLE : View.GONE);
         mGoodsList = goodsList;
         mAdapter.refresh(mGoodsList);
     }
@@ -53,6 +55,7 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
     @Override
     protected void initView(View view) {
         recyclerView = view.findViewById(R.id.goods_list_view);
+        goodsListEmptyView = view.findViewById(R.id.goods_list_empty_view);
 
         mGoodsList = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
