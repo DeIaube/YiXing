@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
@@ -8,63 +9,69 @@
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/home_scan"
+            android:padding="8dp"
+            android:src="@drawable/home_scan"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/home_search"
+            android:layout_marginRight="9dp"
+            android:gravity="center"
+            android:text="@string/goods_nearby_default_search_tip"
+            android:background="@drawable/search_bg"
+            android:textColor="#dbdbdb"
+            android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="34dp" />
+
+        <ImageView
+            android:id="@+id/home_notice"
+            android:src="@drawable/home_notice"
+            android:layout_gravity="center"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:background="@color/colorPrimary"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/home_scan"
-                android:padding="8dp"
-                android:src="@drawable/home_scan"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <com.youth.banner.Banner
+                android:id="@+id/home_banner"
+                android:layout_width="match_parent"
+                android:layout_height="188dp" />
 
-            <TextView
-                android:id="@+id/home_search"
-                android:layout_marginRight="9dp"
-                android:gravity="center"
-                android:text="@string/goods_nearby_default_search_tip"
-                android:background="@drawable/search_bg"
-                android:textColor="#dbdbdb"
-                android:layout_gravity="center_vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="34dp" />
+            <include layout="@layout/fragment_home_tab_menu"/>
 
-            <ImageView
-                android:id="@+id/home_notice"
-                android:src="@drawable/home_notice"
-                android:layout_gravity="center"
-                android:padding="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <View
+                android:background="#f2f2f2"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"/>
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
-        <com.youth.banner.Banner
-            android:id="@+id/home_banner"
-            android:layout_width="match_parent"
-            android:layout_height="188dp" />
+    </android.support.v4.widget.NestedScrollView>
 
-        <include layout="@layout/fragment_home_tab_menu"/>
-
-        <View
-            android:background="#f2f2f2"
-            android:layout_width="match_parent"
-            android:layout_height="4dp"/>
-
-        <FrameLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-</android.support.v4.widget.NestedScrollView>
+</LinearLayout>
