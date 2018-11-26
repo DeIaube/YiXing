@@ -7,7 +7,7 @@ import baselib.base.BaseActivity;
 import baselib.config.Constants;
 
 @Route(path = Constants.AROUTER_WALLET_ALI_PAY)
-public class WalletAliPayActivity extends BaseActivity {
+public class WalletAliPayActivity extends BaseActivity<WalletAliPayContract.Presenter> implements WalletAliPayContract.View {
 
     @Override
     protected void initView() {
@@ -21,7 +21,7 @@ public class WalletAliPayActivity extends BaseActivity {
 
     @Override
     protected void bindPresenter() {
-
+        mPresenter = new WalletAliPayPresenter();
     }
 
     @Override
