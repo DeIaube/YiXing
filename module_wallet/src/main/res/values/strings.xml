@@ -71,6 +71,10 @@
     <string name="title_activity_wallet_bank_card">我的银行卡</string>
     <!--WalletBankCard-->
 
+    <!--WalletAliPay-->
+    <string name="title_activity_wallet_ali_pay">我的支付宝</string>
+    <!--WalletAliPay-->
+
     <!--WalletNonSecretPayment-->
     <string name="title_activity_wallet_non_secret_payment">设置小额免密</string>
     <string name="wallet_non_secret_payment">小额免密支付</string>

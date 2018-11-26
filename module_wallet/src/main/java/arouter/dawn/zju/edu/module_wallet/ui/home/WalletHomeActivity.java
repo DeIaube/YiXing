@@ -68,7 +68,8 @@ public class WalletHomeActivity extends BaseActivity<WalletHomeContract.Presente
             // 我的银行卡
             ARouter.getInstance().build(Constants.AROUTER_WALLET_BANK_CARD).navigation();
         } else if (id == R.id.wallet_home_alipay) {
-            // 支付宝
+            // 我的支付宝
+            ARouter.getInstance().build(Constants.AROUTER_WALLET_ALI_PAY).navigation();
         }
     }
 

@@ -88,6 +88,7 @@ public interface Constants {
     String AROUTER_WALLET_BILL= "/wallet/bill";
     String AROUTER_WALLET_BILL_DETAIL= "/wallet/bill_detail";
     String AROUTER_WALLET_BANK_CARD= "/wallet/back_card";
+    String AROUTER_WALLET_ALI_PAY = "/wallet/ali_pay";
     String AROUTER_WALLET_ALERT_PAY_PASSWORD = "/wallet/alert_pay_password";
     String AROUTER_WALLET_FIRWARD = "/wallet/forward";
     String AROUTER_WALLET_QUESTION = "/wallet/question";

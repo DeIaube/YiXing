@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.ali_pay.WalletAliPayActivity"
+    tools:showIn="@layout/activity_wallet_ali_pay">
+
+    <TextView
+        android:id="@+id/wallet_bank_card_add_bank_card"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="12dp"
+        android:text="添加支付宝"
+        android:textSize="18dp"
+        android:background="@drawable/wallet_bank_card_add_bank_card_bg"
+        android:gravity="center"
+        android:textColor="#66BEFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
