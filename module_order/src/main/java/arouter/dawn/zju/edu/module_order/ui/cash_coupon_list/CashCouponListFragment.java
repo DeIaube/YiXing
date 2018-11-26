@@ -1,5 +1,6 @@
 package arouter.dawn.zju.edu.module_order.ui.cash_coupon_list;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -9,6 +10,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_order.R;
@@ -40,6 +42,16 @@ public class CashCouponListFragment extends BaseFragment<CashCouponListContract.
         mAdapter = new CashCouponListAdapter(getContext(), new ArrayList<UserCashCoupon>());
         cashCouponListView.setLayoutManager(new LinearLayoutManager(getContext()));
         cashCouponListView.setAdapter(mAdapter);
+        mAdapter.setCashCouponListClickListener(new CashCouponListAdapter.CashCouponListClickListener() {
+            @Override
+            public void CashCouponClick(View v) {
+                new AlertDialog.Builder(Objects.requireNonNull(getContext()))
+                        .setTitle(R.string.tips)
+                        .setMessage(R.string.cash_coupon_infamation)
+                        .setNegativeButton(R.string.confirm, null)
+                        .show();
+            }
+        });
     }
 
     @Override

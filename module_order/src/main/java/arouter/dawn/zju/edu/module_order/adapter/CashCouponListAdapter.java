@@ -26,6 +26,15 @@ public class CashCouponListAdapter extends RecyclerView.Adapter<CashCouponListAd
 
     private Context mContext;
     private List<UserCashCoupon> mUserCashCouponList;
+    private CashCouponListClickListener mCashCouponListClickListener;
+
+    public interface CashCouponListClickListener {
+        void CashCouponClick(View v);
+    }
+
+    public void setCashCouponListClickListener(CashCouponListClickListener cashCouponListClickListener) {
+        this.mCashCouponListClickListener = cashCouponListClickListener;
+    }
 
     public CashCouponListAdapter(Context context, List<UserCashCoupon> userCashCouponList) {
         this.mContext = context;
@@ -95,6 +104,15 @@ public class CashCouponListAdapter extends RecyclerView.Adapter<CashCouponListAd
             cashCouponCouponTypeTv = itemView.findViewById(R.id.cash_coupon_coupon_type);
             cashCouponTitleTv = itemView.findViewById(R.id.cash_coupon_title);
             cashCouponTimeTv = itemView.findViewById(R.id.cash_coupon_time);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mCashCouponListClickListener != null) {
+                        mCashCouponListClickListener.CashCouponClick(v);
+                    }
+                }
+            });
         }
     }
 }
