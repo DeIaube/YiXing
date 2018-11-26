@@ -97,6 +97,7 @@ public class PayCashCouponFragment extends BaseFragment<PayCashCouponContract.Pr
         AVQuery<UserCashCoupon> userCashCouponAVQuery = UserCashCoupon.getQuery(UserCashCoupon.class);
         userCashCouponAVQuery
                 .whereEqualTo("owner", User.getCurrentUser(User.class))
+                .whereEqualTo("used", true)
                 .include("cashCoupon")
                 .findInBackground(new FindCallback<UserCashCoupon>() {
                     @Override
