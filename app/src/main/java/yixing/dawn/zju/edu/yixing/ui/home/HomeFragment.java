@@ -1,6 +1,7 @@
 package yixing.dawn.zju.edu.yixing.ui.home;
 
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
 import android.view.View;
@@ -66,13 +67,16 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
     }
 
     @Override
-    public void refreshHomeView(List<Goods> goodsList, List<String> preView) {
+    public void refreshHomeView(final List<Goods> goodsList, List<String> preView) {
         banner.setImageLoader(new PicassoUrlImageLeader());
         banner.setImages(preView);
         banner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(Constants.GOODS_DETAIL_GOODS, goodsList.get(position));
+                ARouter.getInstance().build(Constants.AROUTER_GOODS_DETAIL)
+                        .withBundle(Constants.GOODS_DETAIL_BUNDLE, bundle).navigation();
             }
         });
         banner.start();

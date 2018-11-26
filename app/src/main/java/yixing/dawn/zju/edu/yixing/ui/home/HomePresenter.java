@@ -27,6 +27,7 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
         AVQuery<DailyRecommend> dailyRecommendAVQuery = DailyRecommend.getQuery(DailyRecommend.class);
         dailyRecommendAVQuery
                 .limit(5)
+                .include("goods")
                 .findInBackground(new FindCallback<DailyRecommend>() {
             @Override
             public void done(List<DailyRecommend> list, AVException e) {
