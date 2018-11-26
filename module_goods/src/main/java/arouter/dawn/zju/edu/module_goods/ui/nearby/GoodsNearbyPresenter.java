@@ -49,6 +49,12 @@ public class GoodsNearbyPresenter extends BasePresenter<GoodsNearbyContract.View
         mGoodsMap.put(Constants.TYPE_JOB, new ArrayList<Goods>());
         mGoodsMap.put(Constants.TYPE_LANGUAGE, new ArrayList<Goods>());
         mGoodsMap.put(Constants.TYPE_MUSIC, new ArrayList<Goods>());
+        mGoodsMap.put(Constants.TYPE_SPORT, new ArrayList<Goods>());
+        mGoodsMap.put(Constants.TYPE_PHOTO, new ArrayList<Goods>());
+        mGoodsMap.put(Constants.TYPE_COOK, new ArrayList<Goods>());
+        mGoodsMap.put(Constants.TYPE_MAKE_UP, new ArrayList<Goods>());
+        mGoodsMap.put(Constants.TYPE_FLORICULTURE, new ArrayList<Goods>());
+        mGoodsMap.put(Constants.TYPE_CALLIGRAPHY, new ArrayList<Goods>());
 
         mTitles = new ArrayList<>();
         mTitles.add(Constants.TYPE_ALL);
@@ -56,8 +62,20 @@ public class GoodsNearbyPresenter extends BasePresenter<GoodsNearbyContract.View
         mTitles.add(Constants.TYPE_JOB);
         mTitles.add(Constants.TYPE_LANGUAGE);
         mTitles.add(Constants.TYPE_MUSIC);
+        mTitles.add(Constants.TYPE_SPORT);
+        mTitles.add(Constants.TYPE_PHOTO);
+        mTitles.add(Constants.TYPE_COOK);
+        mTitles.add(Constants.TYPE_MAKE_UP);
+        mTitles.add(Constants.TYPE_FLORICULTURE);
+        mTitles.add(Constants.TYPE_CALLIGRAPHY);
 
         mFragments = new ArrayList<>();
+        mFragments.add(new GoodsListFragment());
+        mFragments.add(new GoodsListFragment());
+        mFragments.add(new GoodsListFragment());
+        mFragments.add(new GoodsListFragment());
+        mFragments.add(new GoodsListFragment());
+        mFragments.add(new GoodsListFragment());
         mFragments.add(new GoodsListFragment());
         mFragments.add(new GoodsListFragment());
         mFragments.add(new GoodsListFragment());

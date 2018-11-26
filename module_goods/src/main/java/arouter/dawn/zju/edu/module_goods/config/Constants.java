@@ -11,11 +11,17 @@ public interface Constants {
 
     String LAST_LOCATION = "last_location";
 
-    String TYPE_ALL = "所有类型";
-    String TYPE_LANGUAGE = "外语培训";
-    String TYPE_MUSIC = "音乐培训";
-    String TYPE_ART = "美术培训";
-    String TYPE_JOB = "职业培训";
+    String TYPE_ALL = "所有";
+    String TYPE_LANGUAGE = "外语";
+    String TYPE_MUSIC = "音乐";
+    String TYPE_ART = "美术";
+    String TYPE_JOB = "职业";
+    String TYPE_SPORT = "运动";
+    String TYPE_PHOTO = "摄影";
+    String TYPE_COOK = "烹饪";
+    String TYPE_MAKE_UP = "美妆";
+    String TYPE_FLORICULTURE = "花艺";
+    String TYPE_CALLIGRAPHY = "书法";
 
     int SORT_COMPREHENSIVE = 1; // 综合排序
     int SORT_PRICE_UP = 2; // 价格排序 高->低
