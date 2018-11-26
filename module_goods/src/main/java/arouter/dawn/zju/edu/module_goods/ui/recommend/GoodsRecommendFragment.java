@@ -42,6 +42,7 @@ public class GoodsRecommendFragment extends BaseFragment<GoodsRecommendContract.
     @Override
     protected void initView(View view) {
         goodsRecommendListView = view.findViewById(R.id.goods_recommend_list_view);
+        goodsRecommendListView.setFocusable(false);
 
         goodsRecommendListView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         mAdapter = new GoodsRecommendListAdapter(new ArrayList<Goods>(), getContext());
