@@ -1,11 +1,19 @@
 package yixing.dawn.zju.edu.yixing.ui.home;
 
 
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.youth.banner.Banner;
+import com.youth.banner.listener.OnBannerListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
+import arouter.dawn.zju.edu.module_goods.util.PicassoUrlImageLeader;
 import baselib.base.BaseFragment;
 import baselib.config.Constants;
 import yixing.dawn.zju.edu.yixing.R;
@@ -37,6 +45,12 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
         view.findViewById(R.id.home_search).setOnClickListener(this);
         view.findViewById(R.id.home_notice).setOnClickListener(this);
 
+        mPresenter.refreshHomeView();
+
+        getChildFragmentManager()
+                .beginTransaction()
+                .add(R.id.container, (Fragment) ARouter.getInstance().build(Constants.AROUTER_GOODS_RECOMMEND).navigation())
+                .commit();
     }
 
     @Override
@@ -49,5 +63,30 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
         } else if (id == R.id.home_notice) {
             ARouter.getInstance().build(Constants.AROUTER_SETTING_NOTICE).navigation();
         }
+    }
+
+    @Override
+    public void refreshHomeView(List<Goods> goodsList, List<String> preView) {
+        banner.setImageLoader(new PicassoUrlImageLeader());
+        banner.setImages(preView);
+        banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+
+            }
+        });
+        banner.start();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        banner.startAutoPlay();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        banner.stopAutoPlay();
     }
 }
