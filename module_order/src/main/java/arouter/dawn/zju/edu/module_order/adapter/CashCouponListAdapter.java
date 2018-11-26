@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -58,7 +57,6 @@ public class CashCouponListAdapter extends RecyclerView.Adapter<CashCouponListAd
         if (userCashCoupon.getCashCoupon().getEndTime().before(new Date())) {
             // 过期了
             holder.itemView.setBackground(mContext.getDrawable(R.drawable.cash_coupon_item_unable_used_bg));
-            holder.cashCouponUseBtn.setVisibility(View.GONE);
             holder.cashCouponCouponTypeTv.setVisibility(View.GONE);
         } else {
             if (userCashCoupon.getUsed()) {
@@ -67,7 +65,6 @@ public class CashCouponListAdapter extends RecyclerView.Adapter<CashCouponListAd
             } else {
                 // 优惠券已使用
                 holder.itemView.setBackground(mContext.getDrawable(R.drawable.cash_coupon_item_unable_used_bg));
-                holder.cashCouponUseBtn.setVisibility(View.GONE);
                 holder.cashCouponCouponTypeTv.setVisibility(View.GONE);
             }
         }
@@ -90,7 +87,6 @@ public class CashCouponListAdapter extends RecyclerView.Adapter<CashCouponListAd
         TextView cashCouponCouponTypeTv;
         TextView cashCouponTitleTv;
         TextView cashCouponTimeTv;
-        Button cashCouponUseBtn;
 
         public CashCouponListHolder(@NonNull View itemView) {
             super(itemView);
@@ -99,7 +95,6 @@ public class CashCouponListAdapter extends RecyclerView.Adapter<CashCouponListAd
             cashCouponCouponTypeTv = itemView.findViewById(R.id.cash_coupon_coupon_type);
             cashCouponTitleTv = itemView.findViewById(R.id.cash_coupon_title);
             cashCouponTimeTv = itemView.findViewById(R.id.cash_coupon_time);
-            cashCouponUseBtn = itemView.findViewById(R.id.cash_coupon_use);
         }
     }
 }
