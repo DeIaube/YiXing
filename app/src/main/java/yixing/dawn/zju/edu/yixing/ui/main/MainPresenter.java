@@ -14,6 +14,7 @@ import baselib.base.BasePresenter;
 import baselib.config.Constants;
 import yixing.dawn.zju.edu.yixing.ui.ConsoleFragment;
 import yixing.dawn.zju.edu.yixing.adapter.MainPagerAdapter;
+import yixing.dawn.zju.edu.yixing.ui.home.HomeFragment;
 
 /**
  * @Auther: Dawn
@@ -26,7 +27,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
     public void bindViewPager(FragmentManager fragmentManager, final ViewPager viewPager,
                               final BottomNavigationBar bottomNavigationBar) {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new ConsoleFragment());
+        fragments.add(new HomeFragment());
         fragments.add((Fragment) ARouter.getInstance().
                 build(Constants.AROUTER_GOODS_NEARBY).navigation());
         fragments.add((Fragment) ARouter.getInstance().
