@@ -48,5 +48,6 @@
         android:layout_width="match_parent"
         android:layout_height="188dp" />
 
+    <include layout="@layout/fragment_home_tab_menu"/>
 
 </LinearLayout>
