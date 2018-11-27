@@ -83,6 +83,9 @@ public class ForumUserInformationPresenter extends BasePresenter<ForumUserInform
 
     @Override
     public void follow(User user) {
+        if (user.equals(User.getCurrentUser(User.class))) {
+            return;
+        }
         mView.setFollowAble(false);
         if (mForumFollow == null) {
             // 关注
