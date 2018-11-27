@@ -4,6 +4,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +68,6 @@ public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Pres
 
     @Override
     public void useCashCoupon(CashCoupon cashCoupon) {
-
+        ARouter.getInstance().build(Constants.AROUTER_GOODS_NEARBY_ACTIVITY).navigation();
     }
 }
