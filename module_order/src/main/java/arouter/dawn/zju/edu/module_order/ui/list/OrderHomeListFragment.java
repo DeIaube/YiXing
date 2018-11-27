@@ -13,6 +13,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.adapter.OrderListAdapter;
@@ -125,6 +126,15 @@ public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Pr
             @Override
             public void orderRefundClickListener(View view, Order orderBean) {
 
+            }
+
+            @Override
+            public void showGoodsExplainClickListener(View view, Order orderBean) {
+                new AlertDialog.Builder(Objects.requireNonNull(getContext()))
+                        .setTitle(R.string.order_home_list_explain)
+                        .setMessage(orderBean.getGoods().getExplain())
+                        .setNegativeButton(R.string.confirm, null)
+                        .show();
             }
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

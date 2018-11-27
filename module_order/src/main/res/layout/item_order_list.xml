@@ -102,6 +102,7 @@
             app:layout_constraintTop_toTopOf="@+id/view" />
 
         <TextView
+            android:id="@+id/goods_explain"
             android:layout_width="wrap_content"
             android:layout_height="17dp"
             android:layout_marginTop="28dp"

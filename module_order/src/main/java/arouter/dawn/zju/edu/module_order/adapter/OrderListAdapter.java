@@ -39,6 +39,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         void orderEvaluateClickListener(final View view, final Order orderBean);
         void orderDetailClickListener(final View view, final Order orderBean);
         void orderRefundClickListener(final View view, final Order orderBean);
+        void showGoodsExplainClickListener(final View view, final Order orderBean);
     }
 
     public void setmOrderListClickListener(OnOrderListClickListener mOrderListClickListener) {
@@ -116,6 +117,12 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
                     mOrderListClickListener.orderRefundClickListener(v, mOrders.get(position));
                 }
             });
+            holder.goodsExplainTv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOrderListClickListener.showGoodsExplainClickListener(v, mOrders.get(position));
+                }
+            });
         }
     }
 
@@ -150,6 +157,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
         TextView createTimeTv;
         TextView typeTv;
+        TextView goodsExplainTv;
         ImageView goodsPreviewIv;
         TextView goodsTitleTv;
         TextView payNumberTv;
@@ -173,6 +181,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             orderRefundBtn = itemView.findViewById(R.id.order_refund);
             orderEvaluateBtn = itemView.findViewById(R.id.order_evaluate);
             buttonLayoutLv = itemView.findViewById(R.id.button_layout);
+            goodsExplainTv = itemView.findViewById(R.id.goods_explain);
         }
     }
 }
