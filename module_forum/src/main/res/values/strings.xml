@@ -37,6 +37,8 @@
     <!--ForumFollow-->
     <string name="title_activity_forum_follow">我的关注</string>
     <string name="follow_portrait_tip">查看详情</string>
+    <string name="user_information_following">已关注</string>
+    <string name="user_information_unfollow">关注</string>
     <!--ForumFollow-->
 
 </resources>

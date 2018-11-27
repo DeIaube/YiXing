@@ -18,15 +18,14 @@
 
         <TextView
             android:id="@+id/forum_user_information_follow_count"
-            android:layout_marginStart="4dp"
-            android:text="3"
-            android:textSize="13dp"
-            android:textStyle="bold"
-            android:textColor="#101010"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:layout_weight="1"
             android:gravity="start"
-            android:layout_height="wrap_content" />
+            android:textColor="#101010"
+            android:textSize="13dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -51,15 +50,14 @@
 
         <TextView
             android:id="@+id/forum_user_information_followed_count"
-            android:layout_marginStart="4dp"
-            android:text="3"
-            android:textSize="13dp"
-            android:textStyle="bold"
-            android:textColor="#101010"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:layout_weight="1"
             android:gravity="start"
-            android:layout_height="wrap_content" />
+            android:textColor="#101010"
+            android:textSize="13dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -84,15 +82,14 @@
 
         <TextView
             android:id="@+id/forum_user_information_post_count"
-            android:layout_marginStart="4dp"
-            android:text="3"
-            android:textSize="13dp"
-            android:textStyle="bold"
-            android:textColor="#101010"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:layout_weight="1"
             android:gravity="start"
-            android:layout_height="wrap_content" />
+            android:textColor="#101010"
+            android:textSize="13dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

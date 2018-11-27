@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.acctionbaractivitydemo.MainActivity">
+
+    <item
+        android:id="@+id/user_information_menu_share"
+        android:icon="@drawable/forum_user_information_share"
+        app:showAsAction="always"
+        tools:ignore="MenuTitle" />
+</menu>
