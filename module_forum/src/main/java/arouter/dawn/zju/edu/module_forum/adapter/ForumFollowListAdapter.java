@@ -9,12 +9,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_forum.R;
+import baselib.config.Constants;
 
 /**
  * @Auther: Dawn
@@ -26,15 +28,25 @@ public class ForumFollowListAdapter extends RecyclerView.Adapter<ForumFollowList
 
     private Context context;
     private List<User> userList;
+    private FollowListClickListener mFollowListClickListener;
+
+    public void setFollowListClickListener(FollowListClickListener followListClickListener) {
+        this.mFollowListClickListener = followListClickListener;
+    }
 
     public ForumFollowListAdapter(Context context, List<User> userList) {
         this.context = context;
         this.userList = userList;
+        this.mFollowListClickListener = new DefaultFollowListClickListener();
     }
 
     public void refresh(List<User> userList) {
         this.userList = userList;
         notifyDataSetChanged();
+    }
+
+    public interface FollowListClickListener {
+        void followClick(View v, User user);
     }
 
     @NonNull
@@ -67,6 +79,23 @@ public class ForumFollowListAdapter extends RecyclerView.Adapter<ForumFollowList
             super(itemView);
             picknameTv = itemView.findViewById(R.id.follow_pickname);
             portraitIv = itemView.findViewById(R.id.follow_portrait);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mFollowListClickListener != null) {
+                        mFollowListClickListener.followClick(v, userList.get(position));
+                    }
+                }
+            });
+        }
+    }
+
+    class DefaultFollowListClickListener implements FollowListClickListener {
+
+        @Override
+        public void followClick(View v, User user) {
+            ARouter.getInstance().build(Constants.AROUTER_FORUM_USER_INFORMATION).navigation();
         }
     }
 }
