@@ -37,7 +37,11 @@ public class ForumFollowActivity extends BaseActivity<ForumFollowContract.Presen
         forumFollowListView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new ForumFollowListAdapter(this, new ArrayList<User>());
         forumFollowListView.setAdapter(mAdapter);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
         mPresenter.refreshFollowList();
     }
 
