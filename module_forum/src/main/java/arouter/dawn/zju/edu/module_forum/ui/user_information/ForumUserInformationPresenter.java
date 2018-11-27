@@ -14,7 +14,6 @@ import java.util.List;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.lib_net.bean.forum.ForumFollow;
 import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
-import arouter.dawn.zju.edu.module_forum.ui.alter_tab.ForumAlterTabContract;
 import baselib.base.BasePresenter;
 
 /**
@@ -36,6 +35,9 @@ public class ForumUserInformationPresenter extends BasePresenter<ForumUserInform
                 .getFirstInBackground(new GetCallback<User>() {
                     @Override
                     public void done(User user, AVException e) {
+                        if (mView == null) {
+                            return;
+                        }
                         mView.updateUser(user);
                         refresh(user);
                     }
@@ -49,6 +51,9 @@ public class ForumUserInformationPresenter extends BasePresenter<ForumUserInform
                 .countInBackground(new CountCallback() {
                     @Override
                     public void done(int i, AVException e) {
+                        if (mView == null) {
+                            return;
+                        }
                         if (e == null) {
                             mView.refreshFollowCount(i);
                         }
@@ -60,6 +65,9 @@ public class ForumUserInformationPresenter extends BasePresenter<ForumUserInform
                 .countInBackground(new CountCallback() {
                     @Override
                     public void done(int i, AVException e) {
+                        if (mView == null) {
+                            return;
+                        }
                         if (e == null) {
                             mView.refreshFollowedCount(i);
                         }
@@ -71,6 +79,9 @@ public class ForumUserInformationPresenter extends BasePresenter<ForumUserInform
                 .findInBackground(new FindCallback<ForumPost>() {
                     @Override
                     public void done(List<ForumPost> list, AVException e) {
+                        if (mView == null) {
+                            return;
+                        }
                         if (e == null) {
                             mView.refreshPostCount(list.size());
                             mView.refreshPostList(list);
@@ -84,6 +95,9 @@ public class ForumUserInformationPresenter extends BasePresenter<ForumUserInform
                 .getFirstInBackground(new GetCallback<ForumFollow>() {
                     @Override
                     public void done(ForumFollow forumFollow, AVException e) {
+                        if (mView == null) {
+                            return;
+                        }
                         mForumFollow = forumFollow;
                         if (mForumFollow == null) {
                             mView.setUnFollow();
@@ -110,6 +124,9 @@ public class ForumUserInformationPresenter extends BasePresenter<ForumUserInform
                 public void done(AVException e) {
                     mView.setFollowAble(true);
                     if (e == null) {
+                        if (mView == null) {
+                            return;
+                        }
                         mView.setFollowing();
                     }
                 }
@@ -122,6 +139,9 @@ public class ForumUserInformationPresenter extends BasePresenter<ForumUserInform
                     mView.setFollowAble(true);
                     if (e == null) {
                         mForumFollow = null;
+                        if (mView == null) {
+                            return;
+                        }
                         mView.setUnFollow();
                     }
                 }

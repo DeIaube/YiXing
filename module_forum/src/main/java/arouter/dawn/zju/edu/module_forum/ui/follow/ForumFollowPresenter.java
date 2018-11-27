@@ -31,6 +31,9 @@ public class ForumFollowPresenter extends BasePresenter<ForumFollowContract.View
                 .findInBackground(new FindCallback<ForumFollow>() {
             @Override
             public void done(List<ForumFollow> list, AVException e) {
+                if (mView == null) {
+                    return;
+                }
                 if (e == null) {
                     LogUtil.i(TAG, "refreshFollowList: " + list.toString());
                     List<User> userList = new ArrayList<>();
