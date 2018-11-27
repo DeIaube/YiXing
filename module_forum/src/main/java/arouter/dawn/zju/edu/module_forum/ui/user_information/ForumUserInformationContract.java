@@ -22,10 +22,11 @@ public interface ForumUserInformationContract {
         void setFollowing();
         void setUnFollow();
         void setFollowAble(boolean able);
+        void updateUser(User user);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void refresh(User user);
+        void refresh(String userId);
         void follow(User user);
     }
 

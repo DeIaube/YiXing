@@ -3,6 +3,7 @@ package arouter.dawn.zju.edu.lib_net.bean;
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVUser;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Date;
  * 用户实体类
  */
 @AVClassName("User")
-public class User extends AVUser {
+public class User extends AVUser implements Serializable {
 
     public void setPickName(String name) {
         put("pickname", name);

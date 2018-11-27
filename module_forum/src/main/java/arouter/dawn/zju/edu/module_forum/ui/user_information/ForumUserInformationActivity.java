@@ -1,5 +1,6 @@
 package arouter.dawn.zju.edu.module_forum.ui.user_information;
 
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.squareup.picasso.Picasso;
 
@@ -33,6 +35,8 @@ public class ForumUserInformationActivity extends BaseActivity<ForumUserInformat
     TextView userPostCountTv;
     RecyclerView userPostListRv;
 
+    @Autowired(name = Constants.FORUM_USER_INFORMATION_USER_ID)
+    String userId;
     User user;
 
     private ForumPostListAdapter mAdapter;
@@ -53,12 +57,7 @@ public class ForumUserInformationActivity extends BaseActivity<ForumUserInformat
         mAdapter = new ForumPostListAdapter(this, new ArrayList<ForumPost>());
         userPostListRv.setAdapter(mAdapter);
 
-        user = User.getCurrentUser(User.class);
-
-        Picasso.with(this).load(user.getPortrait()).into(userPortraitIv);
-        userPicknameTv.setText(user.getPickName());
-
-        mPresenter.refresh(user);
+        mPresenter.refresh(userId);
     }
 
     @Override
@@ -115,6 +114,13 @@ public class ForumUserInformationActivity extends BaseActivity<ForumUserInformat
     @Override
     public void setFollowAble(boolean able) {
         userFollowBtn.setClickable(able);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        this.user = user;
+        Picasso.with(this).load(user.getPortrait()).into(userPortraitIv);
+        userPicknameTv.setText(user.getPickName());
     }
 
     @Override

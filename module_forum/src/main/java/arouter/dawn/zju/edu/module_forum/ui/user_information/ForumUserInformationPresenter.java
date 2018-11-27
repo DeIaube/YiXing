@@ -29,7 +29,21 @@ public class ForumUserInformationPresenter extends BasePresenter<ForumUserInform
     private ForumFollow mForumFollow;
 
     @Override
-    public void refresh(User user) {
+    public void refresh(final String userId) {
+        User user = new User();
+        AVQuery<User> userAVQuery = User.getQuery(User.class);
+        userAVQuery
+                .whereEqualTo("objectId", userId)
+                .getFirstInBackground(new GetCallback<User>() {
+                    @Override
+                    public void done(User user, AVException e) {
+                        mView.updateUser(user);
+                        refresh(user);
+                    }
+                });
+    }
+
+    private void refresh(User user) {
         AVQuery<ForumFollow> forumFollowCountAVQuery = ForumFollow.getQuery(ForumFollow.class);
         forumFollowCountAVQuery
                 .whereEqualTo("owner", user)

@@ -1,6 +1,7 @@
 package arouter.dawn.zju.edu.module_forum.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -95,7 +96,10 @@ public class ForumFollowListAdapter extends RecyclerView.Adapter<ForumFollowList
 
         @Override
         public void followClick(View v, User user) {
-            ARouter.getInstance().build(Constants.AROUTER_FORUM_USER_INFORMATION).navigation();
+            ARouter.getInstance()
+                    .build(Constants.AROUTER_FORUM_USER_INFORMATION)
+                    .withString(Constants.FORUM_USER_INFORMATION_USER_ID, user.getObjectId())
+                    .navigation();
         }
     }
 }
