@@ -56,8 +56,7 @@
         android:background="@color/colorPrimary"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/account_profile"
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -66,7 +65,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
-            android:src="@drawable/default_portrait"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -77,7 +75,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="天亮了亮了"
             android:textColor="@color/white"
             android:textSize="22dp"
             app:layout_constraintStart_toEndOf="@+id/account_profile"
@@ -97,7 +94,6 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="4dp"
-            android:text="15064700768"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintStart_toEndOf="@+id/imageView"
