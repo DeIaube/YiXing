@@ -76,6 +76,7 @@ public class ForumUserInformationPresenter extends BasePresenter<ForumUserInform
         AVQuery<ForumPost> forumPostAVQuery = ForumPost.getQuery(ForumPost.class);
         forumPostAVQuery
                 .whereEqualTo("author", user)
+                .include("author")
                 .findInBackground(new FindCallback<ForumPost>() {
                     @Override
                     public void done(List<ForumPost> list, AVException e) {
