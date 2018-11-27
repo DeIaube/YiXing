@@ -68,7 +68,7 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
         goodsPayBtn = findViewById(R.id.goods_detail_pay);
 
         @SuppressLint("SimpleDateFormat")
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         goodsTitleTv.setText(goods.getTitle());
         goodsExplainTv.setText(goods.getExplain());
         goodsLocationTv.setText(goods.getLocation());
