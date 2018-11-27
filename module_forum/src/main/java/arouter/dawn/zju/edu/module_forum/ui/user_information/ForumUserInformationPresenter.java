@@ -30,7 +30,6 @@ public class ForumUserInformationPresenter extends BasePresenter<ForumUserInform
 
     @Override
     public void refresh(final String userId) {
-        User user = new User();
         AVQuery<User> userAVQuery = User.getQuery(User.class);
         userAVQuery
                 .whereEqualTo("objectId", userId)
