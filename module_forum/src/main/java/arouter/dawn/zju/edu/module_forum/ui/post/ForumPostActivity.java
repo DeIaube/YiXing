@@ -1,5 +1,6 @@
 package arouter.dawn.zju.edu.module_forum.ui.post;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.BottomSheetDialog;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,6 +25,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import arouter.dawn.zju.edu.lib_net.bean.forum.ForumComment;
 import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
@@ -196,6 +200,36 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
             @Override
             public void onCancel(DialogInterface dialog) {
                 mPresenter.cancelComment(commentEt.getText().toString());
+            }
+        });
+        commentDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                new Timer().schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        commentEt.setFocusable(true);
+                        commentEt.setFocusableInTouchMode(true);
+                        commentEt.requestFocus();
+                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.showSoftInput(commentEt,0);
+                    }
+                }, 250);
+            }
+        });
+        commentDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                new Timer().schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        InputMethodManager imm =  (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                        if(imm != null) {
+                            imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(),
+                                    0);
+                        }
+                    }
+                }, 250);
             }
         });
     }
