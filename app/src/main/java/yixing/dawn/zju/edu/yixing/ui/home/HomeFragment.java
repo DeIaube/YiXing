@@ -45,6 +45,7 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
         view.findViewById(R.id.home_scan).setOnClickListener(this);
         view.findViewById(R.id.home_search).setOnClickListener(this);
         view.findViewById(R.id.home_notice).setOnClickListener(this);
+        view.findViewById(R.id.home_tab_menu).setOnClickListener(this);
 
         mPresenter.refreshHomeView();
 
@@ -63,6 +64,8 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
             ARouter.getInstance().build(Constants.AROUTER_GOODS_SEARCH).navigation();
         } else if (id == R.id.home_notice) {
             ARouter.getInstance().build(Constants.AROUTER_SETTING_NOTICE).navigation();
+        } else if (id == R.id.home_tab_menu) {
+            ARouter.getInstance().build(Constants.AROUTER_GOODS_NEARBY_ACTIVITY).navigation();
         }
     }
 

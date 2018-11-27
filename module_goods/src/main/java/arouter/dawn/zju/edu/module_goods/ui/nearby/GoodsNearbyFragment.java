@@ -27,7 +27,7 @@ import static android.app.Activity.RESULT_OK;
  * @Description:
  * 附近的商品页面
  */
-@Route(path = baselib.config.Constants.AROUTER_GOODS_NEARBY)
+@Route(path = baselib.config.Constants.AROUTER_GOODS_NEARBY_FRAGMENT)
 public class GoodsNearbyFragment extends BaseFragment<GoodsNearbyContract.Presenter> implements GoodsNearbyContract.View, View.OnClickListener {
 
     TextView searchTv;

@@ -12,7 +12,6 @@ import java.util.List;
 
 import baselib.base.BasePresenter;
 import baselib.config.Constants;
-import yixing.dawn.zju.edu.yixing.ui.ConsoleFragment;
 import yixing.dawn.zju.edu.yixing.adapter.MainPagerAdapter;
 import yixing.dawn.zju.edu.yixing.ui.home.HomeFragment;
 
@@ -29,7 +28,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new HomeFragment());
         fragments.add((Fragment) ARouter.getInstance().
-                build(Constants.AROUTER_GOODS_NEARBY).navigation());
+                build(Constants.AROUTER_GOODS_NEARBY_FRAGMENT).navigation());
         fragments.add((Fragment) ARouter.getInstance().
                 build(Constants.AROUTER_FORUM_FORUM_HOME).navigation());
         fragments.add((Fragment) ARouter.getInstance().

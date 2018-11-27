@@ -22,7 +22,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="arouter.dawn.zju.edu.module_goods.ui.detail.GoodsDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="arouter.dawn.zju.edu.module_goods.ui.nearby.GoodsNearbyActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
