@@ -1,5 +1,6 @@
 package arouter.dawn.zju.edu.module_forum.ui.user_information;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -133,7 +134,13 @@ public class ForumUserInformationActivity extends BaseActivity<ForumUserInformat
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.user_information_menu_share) {
-
+            if (user != null) {
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, user.getPickName());
+                shareIntent.setType("text/plain");
+                startActivity(shareIntent.createChooser(shareIntent, getString(R.string.app_name)));
+            }
         }
         return super.onOptionsItemSelected(item);
     }
