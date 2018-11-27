@@ -77,17 +77,13 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
         view.findViewById(R.id.about_layout).setOnClickListener(this);
         view.findViewById(R.id.github_layout).setOnClickListener(this);
 
-        freshView();
-    }
-
-    @Override
-    protected void multipleFreshView() {
-        super.multipleFreshView();
-        freshView();
+        multipleFreshView();
     }
 
     @SuppressLint("DefaultLocale")
-    private void freshView() {
+    @Override
+    protected void multipleFreshView() {
+        super.multipleFreshView();
         User user = User.getCurrentUser(User.class);
         accountNameTv.setText(user.getPickName());
         accountPhoneTv.setText(user.getMobilePhoneNumber());
