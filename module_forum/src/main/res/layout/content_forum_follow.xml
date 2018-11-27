@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"/>
 
     <include
+        android:visibility="gone"
         android:id="@+id/forum_follow_list_empty_view"
         layout="@layout/content_forum_follow_empty"
         android:layout_width="match_parent"
