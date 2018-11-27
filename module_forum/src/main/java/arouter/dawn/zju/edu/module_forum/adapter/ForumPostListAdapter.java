@@ -56,6 +56,7 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
     public interface OnForumListClickListener {
         void likePost(ForumPost post, TextView likeCounter, ImageView likeBg);
         void clickPost(ForumPost post);
+        void clickAuthor(User user);
     }
 
     public void refresh(List<ForumPost> forumPostList) {
@@ -192,6 +193,22 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
             likeCountTv = itemView.findViewById(R.id.like_count);
             likeBgIv = itemView.findViewById(R.id.like_bg);
             commentCountTv = itemView.findViewById(R.id.comment_count);
+            portraitIv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mOnForumListClickListener != null) {
+                        mOnForumListClickListener.clickAuthor(mForumListItems.get(postition).getAuthor());
+                    }
+                }
+            });
+            nameTv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mOnForumListClickListener != null) {
+                        mOnForumListClickListener.clickAuthor(mForumListItems.get(postition).getAuthor());
+                    }
+                }
+            });
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -241,6 +258,14 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
         public void clickPost(ForumPost post) {
             ARouter.getInstance().build(Constants.AROUTER_FORUM_FORUM_POST).
                     withParcelable(Constants.FORUM_POST_POST, post).navigation();
+        }
+
+        @Override
+        public void clickAuthor(User user) {
+            ARouter.getInstance()
+                    .build(Constants.AROUTER_FORUM_USER_INFORMATION)
+                    .withString(Constants.FORUM_USER_INFORMATION_USER_ID, user.getObjectId())
+                    .navigation();
         }
     }
 }

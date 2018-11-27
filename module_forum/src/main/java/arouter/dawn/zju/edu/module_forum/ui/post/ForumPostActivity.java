@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -79,6 +80,7 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
 
         followBtn.setOnClickListener(this);
         findViewById(R.id.forum_post_add_comment).setOnClickListener(this);
+        findViewById(R.id.post_author_layout).setOnClickListener(this);
 
         mCollectionMenuContent = getString(R.string.forum_post_collection);
 
@@ -139,6 +141,11 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
             startActivity(shareIntent.createChooser(shareIntent, post.getTitle()));
         } else if (id == R.id.post_menu_report) {
            showReportDialog();
+        } else if (id == R.id.post_author_layout) {
+            ARouter.getInstance()
+                    .build(Constants.AROUTER_FORUM_USER_INFORMATION)
+                    .withString(Constants.FORUM_USER_INFORMATION_USER_ID, post.getAuthor().getObjectId())
+                    .navigation();
         }
         return super.onOptionsItemSelected(item);
     }
