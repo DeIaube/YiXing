@@ -27,6 +27,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.user_information.ForumUserInformationActivity"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
