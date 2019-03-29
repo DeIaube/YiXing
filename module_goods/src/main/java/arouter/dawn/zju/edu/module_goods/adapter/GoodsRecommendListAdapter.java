@@ -96,6 +96,14 @@ public class GoodsRecommendListAdapter extends RecyclerView.Adapter<GoodsRecomme
                     }
                 }
             });
+            buyBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mOnGoodsRecommendListListener != null) {
+                        mOnGoodsRecommendListListener.goodsClick(v, mGoodsList.get(position));
+                    }
+                }
+            });
         }
     }
 
