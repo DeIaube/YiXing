@@ -23,7 +23,7 @@
 
         <TextView
             android:layout_marginTop="16dp"
-            android:text="小仙女最爱的美妆好物"
+            android:text="最近最火热的活动系列"
             android:textColor="#7c7c7c"
             android:textSize="14dp"
             android:gravity="center"
@@ -41,7 +41,7 @@
                 android:layout_weight="1"
                 android:background="#DD3E3E"
                 android:textColor="@color/white"
-                android:text="热销推荐"
+                android:text="机会多多"
                 android:textSize="14dp"
                 android:gravity="center"
                 android:layout_height="match_parent" />
@@ -51,7 +51,7 @@
                 android:layout_weight="1"
                 android:background="#F68383"
                 android:textColor="@color/white"
-                android:text="人气新品"
+                android:text="赶紧报名"
                 android:textSize="14dp"
                 android:gravity="center"
                 android:layout_height="match_parent" />
