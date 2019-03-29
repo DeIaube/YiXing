@@ -103,6 +103,12 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
     }
 
     @Override
+    public boolean checkGoodsData(Goods goods) {
+        return goods.getStartTime().getTime() <= System.currentTimeMillis()
+                && System.currentTimeMillis() <= goods.getEndTime().getTime();
+    }
+
+    @Override
     public void paySuccess(Goods goods) {
         Order order = new Order();
         order.setGoods(goods);

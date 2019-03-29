@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -155,6 +156,10 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.goods_detail_pay) {
+            if (!mPresenter.checkGoodsData(goods)) {
+                Toast.makeText(this, "与活动时间不符", Toast.LENGTH_SHORT).show();
+                return;
+            }
             new PayContainerFragment()
                     .show(getSupportFragmentManager(), goods.getPrice(),
                             goods.getTitle(), goods.getExplain()

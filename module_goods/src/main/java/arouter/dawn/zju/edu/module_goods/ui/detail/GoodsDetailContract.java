@@ -19,6 +19,7 @@ public interface GoodsDetailContract {
     interface Presenter extends BaseContract.BasePresenter<View> {
         void init(Goods goods);
         void collection(Goods goods);
+        boolean checkGoodsData(Goods goods);
         void paySuccess(Goods goods);
         void payFailed(Goods goods, String failed);
     }
