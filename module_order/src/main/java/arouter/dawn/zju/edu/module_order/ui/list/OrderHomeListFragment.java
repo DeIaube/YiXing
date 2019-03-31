@@ -1,12 +1,15 @@
 package arouter.dawn.zju.edu.module_order.ui.list;
 
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -22,6 +25,7 @@ import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
 import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import baselib.config.Constants;
+import baselib.util.ZXingUtils;
 
 /**
  * @Auther: Dawn
@@ -120,7 +124,16 @@ public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Pr
 
             @Override
             public void orderDetailClickListener(View view, Order orderBean) {
-
+                if (orderBean.getType() == 2 || orderBean.getType() == 3) {
+                    ImageView iv = new ImageView(getContext());
+                    iv.setPadding(20,40,20,40);
+                    iv.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.er));
+                    new AlertDialog.Builder(Objects.requireNonNull(getContext()))
+                            .setTitle("活动二维码")
+                            .setView(iv)
+                            .setPositiveButton("确定", null)
+                            .show();
+                }
             }
 
             @Override
