@@ -12,7 +12,7 @@ import arouter.dawn.zju.edu.module_mine.R;
 import baselib.base.BaseActivity;
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import baselib.callback.GoodsListRefreshCallback;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -20,14 +20,14 @@ import baselib.config.Constants;
  * @Description:
  * 我的商品收藏页面
  */
-@Route(path = Constants.AROUTER_SETTING_COLLECTION)
+@Route(path = RouteConstants.AROUTER_SETTING_COLLECTION)
 public class CollectionActivity extends BaseActivity<CollectionContract.Presenter> implements CollectionContract.View {
 
     GoodsListRefreshCallback refreshCallback;
 
     @Override
     protected void initView() {
-        Fragment fragment = (Fragment) ARouter.getInstance().build(Constants.AROUTER_GOODS_GOODS_LIST).navigation();
+        Fragment fragment = (Fragment) ARouter.getInstance().build(RouteConstants.AROUTER_GOODS_GOODS_LIST).navigation();
         refreshCallback = (GoodsListRefreshCallback) fragment;
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
         mPresenter.refresh();

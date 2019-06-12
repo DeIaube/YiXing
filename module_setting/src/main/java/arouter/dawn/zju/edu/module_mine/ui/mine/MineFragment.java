@@ -5,8 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,7 +17,7 @@ import com.squareup.picasso.Picasso;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_mine.R;
 import baselib.base.BaseFragment;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -27,7 +25,7 @@ import baselib.config.Constants;
  * @Description:
  * 我的信息页面
  */
-@Route(path = Constants.AROUTER_SETTING_MINE)
+@Route(path = RouteConstants.AROUTER_SETTING_MINE)
 public class MineFragment extends BaseFragment<MineContract.Presenter> implements
         View.OnClickListener, MineContract.View {
 
@@ -100,34 +98,34 @@ public class MineFragment extends BaseFragment<MineContract.Presenter> implement
         int id = v.getId();
         if (id == R.id.notice) {
             // 跳转到当前通知
-            ARouter.getInstance().build(Constants.AROUTER_SETTING_NOTICE).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_SETTING_NOTICE).navigation();
         } else if (id == R.id.setting) {
             // 跳转到设置页面
-            ARouter.getInstance().build(Constants.AROUTER_SETTING_SETTING).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_SETTING_SETTING).navigation();
         } else if (id == R.id.account_detail) {
             // 跳转个人详情页
-            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_PERSONAL).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_ACCOUNT_PERSONAL).navigation();
         } else if (id == R.id.wallet_layout) {
             // 点击钱包
-            ARouter.getInstance().build(Constants.AROUTER_WALLET_HOME).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_WALLET_HOME).navigation();
         }  else if (id == R.id.cash_coupon_layout) {
             // 点击代金券
-            ARouter.getInstance().build(Constants.AROUTER_ORDER_CASH_COUPON).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_ORDER_CASH_COUPON).navigation();
         } else if (id == R.id.integral_layout) {
             // 点击积分
-            ARouter.getInstance().build(Constants.AROUTER_ORDER_INTEGRAL_SHOP).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_ORDER_INTEGRAL_SHOP).navigation();
         } else if (id == R.id.collection_layout) {
             // 点击我的收藏
-            ARouter.getInstance().build(Constants.AROUTER_SETTING_COLLECTION).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_SETTING_COLLECTION).navigation();
         }else if (id == R.id.cart_layout) {
             // 点击我的购物车
-            ARouter.getInstance().build(Constants.AROUTER_GOODS_CART).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_GOODS_CART).navigation();
         } else if (id == R.id.integral_mall_layout) {
             // 点击积分商城
-            ARouter.getInstance().build(Constants.AROUTER_ORDER_INTEGRAL_SHOP).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_ORDER_INTEGRAL_SHOP).navigation();
         } else if (id == R.id.feedback) {
             // 点击问题反馈
-            ARouter.getInstance().build(Constants.AROUTER_SETTING_FEEDBACK).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_SETTING_FEEDBACK).navigation();
         } else if (id == R.id.share_layout) {
             // 点击分享好友
             Intent shareIntent = new Intent();

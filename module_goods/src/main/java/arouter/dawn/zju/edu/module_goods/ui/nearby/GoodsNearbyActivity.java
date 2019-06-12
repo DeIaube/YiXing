@@ -4,9 +4,9 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_nearby.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
-@Route(path = Constants.AROUTER_GOODS_NEARBY_ACTIVITY)
+@Route(path = RouteConstants.AROUTER_GOODS_NEARBY_ACTIVITY)
 public class GoodsNearbyActivity extends BaseActivity {
 
     @Override

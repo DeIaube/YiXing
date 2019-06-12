@@ -1,7 +1,6 @@
 package arouter.dawn.zju.edu.module_order.ui.list;
 
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,8 +23,7 @@ import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
 import arouter.dawn.zju.edu.lib_net.bean.order.Order;
-import baselib.config.Constants;
-import baselib.util.ZXingUtils;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -34,7 +32,7 @@ import baselib.util.ZXingUtils;
  * 我的订单主页面
  * 展示订单列表
  */
-@Route(path = Constants.AROUTER_ORDER_LIST)
+@Route(path = RouteConstants.AROUTER_ORDER_LIST)
 public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Presenter> implements OrderHomeListContract.View {
 
     RecyclerView recyclerView;
@@ -67,7 +65,7 @@ public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Pr
             emptyLayout.setVisibility(View.GONE);
         }
         if (recommendFragment == null) {
-            recommendFragment = (Fragment) ARouter.getInstance().build(Constants.AROUTER_GOODS_RECOMMEND).navigation();
+            recommendFragment = (Fragment) ARouter.getInstance().build(RouteConstants.AROUTER_GOODS_RECOMMEND).navigation();
             getChildFragmentManager().beginTransaction().add(R.id.container, recommendFragment).commit();
         }
     }
@@ -116,9 +114,9 @@ public class OrderHomeListFragment extends BaseFragment<OrderHomeListContract.Pr
             @Override
             public void orderEvaluateClickListener(View view, Order orderBean) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(Constants.ORDER_ORDER_LIST_ORDER, orderBean);
-                ARouter.getInstance().build(Constants.AROUTER_ORDER_EVALUATE)
-                        .withBundle(Constants.ORDER_ORDER_LIST_BOUNDLE, bundle)
+                bundle.putParcelable(RouteConstants.ORDER_ORDER_LIST_ORDER, orderBean);
+                ARouter.getInstance().build(RouteConstants.AROUTER_ORDER_EVALUATE)
+                        .withBundle(RouteConstants.ORDER_ORDER_LIST_BOUNDLE, bundle)
                         .navigation();
             }
 

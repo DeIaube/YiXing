@@ -6,7 +6,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -14,7 +14,7 @@ import baselib.config.Constants;
  * @Description:
  * 我的银行卡页面
  */
-@Route(path = Constants.AROUTER_WALLET_BANK_CARD)
+@Route(path = RouteConstants.AROUTER_WALLET_BANK_CARD)
 public class WalletBankCardActivity extends BaseActivity<WalletBankCardContract.Presenter> implements WalletBankCardContract.View, View.OnClickListener {
 
     @Override

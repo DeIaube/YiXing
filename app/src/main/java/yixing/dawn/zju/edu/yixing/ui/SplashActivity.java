@@ -9,7 +9,7 @@ import com.avos.avoscloud.PushService;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 import io.reactivex.functions.Consumer;
 import yixing.dawn.zju.edu.yixing.R;
 
@@ -45,7 +45,7 @@ public class SplashActivity extends BaseActivity {
                         if (aBoolean) {
                             //所有权限都开启aBoolean才为true，否则为false
                             Log.i(TAG, "权限已开启");
-                            ARouter.getInstance().build(Constants.AROUTER_APP_MAIN).navigation();
+                            ARouter.getInstance().build(RouteConstants.AROUTER_APP_MAIN).navigation();
                         } else {
                             Log.i(TAG, "权限被拒绝，请在设置里面开启相应权限，若无相应权限会影响使用");
                         }

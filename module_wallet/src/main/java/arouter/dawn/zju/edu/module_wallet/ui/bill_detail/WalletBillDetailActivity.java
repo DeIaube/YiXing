@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import arouter.dawn.zju.edu.lib_net.bean.wallet.Bill;
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -20,7 +20,7 @@ import baselib.config.Constants;
  * @Description:
  * 我的账单详情页面
  */
-@Route(path = Constants.AROUTER_WALLET_BILL_DETAIL)
+@Route(path = RouteConstants.AROUTER_WALLET_BILL_DETAIL)
 public class WalletBillDetailActivity extends BaseActivity<WalletBillDetailContract.Presenter> implements
         WalletBillDetailContract.View {
 
@@ -30,7 +30,7 @@ public class WalletBillDetailActivity extends BaseActivity<WalletBillDetailContr
     TextView walletBillDetailIdTv;
     TextView walletBillDetailSourceTv;
 
-    @Autowired(name = Constants.WALLET_BILL_DETAIL_BUNDLE)
+    @Autowired(name = RouteConstants.WALLET_BILL_DETAIL_BUNDLE)
     Bundle bundle;
 
     Bill bill;
@@ -38,7 +38,7 @@ public class WalletBillDetailActivity extends BaseActivity<WalletBillDetailContr
     @SuppressLint("DefaultLocale")
     @Override
     protected void initView() {
-        bill = bundle.getParcelable(Constants.WALLET_BILL_DETAIL_BILL);
+        bill = bundle.getParcelable(RouteConstants.WALLET_BILL_DETAIL_BILL);
 
         walletBillDetailAmountTv = findViewById(R.id.wallet_bill_detail_amount);
         walletBillDetailTypeTv = findViewById(R.id.wallet_bill_detail_type);

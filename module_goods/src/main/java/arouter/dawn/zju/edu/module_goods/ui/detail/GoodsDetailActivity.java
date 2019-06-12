@@ -21,10 +21,9 @@ import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import arouter.dawn.zju.edu.module_goods.util.PicassoUrlImageLeader;
 import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
-import arouter.dawn.zju.edu.module_pay.pay.PayBuiled;
 import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -32,10 +31,10 @@ import baselib.config.Constants;
  * @Description:
  * 商品详情页
  */
-@Route(path = Constants.AROUTER_GOODS_DETAIL)
+@Route(path = RouteConstants.AROUTER_GOODS_DETAIL)
 public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presenter> implements GoodsDetailContract.View, View.OnClickListener {
 
-    @Autowired(name = Constants.GOODS_DETAIL_BUNDLE)
+    @Autowired(name = RouteConstants.GOODS_DETAIL_BUNDLE)
     Bundle bundle;
     Goods goods;
 
@@ -55,7 +54,7 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailContract.Presen
     @SuppressLint("DefaultLocale")
     @Override
     protected void initView() {
-        goods = bundle.getParcelable(Constants.GOODS_DETAIL_GOODS);
+        goods = bundle.getParcelable(RouteConstants.GOODS_DETAIL_GOODS);
         setToolbarTitle(goods.getTitle());
 
         goodsDetailBanner = findViewById(R.id.goods_detail_banner);

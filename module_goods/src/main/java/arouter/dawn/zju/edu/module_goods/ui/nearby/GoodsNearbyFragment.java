@@ -17,6 +17,7 @@ import com.zaaach.citypicker.CityPickerActivity;
 import arouter.dawn.zju.edu.module_goods.config.Constants;
 import arouter.dawn.zju.edu.module_nearby.R;
 import baselib.base.BaseFragment;
+import baselib.constants.RouteConstants;
 import baselib.util.SPUtil;
 
 import static android.app.Activity.RESULT_OK;
@@ -27,7 +28,7 @@ import static android.app.Activity.RESULT_OK;
  * @Description:
  * 附近的商品页面
  */
-@Route(path = baselib.config.Constants.AROUTER_GOODS_NEARBY_FRAGMENT)
+@Route(path = RouteConstants.AROUTER_GOODS_NEARBY_FRAGMENT)
 public class GoodsNearbyFragment extends BaseFragment<GoodsNearbyContract.Presenter> implements GoodsNearbyContract.View, View.OnClickListener {
 
     TextView searchTv;
@@ -99,7 +100,7 @@ public class GoodsNearbyFragment extends BaseFragment<GoodsNearbyContract.Presen
         searchTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ARouter.getInstance().build(baselib.config.Constants.AROUTER_GOODS_SEARCH).navigation();
+                ARouter.getInstance().build(RouteConstants.AROUTER_GOODS_SEARCH).navigation();
             }
         });
 

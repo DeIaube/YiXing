@@ -17,7 +17,7 @@ import arouter.dawn.zju.edu.module_goods.adapter.CartGoodsListAdapter;
 import arouter.dawn.zju.edu.module_nearby.R;
 import baselib.base.BaseActivity;
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -25,7 +25,7 @@ import baselib.config.Constants;
  * @Description:
  * 购物车页面
  */
-@Route(path = Constants.AROUTER_GOODS_CART)
+@Route(path = RouteConstants.AROUTER_GOODS_CART)
 public class GoodsCartActivity extends BaseActivity<GoodsCartContract.Presenter> implements GoodsCartContract.View, CartGoodsListAdapter.CartStatusChangeListener {
 
     RecyclerView goodsListRv;

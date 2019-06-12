@@ -10,7 +10,7 @@ import com.alibaba.android.arouter.facade.template.IInterceptor;
 import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -27,9 +27,9 @@ public class LoginInterceptor implements IInterceptor {
     public void process(Postcard postcard, InterceptorCallback callback) {
         Log.i(TAG, "LoginInterceptor process " + postcard.toString());
         String group = postcard.getGroup();
-        if (User.getCurrentUser() == null && !group.equals(Constants.AROUTER_ACCOUNT_GROP)) {
+        if (User.getCurrentUser() == null && !group.equals(RouteConstants.AROUTER_ACCOUNT_GROP)) {
             Log.i(TAG, "Interceptor");
-            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_LOGIN).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_ACCOUNT_LOGIN).navigation();
             return;
         }
         // 不拦截

@@ -16,7 +16,7 @@ import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.adapter.CashCouponListAdapter;
 import baselib.base.BaseFragment;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -72,7 +72,7 @@ public class CashCouponListFragment extends BaseFragment<CashCouponListContract.
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.cash_coupon_get_cash_coupon) {
-            ARouter.getInstance().build(Constants.AROUTER_ORDER_INTEGRAL_SHOP).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_ORDER_INTEGRAL_SHOP).navigation();
         }
     }
 }

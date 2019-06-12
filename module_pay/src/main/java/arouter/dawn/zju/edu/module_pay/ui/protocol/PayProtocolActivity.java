@@ -4,7 +4,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_pay.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -12,7 +12,7 @@ import baselib.config.Constants;
  * @Description:
  * 展示协议页面
  */
-@Route(path = Constants.AROUTER_PAY_PROTOTOL)
+@Route(path = RouteConstants.AROUTER_PAY_PROTOTOL)
 public class PayProtocolActivity extends BaseActivity<PayProtocolContract.Presenter> implements PayProtocolContract.View {
 
     @Override

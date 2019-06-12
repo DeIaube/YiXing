@@ -14,7 +14,7 @@ import arouter.dawn.zju.edu.lib_net.bean.wallet.Bill;
 import arouter.dawn.zju.edu.module_wallet.R;
 import arouter.dawn.zju.edu.module_wallet.adapter.WalletBillListAdapter;
 import baselib.base.BaseFragment;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -56,10 +56,10 @@ public class WalletBillListFragment extends BaseFragment<WalletBillListContract.
     @Override
     public void billClick(Bill bill) {
         Bundle bundle = new Bundle();
-        bundle.putParcelable(Constants.WALLET_BILL_DETAIL_BILL, bill);
+        bundle.putParcelable(RouteConstants.WALLET_BILL_DETAIL_BILL, bill);
         ARouter.getInstance()
-                .build(Constants.AROUTER_WALLET_BILL_DETAIL)
-                .withBundle(Constants.WALLET_BILL_DETAIL_BUNDLE, bundle)
+                .build(RouteConstants.AROUTER_WALLET_BILL_DETAIL)
+                .withBundle(RouteConstants.WALLET_BILL_DETAIL_BUNDLE, bundle)
                 .navigation();
     }
 }

@@ -3,7 +3,6 @@ package arouter.dawn.zju.edu.module_pay.ui.home;
 import android.app.Activity;
 import android.view.View;
 
-import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.config.Constants;
@@ -44,7 +43,7 @@ public class PayHomePresenter extends BasePresenter<PayHomeContract.View> implem
         if (type == Constants.PAY_TYPE_ALI) {
             payBuiled.builedAliPay().pay(v);
         } else if (type == Constants.PAY_TYPE_WALLET) {
-            payBuiled.builedWalletPay().pay(v);
+            payBuiled.builedWalletPay().pay();
         }
     }
 

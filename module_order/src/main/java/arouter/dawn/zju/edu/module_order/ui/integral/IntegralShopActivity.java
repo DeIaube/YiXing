@@ -13,7 +13,7 @@ import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.adapter.IntegralShopCashCouponListAdapter;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -22,7 +22,7 @@ import baselib.config.Constants;
  * 积分商城页面
  * 兑换代金券
  */
-@Route(path = Constants.AROUTER_ORDER_INTEGRAL_SHOP)
+@Route(path = RouteConstants.AROUTER_ORDER_INTEGRAL_SHOP)
 public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Presenter> implements IntegralShopContract.View, IntegralShopCashCouponListAdapter.OnBuyClickListener {
 
     RecyclerView cashCouponListView;
@@ -68,6 +68,6 @@ public class IntegralShopActivity extends BaseActivity<IntegralShopContract.Pres
 
     @Override
     public void useCashCoupon(CashCoupon cashCoupon) {
-        ARouter.getInstance().build(Constants.AROUTER_GOODS_NEARBY_ACTIVITY).navigation();
+        ARouter.getInstance().build(RouteConstants.AROUTER_GOODS_NEARBY_ACTIVITY).navigation();
     }
 }

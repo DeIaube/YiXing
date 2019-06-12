@@ -4,7 +4,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_mine.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -12,7 +12,7 @@ import baselib.config.Constants;
  * @Description:
  * 设置页面
  */
-@Route(path = Constants.AROUTER_SETTING_SETTING)
+@Route(path = RouteConstants.AROUTER_SETTING_SETTING)
 public class SettingActivity extends BaseActivity {
     @Override
     protected void initView() {

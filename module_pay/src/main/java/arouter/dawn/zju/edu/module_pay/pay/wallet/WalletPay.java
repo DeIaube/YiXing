@@ -1,5 +1,6 @@
 package arouter.dawn.zju.edu.module_pay.pay.wallet;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,8 +18,8 @@ import java.util.TimerTask;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_pay.R;
 import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
+import baselib.constants.SpConstants;
 import baselib.util.FingerPrintUtils;
-import baselib.config.Constants;
 import baselib.util.SPUtil;
 
 /**
@@ -31,24 +32,20 @@ public class WalletPay {
 
     private Activity context;
     private double price;
-    private String title;
-    private String content;
     private PayCallback payCallback;
 
-    public WalletPay(Activity context, double price, String title, String content, PayCallback payCallback) {
+    public WalletPay(Activity context, double price, PayCallback payCallback) {
         this.context = context;
         this.price = price;
-        this.title = title;
-        this.content = content;
         this.payCallback = payCallback;
     }
 
-    public void pay(View v) {
+    public void pay() {
         if (price <= User.getCurrentUser(User.class).getSeretPayment()) {
             checkBalance();
         } else {
             if (FingerPrintUtils.isFinger() &&
-                    SPUtil.getBoolean(Constants.SP_PAY_FOR_FINGERPRINT, false)) {
+                    SPUtil.getBoolean(SpConstants.SP_PAY_FOR_FINGERPRINT, false)) {
                 payByFingerPrint();
             } else {
                 payByPayPassword();
@@ -104,7 +101,8 @@ public class WalletPay {
     }
 
     private void payByPayPassword() {
-        View rootView = LayoutInflater.from(context).inflate(R.layout.dialog_wallet_input_pay_pay_password, null);
+        @SuppressLint("InflateParams")
+        View rootView = LayoutInflater.from(context).inflate(R.layout.dialog_wallet_input_pay_pay_password, null, false);
         final AlertDialog payPassworDialog = new AlertDialog.Builder(context)
                 .setView(rootView)
                 .setTitle(R.string.wallet_pay_please_input_pay_password)
@@ -174,7 +172,9 @@ public class WalletPay {
         v.setFocusableInTouchMode(true);
         v.requestFocus();
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(v,0);
+        if (imm != null) {
+            imm.showSoftInput(v,0);
+        }
     }
 
 }

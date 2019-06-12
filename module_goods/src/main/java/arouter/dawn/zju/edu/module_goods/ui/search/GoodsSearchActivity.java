@@ -20,7 +20,7 @@ import arouter.dawn.zju.edu.module_nearby.R;
 import arouter.dawn.zju.edu.module_goods.adapter.GoodsListAdapter;
 import baselib.base.BaseActivity;
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -28,7 +28,7 @@ import baselib.config.Constants;
  * @Description:
  * 搜索商品页面
  */
-@Route(path = Constants.AROUTER_GOODS_SEARCH)
+@Route(path = RouteConstants.AROUTER_GOODS_SEARCH)
 public class GoodsSearchActivity extends BaseActivity<GoodsSearchContract.Presenter> implements GoodsSearchContract.View, GoodsListAdapter.OnGoodsClickListener {
 
     RecyclerView searchResultRv;
@@ -98,8 +98,8 @@ public class GoodsSearchActivity extends BaseActivity<GoodsSearchContract.Presen
     @Override
     public void onGoodsClick(View v, Goods goods) {
         Bundle bundle = new Bundle();
-        bundle.putParcelable(Constants.GOODS_DETAIL_GOODS, goods);
-        ARouter.getInstance().build(Constants.AROUTER_GOODS_DETAIL)
-                .withBundle(Constants.GOODS_DETAIL_BUNDLE, bundle).navigation();
+        bundle.putParcelable(RouteConstants.GOODS_DETAIL_GOODS, goods);
+        ARouter.getInstance().build(RouteConstants.AROUTER_GOODS_DETAIL)
+                .withBundle(RouteConstants.GOODS_DETAIL_BUNDLE, bundle).navigation();
     }
 }

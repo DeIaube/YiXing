@@ -10,7 +10,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_mine.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -18,7 +18,7 @@ import baselib.config.Constants;
  * @Description:
  * 用户反馈页面
  */
-@Route(path = Constants.AROUTER_SETTING_FEEDBACK)
+@Route(path = RouteConstants.AROUTER_SETTING_FEEDBACK)
 public class FeedbackActivity extends BaseActivity<FeedbackContract.Presenter> implements View.OnClickListener , FeedbackContract.View{
 
     static final String TAG = "FeedbackActivity";

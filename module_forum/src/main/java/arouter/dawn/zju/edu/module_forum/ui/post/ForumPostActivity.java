@@ -35,7 +35,7 @@ import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumPostCommentAdapter;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumPostImageListAdapter;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 import baselib.util.SPUtil;
 
 /**
@@ -44,10 +44,10 @@ import baselib.util.SPUtil;
  * @Description:
  * 帖子详情页面
  */
-@Route(path = Constants.AROUTER_FORUM_FORUM_POST)
+@Route(path = RouteConstants.AROUTER_FORUM_FORUM_POST)
 public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter> implements ForumPostContract.View, View.OnClickListener {
 
-    @Autowired(name = Constants.FORUM_POST_POST)
+    @Autowired(name = RouteConstants.FORUM_POST_POST)
     ForumPost post;
 
     TextView authorNameTv;
@@ -143,8 +143,8 @@ public class ForumPostActivity extends BaseActivity<ForumPostContract.Presenter>
            showReportDialog();
         } else if (id == R.id.post_author_layout) {
             ARouter.getInstance()
-                    .build(Constants.AROUTER_FORUM_USER_INFORMATION)
-                    .withString(Constants.FORUM_USER_INFORMATION_USER_ID, post.getAuthor().getObjectId())
+                    .build(RouteConstants.AROUTER_FORUM_USER_INFORMATION)
+                    .withString(RouteConstants.FORUM_USER_INFORMATION_USER_ID, post.getAuthor().getObjectId())
                     .navigation();
         }
         return super.onOptionsItemSelected(item);

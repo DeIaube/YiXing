@@ -17,7 +17,7 @@ import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.config.EventBusCode;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -27,7 +27,7 @@ import static android.app.Activity.RESULT_OK;
  * @Description:
  * 论坛主页面
  */
-@Route(path = Constants.AROUTER_FORUM_FORUM_HOME)
+@Route(path = RouteConstants.AROUTER_FORUM_FORUM_HOME)
 public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter> implements ForumHomeContract.View, View.OnClickListener {
 
     public static final String TAG = "ForumHomeFragment";
@@ -88,19 +88,19 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.forum_alter_tab_layout) {
-            Postcard postcard = ARouter.getInstance().build(Constants.AROUTER_FORUM_ALTER_TAB);
+            Postcard postcard = ARouter.getInstance().build(RouteConstants.AROUTER_FORUM_ALTER_TAB);
             LogisticsCenter.completion(postcard);
             Class<?> destination = postcard.getDestination();
             Intent intent = new Intent(getContext(),destination);
             startActivityForResult(intent, REQUEST_ALERT_TAB_CODE);
         } else if (id == R.id.forum_home_add_post) {
-            ARouter.getInstance().build(Constants.AROUTER_FORUM_ADD_POST).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_FORUM_ADD_POST).navigation();
             forumMenu.close(true);
         } else if (id == R.id.forum_home_my_follow) {
-            ARouter.getInstance().build(Constants.AROUTER_FORUM_FORUM_FOLLOW).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_FORUM_FORUM_FOLLOW).navigation();
             forumMenu.close(true);
         } else if (id == R.id.forum_home_my_collection) {
-            ARouter.getInstance().build(Constants.AROUTER_FORUM_COLLECTION).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_FORUM_COLLECTION).navigation();
             forumMenu.close(true);
         }
     }

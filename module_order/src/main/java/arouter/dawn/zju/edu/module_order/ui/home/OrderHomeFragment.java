@@ -12,6 +12,7 @@ import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.config.EventBusCode;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -19,7 +20,7 @@ import baselib.bus.BusEvent;
  * @Description:
  * 我的订单主页面
  */
-@Route(path = baselib.config.Constants.AROUTER_ORDER_HOME)
+@Route(path = RouteConstants.AROUTER_ORDER_HOME)
 public class OrderHomeFragment extends BaseFragment<OrderHomeContract.Presenter> implements OrderHomeContract.View{
 
     public static final String TAG = "OrderHomeFragment";

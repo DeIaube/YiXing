@@ -4,9 +4,9 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
-@Route(path = Constants.AROUTER_WALLET_ALI_PAY)
+@Route(path = RouteConstants.AROUTER_WALLET_ALI_PAY)
 public class WalletAliPayActivity extends BaseActivity<WalletAliPayContract.Presenter> implements WalletAliPayContract.View {
 
     @Override

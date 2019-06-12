@@ -11,7 +11,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -19,7 +19,7 @@ import baselib.config.Constants;
  * @Description:
  * 用户更改昵称页面
  */
-@Route(path = Constants.AROUTER_ACCOUNT_MODIFY_PICKNAME)
+@Route(path = RouteConstants.AROUTER_ACCOUNT_MODIFY_PICKNAME)
 public class ModifyPicknameActivity extends BaseActivity<ModifyPicknameContract.Presenter> implements ModifyPicknameContract.View, View.OnClickListener {
 
     EditText modifyPicknameEt;

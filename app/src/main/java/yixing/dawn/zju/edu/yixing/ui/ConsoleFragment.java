@@ -90,7 +90,7 @@ public class ConsoleFragment extends BaseFragment implements View.OnClickListene
                         }
                     })
                     .builedWalletPay()
-                    .pay(v);
+                    .pay();
         }
     }
 }

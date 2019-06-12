@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -16,7 +16,7 @@ import baselib.config.Constants;
  * @Description:
  * 用户忘记(重置)密码页面
  */
-@Route(path = Constants.AROUTER_ACCOUNT_RESET_PASSWORD)
+@Route(path = RouteConstants.AROUTER_ACCOUNT_RESET_PASSWORD)
 public class ResetPasswordActivity extends BaseActivity<ResetPasswordContract.Presenter> implements ResetPasswordContract.View {
 
     EditText phoneInputEt;

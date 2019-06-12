@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import arouter.dawn.zju.edu.module_forum.R;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -65,10 +65,10 @@ public class ForumPostImageListAdapter extends RecyclerView.Adapter<ForumPostIma
                 @Override
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
-                    bundle.putStringArrayList(Constants.FORUM_SHOW_IMAGE_LIST, (mImageList));
-                    ARouter.getInstance().build(Constants.AROUTER_FORUM_SHOW_IMAGE).
-                            withBundle(Constants.FORUM_SHOW_IMAGE_BUNDLE, bundle).
-                            withInt(Constants.FORUM_SHOW_IMAGE_POSTION, position).navigation();
+                    bundle.putStringArrayList(RouteConstants.FORUM_SHOW_IMAGE_LIST, (mImageList));
+                    ARouter.getInstance().build(RouteConstants.AROUTER_FORUM_SHOW_IMAGE).
+                            withBundle(RouteConstants.FORUM_SHOW_IMAGE_BUNDLE, bundle).
+                            withInt(RouteConstants.FORUM_SHOW_IMAGE_POSTION, position).navigation();
                 }
             });
         }

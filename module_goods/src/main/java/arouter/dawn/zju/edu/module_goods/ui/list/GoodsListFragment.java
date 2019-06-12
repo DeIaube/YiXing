@@ -17,7 +17,7 @@ import arouter.dawn.zju.edu.module_goods.adapter.GoodsListAdapter;
 import baselib.base.BaseFragment;
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import baselib.callback.GoodsListRefreshCallback;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -25,7 +25,7 @@ import baselib.config.Constants;
  * @Description:
  * 真正的用户详情页
  */
-@Route(path = Constants.AROUTER_GOODS_GOODS_LIST)
+@Route(path = RouteConstants.AROUTER_GOODS_GOODS_LIST)
 public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter> implements GoodsListContract.View, GoodsListAdapter.OnGoodsClickListener , GoodsListRefreshCallback {
 
 
@@ -67,8 +67,8 @@ public class GoodsListFragment extends BaseFragment<GoodsListContract.Presenter>
     @Override
     public void onGoodsClick(View v, Goods goods) {
         Bundle bundle = new Bundle();
-        bundle.putParcelable(Constants.GOODS_DETAIL_GOODS, goods);
-        ARouter.getInstance().build(Constants.AROUTER_GOODS_DETAIL)
-                .withBundle(Constants.GOODS_DETAIL_BUNDLE, bundle).navigation();
+        bundle.putParcelable(RouteConstants.GOODS_DETAIL_GOODS, goods);
+        ARouter.getInstance().build(RouteConstants.AROUTER_GOODS_DETAIL)
+                .withBundle(RouteConstants.GOODS_DETAIL_BUNDLE, bundle).navigation();
     }
 }

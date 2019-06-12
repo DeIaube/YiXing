@@ -1,4 +1,4 @@
-package baselib.config;
+package baselib.constants;
 
 /**
  * @Auther: Dawn
@@ -6,16 +6,7 @@ package baselib.config;
  * @Description:
  * 全局常量信息类
  */
-public interface Constants {
-
-    // isDebug
-    boolean isDebug = true;
-
-    // sp
-    String SP_PAY_FOR_FINGERPRINT = "sp_pay_for_fingerprint";
-
-    String CLOUD_APPLICATION_ID = "otc2yunsXXUGetz84g9NM9eX-gzGzoHsz";
-    String CLOUD_CLIENT_LEY = "woIpcGUxFiOUevOnNXfiadcG";
+public interface RouteConstants {
 
     // App
     String AROUTER_APP_GROP = "app";

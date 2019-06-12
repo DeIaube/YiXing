@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumAlterTabAdapter;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -16,7 +16,7 @@ import baselib.config.Constants;
  * @Description:
  * 更改首页Tab页面
  */
-@Route(path = Constants.AROUTER_FORUM_ALTER_TAB)
+@Route(path = RouteConstants.AROUTER_FORUM_ALTER_TAB)
 public class ForumAlterTabActivity extends BaseActivity<ForumAlterTabContract.Presenter> implements ForumAlterTabContract.View, ForumAlterTabAdapter.TabStatusListener {
 
     RecyclerView formAltertabListView;

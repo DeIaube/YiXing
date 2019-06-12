@@ -9,7 +9,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -17,15 +17,15 @@ import baselib.config.Constants;
  * @Description:
  * 用户设置密码页面
  */
-@Route(path = Constants.AROUTER_ACCOUNT_SET_PASSWORD)
+@Route(path = RouteConstants.AROUTER_ACCOUNT_SET_PASSWORD)
 public class SetPasswordActivity extends BaseActivity<SetPasswordPresenter> implements SetPasswordContract.View {
 
     EditText passwordEt;
     EditText rePasswordEt;
 
-    @Autowired(name = Constants.ACCOUNT_PHONE_NUMBER)
+    @Autowired(name = RouteConstants.ACCOUNT_PHONE_NUMBER)
     String phoneNumber;
-    @Autowired(name = Constants.ACCOUNT_PAY_PASSWORD)
+    @Autowired(name = RouteConstants.ACCOUNT_PAY_PASSWORD)
     String payPassword;
 
     @Override
@@ -64,6 +64,6 @@ public class SetPasswordActivity extends BaseActivity<SetPasswordPresenter> impl
      */
     @Override
     public void setPasswordSuccess() {
-        ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_LOGIN).navigation();
+        ARouter.getInstance().build(RouteConstants.AROUTER_ACCOUNT_LOGIN).navigation();
     }
 }

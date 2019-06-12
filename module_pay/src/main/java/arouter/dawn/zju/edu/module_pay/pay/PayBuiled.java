@@ -54,7 +54,7 @@ public class PayBuiled {
     }
 
     public WalletPay builedWalletPay() {
-        return new WalletPay(context, price, title, content,
+        return new WalletPay(context, price,
                 payCallbackProxy.setType("余额支付")
                         .setContent(content)
                         .setPrice(price)

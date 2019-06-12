@@ -12,7 +12,7 @@ import arouter.dawn.zju.edu.lib_db.bean.Notice;
 import arouter.dawn.zju.edu.module_mine.R;
 import arouter.dawn.zju.edu.module_mine.adapter.NoticeListAdapter;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -20,7 +20,7 @@ import baselib.config.Constants;
  * @Description:
  * 通知页面
  */
-@Route(path = Constants.AROUTER_SETTING_NOTICE)
+@Route(path = RouteConstants.AROUTER_SETTING_NOTICE)
 public class NoticeActivity extends BaseActivity<NoticeContract.Presenter> implements NoticeContract.View{
 
     RecyclerView noticeList;

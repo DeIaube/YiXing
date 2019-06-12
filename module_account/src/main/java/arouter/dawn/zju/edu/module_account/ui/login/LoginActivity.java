@@ -10,7 +10,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 import baselib.util.SPUtil;
 
 /**
@@ -19,7 +19,7 @@ import baselib.util.SPUtil;
  * @Description:
  * 用户登录页面
  */
-@Route(path = Constants.AROUTER_ACCOUNT_LOGIN)
+@Route(path = RouteConstants.AROUTER_ACCOUNT_LOGIN)
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View{
 
     EditText accountEt;
@@ -68,10 +68,10 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         if (id == R.id.login_submit) {
             mPresenter.login(accountEt.getText().toString(), passwordEt.getText().toString());
         } else if (id == R.id.login_register_tv) {
-            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_REGISTER)
+            ARouter.getInstance().build(RouteConstants.AROUTER_ACCOUNT_REGISTER)
                     .navigation();
         } else if (id == R.id.login_forget_password_tv) {
-            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_RESET_PASSWORD).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_ACCOUNT_RESET_PASSWORD).navigation();
         } else if (id == R.id.login_weibo_btn) {
             mPresenter.loginByWeibo();
         } else if (id == R.id.login_qq_btn) {
@@ -84,7 +84,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     public void loginRsult(boolean result) {
         if (result) {
-            ARouter.getInstance().build(Constants.AROUTER_APP_MAIN).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_APP_MAIN).navigation();
             finish();
         }
     }

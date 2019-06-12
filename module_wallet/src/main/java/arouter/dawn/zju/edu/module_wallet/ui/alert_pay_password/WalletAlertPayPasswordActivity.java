@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -26,7 +26,7 @@ import io.reactivex.functions.Consumer;
  * @Description:
  * 更改支付密码页面
  */
-@Route(path = Constants.AROUTER_WALLET_ALERT_PAY_PASSWORD)
+@Route(path = RouteConstants.AROUTER_WALLET_ALERT_PAY_PASSWORD)
 public class WalletAlertPayPasswordActivity extends BaseActivity<WalletAlertPayPasswordContract.Presenter> implements WalletAlertPayPasswordContract.View, PasswordInput.TextLenChangeListener {
 
     TextView walletAlertPayPasswordTipTv;

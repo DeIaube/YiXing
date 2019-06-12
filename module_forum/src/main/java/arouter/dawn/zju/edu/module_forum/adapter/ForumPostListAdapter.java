@@ -25,7 +25,7 @@ import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
 import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPostLike;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_forum.R;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -256,15 +256,15 @@ public class ForumPostListAdapter extends RecyclerView.Adapter<ForumPostListAdap
          */
         @Override
         public void clickPost(ForumPost post) {
-            ARouter.getInstance().build(Constants.AROUTER_FORUM_FORUM_POST).
-                    withParcelable(Constants.FORUM_POST_POST, post).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_FORUM_FORUM_POST).
+                    withParcelable(RouteConstants.FORUM_POST_POST, post).navigation();
         }
 
         @Override
         public void clickAuthor(User user) {
             ARouter.getInstance()
-                    .build(Constants.AROUTER_FORUM_USER_INFORMATION)
-                    .withString(Constants.FORUM_USER_INFORMATION_USER_ID, user.getObjectId())
+                    .build(RouteConstants.AROUTER_FORUM_USER_INFORMATION)
+                    .withString(RouteConstants.FORUM_USER_INFORMATION_USER_ID, user.getObjectId())
                     .navigation();
         }
     }

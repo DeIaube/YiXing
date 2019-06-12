@@ -13,7 +13,7 @@ import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.pay.PayBuiled;
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -21,7 +21,7 @@ import baselib.config.Constants;
  * @Description:
  * 账户充值页面
  */
-@Route(path = Constants.AROUTER_WALLET_FIRWARD)
+@Route(path = RouteConstants.AROUTER_WALLET_FIRWARD)
 public class WalletForwardActivity extends BaseActivity<WalletForwardContract.Presenter> implements
         WalletForwardContract.View, View.OnClickListener {
 

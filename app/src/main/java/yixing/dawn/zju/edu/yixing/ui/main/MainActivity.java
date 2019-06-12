@@ -7,7 +7,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 import yixing.dawn.zju.edu.yixing.R;
 
 /**
@@ -17,7 +17,7 @@ import yixing.dawn.zju.edu.yixing.R;
  * 主页面 控制五个不同module的Fragment
  * 通过ARouter获取Fragment
  */
-@Route(path = Constants.AROUTER_APP_MAIN)
+@Route(path = RouteConstants.AROUTER_APP_MAIN)
 public class MainActivity extends BaseActivity<MainContract.Presenter> implements MainContract.View{
 
     ViewPager viewPager;

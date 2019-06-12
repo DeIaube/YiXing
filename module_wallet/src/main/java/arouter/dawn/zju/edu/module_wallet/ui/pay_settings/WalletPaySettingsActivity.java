@@ -2,7 +2,6 @@ package arouter.dawn.zju.edu.module_wallet.ui.pay_settings;
 
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -11,7 +10,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -19,7 +18,7 @@ import baselib.config.Constants;
  * @Description:
  * 支付设置页面
  */
-@Route(path = Constants.AROUTER_WALLET_PAY_SETTINGS)
+@Route(path = RouteConstants.AROUTER_WALLET_PAY_SETTINGS)
 public class WalletPaySettingsActivity extends BaseActivity<WalletPaySettingsContract.Presenter> implements WalletPaySettingsContract.View, View.OnClickListener {
 
     SwitchCompat walletSettingsFingerprintPaymentSwitch;
@@ -75,12 +74,12 @@ public class WalletPaySettingsActivity extends BaseActivity<WalletPaySettingsCon
         int id = v.getId();
         if (id == R.id.wallet_settings_alert_pay_password) {
             // 修改支付密码
-            ARouter.getInstance().build(Constants.AROUTER_WALLET_ALERT_PAY_PASSWORD).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_WALLET_ALERT_PAY_PASSWORD).navigation();
         } else if (id == R.id.wallet_settings_reset_pay_password) {
             // 忘记(重置)支付密码
         } else if (id == R.id.wallet_settings_non_secret_payment) {
             // 小额免密
-            ARouter.getInstance().build(Constants.AROUTER_WALLET_NON_SECRET_PAYMENT).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_WALLET_NON_SECRET_PAYMENT).navigation();
         } else if (id == R.id.wallet_settings_fingerprint_payment_layout) {
             if (!walletSettingsFingerprintPaymentSwitch.isChecked()) {
                 mPresenter.openFingerprint();

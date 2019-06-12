@@ -14,7 +14,7 @@ import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import arouter.dawn.zju.edu.module_goods.adapter.GoodsRecommendListAdapter;
 import arouter.dawn.zju.edu.module_nearby.R;
 import baselib.base.BaseFragment;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -22,7 +22,7 @@ import baselib.config.Constants;
  * @Description:
  * 商品推荐页面
  */
-@Route(path = Constants.AROUTER_GOODS_RECOMMEND)
+@Route(path = RouteConstants.AROUTER_GOODS_RECOMMEND)
 public class GoodsRecommendFragment extends BaseFragment<GoodsRecommendContract.Presenter> implements GoodsRecommendContract.View {
 
     RecyclerView goodsRecommendListView;

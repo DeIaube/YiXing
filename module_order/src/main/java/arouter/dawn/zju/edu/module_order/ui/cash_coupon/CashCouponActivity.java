@@ -11,7 +11,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_order.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -19,7 +19,7 @@ import baselib.config.Constants;
  * @Description:
  * 我的代金券页面
  */
-@Route(path = Constants.AROUTER_ORDER_CASH_COUPON)
+@Route(path = RouteConstants.AROUTER_ORDER_CASH_COUPON)
 public class CashCouponActivity extends BaseActivity<CashCouponContract.Presenter> implements CashCouponContract.View {
 
     TabLayout cashCouponTabLayout;

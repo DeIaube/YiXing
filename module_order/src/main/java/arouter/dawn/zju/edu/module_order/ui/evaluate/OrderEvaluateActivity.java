@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import arouter.dawn.zju.edu.module_order.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -22,7 +22,7 @@ import baselib.config.Constants;
  * @Description:
  * 订单评价页面
  */
-@Route(path = Constants.AROUTER_ORDER_EVALUATE)
+@Route(path = RouteConstants.AROUTER_ORDER_EVALUATE)
 public class OrderEvaluateActivity extends BaseActivity<OrderEvaluateContract.Presenter> implements
         View.OnClickListener, OrderEvaluateContract.View {
 
@@ -37,7 +37,7 @@ public class OrderEvaluateActivity extends BaseActivity<OrderEvaluateContract.Pr
     EditText contentEt;
     Button submitBtn;
 
-    @Autowired(name = Constants.ORDER_ORDER_LIST_BOUNDLE)
+    @Autowired(name = RouteConstants.ORDER_ORDER_LIST_BOUNDLE)
     Bundle bundle;
 
     Order order;
@@ -57,7 +57,7 @@ public class OrderEvaluateActivity extends BaseActivity<OrderEvaluateContract.Pr
         contentEt = findViewById(R.id.order_evaluate_content);
         submitBtn = findViewById(R.id.order_evaluate_submit);
 
-        order = bundle.getParcelable(Constants.ORDER_ORDER_LIST_ORDER);
+        order = bundle.getParcelable(RouteConstants.ORDER_ORDER_LIST_ORDER);
 
         Picasso.with(this).load(order.getGoods().getPreview()).into(previewIv);
         titleTv.setText(order.getGoods().getTitle());

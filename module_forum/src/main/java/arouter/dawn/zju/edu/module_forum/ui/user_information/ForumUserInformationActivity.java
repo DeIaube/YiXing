@@ -1,7 +1,6 @@
 package arouter.dawn.zju.edu.module_forum.ui.user_information;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -23,9 +22,9 @@ import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumPostListAdapter;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
-@Route(path = Constants.AROUTER_FORUM_USER_INFORMATION)
+@Route(path = RouteConstants.AROUTER_FORUM_USER_INFORMATION)
 public class ForumUserInformationActivity extends BaseActivity<ForumUserInformationContract.Presenter> implements ForumUserInformationContract.View, View.OnClickListener {
 
     ImageView userPortraitIv;
@@ -36,7 +35,7 @@ public class ForumUserInformationActivity extends BaseActivity<ForumUserInformat
     TextView userPostCountTv;
     RecyclerView userPostListRv;
 
-    @Autowired(name = Constants.FORUM_USER_INFORMATION_USER_ID)
+    @Autowired(name = RouteConstants.FORUM_USER_INFORMATION_USER_ID)
     String userId;
     User user;
 

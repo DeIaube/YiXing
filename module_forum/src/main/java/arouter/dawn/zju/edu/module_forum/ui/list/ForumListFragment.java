@@ -16,7 +16,7 @@ import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumPostListAdapter;
 import baselib.base.BaseFragment;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -24,13 +24,13 @@ import baselib.config.Constants;
  * @Description:
  * 真正的论坛主页面
  */
-@Route(path = Constants.AROUTER_FORUM_FORUM_LIST)
+@Route(path = RouteConstants.AROUTER_FORUM_FORUM_LIST)
 public class ForumListFragment extends BaseFragment<ForumListContract.Presenter> implements ForumListContract.View {
 
     SwipeRefreshLayout forumListrefreshLayout;
     RecyclerView forumListlistView;
 
-    @Autowired(name = Constants.FORUM_LIST_TAG)
+    @Autowired(name = RouteConstants.FORUM_LIST_TAG)
     String tag;
 
     private ForumPostListAdapter mAdapter;

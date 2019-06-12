@@ -25,7 +25,7 @@ import arouter.dawn.zju.edu.lib_net.bean.order.Order;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.lib_net.bean.wallet.Bill;
-import baselib.config.Constants;
+import baselib.constants.Constants;
 import baselib.util.SPUtil;
 import io.realm.Realm;
 
@@ -47,7 +47,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         appContext = this;
-        if (Constants.isDebug) {
+        if (Constants.DEBUG) {
             ARouter.openDebug();
             ARouter.openLog();
         }
@@ -78,7 +78,7 @@ public class App extends Application {
         AVObject.registerSubclass(Bill.class);
         AVObject.registerSubclass(Feedback.class);
         PushService.setDefaultChannelId(this, "public");
-        AVOSCloud.initialize(this,Constants.CLOUD_APPLICATION_ID,Constants.CLOUD_CLIENT_LEY);
+        AVOSCloud.initialize(this, Constants.CLOUD_APPLICATION_ID, Constants.CLOUD_CLIENT_LEY);
         AVInstallation.getCurrentInstallation().saveInBackground();
     }
 }

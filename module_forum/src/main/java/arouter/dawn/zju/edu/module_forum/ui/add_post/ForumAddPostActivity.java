@@ -30,7 +30,7 @@ import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumAddPostSelectImageAdapter;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumAddPostSelectTagAdapter;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 import baselib.util.LogUtil;
 
 /**
@@ -39,7 +39,7 @@ import baselib.util.LogUtil;
  * @Description:
  * 发布帖子页面
  */
-@Route(path = Constants.AROUTER_FORUM_ADD_POST)
+@Route(path = RouteConstants.AROUTER_FORUM_ADD_POST)
 public class ForumAddPostActivity extends BaseActivity<ForumAddPostContract.Presenter> implements ForumAddPostContract.View,
         ForumAddPostSelectImageAdapter.SelectImageLisener, TakePhoto.TakeResultListener, InvokeListener {
 
@@ -201,10 +201,10 @@ public class ForumAddPostActivity extends BaseActivity<ForumAddPostContract.Pres
     @Override
     public void showImage(int position) {
         Bundle bundle = new Bundle();
-        bundle.putStringArrayList(Constants.FORUM_SHOW_IMAGE_LIST, mImages);
-        ARouter.getInstance().build(Constants.AROUTER_FORUM_SHOW_IMAGE).
-                withBundle(Constants.FORUM_SHOW_IMAGE_BUNDLE, bundle).
-                withInt(Constants.FORUM_SHOW_IMAGE_POSTION, position).navigation();
+        bundle.putStringArrayList(RouteConstants.FORUM_SHOW_IMAGE_LIST, mImages);
+        ARouter.getInstance().build(RouteConstants.AROUTER_FORUM_SHOW_IMAGE).
+                withBundle(RouteConstants.FORUM_SHOW_IMAGE_BUNDLE, bundle).
+                withInt(RouteConstants.FORUM_SHOW_IMAGE_POSTION, position).navigation();
     }
 
     /**

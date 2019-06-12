@@ -3,20 +3,18 @@ package yixing.dawn.zju.edu.yixing.ui.home;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.NestedScrollView;
 import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import arouter.dawn.zju.edu.module_goods.util.PicassoUrlImageLeader;
 import baselib.base.BaseFragment;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 import yixing.dawn.zju.edu.yixing.R;
 
 /**
@@ -51,7 +49,7 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
 
         getChildFragmentManager()
                 .beginTransaction()
-                .add(R.id.container, (Fragment) ARouter.getInstance().build(Constants.AROUTER_GOODS_RECOMMEND).navigation())
+                .add(R.id.container, (Fragment) ARouter.getInstance().build(RouteConstants.AROUTER_GOODS_RECOMMEND).navigation())
                 .commit();
     }
 
@@ -61,11 +59,11 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
         if (id == R.id.home_scan) {
             // todo 扫描二维码
         } else if (id == R.id.home_search) {
-            ARouter.getInstance().build(Constants.AROUTER_GOODS_SEARCH).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_GOODS_SEARCH).navigation();
         } else if (id == R.id.home_notice) {
-            ARouter.getInstance().build(Constants.AROUTER_SETTING_NOTICE).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_SETTING_NOTICE).navigation();
         } else if (id == R.id.home_tab_menu) {
-            ARouter.getInstance().build(Constants.AROUTER_GOODS_NEARBY_ACTIVITY).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_GOODS_NEARBY_ACTIVITY).navigation();
         }
     }
 
@@ -77,9 +75,9 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
             @Override
             public void OnBannerClick(int position) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(Constants.GOODS_DETAIL_GOODS, goodsList.get(position));
-                ARouter.getInstance().build(Constants.AROUTER_GOODS_DETAIL)
-                        .withBundle(Constants.GOODS_DETAIL_BUNDLE, bundle).navigation();
+                bundle.putParcelable(RouteConstants.GOODS_DETAIL_GOODS, goodsList.get(position));
+                ARouter.getInstance().build(RouteConstants.AROUTER_GOODS_DETAIL)
+                        .withBundle(RouteConstants.GOODS_DETAIL_BUNDLE, bundle).navigation();
             }
         });
         banner.start();

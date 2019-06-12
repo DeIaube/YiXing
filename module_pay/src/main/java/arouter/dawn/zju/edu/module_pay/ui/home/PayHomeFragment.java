@@ -17,7 +17,7 @@ import arouter.dawn.zju.edu.module_pay.callback.PayCallback;
 import arouter.dawn.zju.edu.module_pay.ui.container.PayContainerFragment;
 import baselib.base.BaseFragment;
 import baselib.bus.BusEvent;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -105,7 +105,7 @@ public class PayHomeFragment extends BaseFragment<PayHomeContract.Presenter> imp
             EventBus.getDefault().post(busEvent);
         } else if (id == R.id.pay_home_pay_protocol_layout) {
             // 查看支付协议
-            ARouter.getInstance().build(Constants.AROUTER_PAY_PROTOTOL).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_PAY_PROTOTOL).navigation();
         } else if (id == R.id.pay_home_submit) {
             // 提交
             mPresenter.pay(getActivity(), v, price, realPrice, title, content, mUserCashCoupon, type);

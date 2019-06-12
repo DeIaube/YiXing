@@ -19,7 +19,7 @@ import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import arouter.dawn.zju.edu.module_nearby.R;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -112,9 +112,9 @@ public class GoodsRecommendListAdapter extends RecyclerView.Adapter<GoodsRecomme
         @Override
         public void goodsClick(View v, Goods goods) {
             Bundle bundle = new Bundle();
-            bundle.putParcelable(Constants.GOODS_DETAIL_GOODS, goods);
-            ARouter.getInstance().build(Constants.AROUTER_GOODS_DETAIL)
-                    .withBundle(Constants.GOODS_DETAIL_BUNDLE, bundle).navigation();
+            bundle.putParcelable(RouteConstants.GOODS_DETAIL_GOODS, goods);
+            ARouter.getInstance().build(RouteConstants.AROUTER_GOODS_DETAIL)
+                    .withBundle(RouteConstants.GOODS_DETAIL_BUNDLE, bundle).navigation();
         }
     }
 }

@@ -14,6 +14,7 @@ import java.util.List;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumPagerAdapter;
 import arouter.dawn.zju.edu.module_forum.config.Constants;
 import baselib.base.BasePresenter;
+import baselib.constants.RouteConstants;
 import baselib.util.SPUtil;
 
 /**
@@ -38,8 +39,8 @@ public class ForumHomePresenter extends BasePresenter<ForumHomeContract.View> im
         List<Fragment> fragments = new ArrayList<>();
         for (String title : titles) {
             fragments.add((Fragment) ARouter
-                    .getInstance().build(baselib.config.Constants.AROUTER_FORUM_FORUM_LIST)
-            .withString(baselib.config.Constants.FORUM_LIST_TAG, title).navigation());
+                    .getInstance().build(RouteConstants.AROUTER_FORUM_FORUM_LIST)
+            .withString(RouteConstants.FORUM_LIST_TAG, title).navigation());
         }
         return fragments;
     }

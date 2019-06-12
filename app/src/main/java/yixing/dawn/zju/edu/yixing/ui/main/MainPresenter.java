@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import baselib.base.BasePresenter;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 import yixing.dawn.zju.edu.yixing.adapter.MainPagerAdapter;
 import yixing.dawn.zju.edu.yixing.ui.home.HomeFragment;
 
@@ -28,13 +28,13 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new HomeFragment());
         fragments.add((Fragment) ARouter.getInstance().
-                build(Constants.AROUTER_GOODS_NEARBY_FRAGMENT).navigation());
+                build(RouteConstants.AROUTER_GOODS_NEARBY_FRAGMENT).navigation());
         fragments.add((Fragment) ARouter.getInstance().
-                build(Constants.AROUTER_FORUM_FORUM_HOME).navigation());
+                build(RouteConstants.AROUTER_FORUM_FORUM_HOME).navigation());
         fragments.add((Fragment) ARouter.getInstance().
-                build(Constants.AROUTER_ORDER_HOME).navigation());
+                build(RouteConstants.AROUTER_ORDER_HOME).navigation());
         fragments.add((Fragment) ARouter.getInstance().
-                build(Constants.AROUTER_SETTING_MINE).navigation());
+                build(RouteConstants.AROUTER_SETTING_MINE).navigation());
         MainPagerAdapter mPagerAdapter = new MainPagerAdapter(fragmentManager, fragments);
         viewPager.setAdapter(mPagerAdapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

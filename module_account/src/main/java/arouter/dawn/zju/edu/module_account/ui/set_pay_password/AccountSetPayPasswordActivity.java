@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -27,13 +27,13 @@ import io.reactivex.functions.Consumer;
  * @Description:
  * 用户设置支付密码页面
  */
-@Route(path = Constants.AROUTER_ACCOUNT_SET_PAY_PASSWORD)
+@Route(path = RouteConstants.AROUTER_ACCOUNT_SET_PAY_PASSWORD)
 public class AccountSetPayPasswordActivity extends BaseActivity<AccountSetPayPasswordContract.Presenter> implements AccountSetPayPasswordContract.View, PasswordInput.TextLenChangeListener {
 
     PasswordInput setPayPasswordInput;
     TextView setPayPasswordTipTv;
 
-    @Autowired(name = Constants.ACCOUNT_PHONE_NUMBER)
+    @Autowired(name = RouteConstants.ACCOUNT_PHONE_NUMBER)
     String phoneNumber;
 
     private String mPayPassword;
@@ -87,9 +87,9 @@ public class AccountSetPayPasswordActivity extends BaseActivity<AccountSetPayPas
         } else {
             if (password.equals(mPayPassword)) {
                 // 设置支付密码成功 进入设置密码页面
-                ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_SET_PASSWORD).
-                        withString(Constants.ACCOUNT_PAY_PASSWORD, mPayPassword).
-                        withString(Constants.ACCOUNT_PHONE_NUMBER, phoneNumber).navigation();
+                ARouter.getInstance().build(RouteConstants.AROUTER_ACCOUNT_SET_PASSWORD).
+                        withString(RouteConstants.ACCOUNT_PAY_PASSWORD, mPayPassword).
+                        withString(RouteConstants.ACCOUNT_PHONE_NUMBER, phoneNumber).navigation();
             } else {
                 setPayPasswordTipTv.setText(getString(R.string.set_pay_password_input_pay_password));
                 showMessage(getString(R.string.set_pay_password_pay_password_diff));

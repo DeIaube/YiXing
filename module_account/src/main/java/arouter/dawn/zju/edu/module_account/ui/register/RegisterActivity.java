@@ -10,7 +10,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -18,7 +18,7 @@ import baselib.config.Constants;
  * @Description:
  * 用户注册页面
  */
-@Route(path = Constants.AROUTER_ACCOUNT_REGISTER)
+@Route(path = RouteConstants.AROUTER_ACCOUNT_REGISTER)
 public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> implements RegisterContract.View{
 
     EditText verificationCodeEt;
@@ -80,7 +80,7 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
     @Override
     public void verificationSuccessCallback() {
         // 验证码验证成功 进入设置支付页面
-        ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_SET_PAY_PASSWORD).
-                withString(Constants.ACCOUNT_PHONE_NUMBER, mPhoneNumber).navigation();
+        ARouter.getInstance().build(RouteConstants.AROUTER_ACCOUNT_SET_PAY_PASSWORD).
+                withString(RouteConstants.ACCOUNT_PHONE_NUMBER, mPhoneNumber).navigation();
     }
 }

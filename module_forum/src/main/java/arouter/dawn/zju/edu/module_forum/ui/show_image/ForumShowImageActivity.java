@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumShowImageAdapter;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -28,13 +28,13 @@ import baselib.config.Constants;
  * @Description:
  * 展示图片页面
  */
-@Route(path = Constants.AROUTER_FORUM_SHOW_IMAGE)
+@Route(path = RouteConstants.AROUTER_FORUM_SHOW_IMAGE)
 public class ForumShowImageActivity extends BaseActivity<ForumShowImageContract.Presenter>
         implements View.OnClickListener, ViewPager.OnPageChangeListener, ForumShowImageContract.View {
 
-    @Autowired(name = Constants.FORUM_SHOW_IMAGE_POSTION)
+    @Autowired(name = RouteConstants.FORUM_SHOW_IMAGE_POSTION)
     int currentPosition;
-    @Autowired(name = Constants.FORUM_SHOW_IMAGE_BUNDLE)
+    @Autowired(name = RouteConstants.FORUM_SHOW_IMAGE_BUNDLE)
     Bundle bundle;
 
     ArrayList<String> imageList;
@@ -50,7 +50,7 @@ public class ForumShowImageActivity extends BaseActivity<ForumShowImageContract.
         positionTv = findViewById(R.id.show_image_position);
         imageViewPager = findViewById(R.id.show_image_view_pager);
         imageDetailIv = findViewById(R.id.show_image_detail);
-        imageList = bundle.getStringArrayList(Constants.FORUM_SHOW_IMAGE_LIST);
+        imageList = bundle.getStringArrayList(RouteConstants.FORUM_SHOW_IMAGE_LIST);
 
         findViewById(R.id.show_image_detail).setOnClickListener(this);
 

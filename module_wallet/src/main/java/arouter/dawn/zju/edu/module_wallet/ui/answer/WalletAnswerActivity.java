@@ -4,7 +4,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -12,7 +12,7 @@ import baselib.config.Constants;
  * @Description:
  * 常见问题解答页面
  */
-@Route(path = Constants.AROUTER_WALLET_ANSWER)
+@Route(path = RouteConstants.AROUTER_WALLET_ANSWER)
 public class WalletAnswerActivity extends BaseActivity<WalletAnswerContract.Presenter> implements
         WalletAnswerContract.View {
 

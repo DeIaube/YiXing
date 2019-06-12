@@ -13,7 +13,7 @@ import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumFollowListAdapter;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -21,7 +21,7 @@ import baselib.config.Constants;
  * @Description:
  * 展示用户关注用户页面
  */
-@Route(path = Constants.AROUTER_FORUM_FORUM_FOLLOW)
+@Route(path = RouteConstants.AROUTER_FORUM_FORUM_FOLLOW)
 public class ForumFollowActivity extends BaseActivity<ForumFollowContract.Presenter> implements ForumFollowContract.View {
 
     RecyclerView forumFollowListView;

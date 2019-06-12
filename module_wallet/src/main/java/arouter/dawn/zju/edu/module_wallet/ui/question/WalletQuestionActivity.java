@@ -7,7 +7,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -15,7 +15,7 @@ import baselib.config.Constants;
  * @Description:
  * 常见问题页面
  */
-@Route(path = Constants.AROUTER_WALLET_QUESTION)
+@Route(path = RouteConstants.AROUTER_WALLET_QUESTION)
 public class WalletQuestionActivity extends BaseActivity<WalletQuestionContract.Presenter> implements
         WalletQuestionContract.View, View.OnClickListener {
 
@@ -60,6 +60,6 @@ public class WalletQuestionActivity extends BaseActivity<WalletQuestionContract.
         } else if (id == R.id.wallet_question_function_of_wallet_layout) {
             // 钱包的功能
         }
-        ARouter.getInstance().build(Constants.AROUTER_WALLET_ANSWER).navigation();
+        ARouter.getInstance().build(RouteConstants.AROUTER_WALLET_ANSWER).navigation();
     }
 }

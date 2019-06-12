@@ -12,7 +12,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_wallet.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -20,7 +20,7 @@ import baselib.config.Constants;
  * @Description:
  * 免密支付设置页面
  */
-@Route(path = Constants.AROUTER_WALLET_NON_SECRET_PAYMENT)
+@Route(path = RouteConstants.AROUTER_WALLET_NON_SECRET_PAYMENT)
 public class WalletNonSecretPaymentActivity extends BaseActivity<WalletNonSecretPaymentContract.Presenter> implements WalletNonSecretPaymentContract.View, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     private static final int QUOTA_NULL = 0x0;
@@ -92,7 +92,7 @@ public class WalletNonSecretPaymentActivity extends BaseActivity<WalletNonSecret
         int id = v.getId();
         if (id == R.id.wallet_non_secret_protocol) {
             // 跳转到免密协议
-            ARouter.getInstance().build(Constants.AROUTER_PAY_PROTOTOL).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_PAY_PROTOTOL).navigation();
         } else if (id == R.id.wallet_non_secret_50) {
             mCurrentQuota = QUOTA_50;
             resetQuota();

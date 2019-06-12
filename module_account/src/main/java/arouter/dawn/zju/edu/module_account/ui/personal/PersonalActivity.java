@@ -9,9 +9,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,7 +36,7 @@ import java.util.Date;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 import baselib.util.LogUtil;
 
 /**
@@ -47,7 +45,7 @@ import baselib.util.LogUtil;
  * @Description:
  * 展示用户个人信息页面
  */
-@Route(path = Constants.AROUTER_ACCOUNT_PERSONAL)
+@Route(path = RouteConstants.AROUTER_ACCOUNT_PERSONAL)
 public class PersonalActivity extends BaseActivity<PersionContract.Presenter> implements View.OnClickListener,
         TakePhoto.TakeResultListener, InvokeListener, PersionContract.View {
 
@@ -118,7 +116,7 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
             showMessage(getString(R.string.personal_username_static));
         } else if (id == R.id.check_pickname) {
             // 点击用户昵称
-            ARouter.getInstance().build(Constants.AROUTER_ACCOUNT_MODIFY_PICKNAME).navigation();
+            ARouter.getInstance().build(RouteConstants.AROUTER_ACCOUNT_MODIFY_PICKNAME).navigation();
         } else if (id == R.id.check_birth) {
             // 点击用户生日
             showPickBirthDialog();

@@ -12,7 +12,7 @@ import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPost;
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.adapter.ForumPostListAdapter;
 import baselib.base.BaseActivity;
-import baselib.config.Constants;
+import baselib.constants.RouteConstants;
 
 /**
  * @Auther: Dawn
@@ -20,7 +20,7 @@ import baselib.config.Constants;
  * @Description:
  * 展示用户收藏帖子页面
  */
-@Route(path = Constants.AROUTER_FORUM_COLLECTION)
+@Route(path = RouteConstants.AROUTER_FORUM_COLLECTION)
 public class ForumCollectionActivity extends BaseActivity<ForumCollectionContract.Presenter> implements ForumCollectionContract.View {
 
     RecyclerView collectionListView;
