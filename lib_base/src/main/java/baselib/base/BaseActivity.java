@@ -2,11 +2,12 @@ package baselib.base;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
