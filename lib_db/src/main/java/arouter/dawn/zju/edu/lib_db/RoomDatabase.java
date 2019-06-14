@@ -17,12 +17,16 @@ import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostReportEntity;
 import arouter.dawn.zju.edu.lib_db.entity.good.GoodsCollectionEntity;
 import arouter.dawn.zju.edu.lib_db.entity.good.GoodsEntity;
 import arouter.dawn.zju.edu.lib_db.entity.good.GoodsEvaluateEntity;
+import arouter.dawn.zju.edu.lib_db.entity.order.CashCouponEntity;
+import arouter.dawn.zju.edu.lib_db.entity.order.OrderEntity;
+import arouter.dawn.zju.edu.lib_db.entity.order.UserCashCouponEntity;
 import arouter.dawn.zju.edu.lib_db.entity.wallet.BillEntity;
 
 @Database(entities = {UserEntity.class, NoticeEntity.class, DailyRecommendEntity.class,
         ForumCollectionEntity.class, ForumCommentEntity.class, ForumFollowEntity.class,
         ForumPostEntity.class, ForumPostLikeEntity.class, ForumPostReportEntity.class,
-        BillEntity.class, GoodsEntity.class, GoodsCollectionEntity.class, GoodsEvaluateEntity.class}, version = 1,exportSchema = false)
+        BillEntity.class, GoodsEntity.class, GoodsCollectionEntity.class, GoodsEvaluateEntity.class,
+        OrderEntity.class, CashCouponEntity.class, UserCashCouponEntity.class}, version = 1,exportSchema = false)
 public abstract class RoomDatabase extends androidx.room.RoomDatabase {
 
     private static RoomDatabase sInstance;

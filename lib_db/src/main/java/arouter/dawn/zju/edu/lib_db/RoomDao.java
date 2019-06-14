@@ -21,6 +21,9 @@ import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostReportEntity;
 import arouter.dawn.zju.edu.lib_db.entity.good.GoodsCollectionEntity;
 import arouter.dawn.zju.edu.lib_db.entity.good.GoodsEntity;
 import arouter.dawn.zju.edu.lib_db.entity.good.GoodsEvaluateEntity;
+import arouter.dawn.zju.edu.lib_db.entity.order.CashCouponEntity;
+import arouter.dawn.zju.edu.lib_db.entity.order.OrderEntity;
+import arouter.dawn.zju.edu.lib_db.entity.order.UserCashCouponEntity;
 import arouter.dawn.zju.edu.lib_db.entity.wallet.BillEntity;
 
 @Dao
@@ -210,15 +213,60 @@ public interface RoomDao {
     void insertGoodsEvaluate(GoodsEvaluateEntity... goodsEvaluateEntities);
 
     @Delete
-    void deleteinsertGoodsEvaluate(GoodsEvaluateEntity goodsEvaluateEntity);
+    void deleteGoodsEvaluate(GoodsEvaluateEntity goodsEvaluateEntity);
 
     @Update
-    void updateinsertGoodsEvaluate(GoodsEvaluateEntity goodsEvaluateEntity);
+    void updateGoodsEvaluate(GoodsEvaluateEntity goodsEvaluateEntity);
 
     @Query("SELECT * FROM goods_evaluate_class WHERE objectId = :objectId")
-    GoodsEvaluateEntity getinsertGoodsEvaluateById(String objectId);
+    GoodsEvaluateEntity getGoodsEvaluateById(String objectId);
 
     @Query("SELECT * FROM goods_evaluate_class")
-    List<GoodsEvaluateEntity> getAllinsertGoodsEvaluate();
+    List<GoodsEvaluateEntity> getAllGoodsEvaluate();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertOrder(OrderEntity... orderEntities);
+
+    @Delete
+    void deleteOrder(OrderEntity orderEntity);
+
+    @Update
+    void updateOrder(OrderEntity orderEntity);
+
+    @Query("SELECT * FROM order_class WHERE objectId = :objectId")
+    OrderEntity getOrderById(String objectId);
+
+    @Query("SELECT * FROM order_class")
+    List<OrderEntity> getAllOrder();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertCashCoupon(CashCouponEntity... cashCouponEntities);
+
+    @Delete
+    void deleteCashCoupon(CashCouponEntity cashCouponEntity);
+
+    @Update
+    void updateCashCoupon(CashCouponEntity cashCouponEntity);
+
+    @Query("SELECT * FROM cash_coupon_class WHERE objectId = :objectId")
+    CashCouponEntity getCashCouponById(String objectId);
+
+    @Query("SELECT * FROM cash_coupon_class")
+    List<CashCouponEntity> getAllCashCoupon();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertUserCashCoupon(UserCashCouponEntity... userCashCouponEntities);
+
+    @Delete
+    void deleteUserCashCoupon(UserCashCouponEntity userCashCouponEntity);
+
+    @Update
+    void updateUserCashCoupon(UserCashCouponEntity userCashCouponEntity);
+
+    @Query("SELECT * FROM user_cash_coupon_class WHERE objectId = :objectId")
+    UserCashCouponEntity getUserCashCouponById(String objectId);
+
+    @Query("SELECT * FROM user_cash_coupon_class")
+    List<UserCashCouponEntity> getAllUserCashCoupon();
 
 }
