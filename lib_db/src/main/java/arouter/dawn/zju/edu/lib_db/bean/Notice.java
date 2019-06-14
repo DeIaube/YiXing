@@ -1,7 +1,5 @@
 package arouter.dawn.zju.edu.lib_db.bean;
 
-import io.realm.RealmObject;
-
 /**
  * @Auther: Dawn
  * @Date: 2018/11/22 22:01
@@ -9,7 +7,7 @@ import io.realm.RealmObject;
  * 推送数据实体类
  * 从网络中获取并存放数据库
  */
-public class Notice extends RealmObject {
+public class Notice {
 
     private String title;
     private String content;

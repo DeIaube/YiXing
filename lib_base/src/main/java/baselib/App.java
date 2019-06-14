@@ -1,7 +1,6 @@
 package baselib;
 
 import android.app.Application;
-import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.avos.avoscloud.AVInstallation;
@@ -10,8 +9,8 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.PushService;
 
 import arouter.dawn.zju.edu.lib_net.bean.DailyRecommend;
-import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.lib_net.bean.Feedback;
+import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.lib_net.bean.forum.ForumCollection;
 import arouter.dawn.zju.edu.lib_net.bean.forum.ForumComment;
 import arouter.dawn.zju.edu.lib_net.bean.forum.ForumFollow;
@@ -21,13 +20,12 @@ import arouter.dawn.zju.edu.lib_net.bean.forum.ForumPostReport;
 import arouter.dawn.zju.edu.lib_net.bean.goods.Goods;
 import arouter.dawn.zju.edu.lib_net.bean.goods.GoodsCollection;
 import arouter.dawn.zju.edu.lib_net.bean.goods.GoodsEvaluate;
+import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.lib_net.bean.order.Order;
-import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.lib_net.bean.wallet.Bill;
 import baselib.constants.Constants;
 import baselib.util.SPUtil;
-import io.realm.Realm;
 
 /**
  * @Auther: Dawn
@@ -52,7 +50,6 @@ public class App extends Application {
             ARouter.openLog();
         }
         initLeanCloud();
-        Realm.init(this);
         ARouter.init(this);
         SPUtil.init(this);
     }

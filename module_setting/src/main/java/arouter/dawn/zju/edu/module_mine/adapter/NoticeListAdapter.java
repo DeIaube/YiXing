@@ -1,12 +1,13 @@
 package arouter.dawn.zju.edu.module_mine.adapter;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -44,11 +45,9 @@ public class NoticeListAdapter extends RecyclerView.Adapter<NoticeListAdapter.No
     @Override
     public void onBindViewHolder(@NonNull NoticeListHolder holder, int position) {
         Notice notice = mNoticeList.get(position);
-        if (notice.isValid()) {
-            holder.title.setText(notice.getTitle());
-            holder.content.setText(notice.getContent());
-            holder.time.setText(notice.getTime());
-        }
+        holder.title.setText(notice.getTitle());
+        holder.content.setText(notice.getContent());
+        holder.time.setText(notice.getTime());
     }
 
     @Override
