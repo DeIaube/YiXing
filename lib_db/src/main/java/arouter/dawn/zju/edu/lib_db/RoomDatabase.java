@@ -5,10 +5,11 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 
+import arouter.dawn.zju.edu.lib_db.entity.DailyRecommendEntity;
 import arouter.dawn.zju.edu.lib_db.entity.NoticeEntity;
 import arouter.dawn.zju.edu.lib_db.entity.UserEntity;
 
-@Database(entities = {UserEntity.class, NoticeEntity.class}, version = 1,exportSchema = false)
+@Database(entities = {UserEntity.class, NoticeEntity.class, DailyRecommendEntity.class}, version = 1,exportSchema = false)
 public abstract class RoomDatabase extends androidx.room.RoomDatabase {
 
     private static RoomDatabase sInstance;

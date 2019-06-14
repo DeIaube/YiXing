@@ -9,6 +9,7 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import arouter.dawn.zju.edu.lib_db.entity.DailyRecommendEntity;
 import arouter.dawn.zju.edu.lib_db.entity.NoticeEntity;
 import arouter.dawn.zju.edu.lib_db.entity.UserEntity;
 
@@ -44,5 +45,20 @@ public interface RoomDao {
 
     @Query("SELECT * FROM notice_class")
     List<NoticeEntity> getAllNoticeEntity();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertDailyRecommend(DailyRecommendEntity... dailyRecommendEntity);
+
+    @Delete
+    void deleteDailyRecommend(DailyRecommendEntity dailyRecommendEntity);
+
+    @Update
+    void updateDailyRecommend(DailyRecommendEntity dailyRecommendEntity);
+
+    @Query("SELECT * FROM daily_recommend_class WHERE objectId = :objectId")
+    DailyRecommendEntity getDailyRecommendById(String objectId);
+
+    @Query("SELECT * FROM daily_recommend_class")
+    List<DailyRecommendEntity> getAllDailyRecommend();
 
 }
