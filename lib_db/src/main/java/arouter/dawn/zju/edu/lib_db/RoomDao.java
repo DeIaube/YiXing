@@ -18,6 +18,7 @@ import arouter.dawn.zju.edu.lib_db.entity.forum.ForumFollowEntity;
 import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostEntity;
 import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostLikeEntity;
 import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostReportEntity;
+import arouter.dawn.zju.edu.lib_db.entity.wallet.BillEntity;
 
 @Dao
 public interface RoomDao {
@@ -156,5 +157,20 @@ public interface RoomDao {
 
     @Query("SELECT * FROM forum_post_report_class")
     List<ForumPostReportEntity> getAllForumPostReport();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertBill(BillEntity... billEntities);
+
+    @Delete
+    void deleteBill(BillEntity billEntity);
+
+    @Update
+    void updateBill(BillEntity billEntity);
+
+    @Query("SELECT * FROM bill_class WHERE objectId = :objectId")
+    BillEntity getBillById(String objectId);
+
+    @Query("SELECT * FROM bill_class")
+    List<BillEntity> getAllBill();
 
 }
