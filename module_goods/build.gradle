@@ -28,16 +28,8 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    compile project(':lib_base')
-    compile project(':module_pay')
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':lib_base')
+    api project(':module_pay')
     //ARouter
     annotationProcessor "com.alibaba:arouter-compiler:1.1.4"
-    //Citypicker
-    //noinspection GradleDependency
-    compile 'com.zaaach:citypicker:1.1'
-    // banner
-    compile 'com.youth.banner:banner:1.4.10'
 }

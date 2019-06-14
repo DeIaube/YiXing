@@ -28,8 +28,7 @@ android {
 }
 
 dependencies {
-    compile project(':lib_base')
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':lib_base')
     implementation files('libs/alipaySdk-20180601.jar')
     //ARouter
     annotationProcessor "com.alibaba:arouter-compiler:1.1.4"

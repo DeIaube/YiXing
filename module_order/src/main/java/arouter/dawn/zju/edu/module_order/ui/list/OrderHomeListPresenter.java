@@ -33,7 +33,7 @@ public class OrderHomeListPresenter extends BasePresenter<OrderHomeListContract.
             public void done(AVException e) {
                 if (e == null) {
                     LogUtil.i(TAG, "savePayInformation: " + order.toString());
-                    mView.showMessage(App.getContext().getString(R.string.order_pay_success));
+                    mView.showMessage(App.getAppalication().getString(R.string.order_pay_success));
                     sendOrderListRefreshEvent();
                 } else {
                     LogUtil.e(TAG, e.getLocalizedMessage());
@@ -58,7 +58,7 @@ public class OrderHomeListPresenter extends BasePresenter<OrderHomeListContract.
                 if (e == null) {
                     LogUtil.i(TAG, "cancelOrder");
                     sendOrderListRefreshEvent();
-                    mView.showMessage(App.getContext().getString(R.string.order_home_list_cancel_order_success));
+                    mView.showMessage(App.getAppalication().getString(R.string.order_home_list_cancel_order_success));
                 } else {
                     LogUtil.e(TAG, e.getLocalizedMessage());
                     mView.showMessage(e.getLocalizedMessage());

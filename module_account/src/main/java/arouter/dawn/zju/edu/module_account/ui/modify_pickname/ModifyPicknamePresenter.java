@@ -29,7 +29,7 @@ public class ModifyPicknamePresenter extends BasePresenter<ModifyPicknameContrac
                 mView.hideLoading();
                 if (e == null) {
                     LogUtil.i(TAG, "modifyPickname");
-                    mView.showMessage(App.getContext().getString(R.string.modify_success));
+                    mView.showMessage(App.getAppalication().getString(R.string.modify_success));
                     mView.finish();
                 } else {
                     LogUtil.e(TAG, e.getLocalizedMessage());

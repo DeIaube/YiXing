@@ -46,7 +46,7 @@ public class ForumPostPresenter extends BasePresenter<ForumPostContract.View> im
     @Override
     public void comment(ForumPost post, String content) {
         if (TextUtils.isEmpty(content)) {
-            mView.showMessage(App.getContext().getString(R.string.forum_post_comment_not_null));
+            mView.showMessage(App.getAppalication().getString(R.string.forum_post_comment_not_null));
             return;
         }
         final ForumComment comment = new ForumComment();
@@ -63,7 +63,7 @@ public class ForumPostPresenter extends BasePresenter<ForumPostContract.View> im
                     mView.hideCommentDialog();
                     mCommentList.add(comment);
                     mView.refreshCommentList(mCommentList);
-                    mView.showMessage(App.getContext().getString(R.string.forum_post_comment_success));
+                    mView.showMessage(App.getAppalication().getString(R.string.forum_post_comment_success));
                 } else {
                     LogUtil.e(TAG, e.getLocalizedMessage());
                     mView.showMessage(e.getLocalizedMessage());
@@ -243,9 +243,9 @@ public class ForumPostPresenter extends BasePresenter<ForumPostContract.View> im
 
     @Override
     public void report(ForumPost post, String type, String content) {
-        if (type.equals(App.getContext().getString(R.string.forum_post_report_other)) &&
+        if (type.equals(App.getAppalication().getString(R.string.forum_post_report_other)) &&
                 TextUtils.isEmpty(content)) {
-            mView.showMessage(App.getContext().getString(R.string.forum_post_report_content_not_null));
+            mView.showMessage(App.getAppalication().getString(R.string.forum_post_report_content_not_null));
             return;
         }
         ForumPostReport report = new ForumPostReport();
@@ -254,6 +254,6 @@ public class ForumPostPresenter extends BasePresenter<ForumPostContract.View> im
         report.setPost(post);
         report.setType(type);
         report.saveInBackground();
-        mView.showMessage(App.getContext().getString(R.string.forum_post_report_success));
+        mView.showMessage(App.getAppalication().getString(R.string.forum_post_report_success));
     }
 }

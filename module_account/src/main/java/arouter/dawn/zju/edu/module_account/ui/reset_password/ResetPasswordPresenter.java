@@ -3,8 +3,6 @@ package arouter.dawn.zju.edu.module_account.ui.reset_password;
 import android.annotation.SuppressLint;
 
 import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVSMS;
-import com.avos.avoscloud.AVSMSOption;
 import com.avos.avoscloud.RequestMobileCodeCallback;
 import com.avos.avoscloud.UpdatePasswordCallback;
 
@@ -32,7 +30,7 @@ public class ResetPasswordPresenter extends BasePresenter<ResetPasswordContract.
     @Override
     public void verificationCode(String phoneNumber, String code, String password, String repassword) {
         if (!VerificationUtil.checkCodeCorrect(code)) {
-            mView.showMessage(App.getContext().getString(R.string.register_code_format_error));
+            mView.showMessage(App.getAppalication().getString(R.string.register_code_format_error));
             return;
         }
         if (!VerificationUtil.checkPasswordCorrect(mView, password, repassword)) {
@@ -45,7 +43,7 @@ public class ResetPasswordPresenter extends BasePresenter<ResetPasswordContract.
                 mView.hideLoading();
                 if (e == null) {
                     LogUtil.i(TAG, "resetPassword");
-                    mView.showMessage(App.getContext().getString(R.string.reset_password_success));
+                    mView.showMessage(App.getAppalication().getString(R.string.reset_password_success));
                     mView.finish();
                 } else {
                     LogUtil.e(TAG, e.getLocalizedMessage());

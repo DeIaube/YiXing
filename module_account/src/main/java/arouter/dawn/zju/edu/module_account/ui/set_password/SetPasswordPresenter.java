@@ -3,7 +3,6 @@ package arouter.dawn.zju.edu.module_account.ui.set_password;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.SignUpCallback;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
@@ -40,7 +39,7 @@ public class SetPasswordPresenter extends BasePresenter<SetPasswordContract.View
                 mView.hideLoading();
                 if (e == null) {
                     LogUtil.i(TAG, "signUp");
-                    mView.showMessage(App.getContext().getString(R.string.set_password_sign_success));
+                    mView.showMessage(App.getAppalication().getString(R.string.set_password_sign_success));
                     mView.setPasswordSuccess();
                 } else {
                     LogUtil.e(TAG, e.getLocalizedMessage());

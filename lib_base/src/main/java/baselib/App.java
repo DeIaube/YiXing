@@ -37,9 +37,9 @@ import io.realm.Realm;
  */
 public class App extends Application {
 
-    private static Context appContext;
+    private static Application appContext;
 
-    public static Context getContext() {
+    public static Application getAppalication() {
         return appContext;
     }
 

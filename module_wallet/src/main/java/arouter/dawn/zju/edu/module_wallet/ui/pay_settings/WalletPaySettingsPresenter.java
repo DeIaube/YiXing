@@ -30,7 +30,7 @@ public class WalletPaySettingsPresenter extends BasePresenter<WalletPaySettingsC
     public void openFingerprint() {
         if (!FingerPrintUtils.isFinger()) {
             mView.setFingerprintStatus(false);
-            mView.showMessage(App.getContext().getString(R.string.wallet_settings_no_fingerprint));
+            mView.showMessage(App.getAppalication().getString(R.string.wallet_settings_no_fingerprint));
             return;
         }
         SPUtil.put(SpConstants.SP_PAY_FOR_FINGERPRINT, true);

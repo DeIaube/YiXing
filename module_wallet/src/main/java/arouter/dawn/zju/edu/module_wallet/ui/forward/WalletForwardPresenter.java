@@ -18,7 +18,7 @@ public class WalletForwardPresenter extends BasePresenter<WalletForwardContract.
 
     @Override
     public void paySuccess(String title, String content, String source, double amount) {
-        mView.showMessage(App.getContext().getString(R.string.wallet_forward_success));
+        mView.showMessage(App.getAppalication().getString(R.string.wallet_forward_success));
 
         User user = User.getCurrentUser(User.class);
         user.setBalance(user.getBalance() + amount);
@@ -37,7 +37,7 @@ public class WalletForwardPresenter extends BasePresenter<WalletForwardContract.
 
     @Override
     public void payFaile(String msg) {
-        mView.showMessage(App.getContext().getString(R.string.wallet_forward_faile));
+        mView.showMessage(App.getAppalication().getString(R.string.wallet_forward_faile));
     }
 
 }

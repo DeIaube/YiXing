@@ -20,7 +20,7 @@ public class WalletAlertPayPasswordPresenter extends BasePresenter<WalletAlertPa
         User user = User.getCurrentUser(User.class);
         user.setPayPassword(payPassword);
         user.saveInBackground();
-        mView.showMessage(App.getContext().getString(R.string.alert_pay_password_alert_success));
+        mView.showMessage(App.getAppalication().getString(R.string.alert_pay_password_alert_success));
         mView.finish();
     }
 }

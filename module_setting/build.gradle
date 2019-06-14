@@ -28,9 +28,8 @@ android {
 }
 
 dependencies {
-    compile project(':lib_base')
-    compile project(':lib_res')
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':lib_base')
+    api project(':lib_res')
     //ARouter
     annotationProcessor "com.alibaba:arouter-compiler:1.1.4"
 }

@@ -26,11 +26,11 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
     @Override
     public void login(final String phoneNumber, final String password) {
         if (TextUtils.isEmpty(phoneNumber) || TextUtils.isEmpty(password)) {
-            mView.showMessage(App.getContext().getString(R.string.login_account_password_empty));
+            mView.showMessage(App.getAppalication().getString(R.string.login_account_password_empty));
             return;
         }
         if (VerificationUtil.checkPhoneNumber(phoneNumber)) {
-            mView.showMessage(App.getContext().getString(R.string.login_invalid_phone_number));
+            mView.showMessage(App.getAppalication().getString(R.string.login_invalid_phone_number));
             return;
         }
         mView.showLoading();
@@ -40,7 +40,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
                 mView.hideLoading();
                 if (e == null) {
                     LogUtil.i(TAG, "loginByMobilePhone");
-                    mView.showMessage(App.getContext().getString(R.string.login_success));
+                    mView.showMessage(App.getAppalication().getString(R.string.login_success));
                     saveLoginMessage(phoneNumber, password);
                 } else {
                     LogUtil.e(TAG, e.getLocalizedMessage());

@@ -6,11 +6,9 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVMobilePhoneVerifyCallback;
 import com.avos.avoscloud.AVSMS;
 import com.avos.avoscloud.AVSMSOption;
-import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.RequestMobileCodeCallback;
 
 import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
 
 import arouter.dawn.zju.edu.module_account.R;
 import arouter.dawn.zju.edu.module_account.util.VerificationUtil;
@@ -33,7 +31,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
     @Override
     public void verificationCode(String phoneNumber, String code) {
         if (!VerificationUtil.checkCodeCorrect(code)) {
-            mView.showMessage(App.getContext().getString(R.string.register_code_format_error));
+            mView.showMessage(App.getAppalication().getString(R.string.register_code_format_error));
             return;
         }
         mView.showLoading();
@@ -57,7 +55,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
         AVSMSOption option = new AVSMSOption();
         // 验证码有效时间为10分钟
         option.setTtl(10);
-        option.setApplicationName(App.getContext().getString(arouter.dawn.zju.edu.lib_res.R.string.app_name));
+        option.setApplicationName(App.getAppalication().getString(arouter.dawn.zju.edu.lib_res.R.string.app_name));
         AVSMS.requestSMSCodeInBackground(phoneNumber, option, new RequestMobileCodeCallback() {
             @Override
             public void done(AVException e) {

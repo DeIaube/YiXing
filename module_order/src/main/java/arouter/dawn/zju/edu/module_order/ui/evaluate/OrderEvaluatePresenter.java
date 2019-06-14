@@ -48,7 +48,7 @@ public class OrderEvaluatePresenter extends BasePresenter<OrderEvaluateContract.
                     public void accept(Order order) throws Exception {
                         LogUtil.i(TAG, "submitEvaluate :" + order.toString());
                         mView.hideLoading();
-                        mView.showMessage(App.getContext().getString(R.string.order_evaluate_evaluation_success));
+                        mView.showMessage(App.getAppalication().getString(R.string.order_evaluate_evaluation_success));
                         mView.finish();
                     }
                 }, new Consumer<Throwable>() {

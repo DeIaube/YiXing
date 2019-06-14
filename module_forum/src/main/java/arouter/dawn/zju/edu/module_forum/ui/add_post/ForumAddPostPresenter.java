@@ -38,11 +38,11 @@ public class ForumAddPostPresenter extends BasePresenter<ForumAddPostContract.Vi
     @Override
     public void submit(final String title, final String content, final String tag, final List<String> images) {
         if (TextUtils.isEmpty(title)) {
-            mView.showMessage(App.getContext().getString(R.string.forum_add_post_title_not_null));
+            mView.showMessage(App.getAppalication().getString(R.string.forum_add_post_title_not_null));
             return;
         }
         if (TextUtils.isEmpty(content)) {
-            mView.showMessage(App.getContext().getString(R.string.forum_add_post_content_not_null));
+            mView.showMessage(App.getAppalication().getString(R.string.forum_add_post_content_not_null));
             return;
         }
         mView.showLoading();

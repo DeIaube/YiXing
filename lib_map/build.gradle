@@ -24,7 +24,6 @@ android {
 }
 
 dependencies {
-    compile project(":lib_base")
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(":lib_base")
     implementation files('libs/AMap_Location_V4.3.0_20181016.jar')
 }

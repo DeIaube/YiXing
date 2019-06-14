@@ -3,7 +3,6 @@ package arouter.dawn.zju.edu.module_pay.ui.cash_coupon;
 
 import org.greenrobot.eventbus.EventBus;
 
-import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_pay.R;
 import arouter.dawn.zju.edu.module_pay.config.Constants;
@@ -25,7 +24,7 @@ public class PayCashCouponPresenter extends BasePresenter<PayCashCouponContract.
     @Override
     public void selectCashCoupon(UserCashCoupon userCashCoupon, double price) {
         if (price < userCashCoupon.getCashCoupon().getDoorsill()) {
-            mView.showMessage(App.getContext().getString(R.string.pay_cash_coupon_dont_achieve_doorsill));
+            mView.showMessage(App.getAppalication().getString(R.string.pay_cash_coupon_dont_achieve_doorsill));
             return;
         }
         BusEvent busEvent = new BusEvent();

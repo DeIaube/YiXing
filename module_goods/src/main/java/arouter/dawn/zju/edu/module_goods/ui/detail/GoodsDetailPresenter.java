@@ -45,7 +45,7 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
                     public void done(int i, AVException e) {
                         if (e == null) {
                             mView.refreshBuyCounterTextView(String.format(
-                                    App.getContext().getString(R.string.goods_detail_buy_counter), i));
+                                    App.getAppalication().getString(R.string.goods_detail_buy_counter), i));
                         }
                     }
                 });
@@ -115,7 +115,7 @@ public class GoodsDetailPresenter extends BasePresenter<GoodsDetailContract.View
         order.setType(Constants.ORDER_TYPE_COMPLETE_REQUE_EVALUATE);
         order.setOwner(User.getCurrentUser(User.class));
         order.saveInBackground();
-        mView.showMessage(App.getContext().getString(R.string.goods_detail_pay_success));
+        mView.showMessage(App.getAppalication().getString(R.string.goods_detail_pay_success));
     }
 
     @Override
