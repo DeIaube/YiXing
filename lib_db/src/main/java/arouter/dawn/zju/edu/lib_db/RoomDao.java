@@ -18,6 +18,9 @@ import arouter.dawn.zju.edu.lib_db.entity.forum.ForumFollowEntity;
 import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostEntity;
 import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostLikeEntity;
 import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostReportEntity;
+import arouter.dawn.zju.edu.lib_db.entity.good.GoodsCollectionEntity;
+import arouter.dawn.zju.edu.lib_db.entity.good.GoodsEntity;
+import arouter.dawn.zju.edu.lib_db.entity.good.GoodsEvaluateEntity;
 import arouter.dawn.zju.edu.lib_db.entity.wallet.BillEntity;
 
 @Dao
@@ -172,5 +175,50 @@ public interface RoomDao {
 
     @Query("SELECT * FROM bill_class")
     List<BillEntity> getAllBill();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertGoods(GoodsEntity... goodsEntities);
+
+    @Delete
+    void deleteGoods(GoodsEntity goodsEntity);
+
+    @Update
+    void updateGoods(GoodsEntity goodsEntity);
+
+    @Query("SELECT * FROM goods_class WHERE objectId = :objectId")
+    GoodsEntity getGoodsById(String objectId);
+
+    @Query("SELECT * FROM goods_class")
+    List<GoodsEntity> getAllGoods();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertGoodsCollection(GoodsCollectionEntity... goodsCollectionEntities);
+
+    @Delete
+    void deleteGoodsCollection(GoodsCollectionEntity goodsCollectionEntity);
+
+    @Update
+    void updateGoodsCollection(GoodsCollectionEntity goodsCollectionEntity);
+
+    @Query("SELECT * FROM goods_collection_class WHERE objectId = :objectId")
+    GoodsCollectionEntity getGoodsCollectionById(String objectId);
+
+    @Query("SELECT * FROM goods_collection_class")
+    List<GoodsCollectionEntity> getAllGoodsCollection();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertGoodsEvaluate(GoodsEvaluateEntity... goodsEvaluateEntities);
+
+    @Delete
+    void deleteinsertGoodsEvaluate(GoodsEvaluateEntity goodsEvaluateEntity);
+
+    @Update
+    void updateinsertGoodsEvaluate(GoodsEvaluateEntity goodsEvaluateEntity);
+
+    @Query("SELECT * FROM goods_evaluate_class WHERE objectId = :objectId")
+    GoodsEvaluateEntity getinsertGoodsEvaluateById(String objectId);
+
+    @Query("SELECT * FROM goods_evaluate_class")
+    List<GoodsEvaluateEntity> getAllinsertGoodsEvaluate();
 
 }
