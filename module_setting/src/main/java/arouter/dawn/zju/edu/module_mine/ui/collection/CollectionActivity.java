@@ -1,7 +1,7 @@
 package arouter.dawn.zju.edu.module_mine.ui.collection;
 
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;

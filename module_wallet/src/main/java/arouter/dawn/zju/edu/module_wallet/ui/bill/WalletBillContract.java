@@ -1,9 +1,9 @@
 package arouter.dawn.zju.edu.module_wallet.ui.bill;
 
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
 
 import baselib.base.BaseContract;
 

@@ -1,7 +1,7 @@
 package arouter.dawn.zju.edu.module_wallet.ui.non_secret_payment;
 
 
-import android.support.v7.widget.SwitchCompat;
+import androidx.appcompat.widget.SwitchCompat;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;

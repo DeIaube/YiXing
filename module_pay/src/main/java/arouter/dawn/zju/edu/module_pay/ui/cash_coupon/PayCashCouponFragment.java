@@ -1,8 +1,8 @@
 package arouter.dawn.zju.edu.module_pay.ui.cash_coupon;
 
 import android.annotation.SuppressLint;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.avos.avoscloud.AVException;
@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
-import arouter.dawn.zju.edu.lib_net.bean.order.CashCoupon;
 import arouter.dawn.zju.edu.lib_net.bean.order.UserCashCoupon;
 import arouter.dawn.zju.edu.module_pay.R;
 import arouter.dawn.zju.edu.module_pay.adapter.PayCashCouponListAdapter;

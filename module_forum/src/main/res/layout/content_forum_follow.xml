@@ -9,7 +9,7 @@
     tools:context=".ui.follow.ForumFollowActivity"
     tools:showIn="@layout/activity_forum_follow">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/forum_follow_list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

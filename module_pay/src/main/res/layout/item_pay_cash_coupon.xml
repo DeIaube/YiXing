@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"/>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_width="match_parent"
@@ -83,7 +83,7 @@
             app:layout_constraintStart_toStartOf="@+id/cash_coupon_coupon_type"
             app:layout_constraintTop_toBottomOf="@+id/cash_coupon_coupon_type" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
         android:background="#f2f2f2"

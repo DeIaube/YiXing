@@ -56,7 +56,7 @@
 
         </LinearLayout>
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_marginTop="17dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -101,7 +101,7 @@
             </LinearLayout>
 
 
-            <android.support.v7.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/register_get_verification_code"
                 android:layout_width="123dp"
                 android:layout_height="45dp"
@@ -116,9 +116,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/register_submit"
             android:onClick="onViewClicked"
             android:layout_marginLeft="10dp"

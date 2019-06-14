@@ -1,9 +1,9 @@
 package arouter.dawn.zju.edu.module_goods.ui.cart;
 
 import android.annotation.SuppressLint;
-import android.support.v7.widget.AppCompatCheckBox;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.widget.AppCompatCheckBox;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;

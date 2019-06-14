@@ -8,7 +8,7 @@
     android:paddingTop="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:paddingLeft="14dp"
@@ -148,7 +148,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
 
-            <android.support.v7.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/order_refund"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
@@ -158,7 +158,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/order_home_list_order_refund" />
 
-            <android.support.v7.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/order_evaluate"
                 android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
@@ -169,7 +169,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/order_home_list_order_evaluate" />
 
-            <android.support.v7.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/cancel_order"
                 android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
@@ -180,7 +180,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/order_home_list_cancel_order" />
 
-            <android.support.v7.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/pay_order"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/pay_order_btn_bg"
@@ -193,6 +193,6 @@
 
         </LinearLayout>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

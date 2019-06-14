@@ -1,6 +1,6 @@
 package arouter.dawn.zju.edu.module_wallet.ui.pay_settings;
 
-import android.support.v7.widget.SwitchCompat;
+import androidx.appcompat.widget.SwitchCompat;
 import android.view.View;
 import android.widget.TextView;
 
