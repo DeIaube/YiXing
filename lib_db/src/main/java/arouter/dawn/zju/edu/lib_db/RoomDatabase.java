@@ -8,14 +8,14 @@ import androidx.room.Room;
 import arouter.dawn.zju.edu.lib_db.entity.DailyRecommendEntity;
 import arouter.dawn.zju.edu.lib_db.entity.NoticeEntity;
 import arouter.dawn.zju.edu.lib_db.entity.UserEntity;
-import arouter.dawn.zju.edu.lib_db.entity.forum.ForumCollection;
-import arouter.dawn.zju.edu.lib_db.entity.forum.ForumComment;
-import arouter.dawn.zju.edu.lib_db.entity.forum.ForumFollow;
-import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPost;
-import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostLike;
-import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostReport;
+import arouter.dawn.zju.edu.lib_db.entity.forum.ForumCollectionEntity;
+import arouter.dawn.zju.edu.lib_db.entity.forum.ForumCommentEntity;
+import arouter.dawn.zju.edu.lib_db.entity.forum.ForumFollowEntity;
+import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostEntity;
+import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostLikeEntity;
+import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostReportEntity;
 
-@Database(entities = {UserEntity.class, NoticeEntity.class, DailyRecommendEntity.class, ForumCollection.class, ForumComment.class, ForumFollow.class, ForumPost.class, ForumPostLike.class, ForumPostReport.class}, version = 1,exportSchema = false)
+@Database(entities = {UserEntity.class, NoticeEntity.class, DailyRecommendEntity.class, ForumCollectionEntity.class, ForumCommentEntity.class, ForumFollowEntity.class, ForumPostEntity.class, ForumPostLikeEntity.class, ForumPostReportEntity.class}, version = 1,exportSchema = false)
 public abstract class RoomDatabase extends androidx.room.RoomDatabase {
 
     private static RoomDatabase sInstance;

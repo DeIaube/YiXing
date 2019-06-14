@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import arouter.dawn.zju.edu.lib_db.entity.BaseEntity;
 
 @Entity(tableName = "forum_post_class")
-public class ForumPost extends BaseEntity {
+public class ForumPostEntity extends BaseEntity {
 
     @ColumnInfo(name = "title")
     private String title;

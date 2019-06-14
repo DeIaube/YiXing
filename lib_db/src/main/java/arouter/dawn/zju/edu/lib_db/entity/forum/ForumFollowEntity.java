@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import arouter.dawn.zju.edu.lib_db.entity.BaseEntity;
 
 @Entity(tableName = "forum_follow_class")
-public class ForumFollow extends BaseEntity {
+public class ForumFollowEntity extends BaseEntity {
 
     @ColumnInfo(name = "ownerId")
     private String ownerId;

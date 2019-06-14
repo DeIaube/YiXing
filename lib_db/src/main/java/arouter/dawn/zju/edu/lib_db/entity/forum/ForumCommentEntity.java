@@ -5,8 +5,8 @@ import androidx.room.Entity;
 
 import arouter.dawn.zju.edu.lib_db.entity.BaseEntity;
 
-@Entity(tableName = "forum_post_report_class")
-public class ForumPostReport extends BaseEntity {
+@Entity(tableName = "forum_comment_class")
+public class ForumCommentEntity extends BaseEntity {
 
     @ColumnInfo(name = "ownerId")
     private String ownerId;
@@ -14,8 +14,6 @@ public class ForumPostReport extends BaseEntity {
     private String postId;
     @ColumnInfo(name = "content")
     private String content;
-    @ColumnInfo(name = "type")
-    private String type;
 
     public String getOwnerId() {
         return ownerId;
@@ -39,13 +37,5 @@ public class ForumPostReport extends BaseEntity {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }

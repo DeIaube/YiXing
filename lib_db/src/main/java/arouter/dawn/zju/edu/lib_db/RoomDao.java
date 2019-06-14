@@ -12,12 +12,12 @@ import java.util.List;
 import arouter.dawn.zju.edu.lib_db.entity.DailyRecommendEntity;
 import arouter.dawn.zju.edu.lib_db.entity.NoticeEntity;
 import arouter.dawn.zju.edu.lib_db.entity.UserEntity;
-import arouter.dawn.zju.edu.lib_db.entity.forum.ForumCollection;
-import arouter.dawn.zju.edu.lib_db.entity.forum.ForumComment;
-import arouter.dawn.zju.edu.lib_db.entity.forum.ForumFollow;
-import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPost;
-import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostLike;
-import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostReport;
+import arouter.dawn.zju.edu.lib_db.entity.forum.ForumCollectionEntity;
+import arouter.dawn.zju.edu.lib_db.entity.forum.ForumCommentEntity;
+import arouter.dawn.zju.edu.lib_db.entity.forum.ForumFollowEntity;
+import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostEntity;
+import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostLikeEntity;
+import arouter.dawn.zju.edu.lib_db.entity.forum.ForumPostReportEntity;
 
 @Dao
 public interface RoomDao {
@@ -68,93 +68,93 @@ public interface RoomDao {
     List<DailyRecommendEntity> getAllDailyRecommend();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertForumCollection(ForumCollection... forumCollections);
+    void insertForumCollection(ForumCollectionEntity... forumCollections);
 
     @Delete
-    void deleteForumCollection(ForumCollection forumCollection);
+    void deleteForumCollection(ForumCollectionEntity forumCollection);
 
     @Update
-    void updateForumCollection(ForumCollection forumCollection);
+    void updateForumCollection(ForumCollectionEntity forumCollection);
 
     @Query("SELECT * FROM forum_collection_class WHERE objectId = :objectId")
-    ForumCollection getForumCollectionById(String objectId);
+    ForumCollectionEntity getForumCollectionById(String objectId);
 
     @Query("SELECT * FROM forum_collection_class")
-    List<ForumCollection> getAllForumCollection();
+    List<ForumCollectionEntity> getAllForumCollection();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertForumComment(ForumComment... forumComments);
+    void insertForumComment(ForumCommentEntity... forumComments);
 
     @Delete
-    void deleteForumComment(ForumComment forumComment);
+    void deleteForumComment(ForumCommentEntity forumComment);
 
     @Update
-    void updateForumComment(ForumComment forumComment);
+    void updateForumComment(ForumCommentEntity forumComment);
 
     @Query("SELECT * FROM forum_comment_class WHERE objectId = :objectId")
-    ForumComment getForumCommentById(String objectId);
+    ForumCommentEntity getForumCommentById(String objectId);
 
     @Query("SELECT * FROM forum_comment_class")
-    List<ForumComment> getAllForumComment();
+    List<ForumCommentEntity> getAllForumComment();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertForumFollow(ForumFollow... forumFollows);
+    void insertForumFollow(ForumFollowEntity... forumFollows);
 
     @Delete
-    void deleteForumFollow(ForumFollow forumFollow);
+    void deleteForumFollow(ForumFollowEntity forumFollow);
 
     @Update
-    void updateForumFollow(ForumFollow forumFollow);
+    void updateForumFollow(ForumFollowEntity forumFollow);
 
     @Query("SELECT * FROM forum_follow_class WHERE objectId = :objectId")
-    ForumFollow getForumFollowById(String objectId);
+    ForumFollowEntity getForumFollowById(String objectId);
 
     @Query("SELECT * FROM forum_follow_class")
-    List<ForumFollow> getAllForumFollow();
+    List<ForumFollowEntity> getAllForumFollow();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertForumPost(ForumPost... forumPosts);
+    void insertForumPost(ForumPostEntity... forumPosts);
 
     @Delete
-    void deleteForumPost(ForumPost forumPost);
+    void deleteForumPost(ForumPostEntity forumPost);
 
     @Update
-    void updateForumPost(ForumPost forumPost);
+    void updateForumPost(ForumPostEntity forumPost);
 
     @Query("SELECT * FROM forum_post_class WHERE objectId = :objectId")
-    ForumPost getForumPostById(String objectId);
+    ForumPostEntity getForumPostById(String objectId);
 
     @Query("SELECT * FROM forum_post_class")
-    List<ForumPost> getAllForumPost();
+    List<ForumPostEntity> getAllForumPost();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertForumPostLike(ForumPostLike... forumPostLikes);
+    void insertForumPostLike(ForumPostLikeEntity... forumPostLikes);
 
     @Delete
-    void deleteForumPostLike(ForumPostLike forumPostLike);
+    void deleteForumPostLike(ForumPostLikeEntity forumPostLike);
 
     @Update
-    void updateForumPostLike(ForumPostLike forumPostLike);
+    void updateForumPostLike(ForumPostLikeEntity forumPostLike);
 
-    @Query("SELECT * FROM forum_post_lick_class WHERE objectId = :objectId")
-    ForumPostLike getForumPostLikeById(String objectId);
+    @Query("SELECT * FROM forum_post_like_class WHERE objectId = :objectId")
+    ForumPostLikeEntity getForumPostLikeById(String objectId);
 
-    @Query("SELECT * FROM forum_post_lick_class")
-    List<ForumPostLike> getAllForumPostLike();
+    @Query("SELECT * FROM forum_post_like_class")
+    List<ForumPostLikeEntity> getAllForumPostLike();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertForumPostReport(ForumPostReport... forumPostReports);
+    void insertForumPostReport(ForumPostReportEntity... forumPostReports);
 
     @Delete
-    void deleteForumPostReport(ForumPostReport forumPostReport);
+    void deleteForumPostReport(ForumPostReportEntity forumPostReport);
 
     @Update
-    void updateForumPostReport(ForumPostReport forumPostReport);
+    void updateForumPostReport(ForumPostReportEntity forumPostReport);
 
     @Query("SELECT * FROM forum_post_report_class WHERE objectId = :objectId")
-    ForumPostReport getForumPostReportById(String objectId);
+    ForumPostReportEntity getForumPostReportById(String objectId);
 
     @Query("SELECT * FROM forum_post_report_class")
-    List<ForumPostReport> getAllForumPostReport();
+    List<ForumPostReportEntity> getAllForumPostReport();
 
 }
