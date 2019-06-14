@@ -1,6 +1,11 @@
-package arouter.dawn.zju.edu.lib_db.bean;
+package arouter.dawn.zju.edu.lib_db;
 
 import android.content.Context;
+
+import java.util.List;
+
+import arouter.dawn.zju.edu.lib_db.entity.NoticeEntity;
+import arouter.dawn.zju.edu.lib_db.entity.UserEntity;
 
 public class DbHelper {
 
@@ -29,6 +34,14 @@ public class DbHelper {
 
     public void saveUser(UserEntity userEntity) {
         dao.insertUser(userEntity);
+    }
+
+    public void saveNotice(NoticeEntity noticeEntity) {
+        dao.insertNotice(noticeEntity);
+    }
+
+    public List<NoticeEntity> getAllNotice() {
+        return dao.getAllNoticeEntity();
     }
 
 }

@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import java.util.ArrayList;
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_db.bean.Notice;
+import arouter.dawn.zju.edu.lib_db.entity.NoticeEntity;
 import arouter.dawn.zju.edu.module_mine.R;
 import arouter.dawn.zju.edu.module_mine.adapter.NoticeListAdapter;
 import baselib.base.BaseActivity;
@@ -29,7 +29,7 @@ public class NoticeActivity extends BaseActivity<NoticeContract.Presenter> imple
     @Override
     protected void initView() {
         noticeList = findViewById(R.id.notice_list);
-        mAdapter = new NoticeListAdapter(this, new ArrayList<Notice>());
+        mAdapter = new NoticeListAdapter(this, new ArrayList<NoticeEntity>());
         noticeList.setLayoutManager(new LinearLayoutManager(this));
         noticeList.setAdapter(mAdapter);
 
@@ -52,7 +52,7 @@ public class NoticeActivity extends BaseActivity<NoticeContract.Presenter> imple
     }
 
     @Override
-    public void refreshNoticeList(List<Notice> noticeList) {
+    public void refreshNoticeList(List<NoticeEntity> noticeList) {
         mAdapter.refresh(noticeList);
     }
 }

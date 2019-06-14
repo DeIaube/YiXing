@@ -1,4 +1,9 @@
-package arouter.dawn.zju.edu.lib_db.bean;
+package arouter.dawn.zju.edu.lib_db.entity;
+
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 /**
  * @Auther: Dawn
@@ -7,10 +12,18 @@ package arouter.dawn.zju.edu.lib_db.bean;
  * 推送数据实体类
  * 从网络中获取并存放数据库
  */
-public class Notice {
+@Entity(tableName = "notice_class")
+public class NoticeEntity{
 
+    @ColumnInfo(name = "title")
     private String title;
+
+    @ColumnInfo(name = "content")
     private String content;
+
+    @PrimaryKey()
+    @ColumnInfo(name = "time")
+    @NonNull
     private String time;
 
     public String getTitle() {
@@ -46,13 +59,4 @@ public class Notice {
                 '}';
     }
 
-    public Notice(String title, String content, String time) {
-        this.title = title;
-        this.content = content;
-        this.time = time;
-    }
-
-    public Notice() {
-
-    }
 }

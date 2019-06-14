@@ -1,10 +1,16 @@
-package arouter.dawn.zju.edu.lib_db.bean;
+package arouter.dawn.zju.edu.lib_db.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 
+/**
+ * @Auther: Dawn
+ * @Date: 2019/6/14 22:01
+ * @Description:
+ * User数据类
+ */
 @Entity(tableName = "user_class")
-public class UserEntity extends BaseEntity{
+public class UserEntity extends BaseEntity {
 
     @ColumnInfo(name = "pickname")
     private String pickname;

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import arouter.dawn.zju.edu.lib_db.bean.Notice;
+import arouter.dawn.zju.edu.lib_db.entity.NoticeEntity;
 import arouter.dawn.zju.edu.module_mine.R;
 
 /**
@@ -23,14 +23,14 @@ import arouter.dawn.zju.edu.module_mine.R;
 public class NoticeListAdapter extends RecyclerView.Adapter<NoticeListAdapter.NoticeListHolder> {
 
     private Context mContext;
-    private List<Notice> mNoticeList;
+    private List<NoticeEntity> mNoticeList;
 
-    public NoticeListAdapter(Context mContext, List<Notice> noticeList) {
+    public NoticeListAdapter(Context mContext, List<NoticeEntity> noticeList) {
         this.mContext = mContext;
         this.mNoticeList = noticeList;
     }
 
-    public void refresh(List<Notice> noticeList) {
+    public void refresh(List<NoticeEntity> noticeList) {
         this.mNoticeList = noticeList;
         notifyDataSetChanged();
     }
@@ -44,7 +44,7 @@ public class NoticeListAdapter extends RecyclerView.Adapter<NoticeListAdapter.No
 
     @Override
     public void onBindViewHolder(@NonNull NoticeListHolder holder, int position) {
-        Notice notice = mNoticeList.get(position);
+        NoticeEntity notice = mNoticeList.get(position);
         holder.title.setText(notice.getTitle());
         holder.content.setText(notice.getContent());
         holder.time.setText(notice.getTime());

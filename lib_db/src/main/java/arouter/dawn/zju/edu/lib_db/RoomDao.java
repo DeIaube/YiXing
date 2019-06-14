@@ -1,4 +1,4 @@
-package arouter.dawn.zju.edu.lib_db.bean;
+package arouter.dawn.zju.edu.lib_db;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -8,6 +8,9 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.List;
+
+import arouter.dawn.zju.edu.lib_db.entity.NoticeEntity;
+import arouter.dawn.zju.edu.lib_db.entity.UserEntity;
 
 @Dao
 public interface RoomDao {
@@ -26,5 +29,20 @@ public interface RoomDao {
 
     @Query("SELECT * FROM user_class")
     List<UserEntity> getAllUser();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertNotice(NoticeEntity... noticeEntities);
+
+    @Delete
+    void deleteNotice(NoticeEntity noticeEntity);
+
+    @Update
+    void updateNotice(NoticeEntity noticeEntity);
+
+    @Query("SELECT * FROM notice_class WHERE time = :time")
+    NoticeEntity getUserByTime(String time);
+
+    @Query("SELECT * FROM notice_class")
+    List<NoticeEntity> getAllNoticeEntity();
 
 }
