@@ -3,6 +3,9 @@
     <color name="colorPrimary">#E91E63</color>
     <color name="colorPrimaryDark">#C2185B</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="cf2f2f2">#F2F2F2</color>
+    <color name="c101010">#101010</color>
+    <color name="cdbdbdb">#dbdbdb</color>
     <color name="white">#FFFFFF</color><!--白色 -->
     <color name="ivory">#FFFFF0</color><!--象牙色 -->
     <color name="lightyellow">#FFFFE0</color><!--亮黄色-->
