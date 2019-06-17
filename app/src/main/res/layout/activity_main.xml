@@ -1,11 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.main.MainActivity">
 
-    <include layout="@layout/content_main" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <data>
+
+        <variable
+            name="vm"
+            type="yixing.dawn.zju.edu.yixing.ui.main.MainViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".ui.main.MainActivity"
+        tools:showIn="@layout/activity_main">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/main_view_pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/main_bottom_navigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.viewpager.widget.ViewPager>
+
+        <com.ashokvarma.bottomnavigation.BottomNavigationBar
+            android:id="@+id/main_bottom_navigation"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="bottom"
+            app:bnbActiveColor="@color/colorPrimary"
+            app:bnbBackgroundColor="@color/cf2f2f2"
+            app:bnbInactiveColor="@color/c101010"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </com.ashokvarma.bottomnavigation.BottomNavigationBar>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

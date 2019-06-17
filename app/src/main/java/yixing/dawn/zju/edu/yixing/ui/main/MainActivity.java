@@ -1,14 +1,22 @@
 package yixing.dawn.zju.edu.yixing.ui.main;
 
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
-import baselib.base.BaseActivity;
+import java.util.ArrayList;
+import java.util.List;
+
+import baselib.base2.BaseActivity;
 import baselib.constants.RouteConstants;
 import yixing.dawn.zju.edu.yixing.R;
+import yixing.dawn.zju.edu.yixing.adapter.MainPagerAdapter;
+import yixing.dawn.zju.edu.yixing.databinding.ActivityMainBinding;
+import yixing.dawn.zju.edu.yixing.ui.home.HomeFragment;
 
 /**
  * @Auther: Dawn
@@ -18,21 +26,15 @@ import yixing.dawn.zju.edu.yixing.R;
  * 通过ARouter获取Fragment
  */
 @Route(path = RouteConstants.AROUTER_APP_MAIN)
-public class MainActivity extends BaseActivity<MainContract.Presenter> implements MainContract.View{
-
-    ViewPager viewPager;
-    BottomNavigationBar bottomNavigationView;
+public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
 
     @Override
-    protected void initView() {
-        viewPager = findViewById(R.id.main_view_pager);
-        bottomNavigationView = findViewById(R.id.main_bottom_navigation);
-
-        viewPager.setOffscreenPageLimit(4);
+    protected void init() {
+        binding.mainViewPager.setOffscreenPageLimit(4);
         // 初始化BottomNavigationBar
-        bottomNavigationView.setMode(BottomNavigationBar.MODE_FIXED);
+        binding.mainBottomNavigation.setMode(BottomNavigationBar.MODE_FIXED);
 
-        bottomNavigationView
+        binding.mainBottomNavigation
                 .addItem(new BottomNavigationItem(R.drawable.home, "首页"))
                 .addItem(new BottomNavigationItem(R.drawable.nearby, "附近"))
                 .addItem(new BottomNavigationItem(R.drawable.forum, "论坛"))
@@ -40,23 +42,52 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
                 .addItem(new BottomNavigationItem(R.drawable.mine, "我的"))
                 .setFirstSelectedPosition(0)
                 .initialise();
-        // 绑定ViewPager BottomNavigationView
-        mPresenter.bindViewPager(getSupportFragmentManager(), viewPager, bottomNavigationView);
-    }
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_main;
-    }
+        List<Fragment> fragments = new ArrayList<>();
+        fragments.add(new HomeFragment());
+        fragments.add((Fragment) ARouter.getInstance().
+                build(RouteConstants.AROUTER_GOODS_NEARBY_FRAGMENT).navigation());
+        fragments.add((Fragment) ARouter.getInstance().
+                build(RouteConstants.AROUTER_FORUM_FORUM_HOME).navigation());
+        fragments.add((Fragment) ARouter.getInstance().
+                build(RouteConstants.AROUTER_ORDER_HOME).navigation());
+        fragments.add((Fragment) ARouter.getInstance().
+                build(RouteConstants.AROUTER_SETTING_MINE).navigation());
+        MainPagerAdapter mPagerAdapter = new MainPagerAdapter(getSupportFragmentManager(), fragments);
+        binding.mainViewPager.setAdapter(mPagerAdapter);
+        binding.mainViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
 
-    @Override
-    protected void bindPresenter() {
-        mPresenter = new MainPresenter();
-    }
+            }
 
-    @Override
-    public void setTitle(String title) {
-        setToolbarTitle(title);
+            @Override
+            public void onPageSelected(int i) {
+                binding.mainBottomNavigation.selectTab(i);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
+        binding.mainBottomNavigation.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(int position) {
+                binding.mainViewPager.setCurrentItem(position);
+            }
+
+            @Override
+            public void onTabUnselected(int position) {
+
+            }
+
+            @Override
+            public void onTabReselected(int position) {
+
+            }
+        });
+
     }
 
 }
