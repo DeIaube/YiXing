@@ -1,12 +1,13 @@
 package arouter.dawn.zju.edu.module_order.ui.home;
 
-import com.google.android.material.tabs.TabLayout;
-import androidx.viewpager.widget.ViewPager;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.viewpager.widget.ViewPager;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.google.android.material.tabs.TabLayout;
 
 import arouter.dawn.zju.edu.module_order.R;
 import arouter.dawn.zju.edu.module_order.config.EventBusCode;
@@ -33,11 +34,6 @@ public class OrderHomeFragment extends BaseFragment<OrderHomeContract.Presenter>
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_order_home;
-    }
-
-    @Override
-    protected boolean useEventBus() {
-        return true;
     }
 
     @Override

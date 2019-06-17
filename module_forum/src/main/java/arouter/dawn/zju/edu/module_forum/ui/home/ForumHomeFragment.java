@@ -2,9 +2,9 @@ package arouter.dawn.zju.edu.module_forum.ui.home;
 
 
 import android.content.Intent;
-import com.google.android.material.tabs.TabLayout;
-import androidx.viewpager.widget.ViewPager;
 import android.view.View;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.core.LogisticsCenter;
 import com.alibaba.android.arouter.facade.Postcard;
@@ -12,6 +12,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.google.android.material.tabs.TabLayout;
 
 import arouter.dawn.zju.edu.module_forum.R;
 import arouter.dawn.zju.edu.module_forum.config.EventBusCode;
@@ -64,11 +65,6 @@ public class ForumHomeFragment extends BaseFragment<ForumHomeContract.Presenter>
         forumMyCollectionFab.setOnClickListener(this);
         view.findViewById(R.id.forum_alter_tab_layout).setOnClickListener(this);
         mPresenter.bindViewPager(getChildFragmentManager(), forumViewPager, forumTabLayou);
-    }
-
-    @Override
-    protected boolean useEventBus() {
-        return true;
     }
 
     @Override
