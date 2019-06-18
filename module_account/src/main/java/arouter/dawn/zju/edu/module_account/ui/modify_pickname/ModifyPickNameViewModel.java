@@ -11,6 +11,8 @@ import com.avos.avoscloud.SaveCallback;
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.base2.BaseViewModel;
+import baselib.bus.EventBus;
+import baselib.constants.BusConstants;
 import baselib.util.LogUtil;
 
 public class ModifyPickNameViewModel extends BaseViewModel<ModifyPicknameActivity, ModifyPickNameRepository> {
@@ -35,6 +37,7 @@ public class ModifyPickNameViewModel extends BaseViewModel<ModifyPicknameActivit
                     LogUtil.i(TAG, "modifyPickname");
                     view.makeToast(getApplication().getString(R.string.modify_success));
                     view.finish();
+                    EventBus.get().with(BusConstants.MODIFY_PICK_NAME).postValue(new Object());
                 } else {
                     LogUtil.e(TAG, e.getLocalizedMessage());
                     view.makeToast(e.getLocalizedMessage());

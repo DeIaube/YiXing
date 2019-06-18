@@ -31,6 +31,8 @@ import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_account.R;
 import arouter.dawn.zju.edu.module_account.databinding.ActivityPersonalBinding;
 import baselib.base2.BaseActivity;
+import baselib.bus.EventBus;
+import baselib.constants.BusConstants;
 import baselib.constants.RouteConstants;
 import baselib.util.LogUtil;
 
@@ -59,6 +61,7 @@ public class PersonalActivity extends BaseActivity<ActivityPersonalBinding, Pers
         binding.checkUsername.setOnClickListener(v -> makeToast(getString(R.string.personal_username_static)));
         binding.checkPickname.setOnClickListener(v -> ARouter.getInstance().build(RouteConstants.AROUTER_ACCOUNT_MODIFY_PICKNAME).navigation());
         binding.checkBirth.setOnClickListener(v -> showPickBirthDialog());
+        EventBus.get().with(BusConstants.MODIFY_PICK_NAME).observe(getLifecycleOwner(), o -> viewModel.updateUserData());
         viewModel.updateUserData();
     }
 
