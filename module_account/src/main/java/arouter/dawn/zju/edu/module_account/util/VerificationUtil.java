@@ -66,6 +66,25 @@ public class VerificationUtil {
         return true;
     }
 
+    public static String checkPasswordCorrect(String password, String repassword) {
+        if (TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
+            return App.getAppalication().getString(R.string.set_password_password_not_null);
+        }
+        if (!password.equals(repassword)) {
+            return App.getAppalication().getString(R.string.set_password_password_diff);
+        }
+        if (password.length() < 8) {
+            return App.getAppalication().getString(R.string.set_password_password_too_short);
+        }
+        if (password.length() > 32) {
+            return App.getAppalication().getString(R.string.set_password_password_too_long);
+        }
+        if (!checkPasswordComplexity(password)) {
+            return App.getAppalication().getString(R.string.set_password_password_too_simple);
+        }
+        return "";
+    }
+
     public static boolean checkCodeCorrect(String code) {
         if (code == null || code.length() != 6) {
             return false;

@@ -44,9 +44,11 @@
 
     <!--reset password-->
     <string name="title_activity_reset_password">重置密码</string>
+    <string name="reset_password_please_input_phone_number">请输入您的手机号码并重置密码</string>
     <string name="reset_password_please_input_password">请输入密码</string>
     <string name="reset_password_please_input_repassword">请确认密码</string>
     <string name="reset_password_success">重置密码成功</string>
+    <string name="reset_password_86">+86</string>
     <string name="login_success">登录成功</string>
     <!--reset password-->
 

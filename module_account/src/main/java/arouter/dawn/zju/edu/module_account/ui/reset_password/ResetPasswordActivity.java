@@ -1,13 +1,11 @@
 package arouter.dawn.zju.edu.module_account.ui.reset_password;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.view.MenuItem;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
-import arouter.dawn.zju.edu.module_account.R;
-import baselib.base.BaseActivity;
+import arouter.dawn.zju.edu.module_account.databinding.ActivityResetPasswordBinding;
+import baselib.base2.BaseActivity;
 import baselib.constants.RouteConstants;
 
 /**
@@ -17,60 +15,22 @@ import baselib.constants.RouteConstants;
  * 用户忘记(重置)密码页面
  */
 @Route(path = RouteConstants.AROUTER_ACCOUNT_RESET_PASSWORD)
-public class ResetPasswordActivity extends BaseActivity<ResetPasswordContract.Presenter> implements ResetPasswordContract.View {
-
-    EditText phoneInputEt;
-    EditText verificationCodeEt;
-    EditText passwordInputEt;
-    EditText repasswordInputEt;
-    Button getCodeBtn;
+public class ResetPasswordActivity extends BaseActivity<ActivityResetPasswordBinding, ResetPasswordViewModel> {
 
     @Override
-    protected void initView() {
-        phoneInputEt = findViewById(R.id.reset_password_phone_number);
-        passwordInputEt = findViewById(R.id.reset_password_password);
-        verificationCodeEt = findViewById(R.id.reset_password_verification_code);
-        repasswordInputEt = findViewById(R.id.reset_password_repassword);
-        getCodeBtn = findViewById(R.id.reset_password_get_verification_code);
+    protected void init() {
+        setSupportActionBar(binding.toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.activity_reset_password;
-    }
-
-    @Override
-    protected boolean showHomeAsUp() {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
         return true;
     }
 
-    public void onViewClicked(View v) {
-        int id = v.getId();
-        if (id == R.id.reset_password_get_verification_code) {
-            mPresenter.getCode(phoneInputEt.getText().toString());
-        } else if (id == R.id.reset_password_submit) {
-            mPresenter.verificationCode(phoneInputEt.getText().toString(),
-                    verificationCodeEt.getText().toString(),
-                    passwordInputEt.getText().toString(),
-                    repasswordInputEt.getText().toString());
-        }
-    }
-
-    @Override
-    protected void bindPresenter() {
-        mPresenter = new ResetPasswordPresenter();
-    }
-
-    @Override
-    public void updateCoundDown(int count) {
-        if (count == 0) {
-            getCodeBtn.setClickable(true);
-            getCodeBtn.setBackgroundResource(R.color.colorPrimary);
-            getCodeBtn.setText(getText(R.string.register_get_verification_code));
-            return;
-        }
-        getCodeBtn.setClickable(false);
-        getCodeBtn.setBackgroundResource(R.color.colorPrimaryDark);
-        getCodeBtn.setText(String.format("%ds", count));
-    }
 }
