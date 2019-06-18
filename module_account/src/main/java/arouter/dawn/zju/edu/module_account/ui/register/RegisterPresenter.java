@@ -30,7 +30,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
 
     @Override
     public void verificationCode(String phoneNumber, String code) {
-        if (!VerificationUtil.checkCodeCorrect(code)) {
+        if (VerificationUtil.checkCodeCorrect(code)) {
             mView.showMessage(App.getAppalication().getString(R.string.register_code_format_error));
             return;
         }

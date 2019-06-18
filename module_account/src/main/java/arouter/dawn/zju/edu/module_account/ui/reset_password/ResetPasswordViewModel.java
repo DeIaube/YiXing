@@ -53,7 +53,7 @@ public class ResetPasswordViewModel extends BaseViewModel<ResetPasswordActivity,
     }
 
     public void submit() {
-        if (!VerificationUtil.checkCodeCorrect(verificationCodeData.getValue())) {
+        if (VerificationUtil.checkCodeCorrect(verificationCodeData.getValue())) {
             view.makeToast(App.getAppalication().getString(R.string.register_code_format_error));
             return;
         }

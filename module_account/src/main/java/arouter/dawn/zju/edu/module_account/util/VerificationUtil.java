@@ -54,10 +54,10 @@ public class VerificationUtil {
 
     public static boolean checkCodeCorrect(String code) {
         if (code == null || code.length() != 6) {
-            return false;
+            return true;
         }
         Pattern pattern = Pattern.compile("[0-9]*");
-        return pattern.matcher(code).matches();
+        return !pattern.matcher(code).matches();
     }
 
     /**
