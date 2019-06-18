@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
 
 import arouter.dawn.zju.edu.module_account.R;
 import baselib.App;
-import baselib.base.BaseContract;
 
 /**
  * @Auther: Dawn
@@ -34,38 +33,6 @@ public class VerificationUtil {
      * @param repassword 确认密码
      * @return 合法性
      */
-    public static boolean checkPasswordCorrect(BaseContract.BaseView view, String password, String repassword) {
-        if (view == null) {
-            return false;
-        }
-        if (TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
-            view.showMessage(App.getAppalication().
-                    getString(R.string.set_password_password_not_null));
-            return false;
-        }
-        if (!password.equals(repassword)) {
-            view.showMessage(App.getAppalication().
-                    getString(R.string.set_password_password_diff));
-            return false;
-        }
-        if (password.length() < 8) {
-            view.showMessage(App.getAppalication().
-                    getString(R.string.set_password_password_too_short));
-            return false;
-        }
-        if (password.length() > 32) {
-            view.showMessage(App.getAppalication().
-                    getString(R.string.set_password_password_too_long));
-            return false;
-        }
-        if (!checkPasswordComplexity(password)) {
-            view.showMessage(App.getAppalication().
-                    getString(R.string.set_password_password_too_simple));
-            return false;
-        }
-        return true;
-    }
-
     public static String checkPasswordCorrect(String password, String repassword) {
         if (TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
             return App.getAppalication().getString(R.string.set_password_password_not_null);
