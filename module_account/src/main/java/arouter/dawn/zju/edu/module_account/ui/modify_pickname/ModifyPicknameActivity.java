@@ -1,6 +1,8 @@
 package arouter.dawn.zju.edu.module_account.ui.modify_pickname;
 
 
+import android.view.MenuItem;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import arouter.dawn.zju.edu.module_account.R;
@@ -19,6 +21,10 @@ public class ModifyPicknameActivity extends BaseActivity<ActivityModifyPicknameB
 
     @Override
     protected void init() {
+        setSupportActionBar(binding.toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         viewModel.picknameData.observe(getLifecycleOwner(), s -> {
             if (s.length() >= 5 && s.length() <= 24) {
                 binding.modifyPicknameConfirmModify.setClickable(true);
@@ -28,6 +34,14 @@ public class ModifyPicknameActivity extends BaseActivity<ActivityModifyPicknameB
                 binding.modifyPicknameConfirmModify.setBackgroundColor(getResources().getColor(R.color.lightgrey));
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return true;
     }
 
 }
