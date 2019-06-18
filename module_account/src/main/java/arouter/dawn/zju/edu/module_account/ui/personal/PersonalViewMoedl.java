@@ -1,7 +1,11 @@
 package arouter.dawn.zju.edu.module_account.ui.personal;
 
 import android.annotation.SuppressLint;
+import android.app.Application;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
@@ -13,29 +17,43 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
-import baselib.base.BasePresenter;
+import baselib.base2.BaseViewModel;
 import baselib.util.LogUtil;
 
-/**
- * @Auther: Dawn
- * @Date: 2018/11/22 22:01
- * @Description:
- */
-public class PersionPresenter extends BasePresenter<PersionContract.View> implements PersionContract.Presenter {
+public class PersonalViewMoedl extends BaseViewModel<PersonalActivity, PersonalRepository> {
 
-    private static final String TAG = "PersionPresenter";
+    public MutableLiveData<String> portraitData = new MutableLiveData<>();
+    public MutableLiveData<Date> birthData = new MutableLiveData<>();
+    public MutableLiveData<String> usernameData = new MutableLiveData<>();
+    public MutableLiveData<String> picknameData = new MutableLiveData<>();
+    public MutableLiveData<String> phoneNumberData = new MutableLiveData<>();
+
+    private static final String TAG = "PersonalViewMoedl";
+
+    public PersonalViewMoedl(@NonNull Application application, PersonalActivity view, PersonalRepository repository) {
+        super(application, view, repository);
+    }
+
+    public void updateUserData() {
+        User user = User.getCurrentUser(User.class);
+        portraitData.setValue(user.getPortrait());
+        birthData.setValue(user.getBirth());
+        usernameData.setValue(user.getUsername());
+        picknameData.setValue(user.getPickName());
+        phoneNumberData.setValue(user.getMobilePhoneNumber());
+    }
+
 
     /**
      * 上传文件至云端服务器
      * 获取url并且与用户绑定
      * @param path 本地路径
      */
-    @Override
     public void updateUserPortrait(String path) {
-        mView.showLoading();
+        view.showLoading("");
         try {
             final AVFile avFile =
-                    AVFile.withAbsoluteLocalPath(String.format("%s_portrait.png",User.getCurrentUser().getUsername()), path);
+                    AVFile.withAbsoluteLocalPath(String.format("%s_portrait.png", User.getCurrentUser().getUsername()), path);
             avFile.saveInBackground(new SaveCallback() {
                 @Override
                 public void done(AVException e) {
@@ -45,19 +63,18 @@ public class PersionPresenter extends BasePresenter<PersionContract.View> implem
                         updatePortrait(avFile.getUrl());
                     } else {
                         LogUtil.e(TAG, e.toString());
-                        mView.hideLoading();
+                        view.hideLoading();
                     }
                 }
             });
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            mView.hideLoading();
+            view.hideLoading();
         }
     }
 
     @SuppressLint("DefaultLocale")
-    @Override
     public void updateUserBirth(int year, int month, int day) {
         Log.e(TAG, String.format("%04d-%02d-%02d", year, month, day));
         @SuppressLint("SimpleDateFormat")
@@ -74,18 +91,18 @@ public class PersionPresenter extends BasePresenter<PersionContract.View> implem
         }
         User user = User.getCurrentUser(User.class);
         user.setBirth(date);
-        mView.showLoading();
+        view.showLoading("");
         final Date finalDate = date;
         user.saveInBackground(new SaveCallback() {
             @Override
             public void done(AVException e) {
-                mView.hideLoading();
+                view.hideLoading();
                 if (e == null) {
-                    mView.refreshUserBirth(finalDate);
                     LogUtil.i(TAG, "updateUserBirth");
+                    birthData.setValue(finalDate);
                 } else {
                     LogUtil.e(TAG, e.toString());
-                    mView.showMessage(e.toString());
+                    view.makeToast(e.toString());
                 }
             }
         });
@@ -101,15 +118,14 @@ public class PersionPresenter extends BasePresenter<PersionContract.View> implem
         user.saveInBackground(new SaveCallback() {
             @Override
             public void done(AVException e) {
-                mView.hideLoading();
+                view.hideLoading();
                 if (e == null) {
                     LogUtil.i(TAG, "userSave");
-                    mView.refreshUserPortrait(url);
+                    portraitData.setValue(url);
                 } else {
                     LogUtil.e(TAG, e.getLocalizedMessage());
                 }
             }
         });
     }
-
 }

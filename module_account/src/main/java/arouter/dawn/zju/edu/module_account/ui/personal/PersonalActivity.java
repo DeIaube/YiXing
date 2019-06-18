@@ -1,18 +1,15 @@
 package arouter.dawn.zju.edu.module_account.ui.personal;
 
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.MenuItem;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import android.view.View;
-import android.widget.DatePicker;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -26,16 +23,14 @@ import com.jph.takephoto.model.TResult;
 import com.jph.takephoto.permission.InvokeListener;
 import com.jph.takephoto.permission.PermissionManager;
 import com.jph.takephoto.permission.TakePhotoInvocationHandler;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 import arouter.dawn.zju.edu.lib_net.bean.User;
 import arouter.dawn.zju.edu.module_account.R;
-import baselib.base.BaseActivity;
+import arouter.dawn.zju.edu.module_account.databinding.ActivityPersonalBinding;
+import baselib.base2.BaseActivity;
 import baselib.constants.RouteConstants;
 import baselib.util.LogUtil;
 
@@ -46,81 +41,33 @@ import baselib.util.LogUtil;
  * 展示用户个人信息页面
  */
 @Route(path = RouteConstants.AROUTER_ACCOUNT_PERSONAL)
-public class PersonalActivity extends BaseActivity<PersionContract.Presenter> implements View.OnClickListener,
-        TakePhoto.TakeResultListener, InvokeListener, PersionContract.View {
+public class PersonalActivity extends BaseActivity<ActivityPersonalBinding, PersonalViewMoedl> implements
+        TakePhoto.TakeResultListener, InvokeListener {
 
     private static final String TAG = "PersonalActivity";
-
-    TextView personalUsernameTv;
-    TextView personalPhoneNumberTv;
-    TextView personalPicknameTv;
-    TextView personalBirthTv;
-    ImageView personalPortraitIv;
 
     TakePhoto takePhoto;
     InvokeParam invokeParam;
 
     @Override
-    protected void initView() {
-        personalUsernameTv = findViewById(R.id.personal_username);
-        personalPicknameTv = findViewById(R.id.personal_pickname);
-        personalPhoneNumberTv = findViewById(R.id.personal_bind_phone_number);
-        personalPortraitIv = findViewById(R.id.personal_portrait);
-        personalBirthTv = findViewById(R.id.personal_birth);
-
-        findViewById(R.id.check_portrait).setOnClickListener(this);
-        findViewById(R.id.check_username).setOnClickListener(this);
-        findViewById(R.id.check_pickname).setOnClickListener(this);
-        findViewById(R.id.check_birth).setOnClickListener(this);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        refreshLayout();
-    }
-
-    @SuppressLint("SimpleDateFormat")
-    private void refreshLayout() {
-        User user = User.getCurrentUser(User.class);
-        personalUsernameTv.setText(user.getUsername());
-        personalPicknameTv.setText(user.getPickName());
-        personalPhoneNumberTv.setText(user.getMobilePhoneNumber());
-        personalBirthTv.setText(new SimpleDateFormat("yyyy-MM-dd").format(user.getBirth()));
-        refreshUserPortrait(user.getPortrait());
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_personal;
-    }
-
-    @Override
-    protected void bindPresenter() {
-        mPresenter = new PersionPresenter();
-    }
-
-    @Override
-    protected boolean showHomeAsUp() {
-        return true;
-    }
-
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        if (id == R.id.check_portrait) {
-            // 选取头像 跳转选择相册并且裁剪图片
-            checkPortrait();
-        } else if (id == R.id.check_username) {
-            // 点击用户名
-            showMessage(getString(R.string.personal_username_static));
-        } else if (id == R.id.check_pickname) {
-            // 点击用户昵称
-            ARouter.getInstance().build(RouteConstants.AROUTER_ACCOUNT_MODIFY_PICKNAME).navigation();
-        } else if (id == R.id.check_birth) {
-            // 点击用户生日
-            showPickBirthDialog();
+    protected void init() {
+        setSupportActionBar(binding.toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+        binding.checkPortrait.setOnClickListener(v -> checkPortrait());
+        binding.checkUsername.setOnClickListener(v -> makeToast(getString(R.string.personal_username_static)));
+        binding.checkPickname.setOnClickListener(v -> ARouter.getInstance().build(RouteConstants.AROUTER_ACCOUNT_MODIFY_PICKNAME).navigation());
+        binding.checkBirth.setOnClickListener(v -> showPickBirthDialog());
+        viewModel.updateUserData();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return true;
     }
 
     /**
@@ -131,13 +78,7 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(user.getBirth());
         new DatePickerDialog(this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year,
-                                          int monthOfYear, int dayOfMonth) {
-                        mPresenter.updateUserBirth(year, monthOfYear - 1, dayOfMonth);
-                    }
-                }
+                (view, year, monthOfYear, dayOfMonth) -> viewModel.updateUserBirth(year, monthOfYear - 1, dayOfMonth)
                 // 设置初始日期
                 , calendar.get(Calendar.YEAR)
                 ,calendar.get(Calendar.MONTH) - 1
@@ -196,7 +137,7 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
     @Override
     public void takeSuccess(TResult result) {
         LogUtil.i(TAG, "takeSuccess");
-        mPresenter.updateUserPortrait(result.getImage().getCompressPath());
+        viewModel.updateUserPortrait(result.getImage().getCompressPath());
     }
 
     @Override
@@ -238,17 +179,4 @@ public class PersonalActivity extends BaseActivity<PersionContract.Presenter> im
         return type;
     }
 
-    @Override
-    public void refreshUserPortrait(String url) {
-        if (url != null) {
-            Picasso.with(this).load(url).into(personalPortraitIv);
-        }
-    }
-
-    @Override
-    public void refreshUserBirth(Date date) {
-        @SuppressLint("SimpleDateFormat")
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        personalBirthTv.setText(sdf.format(date));
-    }
 }

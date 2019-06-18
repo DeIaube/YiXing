@@ -54,7 +54,8 @@
 
     <!--personal-->
     <string name="title_activity_personal">个人资料</string>
-    <string name="account_bind">账号绑定</string>
+    <string name="personal_account_bind">账号绑定</string>
+    <string name="personal_unbind">未绑定</string>
     <string name="personal_phone">手机</string>
     <string name="personal_taobao">淘宝</string>
     <string name="personal_alipay">支付宝</string>

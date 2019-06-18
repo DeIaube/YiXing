@@ -1,25 +1,541 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.personal.PersonalActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="baselib.util.DataUtil" />
+        <variable
+            name="vm"
+            type="arouter.dawn.zju.edu.module_account.ui.personal.PersonalViewMoedl" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent"
+        tools:context=".ui.personal.PersonalActivity">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout4"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    <include layout="@layout/content_personal" />
+        </com.google.android.material.appbar.AppBarLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout4"
+            tools:context=".ui.personal.PersonalActivity"
+            tools:showIn="@layout/activity_personal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="@string/personal_base_message"
+                        android:textSize="@dimen/sp_12"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64" />
+
+                    <LinearLayout
+                        android:id="@+id/check_portrait"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64">
+
+                        <TextView
+                            android:text="@string/personal_portrait"
+                            android:textSize="@dimen/sp_18"
+                            android:textColor="@color/c101010"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/personal_portrait"
+                            android:paddingTop="@dimen/dp_8"
+                            android:paddingBottom="@dimen/dp_8"
+                            url="@{vm.portraitData}"
+                            android:src="@drawable/default_portrait"
+                            android:layout_width="@dimen/dp_60"
+                            android:layout_height="@dimen/dp_60" />
+
+                        <ImageView
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:src="@drawable/personal_right"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_20"
+                            android:layout_height="@dimen/dp_20"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:background="@color/cf2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"/>
+
+                    <LinearLayout
+                        android:id="@+id/check_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64">
+
+                        <TextView
+                            android:text="@string/personal_username"
+                            android:textSize="@dimen/sp_18"
+                            android:textColor="@color/c101010"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:id="@+id/personal_username"
+                            android:text="@{vm.usernameData}"
+                            tools:text="嘻嘻"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:src="@drawable/personal_right"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_20"
+                            android:layout_height="@dimen/dp_20"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:background="@color/cf2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"/>
+
+                    <LinearLayout
+                        android:id="@+id/check_pickname"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64">
+
+                        <TextView
+                            android:text="@string/personal_pickname"
+                            android:textSize="@dimen/sp_18"
+                            android:textColor="@color/c101010"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:id="@+id/personal_pickname"
+                            android:text="@{vm.picknameData}"
+                            tools:text="防守打法第三方"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:src="@drawable/personal_right"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_20"
+                            android:layout_height="@dimen/dp_20"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:background="@color/cf2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"/>
+
+                    <LinearLayout
+                        android:id="@+id/check_birth"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64">
+
+                        <TextView
+                            android:text="@string/personal_birth"
+                            android:textSize="@dimen/sp_18"
+                            android:textColor="@color/c101010"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:id="@+id/personal_birth"
+                            android:text="@{DataUtil.formatFromData(vm.birthData)}"
+                            tools:text="2018-02-17"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:src="@drawable/personal_right"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_20"
+                            android:layout_height="@dimen/dp_20"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:background="@color/cf2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="@string/personal_account_bind"
+                        android:textSize="@dimen/sp_12"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64">
+
+                        <ImageView
+                            android:src="@drawable/personal_phone"
+                            android:layout_gravity="center_vertical"
+                            android:padding="@dimen/dp_1"
+                            android:layout_width="@dimen/personal_binding_image_size"
+                            android:layout_height="@dimen/personal_binding_image_size"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:text="@string/personal_phone"
+                            android:textSize="@dimen/sp_18"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:textColor="@color/c101010"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:id="@+id/personal_bind_phone_number"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:src="@drawable/personal_right"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_20"
+                            android:layout_height="@dimen/dp_20"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:background="@color/cf2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64">
+
+                        <ImageView
+                            android:src="@drawable/personal_taobao"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="@dimen/personal_binding_image_size"
+                            android:layout_height="@dimen/personal_binding_image_size"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:text="@string/personal_taobao"
+                            android:textSize="@dimen/sp_18"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:textColor="@color/c101010"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:text="@string/personal_unbind"
+                            android:textColor="@color/colorPrimary"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:src="@drawable/personal_right"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_20"
+                            android:layout_height="@dimen/dp_20"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:background="@color/cf2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64">
+
+                        <ImageView
+                            android:src="@drawable/personal_alipay"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="@dimen/personal_binding_image_size"
+                            android:layout_height="@dimen/personal_binding_image_size"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:text="@string/personal_alipay"
+                            android:textSize="@dimen/sp_18"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:textColor="@color/c101010"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:text="@string/personal_unbind"
+                            android:textColor="@color/colorPrimary"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:src="@drawable/personal_right"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_20"
+                            android:layout_height="@dimen/dp_20"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:background="@color/cf2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64">
+
+                        <ImageView
+                            android:src="@drawable/personal_qq"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="@dimen/personal_binding_image_size"
+                            android:layout_height="@dimen/personal_binding_image_size"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:text="@string/personal_qq"
+                            android:textSize="@dimen/sp_18"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:textColor="@color/c101010"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:text="@string/personal_unbind"
+                            android:textColor="@color/colorPrimary"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:src="@drawable/personal_right"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_20"
+                            android:layout_height="@dimen/dp_20"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:background="@color/cf2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64">
+
+                        <ImageView
+                            android:src="@drawable/personal_github"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="@dimen/personal_binding_image_size"
+                            android:layout_height="@dimen/personal_binding_image_size"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:text="@string/personal_github"
+                            android:textSize="@dimen/sp_18"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:textColor="@color/c101010"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:text="@string/personal_unbind"
+                            android:textColor="@color/colorPrimary"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:src="@drawable/personal_right"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_20"
+                            android:layout_height="@dimen/dp_20"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:background="@color/cf2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64">
+
+                        <ImageView
+                            android:src="@drawable/personal_twitter"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="@dimen/personal_binding_image_size"
+                            android:layout_height="@dimen/personal_binding_image_size"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:text="@string/personal_twitter"
+                            android:textSize="@dimen/sp_18"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:textColor="@color/c101010"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:text="@string/personal_unbind"
+                            android:textColor="@color/colorPrimary"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:src="@drawable/personal_right"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_20"
+                            android:layout_height="@dimen/dp_20"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:background="@color/cf2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_64">
+
+                        <ImageView
+                            android:src="@drawable/personal_google"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="@dimen/personal_binding_image_size"
+                            android:layout_height="@dimen/personal_binding_image_size"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:text="@string/personal_google"
+                            android:textSize="@dimen/sp_18"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:textColor="@color/c101010"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:text="@string/personal_unbind"
+                            android:textColor="@color/colorPrimary"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:src="@drawable/personal_right"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_20"
+                            android:layout_height="@dimen/dp_20"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:background="@color/cf2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
