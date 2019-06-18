@@ -84,4 +84,7 @@ dependencies {
     api 'com.zaaach:citypicker:1.1'
     // banner
     api 'com.youth.banner:banner:1.4.10'
+    // leakcanary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
 }

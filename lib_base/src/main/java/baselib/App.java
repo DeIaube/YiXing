@@ -7,6 +7,7 @@ import com.avos.avoscloud.AVInstallation;
 import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.PushService;
+import com.squareup.leakcanary.LeakCanary;
 
 import arouter.dawn.zju.edu.lib_net.bean.DailyRecommend;
 import arouter.dawn.zju.edu.lib_net.bean.Feedback;
@@ -45,6 +46,10 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         appContext = this;
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        LeakCanary.install(this);
         if (Constants.DEBUG) {
             ARouter.openDebug();
             ARouter.openLog();
